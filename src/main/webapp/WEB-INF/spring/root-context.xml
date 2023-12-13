@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+			http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+			http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<context:property-placeholder
+		location="classpath:/config/props/database.properties" />
+
+	<!-- [3]DataSource빈 등록(1.HikariCP or2.DBCP) -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName"
+			value="${db.driverClassName}" />
+		<property name="jdbcUrl" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+	<bean id="dataSource-hikari"
+		class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+	<!-- jdbctemplate -->
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource-hikari" />
+	</bean>
+	<!-- MyBatis SqlSessionFactory 설정 -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource-hikari" />
+		<!-- MyBatis 설정 파일의 위치 -->
+		<property name="configLocation"
+			value="classpath:config/mybatis/mybatis-config.xml" />
+		<!-- Mapper 인터페이스의 위치 -->
+		<property name="mapperLocations"
+			value="classpath:com/bn/mapper/*.xml" />
+	</bean>
+	<!--[6]mybatis-spring:scan설정[나중에 설정할 예정] -->
+	<!-- 여기에 설정된 패키지안의 인터페이스들을 scan해서 해당 인터페이스를 상속받는 객체(Proxy)를 스프링이 대신 만들어준다 -->
+	<mybatis-spring:scan base-package="com.bn.mapper" />
+</beans>
