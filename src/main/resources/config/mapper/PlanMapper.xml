@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bn.mapper.PlanMapper">
+	<insert id="insert" parameterType="Plan">parameterType은 mybatis-config에서 별칭부여 한것 
+	insert into plan values(#{p_id},#{m_id},#{p_name]},#{p_birth},#{p_moddate})
+	</insert>
+	<select id="selectByPlanid" parameterType="string" resultType="Plan">
+	 select * from plan where p_id=#{p_id} 
+</select>
+</mapper>
