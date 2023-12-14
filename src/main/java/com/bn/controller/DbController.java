@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.reflection.SystemMetaObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.PropertySource;
@@ -31,6 +32,8 @@ public class DbController {
 	
 	private Logger log=LoggerFactory.getLogger(getClass());
 	
+	
+	
 	@Inject
 	private DbService dService;
 
@@ -44,9 +47,9 @@ public class DbController {
 	private String dbfill() {
 		
 		try {
-			String pkey="${tourapikey}";
+			String pkey="g+INH4ICelRYTwvUPjujUIt/O1i9eSZAmhiCR9xJLT3v4P4aNkdXnRnDCkDGMKIdpXvJPsGJ9I5HTG6T2lmjkg==";
 			String key = URLEncoder.encode(pkey, "UTF-8");
-			String apiURL="https://apis.data.go.kr/B551011/KorService1/areaBasedList1?numOfRows=100000&pageNo=1&MobileOS=ETC&MobileApp=test&_type=json&serviceKey="+key;
+			String apiURL="https://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey="+key+"&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=test&_type=json";
 			URL url = new URL(apiURL);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setUseCaches(false);
@@ -62,19 +65,22 @@ public class DbController {
 					response.append(inputLine);
 				}
 				in.close();
-				log.info("API 응답: " + response.toString());
+				
 				JsonObject jsonResponse = JsonParser.parseString(response.toString()).getAsJsonObject();
 				JsonObject responseHeader = jsonResponse.getAsJsonObject("response").getAsJsonObject("header");
+				log.info(responseHeader.get("resultCode").toString());
 				if ("0000".equals(responseHeader.get("resultCode").getAsString())) {
 					JsonObject responseBody = jsonResponse.getAsJsonObject("response").getAsJsonObject("body");
 					JsonArray items = responseBody.getAsJsonObject("items").getAsJsonArray("item");
-
 					if (items.size() > 0) {
 						for (int i = 0; i < items.size(); i++) {
 							JsonObject item = items.get(i).getAsJsonObject();
 							String contentid=item.get("contentid").getAsString();
+							log.info(contentid);
 							String contenttypeid=item.get("contenttypeid").getAsString();
+							log.info(contenttypeid);
 							String code = item.get("cat3").getAsString();
+							log.info(code);
 							String title = item.get("title").getAsString();
 							String tel = item.get("tel").getAsString();
 							String addr1 = item.get("addr1").getAsString();
@@ -84,10 +90,23 @@ public class DbController {
 							String mapx=item.get("mapx").getAsString();
 							String mapy=item.get("mapy").getAsString();
 							
-							
-							ContentVo vo=new ContentVo(contentid,contenttypeid,code,title,tel,addr,firstimage,mapx,mapy);
+							ContentVo vo=new ContentVo();
+							vo.setContentid(contentid);
+							vo.setContenttypeid(contenttypeid);
+							vo.setCode(code);
+							vo.setTitle(title);
+							vo.setTel(tel);
+							vo.setAddr(addr);
+							vo.setFirstimage(firstimage);
+							vo.setMapx(mapx);
+							vo.setMapy(mapy);
+							if(contentid!=null) {
 							int n= dService.insertdb(vo);
-						}
+							}else {
+								System.out.println("데이터가 없습니다.");
+								
+							}
+							}
 					} else {
 						System.out.println("데이터가 없습니다.");
 					}
