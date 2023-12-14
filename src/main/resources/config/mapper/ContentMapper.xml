@@ -5,7 +5,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.bn.mapper.ContentMapper">
 	<insert id="insertdb" parameterType="Content">
-	insert into content values(#{contentid},#{contenttypeid},#{code},#{title},#{tel},#{addr},#{firstimage},#{mapx},#{mapy})
+	INSERT INTO content (
+    contentid, contenttypeid, code, title, tel, addr, firstimage, mapx, mapy
+) VALUES (
+    #{contentid}, #{contenttypeid}, #{code}, #{title}, #{tel},
+    #{addr}, #{firstimage}, #{mapx}, #{mapy}
+)
 	</insert>
 	
 </mapper>
