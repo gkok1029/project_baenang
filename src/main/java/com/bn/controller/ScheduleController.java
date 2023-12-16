@@ -121,7 +121,7 @@ public class ScheduleController {
 		cd.put("mapy",mapy);
 		List<ContentVo>nd=dService.searchInRange(cd);
 		map.addAttribute("contentList",nd);
-		
+		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
 		System.out.println(map.toString());
 		}catch (NumberFormatException e) {
 	        // 숫자 변환 중 예외 발생 시 처리
@@ -134,4 +134,6 @@ public class ScheduleController {
 	    }
 		return map;
 	}
+	
+	
 }
