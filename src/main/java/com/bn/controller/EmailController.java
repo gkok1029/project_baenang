@@ -30,7 +30,7 @@ public class EmailController {
         if (isVerified == true) {
             return "verified";
         } else {
-            return "failed.";
+            return "failed";
         }
     }
 }

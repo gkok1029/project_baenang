@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bn.mapper.SignupMapper">
+	<insert id="signup" parameterType="Member">
+    INSERT INTO MEMBER (M_ID, M_EMAIL, M_PWD, M_GEN, M_NNAME, M_BIRTH, M_RDATE, M_IMAGE, M_STATUS, M_PROFIL)
+    VALUES (SEQUENCE_MEMBER.nextval, #{M_EMAIL}, #{M_PWD}, #{M_GEN}, #{M_NNAME}, #{M_BIRTH}, sysdate, null, 1, 1)
+</insert>
+
+</mapper>

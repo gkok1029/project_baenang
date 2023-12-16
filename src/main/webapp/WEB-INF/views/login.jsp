@@ -78,7 +78,7 @@
 						</div>
 						<div class="group">
 							<label for="signup-confirm-password" class="label">비밀번호
-								재확인</label> <input id="signup-confirm-password" name="M_PWD"
+								재확인</label> <input id="signup-confirm-password" name="M_PWD_CONFIRM"
 								type="password" class="input" data-type="password">
 						</div>
 						<div class="group">
@@ -87,9 +87,9 @@
 						</div>
 						<div class="group">
 							<label for="signup-gender" class="label">성별</label><br> <input
-								id="male" name="M_GEN" type="radio" value="남자"> <label
+								id="male" name="M_GEN" type="radio" value="male"> <label
 								for="male">남자</label> <input id="female" name="M_GEN"
-								type="radio" value="여자"> <label for="female">여자</label>
+								type="radio" value="female"> <label for="female">여자</label>
 						</div>
 						<div class="group">
 							<input type="submit" class="button" value="회원가입">
@@ -133,40 +133,6 @@ isEmailVerified = false;
 		}
 	}
 
-	function validateForm() {
-		var email = document.getElementById('signup-email').value;
-		var nickname = document.getElementById('signup-nickname').value;
-		var password = document.getElementById('signup-password').value;
-		var confirmPassword = document
-				.getElementById('signup-confirm-password').value;
-		var birthdate = document.getElementById('signup-birthdate').value;
-		var gender = document.querySelector('input[name="M_GEN"]:checked');
-
-		if (email.trim() === '' || nickname.trim() === ''
-				|| password.trim() === '' || confirmPassword.trim() === ''
-				|| birthdate.trim() === '' || gender === null) {
-			return false; // 폼 전송을 막음
-		}
-
-		if (password !== confirmPassword) {
-			alert('비밀번호와 확인란이 일치하지 않습니다.');
-			return false; // 폼 전송을 막음
-		}
-
-		return true; // 모든 필드가 채워지고 비밀번호 확인이 일치하면 폼 제출
-	}
-
-	document.getElementById('signup-form').addEventListener('submit',
-			function(event) {
-				event.preventDefault(); // 폼 전송 기본 동작 막음
-				if (isEmailVerified === false) {
-					alert('이메일 인증을 먼저 완료해주세요.');
-				} else if (validateForm()) {
-					this.submit(); // 이메일이 인증되고 유효성 검사 통과 시 폼 제출
-				} else {
-					alert('모든 필드를 올바르게 입력해주세요.');
-				}
-			});
 	function verifyEmailCode() {
         var enteredCode = document.getElementById('verification-code').value;
         var userEmail = document.getElementById('signup-email').value;
@@ -193,5 +159,61 @@ isEmailVerified = false;
             }
         });
     }
+	function validateForm() {
+		var email = document.getElementById('signup-email').value;
+		var nickname = document.getElementById('signup-nickname').value;
+		var password = document.getElementById('signup-password').value;
+		var confirmPassword = document
+				.getElementById('signup-confirm-password').value;
+		var birthdate = document.getElementById('signup-birthdate').value;
+		var gender = document.querySelector('input[name="M_GEN"]:checked');
+
+		if (email.trim() === '' || nickname.trim() === ''
+				|| password.trim() === '' || confirmPassword.trim() === ''
+				|| birthdate.trim() === '' || gender === null) {
+			return false; // 폼 전송을 막음
+		}
+
+		if (password !== confirmPassword) {
+			alert('비밀번호와 확인란이 일치하지 않습니다.');
+			return false; // 폼 전송을 막음
+		}
+
+		return true; // 모든 필드가 채워지고 비밀번호 확인이 일치하면 폼 제출
+	}
+
+	document.getElementById('signup-form').addEventListener('submit', function(event) {
+	    event.preventDefault(); // 폼 전송 기본 동작 막음
+	    if (isEmailVerified === false) {
+	        alert('이메일 인증을 먼저 완료해주세요.');
+	    } else if (validateForm()) {
+	        // AJAX를 이용한 회원가입 요청
+	        var formData = $(this).serialize(); // 폼 데이터 직렬화
+	       
+	        $.ajax({
+	            url: '/signup', // 회원가입 처리 URL
+	            method: 'POST',
+	            data: formData,
+	            success: function(response) {
+	                if (response === 'success') {
+	                    // 성공적으로 회원가입 처리된 경우
+	                    alert('회원가입에 성공했습니다.');
+	                    window.location.href = '/login';
+	                    // 여기서 추가적인 작업을 할 수 있습니다.
+	                } else if (response ==='failed'){
+	                    alert('회원가입에 실패했습니다.');
+	                    window.location.href = '/login';
+	                }
+	            },
+	            error: function(error) {
+	                // 회원가입 처리 중 오류 발생한 경우
+	                alert('서버에 문제가있어 회원가입에 실패했습니다.');
+	            }
+	        });
+	    } else {
+	        alert('모든 필드를 올바르게 입력해주세요.');
+	    }
+	});
+
 </script>
 </html>
