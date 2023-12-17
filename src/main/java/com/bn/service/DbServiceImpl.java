@@ -15,8 +15,8 @@ public class DbServiceImpl implements DbService {
 	
 	@Override
 	public int insertdb(ContentVo vo) {
-		System.out.println("¤¾¤·");
-		System.out.println(vo.getContentid());
+//		System.out.println("ï¿½ï¿½ï¿½ï¿½");
+//		System.out.println(vo.getContentid());
 		return this.contentMapper.insertdb(vo);
 	}
 
