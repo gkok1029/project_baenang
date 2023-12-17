@@ -6,6 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.bn.mapper.PlanMapper">
 
 	<insert id="insert" parameterType="Plan"> 
+<<<<<<< HEAD
 	insert into planner values(#{p_id},#{m_id},#{p_name},sysdate,sysdate)
 	</insert>
 	<select id="selectPlan" parameterType="_int" resultType="Plan">
