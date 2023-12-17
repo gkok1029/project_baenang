@@ -9,11 +9,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bn.model.PlanVo;
 import com.bn.service.PlanService;
+
 
 
 @Controller
@@ -29,13 +31,14 @@ public class PlanController {
 		
 		return "plan";
 	}
+
 	
 	@ResponseBody
 	@RequestMapping("/plan")
 	public String saveplan(@RequestBody PlanVo vo) {
 		System.out.println(vo);
 		int n=pservice.insert(vo);
-		String x="¤¾¤·";
+		String x="ï¿½ï¿½ï¿½ï¿½";
 	
 		
 		return x;
@@ -63,3 +66,8 @@ public class PlanController {
     
 	
 }
+
+
+}
+
+

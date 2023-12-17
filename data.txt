@@ -89,6 +89,7 @@ CREATE TABLE POST (
 	P_ID NUMBER NOT NULL, /* 게시글ID */
 	M_ID NUMBER, /* 회원ID */
 	C_ID NUMBER, /* 카테고리ID */
+	P_TITLE VARCHAR2(30), /* 글제목 */
 	P_CONTENT VARCHAR2(2000), /* 글내용 */
 	P_VIEWS NUMBER, /* 조회수 */
 	P_CREDATE DATE, /* 작성일 */
