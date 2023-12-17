@@ -132,7 +132,6 @@
 			cache : false,
 			processData : true,
 			success : function(res) {
-				alert('gd');
 				displayTourInformation(res.contentList);
 				
 
