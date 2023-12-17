@@ -24,7 +24,7 @@
 
 </head>
 <body>
-	<div class="container">
+	<div class="container" id="wrapcontainer">
 		<div class="sidebar">
 			<div class="sidebar1">
 				<a href="" target="_self"> <img src="resources/images/여행로고.PNG"
@@ -173,15 +173,27 @@
 			console.log(tcontainer);
 			tcontainer.append(newDiv);
 			
-			var marker = new naver.maps.Marker({
-				position : new naver.maps.LatLng(content.mapy, content.mapx),
-				map : map
-			});
+			 var marker = new naver.maps.Marker({
+		            position: new naver.maps.LatLng(content.mapy, content.mapx),
+		            map: map
+		        });
+
+		        // 클로저를 사용하여 정보창 내용 설정
+		        (function (marker, title) {
+		            var infoWindow = new naver.maps.InfoWindow({
+		                content: '<div style="width:150px;text-align:center;padding:10px;"><b>"' + title + '"</b>.</div>'
+		            });
+
+		            naver.maps.Event.addListener(marker, 'click', function () {
+		                infoWindow.open(map, marker);
+		            });
+		        })(marker, content.title);
 
 		}
 
 		// 추가로 필요한 정보는 여기에 계속 추가할 수 있습니다.
 	}
+	
 	function copyDiv(sourceDivId) {
 		var id=sourceDivId;
 	    // 클릭된 div의 내용을 가져오기
@@ -205,7 +217,7 @@
 	            selectedDiv.innerHTML = divText;
 
 	            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
-	            var destinationContainer = document.getElementsByClassName("container");
+	            var destinationContainer = document.getElementById("wrapcontainer");
 	            destinationContainer.appendChild(newDiv);
 	            //container.append($(newDiv));
 	            newDiv.appendChild(selectedDiv);

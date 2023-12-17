@@ -56,7 +56,7 @@ public class ScheduleController {
 	@Inject
 	private DbService dService;
 	
-	@Autowired
+	
 	private ContentVo vo;
 	
 	@ResponseBody

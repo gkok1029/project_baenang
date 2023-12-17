@@ -32,7 +32,6 @@ public class DbController {
 	private Logger log=LoggerFactory.getLogger(getClass());
 	
 	
-	
 	@Inject
 	private DbService dService;
 
