@@ -5,7 +5,7 @@ import com.bn.model.ContentVo;
 
 public interface DbService {
 	
-	public int insertdb(ContentVo vo);
+	public int insertdb(ContentVo vo);	
 		
 		
 	
