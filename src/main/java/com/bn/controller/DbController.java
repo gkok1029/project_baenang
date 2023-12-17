@@ -49,7 +49,7 @@ public class DbController {
 		try {
 			String pkey="g+INH4ICelRYTwvUPjujUIt/O1i9eSZAmhiCR9xJLT3v4P4aNkdXnRnDCkDGMKIdpXvJPsGJ9I5HTG6T2lmjkg==";
 			String key = URLEncoder.encode(pkey, "UTF-8");
-			String apiURL="https://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey="+key+"&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=test&_type=json";
+			String apiURL="https://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey="+key+"&numOfRows=100000&pageNo=1&MobileOS=ETC&MobileApp=test&_type=json";
 			URL url = new URL(apiURL);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setUseCaches(false);
