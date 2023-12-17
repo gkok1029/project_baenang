@@ -11,7 +11,6 @@ import java.nio.charset.StandardCharsets;
 
 import javax.inject.Inject;
 
-import org.apache.ibatis.reflection.SystemMetaObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.PropertySource;
@@ -31,7 +30,6 @@ import com.google.gson.JsonParser;
 public class DbController {
 	
 	private Logger log=LoggerFactory.getLogger(getClass());
-	
 	
 	
 	@Inject
@@ -100,8 +98,10 @@ public class DbController {
 							vo.setFirstimage(firstimage);
 							vo.setMapx(mapx);
 							vo.setMapy(mapy);
+							System.out.println(vo);
 							if(contentid!=null) {
 							int n= dService.insertdb(vo);
+							System.out.println(n);
 							}else {
 								System.out.println("�����Ͱ� �����ϴ�.");
 								
@@ -128,5 +128,7 @@ public class DbController {
 		
 		return "���¹ٺ���û�̾�";
 	}
+	
+	
 	
 }

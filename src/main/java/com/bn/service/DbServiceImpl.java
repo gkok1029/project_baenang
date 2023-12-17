@@ -1,5 +1,8 @@
 package com.bn.service;
 
+import java.util.List; 
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -19,5 +22,12 @@ public class DbServiceImpl implements DbService {
 //		System.out.println(vo.getContentid());
 		return this.contentMapper.insertdb(vo);
 	}
+	 
+	@Override
+	public List<ContentVo> searchInRange(Map<String, Double> cd) {
+		return this.contentMapper.searchInRange(cd);
+	}
+
+
 
 }
