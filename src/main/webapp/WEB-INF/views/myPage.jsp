@@ -55,11 +55,14 @@
         width: 75%; background-color: gainsboro; margin-left: 1px; font-size: 12px;
         padding: 14px; position: relative;
     }
+    main #section.sha_sche #schedule .schedule_content,main #section.sha_sche #schedule .schedule_img{
+        background: #8de45b;
+    }
     main #section #schedule .schedule_content p{padding: 4px 0;}
     main #section #schedule .schedule_content .d_day{
         margin-right: 24px;
     }
-    main #section #schedule .schedule_content p:nth-of-type(2){
+    main #section #schedule .schedule_content p.schename{
         font-size: 20px; padding: 24px 0;
     }
     main #section #schedule .schedule_content p span.writeday{
@@ -78,6 +81,23 @@
     #hamburger span:nth-of-type(2){
         margin: 2px 0;
     }
+
+    #hamburger_content{
+        display: none;
+        background: #fff;
+        position: absolute; right: -65px; top: 35%;
+        outline: 2px solid #000;
+        font-size: 18px;
+        padding: 10px;
+    }
+    #hamburger_content p.invite{
+        margin: 16px 0;
+        padding: 4px 0;
+    }
+    #hamburger_content p{
+        cursor: pointer;
+    }
+    select{border: none;}
 </style>
 </head>
 <body>
@@ -109,14 +129,36 @@
                 <div id="myschedulewrap">
                     <div class="myschedule">나의 일정</div>
                     <div class="myschedule2">
-                        <span class="cursor">전체 일정</span>
-                        <span class="cursor">공유 일정</span>
-                        <span class="cursor">최근 수정일 순</span>
+                        <span id="total_sche" class="cursor">전체 일정</span>
+                        <span id="share_sche" class="cursor">공유 일정</span>
+                        <span class="cursor">
+                            <select name="filter">
+                                <option value="recentday">최근 수정일 순</option>
+                                <option value="travelday">여행 임박 순</option>
+                            </select>
+                        </span>
                     </div>
+                    <script>
+                        
+                        $("#total_sche").click(function(){
+                            $("#section.tot_sche").show();
+                            $("#section.sha_sche").hide();
+                        });
+                        
+                        $("#share_sche").click(function(){
+                            $("#section.tot_sche").hide();
+                            $("#section.sha_sche").show();
+                        });
+                        
+                        
+                        
+                        
+                        
 
+                    </script>
 
                     <!--전체 일정 섹션-->
-                    <div id="section" style="display: none;">
+                    <div id="section" class="tot_sche">
                         <div id="schedule">
                             <div class="schedule_img">여행이미지</div>
                             <div class="schedule_content">
@@ -127,10 +169,15 @@
                                     <span class="writeday">최근 수정일  2023.12.15</span>
                                 </p>
                                 <p class="schewritter">작성자: 본인</p>
-                                <div id="hamburger" class="cursor">
+                                <div id="hamburger" class="cursor hamburger">
                                     <span></span>
                                     <span></span>
                                     <span></span>
+                                </div>
+                                <div id="hamburger_content" class="hamburger_content">
+                                    <p>삭제</p>
+                                    <p class="invite">초대</p>
+                                    <p>수정</p>
                                 </div>
                             </div>
                         </div>
@@ -144,10 +191,15 @@
                                     <span class="writeday">최근 수정일  2023.12.15</span>
                                 </p>
                                 <p class="schewritter">작성자: 본인</p>
-                                <div id="hamburger" class="cursor">
+                                <div id="hamburger" class="cursor hamburger">
                                     <span></span>
                                     <span></span>
                                     <span></span>
+                                </div>
+                                <div id="hamburger_content" class="hamburger_content">
+                                    <p>삭제</p>
+                                    <p class="invite">초대</p>
+                                    <p>수정</p>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +208,7 @@
 
 
                     <!--공유 일정 섹션-->
-                    <div id="section">
+                    <div id="section" class="sha_sche" style="display: none;">
                         <div id="schedule">
                             <div class="schedule_img">여행이미지</div>
                             <div class="schedule_content">
@@ -167,10 +219,15 @@
                                     <span class="writeday">최근 수정일  2023.12.15</span>
                                 </p>
                                 <p class="schewritter">작성자: 길동</p>
-                                <div id="hamburger" class="cursor">
+                                <div id="hamburger" class="cursor hamburger">
                                     <span></span>
                                     <span></span>
                                     <span></span>
+                                </div>
+                                <div id="hamburger_content" class="hamburger_content">
+                                    <p>삭제</p>
+                                    <p class="invite">초대</p>
+                                    <p>수정</p>
                                 </div>
                             </div>
                         </div>
@@ -184,16 +241,27 @@
                                     <span class="writeday">최근 수정일  2023.12.15</span>
                                 </p>
                                 <p class="schewritter">작성자: 윤정</p>
-                                <div id="hamburger" class="cursor">
+                                <div id="hamburger" class="cursor hamburger">
                                     <span></span>
                                     <span></span>
                                     <span></span>
+                                </div>
+                                <div id="hamburger_content" class="hamburger_content">
+                                    <p>삭제</p>
+                                    <p class="invite">초대</p>
+                                    <p>수정</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--공유 일정 섹션-->
+                    <script>
+                        $(".hamburger").click(function(){
+                            $(this).parent().children("#hamburger_content").toggle();
+                        });
 
+
+                    </script>
 
                 </div>
                 <!--나의 일정 블럭 종료-->
