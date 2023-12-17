@@ -22,4 +22,8 @@ public class MemberVo {
 	private int M_STATUS; //회원상태
 	private int M_PROFIL; //사용자 프로필
 	
+	public MemberVo(String M_EMAIL, String M_PWD) {
+	      this.M_EMAIL = M_EMAIL;
+	      this.M_PWD = M_PWD;
+	   }
 }

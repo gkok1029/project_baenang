@@ -20,8 +20,12 @@ public class EmailController {
 
     @PostMapping("/sendVerificationCode")
     public String sendVerificationCode(String userEmail) {
+    	int n = emailService.checkEmail(userEmail);
+    	if(n==0) {
     	emailService.sendVerificationCode(userEmail);
-        return "이메일 인증 코드가 전송되었습니다.";
+    	return "success";
+    	}
+    	return "failed";
     }
 
     @PostMapping("/verifyCode")

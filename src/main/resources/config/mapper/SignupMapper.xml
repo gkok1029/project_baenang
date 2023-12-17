@@ -7,6 +7,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="signup" parameterType="Member">
     INSERT INTO MEMBER (M_ID, M_EMAIL, M_PWD, M_GEN, M_NNAME, M_BIRTH, M_RDATE, M_IMAGE, M_STATUS, M_PROFIL)
     VALUES (SEQUENCE_MEMBER.nextval, #{M_EMAIL}, #{M_PWD}, #{M_GEN}, #{M_NNAME}, #{M_BIRTH}, sysdate, null, 1, 1)
-</insert>
+    </insert>
+	<select id="checkEmail" parameterType="Member" resultType="int">
+		    select count(*)
+		    FROM MEMBER WHERE M_EMAIL=#{M_EMAIL}
+	</select>
+
 
 </mapper>

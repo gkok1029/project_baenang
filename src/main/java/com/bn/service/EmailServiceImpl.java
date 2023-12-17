@@ -12,9 +12,14 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import com.bn.mapper.SignupMapper;
+
 @Service
 public class EmailServiceImpl implements EmailService {
 
+	@Autowired
+	private SignupMapper signupMapper;
+	
     private final JavaMailSender javaMailSender;
     private final Map<String, String> verificationCodes = new HashMap<>();
 
@@ -63,4 +68,19 @@ public class EmailServiceImpl implements EmailService {
         int code = 100000 + random.nextInt(900000);
         return String.valueOf(code);
     }
+
+	@Override
+	public int checkEmail(String userEmail) {
+		int i=0;
+		try {
+			i = signupMapper.checkEmail(userEmail);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(i==1) {
+		System.out.println("# MemberServiceImpl : 아이디 있음");
+		return i;
+		}
+		return 0;
+	}
 }

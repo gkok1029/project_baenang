@@ -31,15 +31,15 @@
 				for="tab-1" class="tab">로그인</label> <input id="tab-2" type="radio"
 				name="tab" class="sign-up"><label for="tab-2" class="tab">회원가입</label>
 			<div class="login-form">
-				<form id="login-form" action="/login" method="post">
+				<form id="login-form" action="/loginCheck" method="post">
 					<div class="sign-in-htm">
 						<div class="group">
 							<label for="login-user" class="label">이메일</label> <input
-								id="login-user" name="login-user" type="text" class="input">
+								id="login-user" name="M_EMAIL" type="text" class="input">
 						</div>
 						<div class="group">
 							<label for="login-pass" class="label">비밀번호</label> <input
-								id="login-pass" name="login-pass" type="password" class="input"
+								id="login-pass" name="M_PWD" type="password" class="input"
 								data-type="password">
 						</div>
 						<div class="group">
@@ -105,33 +105,40 @@
 	</div>
 </body>
 <script>
+/* ========================================회원 가입 관련 스크립트============================================== */
 isEmailVerified = false;
-	function sendEmailVerification() {
-		var email = document.getElementById('signup-email').value;
+function sendEmailVerification() {
+    var email = document.getElementById('signup-email').value;
 
-		function validateEmail(email) {
-			var re = /\S+@\S+\.\S+/;
-			return re.test(email);
-		}
+    function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
 
-		if (validateEmail(email) && email.trim() !== '') {
-			$.ajax({
-				url : '/sendVerificationCode',
-				method : 'POST',
-				data : {
-					userEmail : email
-				},
-				success : function(response) {
-						alert('이메일이 성공적으로 전송되었습니다.');
-				},
-				error : function(error) {
-					alert('서버 오류로 이메일 인증을 완료할 수 없습니다.');
-				}
-			});
-		} else {
-			alert('유효한 이메일 주소를 입력해주세요.');
-		}
-	}
+    if (validateEmail(email) && email.trim() !== '') {
+        $.ajax({
+            url: '/sendVerificationCode',
+            method: 'POST',
+            data: {
+                userEmail: email
+            },
+            success: function (response) {
+                if (response === 'success') {
+                    alert('이메일이 성공적으로 전송되었습니다.');
+                    // 성공적으로 이메일을 받았을 때 추가적인 동작을 수행할 수 있습니다.
+                    // 예를 들어, 이메일 전송 후 다음 단계로 넘어가는 등의 로직을 추가할 수 있습니다.
+                } else if (response === 'failed') {
+                    alert('중복된 이메일입니다.');
+                }
+            },
+            error: function (error) {
+                alert('서버 오류로 이메일 인증을 완료할 수 없습니다.');
+            }
+        });
+    } else {
+        alert('유효한 이메일 주소를 입력해주세요.');
+    }
+}
 
 	function verifyEmailCode() {
         var enteredCode = document.getElementById('verification-code').value;
@@ -214,6 +221,42 @@ isEmailVerified = false;
 	        alert('모든 필드를 올바르게 입력해주세요.');
 	    }
 	});
+/* ========================================회원 가입 관련 스크립트============================================== */
+ 
+/* ========================================로그인 스크립트============================================== */
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // 기본 제출 동작 막기
 
+    var email = document.getElementById('login-user').value;
+    var password = document.getElementById('login-pass').value;
+
+    if (email.trim() === '' || password.trim() === '') {
+        alert('이메일과 비밀번호를 입력해주세요.');
+    } else { 
+        var formData = {
+            M_EMAIL: email,
+            M_PWD: password
+        };
+
+        $.ajax({
+            url: '/loginCheck',
+            method: 'POST',
+            data: formData,
+            success: function(response) {
+                if (response === 1) {
+                    alert('로그인에 성공했습니다.');
+                    window.location.href = '/main';
+                } else if (response === 0) {
+                    alert('이메일 또는 비밀번호가 올바르지 않습니다.');
+                }
+            },
+            error: function(error) {
+                alert('서버 오류로 로그인에 실패했습니다.');
+            }
+        });
+    }
+});
+
+ /* ========================================로그인 스크립트============================================== */
 </script>
 </html>
