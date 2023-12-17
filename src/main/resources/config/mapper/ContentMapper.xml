@@ -12,5 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     #{addr}, #{firstimage}, #{mapx}, #{mapy}
 )
 	</insert>
-	
+	<select id="searchInRange" parameterType="map" resultType="Content">
+	SELECT * FROM content WHERE to_number(mapx) BETWEEN #{mapx}-0.012 AND #{mapx}+0.012 AND mapy BETWEEN #{mapy}-0.009 AND #{mapy}+0.009 
+	</select>
 </mapper>
