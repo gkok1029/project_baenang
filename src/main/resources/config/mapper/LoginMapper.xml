@@ -4,8 +4,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.bn.mapper.LoginMapper">
-	<select id="loginCheck" parameterType="com.bn.model.MemberVo" resultType="int">
+	<select id="loginCheck" parameterType="Member" resultType="int">
     SELECT COUNT(*) FROM MEMBER
     WHERE M_EMAIL = #{M_EMAIL} AND M_PWD = #{M_PWD}
 </select>
+
+<select id="loginCheck2" parameterType="Member" resultType="string">
+    SELECT M_NNAME FROM MEMBER
+    WHERE M_EMAIL = #{M_EMAIL} AND M_PWD = #{M_PWD}
+</select>
+
+
+
+
 </mapper>

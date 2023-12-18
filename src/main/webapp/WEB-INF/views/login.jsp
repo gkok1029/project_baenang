@@ -239,14 +239,14 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         };
 
         $.ajax({
-            url: '/loginCheck',
+            url: '/loginCheck2',
             method: 'POST',
             data: formData,
             success: function(response) {
-                if (response === 1) {
+                if (response === "success") {
                     alert('로그인에 성공했습니다.');
                     window.location.href = '/main';
-                } else if (response === 0) {
+                } else if (response === "failed") {
                     alert('이메일 또는 비밀번호가 올바르지 않습니다.');
                 }
             },
