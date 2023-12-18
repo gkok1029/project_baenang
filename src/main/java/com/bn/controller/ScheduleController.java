@@ -35,11 +35,11 @@ public class ScheduleController {
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-	@Value("${clientId}")
-	private String clientId;
+	@Value("${NAVER_MAPS_KEY}")
+	private String NAVER_MAPS_KEY;
 
-	@Value("${clientSecret}")
-	private String clientSecret;
+	@Value("${NAVER_MAPS_SECRET_KEY}")
+	private String NAVER_MAPS_SECRET_KEY;
 	
    
 	
@@ -48,10 +48,10 @@ public class ScheduleController {
 	
 		
 		Map<String,String>map=new HashMap<>();
-		map.put("clientId", clientId);
-		map.put("clientSecret", clientSecret);
+		map.put("clientId", NAVER_MAPS_KEY);
+		map.put("clientSecret", NAVER_MAPS_SECRET_KEY);
 		model.addAttribute("apikey",map);
-		return "schedule";
+		return "plan";
 	}
 	@Inject
 	private DbService dService;
@@ -74,8 +74,8 @@ public class ScheduleController {
 			conn.setDoOutput(true);
 			conn.setDoInput(true);
 			conn.setRequestProperty("Content-Type", "text/plain");
-			conn.setRequestProperty("X-NCP-APIGW-API-KEY-ID", clientId);
-			conn.setRequestProperty("X-NCP-APIGW-API-KEY", clientSecret);
+			conn.setRequestProperty("X-NCP-APIGW-API-KEY-ID", NAVER_MAPS_KEY);
+			conn.setRequestProperty("X-NCP-APIGW-API-KEY", NAVER_MAPS_SECRET_KEY);
 			int responseCode = conn.getResponseCode();
 			if (responseCode == 200) {
 				BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -124,13 +124,13 @@ public class ScheduleController {
 		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
 		System.out.println(map.toString());
 		}catch (NumberFormatException e) {
-	        // ¼ýÀÚ º¯È¯ Áß ¿¹¿Ü ¹ß»ý ½Ã Ã³¸®
+	        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½ Ã³ï¿½ï¿½
 	        map.addAttribute("error", "Invalid coordinates. Please provide valid numeric values for x and y.");
-	        e.printStackTrace(); // ¿¹¿Ü ·Î±× Ãâ·Â (°³¹ß Áß¿¡¸¸ »ç¿ë, ¿î¿µ¿¡¼­´Â ·Î±ë ½Ã½ºÅÛ È°¿ë)
+	        e.printStackTrace(); // ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½î¿µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ È°ï¿½ï¿½)
 	    } catch (Exception e) {
-	        // ´Ù¸¥ ¿¹¿Ü ¹ß»ý ½Ã Ã³¸®
+	        // ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½ Ã³ï¿½ï¿½
 	        map.addAttribute("error", "An unexpected error occurred.");
-	        e.printStackTrace(); // ¿¹¿Ü ·Î±× Ãâ·Â (°³¹ß Áß¿¡¸¸ »ç¿ë, ¿î¿µ¿¡¼­´Â ·Î±ë ½Ã½ºÅÛ È°¿ë)
+	        e.printStackTrace(); // ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½î¿µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ È°ï¿½ï¿½)
 	    }
 		return map;
 	}
