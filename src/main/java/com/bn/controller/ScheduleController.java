@@ -45,13 +45,11 @@ public class ScheduleController {
 	
 	@RequestMapping("/showMap")
 	public String showMap(Model model) {
-	
 		
-		Map<String,String>map=new HashMap<>();
-		map.put("clientId", NAVER_MAPS_KEY);
-		map.put("clientSecret", NAVER_MAPS_SECRET_KEY);
-		model.addAttribute("apikey",map);
-		return "plan";
+		model.addAttribute("NAVER_MAPS_KEY", NAVER_MAPS_KEY);
+		model.addAttribute("NAVER_MAPS_SECRET_KEY", NAVER_MAPS_SECRET_KEY);
+		return "showMap";
+		
 	}
 	@Inject
 	private DbService dService;
