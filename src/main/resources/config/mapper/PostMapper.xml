@@ -12,8 +12,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <insert id="postInsert" parameterType="post">
-		INSERT INTO post (p_id, m_id, p_title, p_content)
-    	VALUES (#{p_id}, #{m_id}, #{p_title}, #{p_cotent})
+		INSERT INTO post (p_id, p_title, p_content)
+    	VALUES (#{p_id}, #{p_title}, #{p_cotent})
 </insert>
 
 <select id="postRead" resultType="post">

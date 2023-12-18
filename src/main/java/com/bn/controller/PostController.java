@@ -35,6 +35,10 @@ public class PostController {
 		return "posts";
 	} 
 	
+//	@GetMapping("/posting")
+//	public void addPost() {		
+//	}
+	@GetMapping("/posting")
 	@RequestMapping("/posting")
 	public String addPost(PostVo post, RedirectAttributes rttr) {
 		log.info("posting: " + post);
@@ -60,6 +64,15 @@ public class PostController {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/blog/posts";
+	}
+	
+	@RequestMapping("/bloghub") 
+ 	public String showBloghub(Model model) { 
+		
+		log.info("posts");
+		model.addAttribute("posts", service.getList());
+		
+		return "bloghub";
 	}
 	
 }

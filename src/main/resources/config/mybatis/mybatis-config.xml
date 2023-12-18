@@ -5,13 +5,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 <typeAliases>
 	<typeAlias type="com.bn.model.PlanVo" alias="Plan"/>
-	<typeAlias type="com.bn.model.ContentVo" alias="Content"/>
+	<!-- <typeAlias type="com.bn.model.ContentVo" alias="Content"/> -->
 	<typeAlias type="com.bn.model.PostVo" alias="Post"/>
 </typeAliases>
 
 <mappers>
 	<mapper resource="config/mapper/PlanMapper.xml"/>
-	<mapper resource="config/mapper/ContentMapper.xml"/>
+	<!-- <mapper resource="config/mapper/ContentMapper.xml"/> -->
 	<mapper resource="config/mapper/PostMapper.xml"/>
 </mappers>
 </configuration>

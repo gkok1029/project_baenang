@@ -61,13 +61,9 @@ public class PlanController {
 		map.addAttribute("lvo",lvo);
 		return map;
 	}
+
 	
 	
     
 	
 }
-
-
-}
-
-

@@ -17,42 +17,45 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class PostMapperTests {
 
-	@Setter(onMethod_ = @Autowired)
-	private PostMapper mapper;
-
-	@Test
-	public void testGetList() {
-		mapper.getList().forEach(post -> log.info(post));
-	}
-
-	/*
-	 * @Test public void testInsertPost() { // 테스트에 사용할 데이터 생성 PostVo post = new
-	 * PostVo(); post.setP_id(4); // 적절한 값을 설정하세요. post.setM_id(1); // 적절한 값을 설정하세요.
-	 * post.setP_title("테스트 제목"); post.setP_content("테스트 내용");
-	 * 
-	 * // 인서트 메서드 호출 mapper.postInsert(post);
-	 * 
-	 * // 인서트가 제대로 이루어졌는지 확인 log.info("Inserted Post ID: " + post.getP_id()); }
-	 * 
-	 * @Test public void testInsert() {
-	 * 
-	 * PostVo post = new PostVo();
-	 * 
-	 * post.setP_id(3); post.setP_title("새로 작성하는 글");
-	 * post.setP_content("새로 작성하는 내용");
-	 * 
-	 * mapper.postInsert(post);
-	 * 
-	 * log.info(post); }
+	
+	 @Setter(onMethod_ = @Autowired) private PostMapper mapper;
+	  
+	 /* @Test public void testGetList() { mapper.getList().forEach(post ->
+	 * log.info(post)); }
 	 */
+
+	
+	 @Test public void testInsertPost() { // 테스트에 사용할 데이터 생성 
+		 PostVo post = new PostVo(); 
+		 post.setP_id(4);
+		 post.setP_title("제목제목");
+		 post.setP_content("내용내용");
+	 
+		 mapper.postInsert(post);
+	  
+		 log.info("Inserted Post ID: " + post.getP_id()); 
+	 }
+	  
+		/*
+		 * @Test public void testInsert() {
+		 * 
+		 * PostVo post = new PostVo();
+		 * 
+		 * post.setP_id(3); post.setP_title("새로 작성하는 글");
+		 * post.setP_content("새로 작성하는 내용");
+		 * 
+		 * mapper.postInsert(post);
+		 * 
+		 * log.info(post); }
+		 */
+	 
 	
 	 
 	 
-	 @Test
-	 public void testRead() {
-		 PostVo post = mapper.postRead(1);
-		 log.info(post);		 
-	 }
+		/*
+		 * @Test public void testRead() { PostVo post = mapper.postRead(1);
+		 * log.info(post); }
+		 */
 	 
 		/*
 		 * @Test public void testDelete() { log.info("delete count: " +

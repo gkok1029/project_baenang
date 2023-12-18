@@ -49,7 +49,5 @@
 	<mybatis-spring:scan base-package="com.bn.mapper" />
 	
 	<context:component-scan base-package="com.bn.*" />
-	<context:component-scan base-package="com.bn.serivce" />
-	<context:component-scan base-package="com.bn.controller" />
 	
 </beans>
