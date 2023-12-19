@@ -78,7 +78,7 @@ public class LoginController {
 		return "login";
 	}
 	
-	@RequestMapping("/main")
+	@RequestMapping("/user/main")
 	public String goMain() {
 		
 		return "main";

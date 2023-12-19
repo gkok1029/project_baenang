@@ -257,7 +257,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             success: function(response) {
                 if (response === "success") {
                     alert('로그인에 성공했습니다.');
-                    window.location.href = '/main';
+                    window.location.href = '/user/main';
                 } else if (response === "failed") {
                     alert('이메일 또는 비밀번호가 올바르지 않습니다.');
                 }
