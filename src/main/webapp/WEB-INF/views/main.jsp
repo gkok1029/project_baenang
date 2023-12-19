@@ -36,6 +36,17 @@
 			}
 		})
 	}
+	
+	function openPopup(cityId) {
+	    // 팝업으로 띄울 페이지의 URL
+        var popupUrl = "/city?cityId=" + cityId;
+
+	    // 팝업 창 옵션 설정
+	    var popupOption = "width=800, height=600, resizable=no, scrollbars=no, status=no;";
+
+	    // 팝업 창 열기
+	    window.open(popupUrl, "CitySearchPopup", popupOption);
+	}
 </script>
 <head>
     <meta charset="UTF-8">
@@ -119,7 +130,6 @@
 		<a href="../">Home</a>
 		<a href="../dbbutton">DBDownload</a>
 		<a href="../plan">plan</a>
-		<a href="../sample">sample</a>
 	</div>
 
     <div id="search-container" class="justify-content-center align-items-center">
@@ -177,6 +187,18 @@
         </c:forEach>
        
 	</div>
+</div>
+
+<div>
+    <a href="#" id="Seoul" name="Seoul" class="city" onclick="openPopup('Seoul')">
+    	<img src="${pageContext.request.contextPath}/resources/img/a.jpg" alt="Seoul Image">
+	</a>
+	<a href="#" id="Busan" name="Busan" class="city" onclick="openPopup('Busan')">
+    	<img src="${pageContext.request.contextPath}/resources/img/b.jpg" alt="Seoul Image">
+	</a>
+	<a href="#" id="Daejeon" name="Daejeon" class="city" onclick="openPopup('Daejeon')">
+    	<img src="${pageContext.request.contextPath}/resources/img/c.png" alt="Seoul Image">
+	</a>
 </div>
 
 </body>

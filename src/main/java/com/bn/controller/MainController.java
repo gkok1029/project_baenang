@@ -33,6 +33,11 @@ public class MainController {
 		return "main";
 	}
 	
+	@RequestMapping(value = "/city")
+	public String city() {
+		return "city";
+	}
+	
 	@ResponseBody
 	@GetMapping("/rec")
 	public ModelMap rec() {
