@@ -38,7 +38,7 @@ public class PostController {
 //	@GetMapping("/posting")
 //	public void addPost() {		
 //	}
-	@GetMapping("/posting")
+//	@GetMapping("/posting")
 	@RequestMapping("/posting")
 	public String addPost(PostVo post, RedirectAttributes rttr) {
 		log.info("posting: " + post);
