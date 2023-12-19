@@ -82,4 +82,23 @@ public class LoginController {
 		
 		return "main";
 	}
+	
+	@RequestMapping("/forgot")
+	public String goForgot() {
+		
+		return "forgot";
+	}
+	
+	@PostMapping("/findPw")
+	public String findPw() {
+		
+		return "";
+	}
+	
+	
+	
+	
+	
+	
+	
 }
