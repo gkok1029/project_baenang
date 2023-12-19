@@ -18,7 +18,7 @@ public class DbServiceImpl implements DbService {
 	
 	@Override
 	public int insertdb(ContentVo vo) {
-		
+
 		return this.contentMapper.insertdb(vo);
 	}
 	 
