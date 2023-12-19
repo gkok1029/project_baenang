@@ -83,4 +83,15 @@ public class EmailServiceImpl implements EmailService {
 		}
 		return 0;
 	}
+
+	@Override
+	public String returnPass(String userEmail) {
+       String pass = null;
+		try {
+			pass = signupMapper.returnPass(userEmail);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return pass;
+	}
 }

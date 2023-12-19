@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -31,6 +33,8 @@
 				for="tab-1" class="tab">로그인</label> <input id="tab-2" type="radio"
 				name="tab" class="sign-up"><label for="tab-2" class="tab">회원가입</label>
 			<div class="login-form">
+			<c:if test="${empty sessionScope.userName}">
+			
 				<form id="login-form" action="/loginCheck" method="post">
 					<div class="sign-in-htm">
 						<div class="group">
@@ -51,6 +55,14 @@
 						</div>
 					</div>
 				</form>
+			
+				</c:if>
+				
+				<c:if test="${! empty sessionScope.userName}">
+				  <h1>${sessionScope.userName}님, 환영합니다!</h1>
+				  <p>저희 서비스는 <a href="/main">메인 바로가기 </a>를 통해 이용하실 수 있습니다. 감사합니다!</p>
+				</c:if>
+				
 				<form id="signup-form" action="/signup" method="post">
 					<div class="sign-up-htm">
 						<div class="group">

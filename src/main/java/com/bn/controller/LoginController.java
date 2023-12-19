@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bn.model.MemberVo;
+import com.bn.service.EmailService;
 import com.bn.service.LoginService;
 import com.bn.service.SignupService;
 
 @Controller
 public class LoginController {
-
+	
 	@Autowired
 	private SignupService signupService;
 	
@@ -87,12 +88,6 @@ public class LoginController {
 	public String goForgot() {
 		
 		return "forgot";
-	}
-	
-	@PostMapping("/findPw")
-	public String findPw() {
-		
-		return "";
 	}
 	
 	

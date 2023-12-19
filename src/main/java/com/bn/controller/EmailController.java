@@ -37,5 +37,27 @@ public class EmailController {
             return "failed";
         }
     }
+    
+    @PostMapping("/resetpassword")
+	public String findPw(String userEmail) {
+		int n = emailService.checkEmail(userEmail);
+		if(n==1) {
+		emailService.sendVerificationCode(userEmail);
+    	return "success";
+    	}
+    	return "failed";
+	}
+	
+    @PostMapping("/verifyCode2")
+    public String verifyCode2(String userEmail, String code) {
+        boolean isVerified = emailService.verifyCode(userEmail, code);
+        if (isVerified == true) {
+        	String password = emailService.returnPass(userEmail);
+            return password;
+        } else {
+            return "failed";
+        }
+    }
+    
 }
 

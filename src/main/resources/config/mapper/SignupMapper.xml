@@ -12,6 +12,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    select count(*)
 		    FROM MEMBER WHERE M_EMAIL=#{M_EMAIL}
 	</select>
+	
+	<select id="returnPass" parameterType="Member" resultType="String">
+		    select M_PWD
+		    FROM MEMBER WHERE M_EMAIL=#{M_EMAIL}
+	</select>
 
 
 </mapper>
