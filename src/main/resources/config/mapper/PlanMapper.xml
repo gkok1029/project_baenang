@@ -5,14 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.bn.mapper.PlanMapper">
 
-<<<<<<< HEAD
-
-	<insert id="insert" parameterType="Plan">
-		insert into planner values(#{p_id},#{m_id},#{p_name},sysdate,sysdate)
-=======
 	<insert id="insert" parameterType="Plan">
 	insert into planner values(#{p_id},#{m_id},#{p_name},sysdate,sysdate)
->>>>>>> feat.plan
 	</insert>
 	
 	<select id="selectPlan" parameterType="_int" resultType="Plan">
@@ -22,17 +16,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectAll" parameterType="_int" resultType="Plan">
 		select * from planner where m_id=#{m_id}
 	</select>
-<<<<<<< HEAD
-
-
-	<insert id="insert" parameterType="Plan">
-	insert into plan values(#{p_id},#{m_id},#{p_name]},#{p_birth},#{p_moddate})
-	</insert>
-=======
-	
-	<select id="selectAll" parameterType="_int" resultType="Plan">
-	select * from planner where m_id=#{m_id}
-	</select>
->>>>>>> feat.plan
 
 </mapper>
