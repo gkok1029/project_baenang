@@ -1,11 +1,14 @@
 package com.bn.controller;
 
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+>>>>>>> feat.plan
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -102,24 +105,24 @@ public class DbController {
 							vo.setFirstimage(firstimage);
 							vo.setMapx(mapx);
 							vo.setMapy(mapy);
-							System.out.println(vo);
+							
 							if(contentid!=null) {
 							int n= dService.insertdb(vo);
 							System.out.println(n);
 							}else {
-								System.out.println("µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
+								System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 								
 							}
 							}
 					} else {
-						System.out.println("µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
+						System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 					}
 				} else {
-					System.out.println("API ¿äÃ»ÀÌ ½ÇÆÐÇß½À´Ï´Ù.");
+					System.out.println("API ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.");
 				}
 			
 		} else {
-			System.out.println("API ¿äÃ»ÀÌ ½ÇÆÐÇß½À´Ï´Ù. ÀÀ´ä ÄÚµå: " + responseCode);
+			System.out.println("API ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½: " + responseCode);
 		}
 				
 
@@ -130,7 +133,7 @@ public class DbController {
 			
 		}
 		
-		return "³ª´Â¹Ùº¸¸ÛÃ»ÀÌ¾ß";
+		return "ï¿½ï¿½ï¿½Â¹Ùºï¿½ï¿½ï¿½Ã»ï¿½Ì¾ï¿½";
 	}
 	
 	

@@ -4,13 +4,12 @@
 <html>
 <head>
 <!-- 부트스트랩 JavaScript (Popper.js와 jQuery 포함) -->
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${apikey.clientId}"></script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome CSS -->
@@ -19,8 +18,9 @@
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 <title>Plan Page</title>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId="></script>
+
+<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${NAVER_MAPS_KEY}"></script>
+
 
 
 <script type="text/javascript">
@@ -110,7 +110,7 @@
 
 	.bottom-button {
 	     margin-top: auto;
-	     margin-botton:10px;
+	     margin-bottom:10px;
 	     width: 80%;
 	     padding: 10px;
 	     background-color: #555;
@@ -120,24 +120,9 @@
 	     border: none;
 	     cursor: pointer;
 	}
-	.search_frame{
+	#search_frame{
 		margin-right: 10px;
-		width: 250px;
-	}
-	    
-	#btn_step1{
-		color: skyblue;
-		font-size:16px;
-	}
-	#btn_step2{
-		color: gray;
-		opacity:'0.5';
-		font-size:12px;
-	}
-	#btn_step3{
-		color: gray;
-		opacity:'0.5';
-		font-size:12px;
+		width: 300px;
 	}
 	table{
 		width:100%;
@@ -146,20 +131,47 @@
 		border:1px solid;
 		text-align: center;
 	}
-	.view1{
-		display: block;	
+	li{
+		list-style:none;
 	}
-	.view2{
-		display : none;
+	.place-container {
+        display: flex;
+        justify-content: space-between; /* 각 자식 요소를 최대한 넓게 배치합니다. */
+        align-items: center; /* 자식 요소를 수직 중앙 정렬합니다. */
+        margin-bottom: 20px; /* 각 place-container 사이에 간격을 주기 위한 마진 설정 */
+    }
+	.place-img{
+		width: 60px;
+		height: 60px
 	}
-	.view3{
-		display : none;
-	}
+	.place-details {
+        flex: 1;
+        margin-left: 10px;        
+        flex-direction: column; /* 세로로 배치하도록 설정 */
+        font-size: 13px;
+    }
+
+    .place-details > div {
+        margin-bottom: 5px;
+    }
+    
+    .place-info{
+    	display:flex;
+    	
+    }
+    
+    .place-icons{
+    	display: flex;
+    	align-items: center;
+    }
+    .place-icons>div{
+    	margin-rigth: 5px;
+    }
+    
 </style>
 
 </head>
 <body>
-<<<<<<< HEAD
 	
 		<script>
 		var p_id="1";
@@ -168,10 +180,6 @@
 		var p_birth="2023-01-01";
 		var p_moddate="2023-01-01";	
 		</script>
-	
-<input onclick="memberplan()"></input>
-=======
-
 	
 
 	<!-- 컨테이너  -->
@@ -182,11 +190,11 @@
 			<img class="logo" src="" alt="Main Logo"/>
 			<br>
 			<!-- 스탭 1,2,3 버튼 -->
-			<button class="sidebar_button" id="btn_step1" onclick="handleButtonClick('btn_step1')">STEP 1<br>날짜확인</button>
+			<button class="sidebar_button" id="btn-step1" >STEP 1<br>날짜확인</button>
 			<br>
-			<button class="sidebar_button" id="btn_step2" onclick="handleButtonClick('btn_step2')">STEP 2<br>장소확인</button>
+			<button class="sidebar_button" id="btn-step2" >STEP 2<br>장소확인</button>
 			<br>
-			<button class="sidebar_button" id="btn_step3" onclick="handleButtonClick('btn_step3')">STEP 3<br>숙소설정</button>
+			<button class="sidebar_button" id="btn-step3" >STEP 3<br>숙소설정</button>
 			<br>
 			
 			<!-- 하단 다음버튼 -->
@@ -195,20 +203,22 @@
 		<!-- 두번째 프레임 -->
 		<div id="search_frame">
 			<!-- Step1 날짜 확인 -->
-			<div id="view1" style={display:block}>
+			<div class="view" id="view1" >
 				<div>
 					<b>제주</b>	
 				</div>
 				<div>
 					<div><b>2023.12.18(월) - 2023.12.20(수)</b></div>
 					<div>
-						<button type="button" class="btn_calender" data-toggle="modal" data-target="#calendarModal">
+						<button type="button" class="btn-calender" data-toggle="modal" data-target="#calendarModal">
         					<i class="far fa-calendar-days"></i>
     					</button>
     				</div>
 				</div>
 				<div>
-					<a href="https://www.naver.com"><button>항공권</button></a>
+					<a href="https://www.skyscanner.co.kr/transport/flights/sela/cju/231218/231220/?adultsv2=1&cabinclass=economy&childrenv2=&inboundaltsenabled=false&outboundaltsenabled=false&preferdirects=false&ref=home&rtn=1">
+						<button>항공권</button>
+					</a>
 				</div>
 				<div>
 					입력하신 여행기간이 시차를고려한 등등 대충 내용 적기
@@ -247,11 +257,19 @@
 			</div>
 			
 			<!-- Step2 장소확인 --> 
-			<div id="view2">
-				<br>
-				제주
-				<br>
-				2023.12.04 - 2023.12.05 <div><i class="fa-regular fa-calendar-days" onclick="alert('달력클릭')"></i></div>
+			<div class="view" id="view2">
+				<div>
+					<div><b>제주</b></div>				
+					<div>
+						<div><b>2023.12.04 - 2023.12.05</b></div>
+						<div>
+							<button type="button" class="btn-calender" data-toggle="modal" data-target="#calendarModal">
+							<i class="far fa-calendar-days"></i>
+    						</button>
+    					</div>
+					</div>
+				</div>
+				
 				<br>
 				<button>여행장소선택</button>
 				<button>새로운 장소 등록</button>
@@ -264,9 +282,37 @@
 					<button>식당</button>
 					<button>카페</button>
 				</div>
+				<!-- 장소검색 -->
+				<div>
+					<ul>
+						<!-- 장소 하나하나 -->
+						<li>
+							<div class="place-container">
+								<!-- 이미지 -->
+								<div><img class="place-img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzExMTRfMzYg%2FMDAxNjk5OTY4OTc2Mzk2.bYxC69S-RhRfWsVazjOSlsj23s3MOwMwJud2pUM2_Fwg.JK9kuLGKJXE2yslbx3Z_9qnrzriouNd0sH0v3acREkUg.JPEG.okayall%2F20231110_163451.jpg&type=sc960_832"></div>
+								<!-- 내용 -->
+								<div class="place-details">
+									<div>이름</div>
+									<div class="place-info">
+										<div>카테고리</div>
+										<div>주소</div>
+									</div>
+									<div class="place-icons">
+										<div>하트</div>
+										<div>별</div>
+									</div>
+								</div>
+								<div><i class="fa-regular fa-square-plus"></i></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="view" id="view2">
+				여기는 추가된
 			</div>
 			<!-- STEP 3 숙소설정 -->
-			<div id="view3"></div>
+			<div class="view" id="view3"></div>
 		
 		
 		</div>
@@ -297,125 +343,70 @@
         </div>
     </div>
 	
-	<script>
-	    // 윈도우가 로드될 때 initializeMap 함수 실행
+	<script>	    
 	    
 	    $(document).ready(function(){
 	    	initializeMap();
 	    	$('#view1').show();
 			$('#view2').hide();
 			$('#view3').hide();
-    		$("#btn_step1").click(function(){
-    			$('#view1').show();
-    			$('#view2').hide();
-    			$('#view3').hide();
-    			$('#btn_step1').css({
-    				'color' : 'skyblue',
-    				'opacity' : '1',
-    				'fontSize' : '16px'
-    			});
-    			$('#btn_step2').css({
-    				'color' : 'gray',
-    				'opacity' : '0.5',
-    				'fontSize' : '12px'
-    			});
-    			$('#btn_step3').css({
-    				'color' : 'gray',
-    				'opacity' : '0.5',
-    				'fontSize' : '12px'
-    			});
-    		});
-    		$("#btn_step2").click(function(){    			
-    			$('#view1').hide();
-    			$('#view2').show();
-    			$('#view3').hide();
-    			
-    			$('#btn_step1').css({
-    				'color' : 'gray',
-    				'opacity' : '0.5',
-    				'fontSize' : '12px'
-    			});
-    			$('#btn_step2').css({
-    				'color' : 'skyblue',
-    				'opacity' : '1',
-    				'fontSize' : '16px'
-    			});
-    			$('#btn_step3').css({
-    				'color' : 'gray',
-    				'opacity' : '0.5',
-    				'fontSize' : '12px'
-    			});
-    		});
-    		$("#btn_step3").click(function(){    			
-    			$('#view1').hide();
-    			$('#view2').hide();
-    			$('#view3').show();
-    			
-    			$('#btn_step1').css({
-    				'color' : 'gray',
-    				'opacity' : '0.5',
-    				'fontSize' : '12px'
-    			});
-    			$('#btn_step2').css({
-    				'color' : 'gray',
-    				'opacity' : '0.5',
-    				'fontSize' : '12px'
-    			});
-    			$('#btn_step3').css({
-    				'color' : 'skyblue',
-    				'opacity' : '1',
-    				'fontSize' : '16px'    				
-    			});
-    		});
-    	})
+			$('#btn-step1').css({
+				'color' : 'skyblue',
+				'opacity' : '1',
+				'fontSize' : '16px'
+			});
+			$('#btn-step2').css({
+				'color' : 'gray',
+				'opacity' : '0.5',
+				'fontSize' : '12px'
+			});
+			$('#btn-step3').css({
+				'color' : 'gray',
+				'opacity' : '0.5',
+				'fontSize' : '12px'
+			});
+    		
+    	});
 	    
-	    /* 사이드바 버튼 클릭에따른 스타일변화 */
-	    function handleButtonClick(buttonId){	
-	    	/* 변수에 버튼저장 */
-	    	var btn1 =document.getElementById('btn_step1');
-	    	var btn2 =document.getElementById('btn_step2');
-	    	var btn3 =document.getElementById('btn_step3');
-	    	var view1 = document.getElementById('view1');
-	    	var view2 = document.getElementById('view2');
+	    function showView(viewId, btnId){
+    		$('.view').hide();
+    		$(viewId).show();
+    		
+			$('.sidebar_button').css({
+    	            'color': 'gray',
+    	            'opacity': '0.5',
+    	            'fontSize': '12px'
+			});
+			
+			$(btnId).css({
+    	            'color': 'skyblue',
+    	            'opacity': '1',
+    	            'fontSize': '16px'
+			});
+    	}
 	    
+	    /* STEP 1 버튼 클릭시 */
+	    $("#btn-step1").click(function(){
+    			showView('#view1','#btn-step1');
+    		});
 	    
 	    	
-	    	/* 클릭 시 조건문 생성 */
-	    	if(buttonId === 'btn_step2'){
-	    		/* 색상변경 */
-	    		btn1.style.color = 'gray';
-                btn2.style.color = 'skyblue';
-                btn3.style.color = 'gray';
-                /* 투명도조절 */
-                btn1.style.opacity='0.5';
-                btn2.style.opacity='1';
-                btn3.style.opacity='0.5';
-                /* 폰트사이즈조절 */
-                btn1.style.fontSize='12px';
-                btn2.style.fontSize='16px';
-                btn3.style.fontSize='12px';
-
-	    	}else if(buttonId === 'btn_step3'){
-	    		/* 색상변경 */
-	    		btn1.style.color = 'gray';
-                btn2.style.color = 'gray';
-                btn3.style.color = 'skyblue';
-                /* 투명도조절 */
-                btn1.style.opacity='0.5';
-                btn2.style.opacity='0.5';
-                btn3.style.opacity='1';
-                /* 폰트사이즈조절 */
-                btn1.style.fontSize='12px';
-                btn2.style.fontSize='12px';
-                btn3.style.fontSize='16px';
-	    	}
-	    }	    
+	    	
+	    	/* STEP 2 버튼 클릭시 */
+    		$("#btn-step2").click(function(){
+    			showView('#view2','#btn-step2');
+    		});
+	    	
+    		/* STEP 3 버튼 클릭시 */
+    		$("#btn-step3").click(function(){
+    			showView('#view3','#btn-step3');
+    		});
+    		
 	</script>
-	<!-- Bootstrap JS (must be placed at the end of the body for faster page loading) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<!-- Bootstrap JS (must be placed at the end of the body for faster page loading) -->    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>	
->>>>>>> feat.viewPlanpage
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </body>
 <script>
 	function myplan(){
