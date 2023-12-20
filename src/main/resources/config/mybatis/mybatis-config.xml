@@ -8,6 +8,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAlias type="com.bn.model.ContentVo" alias="Content"/>
 	<typeAlias type="com.bn.model.CityVO" alias="City"/>
 	<typeAlias type="com.bn.model.MemberVo" alias="Member"/>
+	<typeAlias type="com.bn.model.PostVo" alias="Post"/>
 </typeAliases>
 
 <mappers>
@@ -17,5 +18,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mapper resource="config/mapper/LoginMapper.xml"/>
 	<mapper resource="config/mapper/MainMapper.xml"/>
 	<mapper resource="config/mapper/CityMapper.xml"/>
+	<mapper resource="config/mapper/PostMapper.xml"/>
 </mappers>
 </configuration>
