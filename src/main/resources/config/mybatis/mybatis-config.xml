@@ -6,11 +6,14 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <typeAliases>
 	<typeAlias type="com.bn.model.PlanVo" alias="Plan"/>
 	<typeAlias type="com.bn.model.ContentVo" alias="Content"/>
+	<typeAlias type="com.bn.model.MemberVo" alias="Member"/>
 </typeAliases>
 
 <mappers>
 	<mapper resource="config/mapper/PlanMapper.xml"/>
 	<mapper resource="config/mapper/ContentMapper.xml"/>
+	<mapper resource="config/mapper/SignupMapper.xml"/>
+	<mapper resource="config/mapper/LoginMapper.xml"/>
 	<mapper resource="config/mapper/MainMapper.xml"/>
 </mappers>
 </configuration>
