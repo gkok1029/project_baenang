@@ -567,6 +567,7 @@
 			success : function(res) {
 				moveMap(res.x, res.y);
 				tour(res.x, res.y);
+				lodging(res.x,res.y);
 				alert('투어로 간다');
 			},
 			error : function(err) {
@@ -604,13 +605,35 @@
 			}
 		})
 	}
+	function lodging(lat, len) {
+		var x = lat;
+		var y = len;
+		var ctype="32";
+
+		$.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : 'tour?x=' + x + '&y=' + y+'&ctype'+ctype,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				alert(res.contentList.length);
+				//displayLodgingInformation(res.contentList);
+				
+
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+		})
+	}
 	function displayTourInformation(contentList) {
 		var tcontainer = $('#places'); // 새로운 container 추가
 		//var container = document.getElementById('travels-container');
 		// 기존 내용 비우기
 		tcontainer.empty();
 		// 최대 4개까지만 표시
-		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
+		for (var i = 0; i < Math.min(contentList.length, 4); i++) {
 			var content = contentList[i];
 			var contentid=content.contentid;
 			var newDiv=createDiv(contentid);

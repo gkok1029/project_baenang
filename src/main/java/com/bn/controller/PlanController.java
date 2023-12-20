@@ -152,9 +152,10 @@ public class PlanController {
 		Map<String,Object> cd=new HashMap<>();
 		double mapx=Double.parseDouble(x);
 		double mapy=Double.parseDouble(y);
+		int contenttypeid=Integer.parseInt(ctype);
 		cd.put("mapx",mapx);
 		cd.put("mapy",mapy);
-		cd.put("ctype", ctype);
+		cd.put("contenttypeid", contenttypeid);
 		List<ContentVo>nd=dService.searchInRange(cd);
 		map.addAttribute("contentList",nd);
 		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
@@ -170,6 +171,7 @@ public class PlanController {
 	    }
 		return map;
 	}
+	
 	
     @ResponseBody
     @PostMapping("/registercontent")
