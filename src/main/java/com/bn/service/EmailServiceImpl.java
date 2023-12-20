@@ -32,8 +32,8 @@ public class EmailServiceImpl implements EmailService {
     public void sendVerificationCode(String userEmail) {
         String code ;
         code = generateVerificationCode();
-        String subject = "ÀÌ¸ŞÀÏ ÀÎÁõ ÄÚµå";
-        String body = "ÀÎÁõ ÄÚµå: " + code;
+        String subject = "ì´ë©”ì¼ ì¸ì¦ ì½”ë“œ";
+        String body = "ì¸ì¦ ì½”ë“œ: " + code;
         sendEmail(userEmail, subject, body);
         verificationCodes.put(userEmail, code);
     }
@@ -79,7 +79,7 @@ public class EmailServiceImpl implements EmailService {
 			e.printStackTrace();
 		}
 		if(i==1) {
-		System.out.println("# MemberServiceImpl : ¾ÆÀÌµğ ÀÖÀ½");
+		System.out.println("# MemberServiceImpl : ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½");
 		return i;
 		}
 		return 0;
