@@ -16,5 +16,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectAll" parameterType="_int" resultType="Plan">
 		select * from planner where m_id=#{m_id}
 	</select>
+	
+	<insert id="insertDp" parameterType="Dplan">
+	insert into dtail_planner values(#{dp_id},#{p_id},#{contentid},#{dp_day},#{dp_start},#{dp_end},#{dp_num})
+	</insert>
 
 </mapper>

@@ -18,12 +18,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bn.model.ContentVo;
+import com.bn.model.DtailPlanVo;
 import com.bn.model.PlanVo;
 import com.bn.service.DbService;
 import com.bn.service.PlanService;
@@ -144,14 +146,15 @@ public class PlanController {
 	}
 	@ResponseBody
 	@RequestMapping("/tour")
-	public ModelMap showinfo (@RequestParam String x,@RequestParam String y) {
+	public ModelMap showinfo (@RequestParam String x,@RequestParam String y, @RequestParam(required = false) String ctype) {
 		ModelMap map=new ModelMap();
 		try {
-		Map<String,Double> cd=new HashMap<>();
+		Map<String,Object> cd=new HashMap<>();
 		double mapx=Double.parseDouble(x);
 		double mapy=Double.parseDouble(y);
 		cd.put("mapx",mapx);
 		cd.put("mapy",mapy);
+		cd.put("ctype", ctype);
 		List<ContentVo>nd=dService.searchInRange(cd);
 		map.addAttribute("contentList",nd);
 		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
@@ -167,8 +170,29 @@ public class PlanController {
 	    }
 		return map;
 	}
-    
 	
+    @ResponseBody
+    @PostMapping("/registercontent")
+	public int registcontent(@RequestParam ContentVo cvo) {
+    	int n=dService.insertdb(cvo);
+    	
+    	return n;
+    }
+    @ResponseBody
+    @PostMapping("/dpsave")
+    public int dtailplan(@RequestParam DtailPlanVo vo) {
+    	int n=pservice.insertdp(vo);
+    	
+    	return n;
+    }
+    @ResponseBody
+    @PostMapping("/dpretrieve")
+    public int dtailplanretrieve(@RequestParam DtailPlanVo vo) {
+    	int n=pservice.insertdp(vo);
+    	
+    	return n;
+    }
+    
 }
 
 
