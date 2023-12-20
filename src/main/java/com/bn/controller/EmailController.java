@@ -4,14 +4,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bn.service.EmailService;
+import com.bn.service.LoginService;
+import com.bn.service.PasswordEncoder;
+import com.bn.service.SignupService;
 
 @RestController
 public class EmailController {
 
-    private final EmailService emailService;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private SignupService signupService;
+	
+	@Autowired
+	private LoginService loginService;
+	
+	private final EmailService emailService;
 
     @Autowired
     public EmailController(EmailService emailService) {
@@ -52,8 +65,10 @@ public class EmailController {
     public String verifyCode2(String userEmail, String code) {
         boolean isVerified = emailService.verifyCode(userEmail, code);
         if (isVerified == true) {
-        	String password = emailService.returnPass(userEmail);
-            return password;
+        	String pass = emailService.generateVerificationCode();
+        	String temppass = passwordEncoder.encrypt(userEmail, pass);
+        	loginService.tempPass(userEmail, temppass);
+            return pass;
         } else {
             return "failed";
         }

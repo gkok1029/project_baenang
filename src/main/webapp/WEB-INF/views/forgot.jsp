@@ -14,7 +14,7 @@
   <form id="emailForm">
     <label for="email">이메일:</label>
     <input type="email" id="email" name="M_EMAIL" required>
-    <button type="button" onclick="sendEmail()">비밀번호 재설정 코드 요청</button>
+    <button type="button" onclick="sendEmail()">임시 비밀번호 발급 코드 요청</button>
   </form>
   
   <!-- 코드 입력 폼 -->
@@ -46,7 +46,7 @@ function sendEmail() {
             success: function (response) {
                 if (response === 'success') {
                     alert('이메일이 성공적으로 전송되었습니다.');
-                    
+                    isEmailSended = true;
                     // 성공적으로 이메일을 받았을 때 추가적인 동작을 수행할 수 있습니다.
                     // 예를 들어, 이메일 전송 후 다음 단계로 넘어가는 등의 로직을 추가할 수 있습니다.
                 } else if (response === 'failed') {
@@ -83,7 +83,7 @@ function verifyCode() {
         data: { userEmail: userEmail, code: enteredCode },
         success: function(response) {
             if (response !== null && response !== 'failed') {
-                alert('Password는 ' + response + '입니다');
+                alert('임시비밀번호는 ' + response + '입니다');
             } else {
                 if (response === 'failed') {
                     alert('유효하지 않은 코드입니다.');

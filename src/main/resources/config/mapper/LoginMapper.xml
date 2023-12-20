@@ -14,6 +14,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE M_EMAIL = #{M_EMAIL} AND M_PWD = #{M_PWD}
 </select>
 
+<update id="tempPass" parameterType="Map">
+    UPDATE MEMBER
+    SET M_PWD = #{temppass}
+    WHERE M_EMAIL = #{userEmail} 
+</update>
 
 
 

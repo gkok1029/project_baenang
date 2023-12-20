@@ -9,4 +9,6 @@ public interface LoginService {
 	
 	public String loginCheck2(MemberVo member, HttpSession session);
 	
+	public void tempPass(String userEmail, String temppass);
+	
 }
