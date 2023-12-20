@@ -6,6 +6,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <typeAliases>
 	<typeAlias type="com.bn.model.PlanVo" alias="Plan"/>
 	<typeAlias type="com.bn.model.ContentVo" alias="Content"/>
+	<typeAlias type="com.bn.model.DtailPlanVo" alias="Dplan"/>
 </typeAliases>
 
 <mappers>

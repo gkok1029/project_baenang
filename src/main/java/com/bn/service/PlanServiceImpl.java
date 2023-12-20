@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.bn.mapper.PlanMapper;
+import com.bn.model.DtailPlanVo;
 import com.bn.model.PlanVo;
 
 @Service("PlanService")
@@ -31,6 +32,12 @@ public class PlanServiceImpl implements PlanService {
 	public PlanVo selectPlan(int p_id) {
 
 		return this.planmapper.selectPlan(p_id);
+	}
+
+	@Override
+	public int insertdp(DtailPlanVo vo) {
+		// TODO Auto-generated method stub
+		return this.planmapper.insertDp(vo);
 	}
 
 }

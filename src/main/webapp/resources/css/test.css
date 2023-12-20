@@ -3,9 +3,9 @@ html, body {
             height: 100%;
             margin: 0;
             flex:1;
-            display: flex; /* 또는 inline-flex */
-            justify-content: center; /* 수평 가운데 정렬 */
-            align-items: center; /* 수직 가운데 정렬 */
+            display: flex; /* �삉�뒗 inline-flex */
+            justify-content: center; /* �닔�룊 媛��슫�뜲 �젙�젹 */
+            align-items: center; /* �닔吏� 媛��슫�뜲 �젙�젹 */
         }
 div.container{
 	width:100%;
@@ -42,7 +42,7 @@ font-size: 14px;
 .container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 이미지 비율 유지 및 가득 채움 */
+    object-fit: cover; /* �씠誘몄� 鍮꾩쑉 �쑀吏� 諛� 媛��뱷 梨꾩� */
 }
 .map{
 width: 958px;
@@ -100,4 +100,9 @@ height: 734px;
 }
 .cbtn1,.cbtn2,.cbtn3,.cbtn4{
     font-size: 8px;
+}
+#selected-container {
+    width: 270px;
+    height: 734px;
+ 
 }
