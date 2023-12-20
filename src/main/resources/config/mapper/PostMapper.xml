@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bn.mapper.PostMapper">
+
+<select id="getList" resultType="Post">
+	<![CDATA[
+	select * from post where p_id > 0
+	]]>	
+</select>
+
+<insert id="postInsert">
+	INSERT INTO post (p_id, p_title, p_content, p_views, p_credate, p_moddate)
+    VALUES (SEQUENCE_POST.nextval, #{p_title}, #{p_content}, 0, sysdate, sysdate)
+</insert>
+
+<insert id="postInsertSK">
+	<selectKey keyProperty="p_id" order="BEFORE" resultType="_int">
+		select SEQUENCE_POST.nextval from dual
+	</selectKey>
+	INSERT INTO post (p_id, p_title, p_content, p_views, p_credate, p_moddate)
+    VALUES (#{p_id}, #{p_title}, #{p_content}, 0, sysdate, sysdate)
+</insert>
+
+<select id="postRead" resultType="Post">
+	select * from post where p_id = #{p_id}
+</select>
+
+<delete id="postDelete">
+	delete from post where p_id = #{p_id}
+</delete>
+
+<update id="modPost">
+	update post
+	set p_title = #{p_title},
+	p_content = #{p_content},
+	p_moddate = sysdate
+	where p_id = #{p_id}
+	
+</update>
+
+</mapper>
