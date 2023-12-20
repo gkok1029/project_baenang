@@ -439,10 +439,12 @@
 <script>
 	    
 	    $(document).ready(function(){
+	    	
 	    	SidebarModule.initialize();
 			MapModule.initializeMap();
 			ViewStyleModule.showView('#view1', '#btn-step1');
-			DateModalModule.initializeDateModal();	
+			DateModalModule.initializeDateModal();
+			
 			
 			//프레임 감추기
 			$(".add-frame").hide();
@@ -458,9 +460,6 @@
 
 </body>
 <script>
-	$('#main-logo').click(function(){
-		window.location.href='/main';
-	});
 	function myplan(){
 		$.ajax({
 			type :'get',
@@ -585,7 +584,7 @@
 		//var container = document.getElementById('travels-container');
 		// 기존 내용 비우기
 		tcontainer.empty();
-		// 최대 4개까지만 표시
+		// 최대 10개까지만 표시
 		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
 			var content = contentList[i];
 			var contentid=content.contentid;

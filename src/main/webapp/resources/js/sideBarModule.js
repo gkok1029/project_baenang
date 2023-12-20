@@ -32,6 +32,11 @@ let SidebarModule = (function () {
         sidebarElement.appendChild(step3Button);
         sidebarElement.appendChild(nextButton);
         
+        //로고에 이벤트 리스너 추가
+        mainLogoButton.addEventListener('click', function () {        		
+                window.location.href='/main';
+        });
+
         //버튼에 이벤트 리스너 추가
 	    step1Button.addEventListener('click', function () {
 	        ViewStyleModule.showView('#view1', '#btn-step1');
