@@ -7,6 +7,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/mapModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/viewStyleModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/dateModalModule.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/sideBarModule.js"></script>
 <!-- 부트스트랩 JavaScript (Popper.js와 jQuery 포함) -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -25,8 +26,6 @@
 <title>Plan Page</title>
 
 <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${NAVER_MAPS_KEY}"></script>
-
-
 
 <script type="text/javascript">
     // 지도 초기화 함수
@@ -225,8 +224,13 @@
 		top:0; left:0;
 		display:none;
 	}
-	.wrap-search-frame{		
+	.wrap-search-frame{
+		height: 100%;
+		width: 100%;
 		display: flex;
+	}
+	.add-frame{
+		width: 300px;
 	}
 	 
     
@@ -246,22 +250,6 @@
 
 	<!-- 컨테이너  -->
 	<div class="container">
-		<!-- 사이드바 -->
-		<div id="sidebar">
-			<!-- 메인 로고 -->
-			<button id="main-logo"><img class="logo" src="" alt="Main Logo"/></button>
-			<br>
-			<!-- 스탭 1,2,3 버튼 -->
-			<button class="sidebar_button" id="btn-step1" >STEP 1<br>날짜확인</button>
-			<br>
-			<button class="sidebar_button" id="btn-step2" >STEP 2<br>장소확인</button>
-			<br>
-			<button class="sidebar_button" id="btn-step3" >STEP 3<br>숙소설정</button>
-			<br>
-			
-			<!-- 하단 다음버튼 -->
-			<button class="bottom-button">다음</button>
-		</div>
 		<!-- 두번째 프레임 -->
 		<div id="search_frame">
 			<div class="wrap-search-frame">
@@ -418,7 +406,7 @@
 						</div>
 					</div>
 				</div>
-				<div>이건 추가되는 공간</div>
+				<div class="add-frame">이건 추가되는 공간</div>
 			</div><!-- wrap-search-frame -->
 		</div><!-- Search frame -->
 			
@@ -457,30 +445,18 @@
 <script>
 	    
 	    $(document).ready(function(){
-	    	
+	    	SidebarModule.initialize();
 			MapModule.initializeMap();
 			ViewStyleModule.showView('#view1', '#btn-step1');
-			DateModalModule.initializeDateModal();
+			DateModalModule.initializeDateModal();	
+			
+			//프레임 감추기
+			$(".add-frame").hide();
+			
     	});
 	    $('.btn btn-primary').click(function(){
 	    	DateModalModule.saveDates();
 	    });
-	    
-	    
-	    /* STEP 1 버튼 클릭시 */
-	    $("#btn-step1").click(function(){
-	    	ViewStyleModule.showView('#view1','#btn-step1');
-    	});	
-	    	
-	    /* STEP 2 버튼 클릭시 */
-    	$("#btn-step2").click(function(){
-    		ViewStyleModule.showView('#view2','#btn-step2');	
-    	});
-	    	
-    	/* STEP 3 버튼 클릭시 */
-    	$("#btn-step3").click(function(){
-    		ViewStyleModule.showView('.view-step3','#btn-step3');
-    	});
     		
 	</script>
 	<!-- Bootstrap JS (must be placed at the end of the body for faster page loading) -->    
