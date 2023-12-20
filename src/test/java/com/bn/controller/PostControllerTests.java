@@ -32,12 +32,46 @@ public class PostControllerTests {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
 	}
 	
+//	@Test
+//	public void testList() throws Exception {
+//		log.info(
+//			mockMvc.perform(MockMvcRequestBuilders.get("/blog/posts"))
+//			.andReturn()
+//			.getModelAndView()
+//			.getModelMap());
+//	}
+	
+//	@Test
+//	public void testRegister() throws Exception {
+//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/blog/addpost")
+//			.param("p_id", 2)
+//			.param("p_title", "컨트롤러 테스트 새글 제목")
+//			.param("p_content", "컨트롤러 테스트 새글 내용")
+//		).andReturn().getModelAndView().getViewName();
+//		
+//		log.info(resultPage);		
+//	}
+	
+//	@Test
+//	public void testGet() throws Exception {
+//		log.info(mockMvc.perform(MockMvcRequestBuilders
+//			.get("/blog/get")
+//			.param("p_id", "5"))
+//			.andReturn()
+//			.getModelAndView()
+//			.getModelMap());
+//	}
+	
 	@Test
-	public void testList() throws Exception {
-		log.info(
-			mockMvc.perform(MockMvcRequestBuilders.get("/blog/posts"))
-			.andReturn()
-			.getModelAndView()
-			.getModelMap());
+	public void testModify() throws Exception{
+		String resultPage = mockMvc
+			.perform(MockMvcRequestBuilders.post("/blog/modify")
+			.param("p_id", "2")
+			.param("p_title", "CT 수정된 2번 제목")
+			.param("p_content", "CT 수정된 2번 내용")).andReturn().getModelAndView().getViewName();
+		
+		log.info(resultPage);		
 	}
+	
+
 }

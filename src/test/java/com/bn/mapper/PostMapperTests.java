@@ -24,14 +24,22 @@ public class PostMapperTests {
 	 * log.info(post)); }
 	 */
 
-	
 	 @Test public void testInsertPost() { // 테스트에 사용할 데이터 생성 
 		 PostVo post = new PostVo(); 
-		 post.setP_id(4);
 		 post.setP_title("제목제목");
 		 post.setP_content("내용내용");
 	 
 		 mapper.postInsert(post);
+	  
+		 log.info("Inserted Post ID: " + post.getP_id()); 
+	 }
+	
+	 @Test public void testInsertPostSK() { // 테스트에 사용할 데이터 생성 
+		 PostVo post = new PostVo(); 
+		 post.setP_title("제목제목SK");
+		 post.setP_content("내용내용SK");
+	 
+		 mapper.postInsertSK(post);
 	  
 		 log.info("Inserted Post ID: " + post.getP_id()); 
 	 }

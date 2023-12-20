@@ -11,6 +11,8 @@ public interface PostMapper {
 	
 	public void postInsert(PostVo post);
 	
+	public void postInsertSK(PostVo post);
+	
 	public PostVo postRead(int p_id);
 	
 	public int postDelete(int p_id);

@@ -32,14 +32,15 @@ public class PostController {
 		log.info("posts");
 		model.addAttribute("posts", service.getList());
 		
-		return "posts";
+		return "/blog/posts";
 	} 
 	
-//	@GetMapping("/posting")
-//	public void addPost() {		
-//	}
-//	@GetMapping("/posting")
-	@RequestMapping("/posting")
+	@GetMapping("/addpost")
+	public void addPost() {
+		
+	}
+	
+	@RequestMapping("/addpost")
 	public String addPost(PostVo post, RedirectAttributes rttr) {
 		log.info("posting: " + post);
 		
@@ -56,7 +57,7 @@ public class PostController {
 		model.addAttribute("post", service.get(p_id));
 	}
 	
-	@PostMapping("/modifyingpost")
+	@PostMapping("/modify")
 	public String modiPost(PostVo post, RedirectAttributes rttr) {
 		log.info("modifying: " + post);
 		
@@ -72,7 +73,7 @@ public class PostController {
 		log.info("posts");
 		model.addAttribute("posts", service.getList());
 		
-		return "bloghub";
+		return "/blog/bloghub";
 	}
 	
 }
