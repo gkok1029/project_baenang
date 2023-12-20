@@ -18,7 +18,7 @@
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script type="text/javascript"
-	src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${apikey.clientId}"></script>
+	src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${NAVER_MAPS_KEY}"></script>
 
 <title>나는 바보 멍청이</title>
 
@@ -71,6 +71,7 @@
 
 
 		</div>
+		
 		<div class="map" id="map"></div>
 	</div>
 </body>
@@ -217,7 +218,9 @@
 
 	            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
 	            var destinationContainer = document.getElementById("wrapcontainer");
-	            destinationContainer.appendChild(newDiv);
+	            var mapw=document.getElementById("map");
+	            mapw.parentNode.insertBefore(newDiv, mapw);
+	            //destinationContainer.appendChild(newDiv);
 	            //container.append($(newDiv));
 	            newDiv.appendChild(selectedDiv);
 	        } else {
