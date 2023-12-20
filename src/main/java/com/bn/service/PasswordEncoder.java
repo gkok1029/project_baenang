@@ -17,7 +17,7 @@ public class PasswordEncoder {
 
     public String encrypt(String userEmail, String password) {
         try {
-            KeySpec spec = new PBEKeySpec(password.toCharArray(), getSalt(userEmail), 85319, 128);
+            KeySpec spec = new PBEKeySpec(password.toCharArray(), getSalt(userEmail), 88888, 128);
             SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
 
             byte[] hash = factory.generateSecret(spec).getEncoded();
