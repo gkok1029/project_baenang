@@ -239,13 +239,7 @@
 </head>
 <body>
 	
-		<script>
-		var p_id="1";
-		var m_id="1";
-		var p_name="나는 바보야";
-		var p_birth="2023-01-01";
-		var p_moddate="2023-01-01";	
-		</script>
+		
 	
 
 	<!-- 컨테이너  -->
@@ -321,24 +315,24 @@
 	    					</div>
 						</div>
 					</div>
-					<button>여행장소선택</button>
-					<button>새로운 장소 등록</button>
-					<input type="text"  placeholder="내용을 입력하세요"></input>				
+					<button id="">여행장소선택</button>
+					<button id="">새로운 장소 등록</button>
+					<input type="text"  placeholder="내용을 입력하세요" onkeydown="handleEnterKey(event)"></input>				
 					<div class="btns_cat">
-						<button>추천</button>
-						<button>명소</button>
-						<button>식당</button>
-						<button>카페</button>
+						<button id="recomend">추천</button>
+						<button id="" onclick="removeDiv()">명소</button>
+						<button id="">식당</button>
+						<button id="">카페</button>
 					</div>
 					<!-- 장소검색 -->
-					<div class="places">
-						<ul>
-							<!-- 장소 하나하나 -->
+					<div class="places" id="places">
+						<!-- <ul>
+							장소 하나하나
 							<li>
 								<div class="place-container">
-									<!-- 이미지 -->
+									이미지
 									<div><img class="place-img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzExMTRfMzYg%2FMDAxNjk5OTY4OTc2Mzk2.bYxC69S-RhRfWsVazjOSlsj23s3MOwMwJud2pUM2_Fwg.JK9kuLGKJXE2yslbx3Z_9qnrzriouNd0sH0v3acREkUg.JPEG.okayall%2F20231110_163451.jpg&type=sc960_832"></div>
-									<!-- 내용 -->
+									내용
 									<div class="place-details">
 										<div>이름</div>
 										<div class="place-info">
@@ -353,7 +347,7 @@
 									<div><i class="fa-regular fa-square-plus"></i></div>
 								</div>							
 							</li>
-						</ul>
+						</ul> -->
 					</div>
 					</div>					
 				</div>
@@ -530,6 +524,170 @@
 		})
 		
 	}
+	function handleEnterKey(event) {
+		if (event.key === "Enter") {
+			submitForm(); // 엔터 키를 눌렀을 때 submitForm 함수 호출
+		}
+	}
+
+	// 폼 제출 함수
+	function submitForm() {
+		// 여기에 입력값을 처리하는 코드를 추가하면 됩니다.
+		var inputValue = document.querySelector('input[type="text"]').value;
+		$.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : 'search?addr=' + inputValue,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				moveMap(res.x, res.y);
+				tour(res.x, res.y);
+				alert('투어로 간다');
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+
+		})
+
+	}
+	function moveMap(lat, len) {
+		var mapOptions = {
+			center : new naver.maps.LatLng(len, lat),
+			zoom : 10,
+			mapTypeControl : true
+		};
+		map = new naver.maps.Map('map', mapOptions);
+	}
+	function tour(lat, len) {
+		var x = lat;
+		var y = len;
+
+		$.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : 'tour?x=' + x + '&y=' + y,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				displayTourInformation(res.contentList);
+				
+
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+		})
+	}
+	function displayTourInformation(contentList) {
+		var tcontainer = $('#places'); // 새로운 container 추가
+		//var container = document.getElementById('travels-container');
+		// 기존 내용 비우기
+		tcontainer.empty();
+		// 최대 4개까지만 표시
+		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
+			var content = contentList[i];
+			var contentid=content.contentid;
+			var newDiv=createDiv(contentid);
+			// 새로운 div 동적으로 생성
+			/* var newDiv = $('<div>').addClass('traveld').attr('id', 'content' + i).click(function() {
+	        copyDiv('content' + i);
+	    	}); */
+	    
+
+	    	var imgDiv = $('<div>').addClass('travelimg').attr('id', 'img'+contentid);
+
+	    	var textDiv = $('<div>').addClass('traveltext').attr('id', 'text' + contentid);
+			var img = $('<img>').attr('src',content.firstimage || '/resources/images/noimage.PNG');
+			var title = $('<div>').addClass('linea').text('Name: ' + content.title);
+			var addr = $('<div>').addClass('lineb').text('Location: ' + content.addr);
+			var heart = $('<div>').addClass('linec').text('하트 별');
+			
+			// 생성한 div에 정보 추가
+			imgDiv.append(img);
+			textDiv.append(title, addr, heart);
+			newDiv.append(imgDiv, textDiv);
+			console.log(tcontainer);
+			tcontainer.append(newDiv);
+			
+			 var marker = new naver.maps.Marker({
+		            position: new naver.maps.LatLng(content.mapy, content.mapx),
+		            map: map
+		        });
+
+		        // 클로저를 사용하여 정보창 내용 설정
+		        (function (marker, title) {
+		            var infoWindow = new naver.maps.InfoWindow({
+		                content: '<div style="width:150px;text-align:center;padding:10px;"><b>"' + title + '"</b>.</div>'
+		            });
+
+		            naver.maps.Event.addListener(marker, 'click', function () {
+		                infoWindow.open(map, marker);
+		            });
+		        })(marker, content.title);
+
+		}
+
+		// 추가로 필요한 정보는 여기에 계속 추가할 수 있습니다.
+	}
 	
+function createDiv(contentid) {
+	    var newDiv = $('<div>').addClass('traveld').attr('id', contentid).click(function() {
+	        copyDiv(contentid);
+	        
+	    });
+
+
+	    // 생성된 div들을 어딘가에 추가하거나 반환할 수 있음
+		return newDiv;
+} 
+function copyDiv(sourceDivId) {
+	var id=sourceDivId;
+    // 클릭된 div의 내용을 가져오기	    
+    var sourceDiv = document.getElementById(id);
+    var divText = sourceDiv.innerHTML.trim();
+    
+    // selected-container 요소 찾기
+    var targetDiv = document.getElementById('selected-container');
+    
+    // 내용이 있는 경우에만 실행
+    if (divText !== "") {
+        // selected-container가 없을 경우
+        if (!targetDiv) {
+            // 새로운 div 생성
+            var newDiv = document.createElement('div');
+            newDiv.id = 'selected-container';
+
+            var selectedDiv = document.createElement('div');
+            selectedDiv.className = 'selected';
+            selectedDiv.innerHTML = divText;
+
+            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
+            var destinationContainer = document.getElementById("wrapcontainer");
+            var mapw=document.getElementById("map");
+            mapw.parentNode.insertBefore(newDiv, mapw);
+            //destinationContainer.appendChild(newDiv);
+            //container.append($(newDiv));
+            newDiv.appendChild(selectedDiv);
+        } else {
+            // 이미 존재하는 selected-container에 내용 추가
+            var selectedDiv = document.createElement('div');
+            selectedDiv.className = 'selected';
+            selectedDiv.innerHTML = divText;
+
+            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
+            targetDiv.appendChild(selectedDiv);
+        }
+    }
+}
+function removeDiv() {
+    var Div=document.getElementById("selected-container");
+	var parent = Div.parentNode;
+    
+    if (parent) {
+        parent.removeChild(Div);
+    }
+}
 </script>
 </html>
