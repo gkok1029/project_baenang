@@ -9,6 +9,9 @@
 <html>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<!-- 외부 CSS 파일 참조 -->
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css">
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -18,7 +21,6 @@
 	    // 페이지 로드 시 초기 추천 기능 실행
 	    rec();
 	});
-
 	
 	function rec(){
 		$.ajax({
@@ -51,7 +53,7 @@
 <head>
     <meta charset="UTF-8">
     <title>메인페이지</title>
-    <style>
+<!--     <style>
         div{
         	border: 1px solid red;
         }
@@ -85,13 +87,18 @@
         #blog-container {
             margin-top: 20px;
         }
-        
         img .item{
         		    /* 각각의 아이템 스타일 */
 		    margin-right: 20px; /* 각 아이템 간격 설정 */
 	        width: 200px; 
 	        height: 200px;
         }
+         .citiesImg{
+	        width: 30%; /* 이미지가 부모 요소에 꽉 차게 됩니다. */
+	        height: auto; /* 가로 비율 유지하면서 세로 비율을 조절합니다. */
+	        border: 2px solid blue; /* 예시: 테두리 스타일을 추가합니다. */
+	      	margin-top: 20px;
+	    }
         li{
         	list-style: none;
         }
@@ -113,7 +120,7 @@
 		    margin-bottom: 10px; /* 각 div 간격 조절 */
 		}
         
-    </style>
+    </style> -->
 </head>
 
 <body>
@@ -191,13 +198,22 @@
 
 <div>
     <a href="#" id="Seoul" name="Seoul" class="city" onclick="openPopup('Seoul')">
-    	<img src="${pageContext.request.contextPath}/resources/img/a.jpg" alt="Seoul Image">
+    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png" alt="Seoul Image">
 	</a>
 	<a href="#" id="Busan" name="Busan" class="city" onclick="openPopup('Busan')">
-    	<img src="${pageContext.request.contextPath}/resources/img/b.jpg" alt="Seoul Image">
+    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Busan.png" alt="Seoul Image">
 	</a>
 	<a href="#" id="Daejeon" name="Daejeon" class="city" onclick="openPopup('Daejeon')">
-    	<img src="${pageContext.request.contextPath}/resources/img/c.png" alt="Seoul Image">
+    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Daejeon.png" alt="Seoul Image">
+	</a>
+	<a href="#" id="Incheon" name="Incheon" class="city" onclick="openPopup('Incheon')">
+    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Incheon.png" alt="Seoul Image">
+	</a>
+	<a href="#" id="Gwangju" name="Gwangju" class="city" onclick="openPopup('Gwangju')">
+    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gwangju.png" alt="Seoul Image">
+	</a>
+	<a href="#" id="Gangwon" name="Gangwon" class="city" onclick="openPopup('Gangwon')">
+    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gangwon.png" alt="Seoul Image">
 	</a>
 </div>
 
