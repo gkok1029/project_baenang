@@ -40,6 +40,12 @@
 		<property name="mapperLocations"
 			value="classpath:com/bn/mapper/*.xml" />
 	</bean>
+	
+	<!-- [5] SqlSessionTemplate 등록 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg  index="0" ref="sqlSessionFactory" />
+	</bean>
+	
 	<!--[6]mybatis-spring:scan설정[나중에 설정할 예정] -->
 	<!-- 여기에 설정된 패키지안의 인터페이스들을 scan해서 해당 인터페이스를 상속받는 객체(Proxy)를 스프링이 대신 만들어준다 -->
 	<mybatis-spring:scan base-package="com.bn.mapper" />
