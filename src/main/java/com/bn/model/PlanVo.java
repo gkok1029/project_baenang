@@ -1,16 +1,21 @@
 package com.bn.model;
 
 import java.util.Date;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PlanVo {
 	
-	int p_id;//ÇÃ·£¾ÆÀÌµð
-	int m_id;//È¸¿ø¾ÆÀÌµð
-	String p_name;//ÇÃ·£ÀÌ¸§
-	String p_birth;//ÇÃ·£»ý¼ºÀÏ
-	Date p_moddate;//ÇÃ·£¼öÁ¤ÀÏ
+	int p_id;//ï¿½Ã·ï¿½ï¿½ï¿½ï¿½Ìµï¿½
+	int m_id;//È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
+	String p_name;//ï¿½Ã·ï¿½ï¿½Ì¸ï¿½
+	Date p_birth;//ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	Date p_moddate;//ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	
 }

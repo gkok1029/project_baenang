@@ -1,7 +1,5 @@
 package com.bn.controller;
 
-
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -11,13 +9,14 @@ import java.nio.charset.StandardCharsets;
 
 import javax.inject.Inject;
 
-import org.apache.ibatis.reflection.SystemMetaObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bn.model.ContentVo;
@@ -31,7 +30,6 @@ import com.google.gson.JsonParser;
 public class DbController {
 	
 	private Logger log=LoggerFactory.getLogger(getClass());
-	
 	
 	
 	@Inject
@@ -100,22 +98,24 @@ public class DbController {
 							vo.setFirstimage(firstimage);
 							vo.setMapx(mapx);
 							vo.setMapy(mapy);
+							
 							if(contentid!=null) {
 							int n= dService.insertdb(vo);
+							System.out.println(n);
 							}else {
-								System.out.println("µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
+								System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 								
 							}
 							}
 					} else {
-						System.out.println("µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
+						System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 					}
 				} else {
-					System.out.println("API ¿äÃ»ÀÌ ½ÇÆÐÇß½À´Ï´Ù.");
+					System.out.println("API ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.");
 				}
 			
 		} else {
-			System.out.println("API ¿äÃ»ÀÌ ½ÇÆÐÇß½À´Ï´Ù. ÀÀ´ä ÄÚµå: " + responseCode);
+			System.out.println("API ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½: " + responseCode);
 		}
 				
 
@@ -126,7 +126,9 @@ public class DbController {
 			
 		}
 		
-		return "³ª´Â¹Ùº¸¸ÛÃ»ÀÌ¾ß";
+		return "ï¿½ï¿½ï¿½Â¹Ùºï¿½ï¿½ï¿½Ã»ï¿½Ì¾ï¿½";
 	}
+	
+	
 	
 }

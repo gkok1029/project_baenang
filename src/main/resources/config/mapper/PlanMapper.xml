@@ -6,9 +6,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.bn.mapper.PlanMapper">
 
 	<insert id="insert" parameterType="Plan">
-	insert into plan values(#{p_id},#{m_id},#{p_name]},#{p_birth},#{p_moddate})
+	insert into planner values(#{p_id},#{m_id},#{p_name},sysdate,sysdate)
 	</insert>
-	<select id="selectByPlanid" parameterType="string" resultType="Plan">
+	
+	<select id="selectPlan" parameterType="_int" resultType="Plan">
+	 	select * from planner where p_id=#{p_id} 
+	</select>
+	
+	<select id="selectAll" parameterType="_int" resultType="Plan">
+		select * from planner where m_id=#{m_id}
+	</select>
+	
+	<insert id="insertDp" parameterType="Dplan">
+	insert into dtail_planner values(#{dp_id},#{p_id},#{contentid},#{dp_day},#{dp_start},#{dp_end},#{dp_num})
+	</insert>
 
-</select>
 </mapper>

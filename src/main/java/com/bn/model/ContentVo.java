@@ -1,12 +1,13 @@
 package com.bn.model;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Data;
 
 @Data
 public class ContentVo {
 	
 	public ContentVo() {
-		
 		
 	}
 	
@@ -22,4 +23,5 @@ public class ContentVo {
 	String firstimage;
 	String mapx;
 	String mapy;
+
 }

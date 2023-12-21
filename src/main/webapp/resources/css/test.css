@@ -1,0 +1,108 @@
+html, body {
+			width:100%;
+            height: 100%;
+            margin: 0;
+            flex:1;
+            display: flex; /* �삉�뒗 inline-flex */
+            justify-content: center; /* �닔�룊 媛��슫�뜲 �젙�젹 */
+            align-items: center; /* �닔吏� 媛��슫�뜲 �젙�젹 */
+        }
+div.container{
+	width:100%;
+   	flex: 1;
+    display: flex;
+}
+button{
+    border-radius: 6px;
+    opacity: 0.55;
+}
+.sidebar{
+width: 78px;
+height: 734px;
+column-gap: 25px;
+font-size: 14px;
+}
+.sidebtn1{
+    margin-top: 25px;
+}
+.sidebtn1,.sidebtn2,.sidebtn3{
+    width: 78px;
+    height: 46px;
+    margin-bottom: 25px;
+}
+.content{
+    width: 270px;
+    height: 734px;
+}
+.sel{
+    width: 270px;
+    height: 734px;
+
+}
+.container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* �씠誘몄� 鍮꾩쑉 �쑀吏� 諛� 媛��뱷 梨꾩� */
+}
+.map{
+width: 958px;
+height: 734px;
+}
+.btndiv{
+    display: flex;
+}
+.selbtn{
+    width: 93px;
+    height: 23px;
+    font-size: 8px;
+
+}
+.rebtn{
+    width: 103px;
+    height: 23px;
+    font-size: 8px;
+}
+.traveld{
+    width: 197px;
+    height: 61px;
+    display: flex;
+   
+}
+.travelimg{
+    margin-top: 8px;
+    margin-left: 12px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    width: 49px;
+    height: 45px;
+}
+.traveltext{
+    width: 88px;
+    height: 45px;
+
+
+}
+.linea{
+    width: 88px;
+    height: 20px;
+    font-size: 16px;
+    margin-top: 11px;
+}
+.lineb{
+    width: 88px;
+    height: 9px;
+    font-size: 8px;
+}
+.linec{
+    width: 88px;
+    height: 4px;
+    font-size: 4px;
+}
+.cbtn1,.cbtn2,.cbtn3,.cbtn4{
+    font-size: 8px;
+}
+#selected-container {
+    width: 270px;
+    height: 734px;
+ 
+}
