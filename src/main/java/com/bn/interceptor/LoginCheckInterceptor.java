@@ -27,7 +27,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor{
         		   return true;
         	   }
         }
-      	request.setAttribute("msg", "·Î±×ÀÎÇØ¾ß ÀÌ¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù");
+      	request.setAttribute("msg", "ë¡œê·¸ì¸ í›„ ì´ìš©í•´ì£¼ì„¸ìš”.");
       	String loc=request.getContextPath()+"/login";
 		request.setAttribute("loc", loc);
 		RequestDispatcher disp=request.getRequestDispatcher("/WEB-INF/views/message.jsp");

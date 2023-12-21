@@ -28,8 +28,15 @@ public class MainController {
 		return "sample";
 	}
 	
-	@RequestMapping(value = "/main")
-	public String home() {
+	@RequestMapping("/main")
+	public String onMain() {
+		
+		return "main";
+	}
+	
+	@RequestMapping("/user/main")
+	public String goMain() {
+		
 		return "main";
 	}
 	
