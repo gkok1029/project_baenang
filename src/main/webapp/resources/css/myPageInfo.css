@@ -1,0 +1,65 @@
+@charset "UTF-8";
+*{margin:0; padding:0;}
+a{text-decoration: none;}
+.cursor{cursor: pointer;}
+header{position: relative;}
+header #top{padding:10px 0; height:20px; width:100%; position:relative;}
+header #top .profile{position:absolute; right: 5%;}
+header #topbg{width:100%; height: 150px; background: skyblue;}
+header #topcenprowrap{width: 100%; height: auto;}
+header #topcenpro{
+    width: 100%; height: auto; text-align: center; margin-bottom: 44px;
+}
+header #topcenpro p.profile_img span{
+    width: 100px; border-radius: 50%; height: 100px; line-height: 100px; display: inline-block;
+    background-color: gray;
+}
+header #topcenpro p.profile_img span img{height: 100px;}
+header #topcenpro p.username{margin: 12px 0;}
+header #topcenpro p.username span{font-size: larger;}
+header #topcenpro p.profilemanage span{font-weight: 600;}
+
+
+main{width: 100%;}
+main #wrap{padding: 0 20%; }
+main #wrap #innerwrap div.joinday{display: flex; flex-direction: row-reverse; padding-bottom: 18px;}
+main #formContainer #userTable{
+    width: 100%;
+}
+main #formContainer #userTable tr{
+    height: 30px;
+}
+main #formContainer #userTable th{
+    width: 20%; text-align: end;
+}
+main #formContainer #userTable td{
+    width: 80%; padding-left: 12px; box-sizing: border-box;
+}
+main  #formContainer #userTable td.pwdtd,main  #formContainer #userTable td.emailtd{
+    position: relative;
+}
+main #formContainer #userTable td input{
+    width: 100%; height: 100%; font-size: 16px;
+}
+main #formContainer #userTable td.pwdtd button,main #formContainer #userTable td.emailtd button{
+    position: absolute; right: -53px; top: 10%; width: 40px;
+    border: none; border-radius: 15px; height: 95%; background-color: rgb(163, 247, 253);
+    cursor: pointer; line-height: 28.5px;
+}
+main #formContainer #userTable td.pwdtd button{
+    top: 2%;
+}
+
+main #bottomContainer{width: 100%; padding-top: 34px;}
+main #formBottom{
+    display: flex; width: 100%; justify-content: space-evenly;
+}
+main #formBottom button{
+    background-color: rgb(163, 247, 253); flex-basis: 30%;
+    height: 32px; cursor: pointer; border-radius: 15px; border: none;
+}
+main #formContainer #userTable td.pwdtd button:hover,
+main #formContainer #userTable td.emailtd button:hover,
+main #formBottom button:hover{
+    background-color: rgb(144, 211, 214);
+}
