@@ -311,10 +311,8 @@
 			cache : false,
 			processData : true,
 			success : function(res) {
-				MapModule.moveMap(res.x, res.y);
 				PlanModule.tour(res.x, res.y);
 				lodging(res.x,res.y);
-				alert('투어로 간다');
 			},
 			error : function(err) {
 				alert('error: ' + err.status);
@@ -337,8 +335,7 @@
 			cache : false,
 			processData : true,
 			success : function(res) {
-				
-				//displayLodgingInformation(res.contentList);
+				PlanModule.displayLodgingInformation(res.contentList,x,y);
 				
 
 			},

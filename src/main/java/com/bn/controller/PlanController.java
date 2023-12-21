@@ -151,16 +151,12 @@ public class PlanController {
 		Map<String,Object> cd=new HashMap<>();
 		double mapx=Double.parseDouble(x);
 		double mapy=Double.parseDouble(y);
-		if(ctype!=null &&ctype!="") {
-		int contenttypeid=Integer.parseInt(ctype);
-		cd.put("contenttypeid", contenttypeid);
-		}
 		cd.put("mapx",mapx);
 		cd.put("mapy",mapy);
+		cd.put("ctype", ctype);
 		List<ContentVo>nd=dService.searchInRange(cd);
 		map.addAttribute("contentList",nd);
 		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
-		System.out.println(map.toString());
 		}catch (NumberFormatException e) {
 	        // 숫자 변환 중 예외 발생 시 처리
 	        map.addAttribute("error", "Invalid coordinates. Please provide valid numeric values for x and y.");
