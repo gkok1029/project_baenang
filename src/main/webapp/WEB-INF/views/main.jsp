@@ -17,6 +17,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script>
 
+	<%-- --------------------------- 페이지 로드 시 트렌드 관광지 출력기능 ------------------------------ --%>
+	
 	$(document).ready(function() {
 	    // 페이지 로드 시 초기 추천 기능 실행
 	    rec();
@@ -49,9 +51,37 @@
 	    // 팝업 창 열기
 	    window.open(popupUrl, "CitySearchPopup", popupOption);
 	}
+	<%-- --------------------------------------------------------------------------------------- --%>	
+	
+	<%-- ------------------------관광지 검색기능 ------------------------- --%>
+	
+	// #search-box 입력 시마다 호출되는 함수
+	function onKeywordInput() {
+	    var keyword = document.getElementById('search-box').value;
+
+	    // AJAX를 사용하여 서버에 요청
+	    $.ajax({
+	        type: 'get',
+	        //dataType: 'text',
+	        url: 'search?keyword=' + keyword,
+	        cache: false,
+	        processData: true,
+	        success: function (title) {
+	            // 받은 결과를 dropdown에 표시
+	           	//alert("반환된 값 : "+title.title);
+	            //updateDropdown(title.title);
+	            $("#search_content").empty();
+	            $("#search_content").append(title.title);
+	        },
+	        error: function (err) {
+	            console.error('Error: ' + err.status);
+	        }
+	    });
+	}
+	
+	<%-- --------------------------------------------------------- --%>
+	
 </script>
-
-
 
 <head>
     <meta charset="UTF-8">
@@ -59,17 +89,16 @@
 </head>
 
 <body>
-
+<%-- -------------------------------- 탑 네비게이션 -------------------------------- --%>
 	<%
 		// 세션을 가져옵니다
 		HttpSession currentSession = request.getSession();
 		
 		// 사용자가 로그인했는지 확인합니다
 		String userId = (String) currentSession.getAttribute("userName");
-		System.out.println("'"+userId+"'님 반갑습니다~!");
+        System.out.println("'"+userId+"'님 반갑습니다~!");
     	boolean isLoggedIn = userId != null;
 	%>
-
 	<div id="navi" class="navi">
 		<a href="#">여행지</a>
 		<a href="/blog/bloghub">블로그</a><!-- 블로그페이지 허브로 이동 -->
@@ -81,7 +110,6 @@
     <% } else { %>
         <a href="/login">로그인</a>
     <% } %>
-
 	</div>
 	
 	<div class="navi">
@@ -89,6 +117,10 @@
 		<a href="../dbbutton">DBDownload</a>
 
 	</div>
+
+<%-- ----------------------------------------------------------------------------- --%>
+
+<%-- ---------------------------- 검색 관련 뷰페이지 컨텐트 ---------------------------- --%>
 
     <div id="search-container" class="justify-content-center align-items-center">
 		<div>
@@ -98,10 +130,10 @@
 	        <form action="search.jsp" method="GET">
 	        		<input type="text" id="search-box" name="keyword" placeholder="도시명을 검색해보세요."
 				       class="form-control dropdown-toggle" data-toggle="dropdown" 
-				       aria-haspopup="true" aria-expanded="false">
+				       aria-haspopup="true" aria-expanded="false" oninput="onKeywordInput()">
 	            
 	           	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				    <a class="dropdown-item" href="#" id="recommand"></a>
+				    <a class="dropdown-item" id="search_content" href="#" id="recommand"></a>
 				    <a class="dropdown-item" href="#">최근 트렌드 순위 2</a>
 				    <a class="dropdown-item" href="#">최근 트렌드 순위 3</a>
 				    <a class="dropdown-item" href="#">최근 트렌드 순위 4</a>
@@ -112,6 +144,8 @@
 	        </form>
         </div>
     </div>
+    
+<%-- ----------------------------------------------------------------------------- --%>    
 
 <%-- --------------- 블로그 썸네일을 가져와 보여주는 기능 ------------------- --%>
 <%

@@ -6,4 +6,6 @@ import java.util.Map;
 public interface MainService {
 	
 	public String rec(String contentid);
+
+	public String search(String title);
 }

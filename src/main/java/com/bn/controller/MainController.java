@@ -1,9 +1,7 @@
 package com.bn.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -13,10 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.bn.service.MainServiceImpl;
 
+import lombok.extern.log4j.Log4j;
+
+@Log4j
 @Controller
 public class MainController {
 
@@ -54,4 +54,23 @@ public class MainController {
 		map.addAttribute("title", title);
 		return map;
 	}
+
+	
+	 @ResponseBody
+	 @GetMapping("/search") public ModelMap search(@RequestParam String keyword) {
+		 ModelMap result = new ModelMap(); String title = msi.search(keyword);
+		 log.info(title); result.put("title", title); log.info("result : "+result);
+		  
+		 return result;
+	 }
+	 
+	
+	/*
+	 * @ResponseBody
+	 * 
+	 * @GetMapping("/search") public String search(@RequestParam String keyword) {
+	 * 
+	 * return msi.search(keyword); }
+	 */
+	
 }
