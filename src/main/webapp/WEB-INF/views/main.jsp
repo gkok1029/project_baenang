@@ -50,93 +50,44 @@
 	    window.open(popupUrl, "CitySearchPopup", popupOption);
 	}
 </script>
+
+
+
 <head>
     <meta charset="UTF-8">
     <title>메인페이지</title>
-<!--     <style>
-        div{
-        	border: 1px solid red;
-        }
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .navi {
-            background-color: #f8f9fa;
-            padding: 10px;
-            text-align: center;
-        }
-        .navi a {
-            margin-right: 10px;
-            text-decoration: none;
-            color: #007bff;
-        }
-        
-        #search-container {
-            text-align: center;
-            margin-top: 50px;
-        }
-        #search-box {
-            padding: 10px;
-            width: 300px;
-            font-size: 16px;
-        }
-        #search-button {
-            padding: 10px;
-            font-size: 16px;
-        }
-        #blog-container {
-            margin-top: 20px;
-        }
-        img .item{
-        		    /* 각각의 아이템 스타일 */
-		    margin-right: 20px; /* 각 아이템 간격 설정 */
-	        width: 200px; 
-	        height: 200px;
-        }
-         .citiesImg{
-	        width: 30%; /* 이미지가 부모 요소에 꽉 차게 됩니다. */
-	        height: auto; /* 가로 비율 유지하면서 세로 비율을 조절합니다. */
-	        border: 2px solid blue; /* 예시: 테두리 스타일을 추가합니다. */
-	      	margin-top: 20px;
-	    }
-        li{
-        	list-style: none;
-        }
-        .blog-con{
-         	display: flex;
-		    overflow-x: auto; /* 수평 스크롤을 허용 */
-		    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-        }
-        
-        #search-container {
-		    display: flex;
-		    flex-direction: column;
-		    align-items: center;
-		    text-align: center;
-		    margin-top: 50px;
-		}
-		
-		#search-container div {
-		    margin-bottom: 10px; /* 각 div 간격 조절 */
-		}
-        
-    </style> -->
 </head>
 
 <body>
+
+	<%
+		// 세션을 가져옵니다
+		HttpSession currentSession = request.getSession();
+		
+		// 사용자가 로그인했는지 확인합니다
+		String userId = (String) currentSession.getAttribute("userName");
+		System.out.println("'"+userId+"'님 반갑습니다~!");
+    	boolean isLoggedIn = userId != null;
+	%>
+
 	<div id="navi" class="navi">
 		<a href="#">여행지</a>
-		<a href="#">블로그</a><!-- 블로그페이지 허브로 이동 -->
-		<a href="#">스케쥴</a><!-- 여행계획페이지 일정선택으로 이동 -->
-		<a href="#">로그인</a>
-		<a href="#">로그아웃</a>
+		<a href="/blog/bloghub">블로그</a><!-- 블로그페이지 허브로 이동 -->
+		<a href="/plan">스케쥴</a><!-- 여행계획페이지 일정선택으로 이동 -->
+    <%-- 사용자가 로그인한 경우 적절한 링크를 보여줍니다 --%>
+    <% if (isLoggedIn) { %>
+    	<a href="/user/mypage">마이페이지</a>
+        <a href="/logout">로그아웃</a>
+    <% } else { %>
+        <a href="/login">로그인</a>
+    <% } %>
 
 	</div>
 	
 	<div class="navi">
 		<a href="../">Home</a>
 		<a href="../dbbutton">DBDownload</a>
-		<a href="../plan">plan</a>
+
 	</div>
 
     <div id="search-container" class="justify-content-center align-items-center">
@@ -162,6 +113,7 @@
         </div>
     </div>
 
+<%-- --------------- 블로그 썸네일을 가져와 보여주는 기능 ------------------- --%>
 <%
     // 이미지 파일이 있는 폴더 경로
     String imgFolderPath = getServletContext().getRealPath("/resources/img");
@@ -173,8 +125,6 @@
     // 이미지 파일 목록을 JSP 페이지로 전달
     request.setAttribute("imageFiles", imgFiles);
 %>
-
-
 
 <div id="blog-container">
     <p>블 로 그</p>
@@ -196,6 +146,9 @@
 	</div>
 </div>
 
+<%-- --------------------------------------------------------------- --%>
+
+<%-- --------------- 특정 도시에 대한 이미지와 정보를 보여주는 팝업창으로 이동시켜주는 기 ------------------- --%>
 <div>
     <a href="#" id="Seoul" name="Seoul" class="city" onclick="openPopup('Seoul')">
     	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png" alt="Seoul Image">
@@ -216,6 +169,6 @@
     	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gangwon.png" alt="Seoul Image">
 	</a>
 </div>
-
+<%-- --------------------------------------------------------------------------------------- --%>
 </body>
 </html>
