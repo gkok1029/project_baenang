@@ -36,19 +36,20 @@ import com.google.gson.JsonParser;
 import lombok.extern.log4j.Log4j;
 
 
-@PropertySource("classpath:/config/props/apiKey.properties")
+
 @Controller
 @Log4j
+@PropertySource("classpath:/config/props/apiKey.properties")
 public class PlanController {
-	
-	@Value("${NAVER_MAPS_KEY}")
-	private String NAVER_MAPS_KEY;
-
-	@Value("${NAVER_MAPS_SECRET_KEY}")
-	private String NAVER_MAPS_SECRET_KEY;
 	
 	@Inject
 	private PlanService pservice;
+	
+	@Value("${NAVER_MAPS_KEY}")
+	private String NAVER_MAPS_KEY;
+	
+	@Value("${NAVER_MAPS_SECRET_KEY}")
+	private String NAVER_MAPS_SECRET_KEY;
 	
 	@Inject
 	private DbService dService;
@@ -56,7 +57,7 @@ public class PlanController {
 	private PlanVo pvo;
 	
 	private ContentVo cvo;
-	
+
 	@GetMapping("/plan")
 	public String plan(Model model) {
 		model.addAttribute("NAVER_MAPS_KEY", NAVER_MAPS_KEY);
@@ -74,7 +75,6 @@ public class PlanController {
 		
 		return x;
 	}
-	
 	@ResponseBody
 	@RequestMapping("/myplan")
 	public ModelMap myplan(@RequestParam("p_id") int p_id) {
@@ -84,7 +84,6 @@ public class PlanController {
 		map.addAttribute("vo",pvo);
 		return map;
 	}
-	
 	@ResponseBody
 	@RequestMapping("/memberplan")
 	public ModelMap memberplan(@RequestParam("m_id") int m_id) {
@@ -174,6 +173,8 @@ public class PlanController {
 		return map;
 	}
 	
+
+
 	
     @ResponseBody
     @PostMapping("/registercontent")

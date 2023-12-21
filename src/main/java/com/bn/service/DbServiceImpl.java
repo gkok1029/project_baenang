@@ -24,6 +24,7 @@ public class DbServiceImpl implements DbService {
 	 
 	@Override
 	public List<ContentVo> searchInRange(Map<String, Object> cd) {
+
 		return this.contentMapper.searchInRange(cd);
 	}
 
