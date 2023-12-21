@@ -12,6 +12,11 @@ body{
     height: 100%;
     max-width:2400px;        
 }
+.container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지 비율 유지 및 가득 채움 */
+}
 #sidebar {
     height: 100vh;
     width: 100px;
@@ -23,10 +28,45 @@ body{
     padding-top: 20px;
     padding-right: 10px;
 }
+.traveld{
+    width: 250px;
+    height: 100px;
+    display: flex;
+   
+}
+.travelimg{
+    margin-top: 8px;
+    margin-left: 12px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    width: 90px;
+    height: 90px;
+}
+.traveltext{
+    width: 88px;
+    height: 45px;
 
+
+}
+.linea{
+    width: 88px;
+    height: 20px;
+    font-size: 16px;
+    margin-top: 11px;
+}
+.lineb{
+    width: 88px;
+    height: 9px;
+    font-size: 8px;
+}
+.linec{
+    width: 88px;
+    height: 4px;
+    font-size: 4px;
+}
 .logo {
     margin-bottom: 20px;
-    width: 150px; /* 로고 크기 조절 */
+    width: 150px; /* 濡쒓퀬 �겕湲� 議곗젅 */
 }
 
 .sidebar_button {
@@ -71,9 +111,9 @@ li{
 }
 .place-container {
     display: flex;
-    justify-content: space-between; /* 각 자식 요소를 최대한 넓게 배치합니다. */
-    align-items: center; /* 자식 요소를 수직 중앙 정렬합니다. */
-    margin-bottom: 20px; /* 각 place-container 사이에 간격을 주기 위한 마진 설정 */
+    justify-content: space-between; /* 媛� �옄�떇 �슂�냼瑜� 理쒕��븳 �꼻寃� 諛곗튂�빀�땲�떎. */
+    align-items: center; /* �옄�떇 �슂�냼瑜� �닔吏� 以묒븰 �젙�젹�빀�땲�떎. */
+    margin-bottom: 20px; /* 媛� place-container �궗�씠�뿉 媛꾧꺽�쓣 二쇨린 �쐞�븳 留덉쭊 �꽕�젙 */
 }
 .place-img{
     width: 60px;
@@ -82,7 +122,7 @@ li{
 .place-details {
     flex: 1;
     margin-left: 10px;        
-    flex-direction: column; /* 세로로 배치하도록 설정 */
+    flex-direction: column; /* �꽭濡쒕줈 諛곗튂�븯�룄濡� �꽕�젙 */
     font-size: 13px;
 }
 
@@ -103,17 +143,17 @@ li{
 }
 
 .places {
-    width: 300px; /* 원하는 가로 크기 지정 */
-    height: 621px; /* 원하는 세로 크기 지정 */
-    overflow-y: auto; /* 세로 스크롤바 활성화 */
-    padding: 10px; /* 내용과 테두리 사이의 간격 */
+    width: 300px; /* �썝�븯�뒗 媛�濡� �겕湲� 吏��젙 */
+    height: 621px; /* �썝�븯�뒗 �꽭濡� �겕湲� 吏��젙 */
+    overflow-y: auto; /* �꽭濡� �뒪�겕濡ㅻ컮 �솢�꽦�솕 */
+    padding: 10px; /* �궡�슜怨� �뀒�몢由� �궗�씠�쓽 媛꾧꺽 */
 }
 
 .hotel-container {
     display: flex;
-    justify-content: space-between; /* 각 자식 요소를 최대한 넓게 배치합니다. */
-    align-items: center; /* 자식 요소를 수직 중앙 정렬합니다. */
-    margin-bottom: 20px; /* 각 place-container 사이에 간격을 주기 위한 마진 설정 */
+    justify-content: space-between; /* 媛� �옄�떇 �슂�냼瑜� 理쒕��븳 �꼻寃� 諛곗튂�빀�땲�떎. */
+    align-items: center; /* �옄�떇 �슂�냼瑜� �닔吏� 以묒븰 �젙�젹�빀�땲�떎. */
+    margin-bottom: 20px; /* 媛� place-container �궗�씠�뿉 媛꾧꺽�쓣 二쇨린 �쐞�븳 留덉쭊 �꽕�젙 */
 }
 .hotel-img{
     width: 60px;
@@ -122,7 +162,7 @@ li{
 .hotel-details {
     flex: 1;
     margin-left: 10px;        
-    flex-direction: column; /* 세로로 배치하도록 설정 */
+    flex-direction: column; /* �꽭濡쒕줈 諛곗튂�븯�룄濡� �꽕�젙 */
     font-size: 13px;
 }
 
@@ -143,10 +183,10 @@ li{
 }
 
 .hotels {
-    width: 300px; /* 원하는 가로 크기 지정 */
-    height: 621px; /* 원하는 세로 크기 지정 */
-    overflow-y: auto; /* 세로 스크롤바 활성화 */
-    padding: 10px; /* 내용과 테두리 사이의 간격 */
+    width: 300px; /* �썝�븯�뒗 媛�濡� �겕湲� 吏��젙 */
+    height: 621px; /* �썝�븯�뒗 �꽭濡� �겕湲� 吏��젙 */
+    overflow-y: auto; /* �꽭濡� �뒪�겕濡ㅻ컮 �솢�꽦�솕 */
+    padding: 10px; /* �궡�슜怨� �뀒�몢由� �궗�씠�쓽 媛꾧꺽 */
 }
 .modal{
     position:absolute;
