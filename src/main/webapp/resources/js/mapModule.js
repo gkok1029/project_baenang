@@ -39,7 +39,17 @@ let MapModule = (function () {
         return { width: width, height: height };
     }
 
+    function moveMap(lat, len) {
+		var mapOptions = {
+			center : new naver.maps.LatLng(len, lat),
+			zoom : 10,
+			mapTypeControl : true
+		};
+		map = new naver.maps.Map('map', mapOptions);
+	}
+
     return {
-        initializeMap: initializeMap
+        initializeMap: initializeMap,
+        moveMap : moveMap
     };
 })();
