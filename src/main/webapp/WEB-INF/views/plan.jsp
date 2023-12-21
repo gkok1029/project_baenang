@@ -613,11 +613,11 @@
 		$.ajax({
 			type : 'get',
 			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y+'&ctype'+ctype,
+			url : 'tour?x=' + x + '&y=' + y + '&ctype=' +ctype,
 			cache : false,
 			processData : true,
 			success : function(res) {
-				alert(res.contentList.length);
+				
 				//displayLodgingInformation(res.contentList);
 				
 

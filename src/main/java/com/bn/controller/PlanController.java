@@ -152,10 +152,12 @@ public class PlanController {
 		Map<String,Object> cd=new HashMap<>();
 		double mapx=Double.parseDouble(x);
 		double mapy=Double.parseDouble(y);
+		if(ctype!=null &&ctype!="") {
 		int contenttypeid=Integer.parseInt(ctype);
+		cd.put("contenttypeid", contenttypeid);
+		}
 		cd.put("mapx",mapx);
 		cd.put("mapy",mapy);
-		cd.put("contenttypeid", contenttypeid);
 		List<ContentVo>nd=dService.searchInRange(cd);
 		map.addAttribute("contentList",nd);
 		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
