@@ -71,7 +71,16 @@
 	           	//alert("반환된 값 : "+title.title);
 	            //updateDropdown(title.title);
 	            $("#search_content").empty();
-	            $("#search_content").append(title.title);
+	            $("#search_content1").empty();
+	            $("#search_content2").empty();
+	            $("#search_content3").empty();
+	            $("#search_content4").empty();
+	            
+	            $("#search_content").append(title[0]);
+	            $("#search_content1").append(title[1]);
+	            $("#search_content2").append(title[2]);
+	            $("#search_content3").append(title[3]);
+	            $("#search_content4").append(title[4]);
 	        },
 	        error: function (err) {
 	            console.error('Error: ' + err.status);
@@ -134,10 +143,10 @@
 	            
 	           	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				    <a class="dropdown-item" id="search_content" href="#" id="recommand"></a>
-				    <a class="dropdown-item" href="#">최근 트렌드 순위 2</a>
-				    <a class="dropdown-item" href="#">최근 트렌드 순위 3</a>
-				    <a class="dropdown-item" href="#">최근 트렌드 순위 4</a>
-				    <a class="dropdown-item" href="#">최근 트렌드 순위 5</a>
+				    <a class="dropdown-item" id="search_content1" href="#">최근 트렌드 순위 2</a>
+				    <a class="dropdown-item" id="search_content2" href="#">최근 트렌드 순위 3</a>
+				    <a class="dropdown-item" id="search_content3" href="#">최근 트렌드 순위 4</a>
+				    <a class="dropdown-item" id="search_content4" href="#">최근 트렌드 순위 5</a>
 				</div>
 	            
 	            <button type="submit" id="search-button">검색</button>

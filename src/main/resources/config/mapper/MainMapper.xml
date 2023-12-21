@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="search" parameterType="string" resultType="string">
 	    <![CDATA[
-	        SELECT title FROM content WHERE title LIKE '%' || #{title} || '%' AND ROWNUM <= 1
+	        SELECT title FROM content WHERE title LIKE '%' || #{title} || '%' AND ROWNUM <= 5
 	    ]]>
 	</select>
 

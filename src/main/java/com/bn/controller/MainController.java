@@ -1,7 +1,6 @@
 package com.bn.controller;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -57,10 +56,16 @@ public class MainController {
 
 	
 	 @ResponseBody
-	 @GetMapping("/search") public ModelMap search(@RequestParam String keyword) {
-		 ModelMap result = new ModelMap(); String title = msi.search(keyword);
-		 log.info(title); result.put("title", title); log.info("result : "+result);
-		  
+	 @GetMapping("/search") public List<String> search(@RequestParam String keyword) {
+		List<String> result = null;
+		
+		try {
+			result = msi.search(keyword);
+		}catch(Exception e) {
+			
+		}
+		 
+		 System.out.println(result);
 		 return result;
 	 }
 	 
