@@ -1,4 +1,9 @@
-let ViewStyleModule = (function () {
+let ViewPageModule = (function () {
+
+    function viewPage1(){
+        
+    }
+    
     function showView(viewId, btnId) {
         $('.view').hide();
         $(viewId).show();

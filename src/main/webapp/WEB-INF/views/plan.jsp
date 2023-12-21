@@ -5,8 +5,9 @@
 <head>
 <!-- 모듈파일 추가 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/mapModule.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/viewStyleModule.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/viewPageModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/dateModalModule.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/sideBarModule.js"></script>
 <!-- 부트스트랩 JavaScript (Popper.js와 jQuery 포함) -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -25,237 +26,14 @@
 <title>Plan Page</title>
 
 <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${NAVER_MAPS_KEY}"></script>
-
-
-
-<script type="text/javascript">
-    // 지도 초기화 함수
-    function initializeMap() {
-        var mapOptions = {
-            center: new naver.maps.LatLng(37.3595704, 127.105399),
-            zoom: 10
-        };
-
-        var map = new naver.maps.Map('map', mapOptions);
-        
-        // 페이지 크기 변경시 지도 크기 조절
-        function resizeMap() {
-            var page = getCurrentPageSize();
-            var height = page.height;
-            var width = page.width;
-            
-            map.setSize(new naver.maps.Size(width, height));
-            
-        }
-
-        // 초기화 후 지도 크기 조절
-        resizeMap();
-
-        // 윈도우 리사이즈 이벤트에 리사이즈 함수 연결
-        window.addEventListener('resize', resizeMap);
-    }
-	//페이지 사이즈 얻는 함수
-    function getCurrentPageSize() {
-        var width = window.innerWidth ||
-                    document.documentElement.clientWidth ||
-                    document.body.clientWidth;
-
-        var height = window.innerHeight ||
-                    document.documentElement.clientHeight ||
-                    document.body.clientHeight;
-
-        return { width: width, height: height };
-    }
-</script>
-<style type="text/css">
-	body{
-		height: 100%;
-		width: 100%;
-		margin: 0;
-		padding:0;
-	}
-    .container {
-        display: flex;
-        margin:0;
-        padding:0;
-        width: 100%;
-        height: 100%;
-        max-width:2400px;        
-    }
-	#sidebar {
-		height: 100vh;
-		width: 100px;
-		background-color: white;
-        color: skyblue;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 20px;
-        padding-right: 10px;
-	}
-	
-	.logo {
-		margin-bottom: 20px;
-        width: 150px; /* 로고 크기 조절 */
-	}
-
-	.sidebar_button {
-		width: 100%;
-		border: 100px solid skyblue;
-		border-radius:5px;
-		padding: 10px;
-		margin-bottom: 10px;
-		background-color: white;
-		font-weight:bold;
-		text-align: center;
-		text-decoration: none;
-		border: none;
-		cursor: pointer;
-	}
-
-	.bottom-button {
-	     margin-top: auto;
-	     margin-bottom:10px;
-	     width: 80%;
-	     padding: 10px;
-	     background-color: #555;
-	     color: #fff;
-	     text-align: center;
-	     text-decoration: none;
-	     border: none;
-	     cursor: pointer;
-	}
-	#search_frame{
-		margin-right: 10px;
-		width: 300px;
-	}	
-	table{
-		width:100%;
-	}
-	th, td{
-		border:1px solid;
-		text-align: center;
-	}
-	li{
-		list-style:none;
-	}
-	.place-container {
-        display: flex;
-        justify-content: space-between; /* 각 자식 요소를 최대한 넓게 배치합니다. */
-        align-items: center; /* 자식 요소를 수직 중앙 정렬합니다. */
-        margin-bottom: 20px; /* 각 place-container 사이에 간격을 주기 위한 마진 설정 */
-    }
-	.place-img{
-		width: 60px;
-		height: 60px
-	}
-	.place-details {
-        flex: 1;
-        margin-left: 10px;        
-        flex-direction: column; /* 세로로 배치하도록 설정 */
-        font-size: 13px;
-    }
-
-    .place-details > div {
-        margin-bottom: 5px;
-    }
-    
-    .place-info{
-    	display:flex;	
-    }
-    
-    .place-icons{
-    	display: flex;
-    	align-items: center;
-    }
-    .place-icons>div{
-    	margin-rigth: 5px;
-    }
-    
-    .places {
-		width: 300px; /* 원하는 가로 크기 지정 */
-		height: 621px; /* 원하는 세로 크기 지정 */
-		overflow-y: auto; /* 세로 스크롤바 활성화 */
-		padding: 10px; /* 내용과 테두리 사이의 간격 */
-	}
-	
-	.hotel-container {
-        display: flex;
-        justify-content: space-between; /* 각 자식 요소를 최대한 넓게 배치합니다. */
-        align-items: center; /* 자식 요소를 수직 중앙 정렬합니다. */
-        margin-bottom: 20px; /* 각 place-container 사이에 간격을 주기 위한 마진 설정 */
-    }
-	.hotel-img{
-		width: 60px;
-		height: 60px
-	}
-	.hotel-details {
-        flex: 1;
-        margin-left: 10px;        
-        flex-direction: column; /* 세로로 배치하도록 설정 */
-        font-size: 13px;
-    }
-
-    .hotel-details > div {
-        margin-bottom: 5px;
-    }
-    
-    .hotel-info{
-    	display:flex;    	
-    }
-    
-    .hotel-icons{
-    	display: flex;
-    	align-items: center;
-    }
-    .hotel-icons>div{
-    	margin-rigth: 5px;
-    }
-    
-    .hotels {
-		width: 300px; /* 원하는 가로 크기 지정 */
-		height: 621px; /* 원하는 세로 크기 지정 */
-		overflow-y: auto; /* 세로 스크롤바 활성화 */
-		padding: 10px; /* 내용과 테두리 사이의 간격 */
-	}
-	.modal{
-		position:absolute;
-		width:100%; height:100%;
-		background: white;
-		top:0; left:0;
-		display:none;
-	}
-	.wrap-search-frame{		
-		display: flex;
-	}
-	 
-    
-</style>
+<!-- 외부 CSS파일 참조  -->
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/planViewPage.css">
 
 </head>
 <body>
-	
-		
-	
 
 	<!-- 컨테이너  -->
 	<div class="container">
-		<!-- 사이드바 -->
-		<div id="sidebar">
-			<!-- 메인 로고 -->
-			<button id="main-logo"><img class="logo" src="" alt="Main Logo"/></button>
-			<br>
-			<!-- 스탭 1,2,3 버튼 -->
-			<button class="sidebar_button" id="btn-step1" >STEP 1<br>날짜확인</button>
-			<br>
-			<button class="sidebar_button" id="btn-step2" >STEP 2<br>장소확인</button>
-			<br>
-			<button class="sidebar_button" id="btn-step3" >STEP 3<br>숙소설정</button>
-			<br>
-			
-			<!-- 하단 다음버튼 -->
-			<button class="bottom-button">다음</button>
-		</div>
 		<!-- 두번째 프레임 -->
 		<div id="search_frame">
 			<div class="wrap-search-frame">
@@ -412,12 +190,53 @@
 						</div>
 					</div>
 				</div>
-				<div>이건 추가되는 공간</div>
+				<div class="basket-frame">					
+					<div class="basket-container">
+						<div>
+							<div>
+								<div>
+									<div>
+										<div>갯수</div>
+										<div>시간</div>
+									</div>
+									
+									<div>
+										<button>장소 설정 초기화</button>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div class="places">
+									<div class="place">
+										<div>숫자</div>
+										<div>
+											<div>이미지</div>
+											<div id="place-info">
+												<div>이름</div>
+												<div>
+													<div>카테고리</div>
+													<div>주소</div>
+												</div>
+											</div>
+											<div>
+												머무는시간
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<button>토글버튼</button>
+						</div>
+					</div>
+				</div>
 			</div><!-- wrap-search-frame -->
 		</div><!-- Search frame -->
 			
 		<!-- 지도 -->
 		<div id="map" style="flex: 1;"></div>
+		
 	</div>
 	    <!-- calendarModal -->
 	<div class="modal fade" id="calendarModal" tabindex="-1" role="dialog" aria-labelledby="calendarModalLabel" aria-hidden="true">
@@ -452,29 +271,19 @@
 	    
 	    $(document).ready(function(){
 	    	
+	    	SidebarModule.initialize();
 			MapModule.initializeMap();
-			ViewStyleModule.showView('#view1', '#btn-step1');
+			ViewPageModule.showView('#view1', '#btn-step1');
 			DateModalModule.initializeDateModal();
+			
+			
+			//프레임 감추기
+			$(".basket-frame").hide();
+			
     	});
 	    $('.btn btn-primary').click(function(){
 	    	DateModalModule.saveDates();
 	    });
-	    
-	    
-	    /* STEP 1 버튼 클릭시 */
-	    $("#btn-step1").click(function(){
-	    	ViewStyleModule.showView('#view1','#btn-step1');
-    	});	
-	    	
-	    /* STEP 2 버튼 클릭시 */
-    	$("#btn-step2").click(function(){
-    		ViewStyleModule.showView('#view2','#btn-step2');	
-    	});
-	    	
-    	/* STEP 3 버튼 클릭시 */
-    	$("#btn-step3").click(function(){
-    		ViewStyleModule.showView('.view-step3','#btn-step3');
-    	});
     		
 	</script>
 	<!-- Bootstrap JS (must be placed at the end of the body for faster page loading) -->    
@@ -482,9 +291,6 @@
 
 </body>
 <script>
-	$('#main-logo').click(function(){
-		window.location.href='/main';
-	});
 	function myplan(){
 		$.ajax({
 			type :'get',
@@ -632,8 +438,10 @@
 		//var container = document.getElementById('travels-container');
 		// 기존 내용 비우기
 		tcontainer.empty();
-		// 최대 4개까지만 표시
-		for (var i = 0; i < Math.min(contentList.length, 4); i++) {
+
+		// 최대 10개까지만 표시
+		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
+
 			var content = contentList[i];
 			var contentid=content.contentid;
 			var newDiv=createDiv(contentid);
