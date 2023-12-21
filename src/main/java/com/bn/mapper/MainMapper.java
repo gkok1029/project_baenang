@@ -1,11 +1,10 @@
 package com.bn.mapper;
 
 import java.util.List;
-import java.util.Map;
 
 public interface MainMapper {
 	
 	public String rec(String contentid);
 
-	public String search(String title);
+	public List<String> search(String title);
 }

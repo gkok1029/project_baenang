@@ -1,5 +1,7 @@
 package com.bn.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -21,7 +23,7 @@ public class MainServiceImpl implements MainService {
 	}
 	
 	@Override
-	public String search(String title) {
+	public List<String> search(String title) {
 		log.info("ServiceImpe title : "+title);
 		return this.mainMapper.search(title);
 	}
