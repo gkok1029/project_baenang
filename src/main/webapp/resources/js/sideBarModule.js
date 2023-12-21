@@ -39,24 +39,24 @@ let SidebarModule = (function () {
 
         //버튼에 이벤트 리스너 추가
 	    step1Button.addEventListener('click', function () {
-	        ViewStyleModule.showView('#view1', '#btn-step1');
-	        $(".add-frame").hide();
+	        ViewPageModule.showView('#view1', '#btn-step1');
+	        $(".basket-frame").hide();
 	        $("#search_frame").css({
 	            'width': '300px',
 	        });
 	    });
 	
 	    step2Button.addEventListener('click', function () {
-	        ViewStyleModule.showView('#view2', '#btn-step2');
-	        $(".add-frame").show();
+	        ViewPageModule.showView('#view2', '#btn-step2');
+	        $(".basket-frame").show();
 	        $("#search_frame").css({
 	            'width': '600px',
 	        });
 	    });
 	
 	    step3Button.addEventListener('click', function () {
-	        ViewStyleModule.showView('.view-step3', '#btn-step3');
-	        $(".add-frame").show();
+	        ViewPageModule.showView('.view-step3', '#btn-step3');
+	        $(".basket-frame").show();
 	        $("#search_frame").css({
 	            'width': '600px',
 	        });
