@@ -159,16 +159,16 @@
 						<button>추천 숙소</button>					
 					</div>
 					<!-- 장소검색 -->
-					<div class="hotels">
-						<ul>
-							<!-- 장소 하나하나 -->
+					<div class="hotels" id="hotels">
+						<!-- <ul>
+							장소 하나하나
 							<li>
 								<div class="hotel-container">
-									<!-- 이미지 -->
+									이미지
 									<div>
 										<img class="hotel-img" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzExMTRfMzYg%2FMDAxNjk5OTY4OTc2Mzk2.bYxC69S-RhRfWsVazjOSlsj23s3MOwMwJud2pUM2_Fwg.JK9kuLGKJXE2yslbx3Z_9qnrzriouNd0sH0v3acREkUg.JPEG.okayall%2F20231110_163451.jpg&type=sc960_832">
 									</div>
-									<!-- 내용 -->
+									내용
 									<div class="hotel-details">
 										<div>호텔이름</div>
 											<div class="hotel-info">
@@ -187,7 +187,7 @@
 										<div><i class="fa-regular fa-square-plus"></i></div>
 									</div>
 								</li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 				</div>

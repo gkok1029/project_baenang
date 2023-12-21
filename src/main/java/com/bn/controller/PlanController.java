@@ -156,6 +156,7 @@ public class PlanController {
 		cd.put("ctype", ctype);
 		List<ContentVo>nd=dService.searchInRange(cd);
 		map.addAttribute("contentList",nd);
+		
 		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
 		}catch (NumberFormatException e) {
 	        // 숫자 변환 중 예외 발생 시 처리
