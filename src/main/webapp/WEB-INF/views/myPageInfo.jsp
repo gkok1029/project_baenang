@@ -34,14 +34,14 @@
     <main>
         <div id="wrap">
             <div id="innerwrap">
-                <div class="joinday">가입일 : 2000-00-00</div>
+                <div class="joinday">가입일 : ${user.getM_RDATE()}</div>
                 <div id="formContainer">
                     <form action="" name="memberinfo" class="info" id="infoF" method="post">
                         <table id="userTable">
                             <tr>
                                 <th>닉네임</th>
                                 <td>
-                                    <input type="text" name="name" value="usernickname">
+                                    <input type="text" name="name" value="${user.getM_NNAME()}">
                                 </td>
                             </tr>
                             <tr>
@@ -54,7 +54,7 @@
                             <tr>
                                 <th>이메일</th>
                                 <td class="emailtd">
-                                    <input type="text" name="userid"  value="useremail" readonly>
+                                    <input type="text" name="userid"  value="${user.getM_EMAIL()}" readonly>
                                     <button type="button" class="btn" onclick="openEmail()">수정</button>
                                 </td>
                             </tr>

@@ -6,14 +6,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.bn.mapper.MypageMapper">
 	<select id="getProfile" resultType="Member" parameterType="String">
 		select * from member
-		where M_NNAME = #{value}
+		where M_NNAME = #{m_nname}
 		
 	</select>
 	
-	<select id="getPlanList" resultType="Mypage" parameterType="long">
-		select pl.*, (select dp_start from detail_planner where pl.p_id = p_id) dp_start,
-        (select dp_end from detail_planner where pl.p_id = p_id) dp_end
-        from planner pl where m_id = #{value}
+	<select id="getPlanList" resultType="Mypage" parameterType="Mypage">
+		select * from (
+	    select pl.*, (select min(dp_start) from detail_planner where pl.p_id = p_id) dp_start,
+	    (select max(dp_end) from detail_planner where pl.p_id = p_id) dp_end
+	    from planner pl) where m_id = #{m_id}
+	    <if test="filter == 'recentday'">
+	    	and dp_start > sysdate
+    		order by p_moddate desc
+	    </if>
+	    <if test="filter == 'travelday'">
+	    	and dp_start > sysdate
+    		order by dp_start asc
+	    </if>
+	    
 	</select>
 	
 	

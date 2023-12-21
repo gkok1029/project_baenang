@@ -49,10 +49,13 @@
                         <span id="total_sche" class="cursor">전체 일정</span>
                         <span id="share_sche" class="cursor">공유 일정</span>
                         <span class="cursor">
-                            <select name="filter">
-                                <option value="recentday">최근 수정일 순</option>
-                                <option value="travelday">여행 임박 순</option>
-                            </select>
+	                        <form name="frm" action="mypage">
+	                            <select name="filter" onchange="submit()">
+	                                <option value="recentday" <c:if test="${param.filter=='recentday'}">selected</c:if>>최근 수정일 순</option>
+	                                <option value="travelday" <c:if test="${param.filter=='travelday'}">selected</c:if>>여행 임박 순</option>
+	                            </select>
+	                        </form>
+                            
                         </span>
                     </div>
                     <script>

@@ -7,8 +7,8 @@ import com.bn.model.MypageVo;
 
 public interface MypageService {
 	
-	public MemberVo getProfile(String M_NNAME);
+	public MemberVo getProfile(String m_nname);
 
-	public List<MypageVo> getPlanList(long m_ID);
+	public List<MypageVo> getPlanList(MypageVo my);
 	
 }

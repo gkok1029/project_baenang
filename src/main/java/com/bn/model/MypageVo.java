@@ -25,6 +25,8 @@ public class MypageVo {
 	private int m_status; //회원상태
 	private int m_profil; //사용자 프로필
 	
+	private String filter;
+	
 	private long i_id;//초대id
 	private int i_per;//권한
 	private int i_status;//초대상태
