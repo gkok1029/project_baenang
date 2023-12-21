@@ -1,5 +1,6 @@
 let PlanModule = ( ()=>{
-	let map;
+	var map;
+	
     function myplan(){
 		$.ajax({
 			type :'get',
@@ -77,8 +78,8 @@ let PlanModule = ( ()=>{
 			cache : false,
 			processData : true,
 			success : function(res) {
-				displayTourInformation(res.contentList);
-				
+			
+			displayTourInformation(res.contentList,x,y);	
 
 			},
 			error : function(err) {
@@ -87,12 +88,15 @@ let PlanModule = ( ()=>{
 		})
 	}
 
-    function displayTourInformation(contentList) {
+    function displayTourInformation(contentList,x,y) {
 		var tcontainer = $('#places'); // 새로운 container 추가
 		//var container = document.getElementById('travels-container');
 		// 기존 내용 비우기
 		tcontainer.empty();
-
+		map=new naver.maps.Map('map',{
+		center:new naver.maps.LatLng(y,x),
+		zoom:15
+		});
 		// 최대 10개까지만 표시
 		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
 
@@ -119,12 +123,11 @@ let PlanModule = ( ()=>{
 			newDiv.append(imgDiv, textDiv);
 			console.log(tcontainer);
 			tcontainer.append(newDiv);
-			
 			 var marker = new naver.maps.Marker({
 		            position: new naver.maps.LatLng(content.mapy, content.mapx),
 		            map: map
 		        });
-
+			
 		        // 클로저를 사용하여 정보창 내용 설정
 		        (function (marker, title) {
 		            var infoWindow = new naver.maps.InfoWindow({
@@ -137,7 +140,7 @@ let PlanModule = ( ()=>{
 		        })(marker, content.title);
 
 		}
-
+	
 		// 추가로 필요한 정보는 여기에 계속 추가할 수 있습니다.
 	}
 	
@@ -200,12 +203,15 @@ let PlanModule = ( ()=>{
             parent.removeChild(Div);
         }
     }
-    function displayLodgingInformation(contentList) {
+    function displayLodgingInformation(contentList,x,y) {
 		var tcontainer = $('#hotels'); // 새로운 container 추가
 		//var container = document.getElementById('travels-container');
 		// 기존 내용 비우기
 		tcontainer.empty();
-
+		map=new naver.maps.Map('map',{
+		center:new naver.maps.LatLng(y,x),
+		zoom:15
+		});
 		// 최대 10개까지만 표시
 		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
 
@@ -235,9 +241,9 @@ let PlanModule = ( ()=>{
 			
 			 var marker = new naver.maps.Marker({
 		            position: new naver.maps.LatLng(content.mapy, content.mapx),
-		            map: map
+		            map: map,
+		            icon:{content: '<div style="background-color: red; width: 20px; height: 20px; border-radius: 50%;"></div>'}
 		        });
-			alert('marker='+marker);
 		        // 클로저를 사용하여 정보창 내용 설정
 		        (function (marker, title) {
 		            var infoWindow = new naver.maps.InfoWindow({
@@ -248,7 +254,8 @@ let PlanModule = ( ()=>{
 		                infoWindow.open(map, marker);
 		            });
 		        })(marker, content.title);
-
+		       
+		
 		}
 
 		// 추가로 필요한 정보는 여기에 계속 추가할 수 있습니다.
