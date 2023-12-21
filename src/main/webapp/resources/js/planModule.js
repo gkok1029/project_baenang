@@ -1,5 +1,5 @@
 let PlanModule = ( ()=>{
-
+	let map;
     function myplan(){
 		$.ajax({
 			type :'get',
@@ -200,6 +200,59 @@ let PlanModule = ( ()=>{
             parent.removeChild(Div);
         }
     }
+    function displayLodgingInformation(contentList) {
+		var tcontainer = $('#hotels'); // 새로운 container 추가
+		//var container = document.getElementById('travels-container');
+		// 기존 내용 비우기
+		tcontainer.empty();
+
+		// 최대 10개까지만 표시
+		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
+
+			var content = contentList[i];
+			var contentid=content.contentid;
+			var newDiv=createDiv(contentid);
+			// 새로운 div 동적으로 생성
+			/* var newDiv = $('<div>').addClass('traveld').attr('id', 'content' + i).click(function() {
+	        copyDiv('content' + i);
+	    	}); */
+	    
+
+	    	var imgDiv = $('<div>').addClass('hotelimg').attr('id', 'img'+contentid);
+
+	    	var textDiv = $('<div>').addClass('hoteltext').attr('id', 'text' + contentid);
+			var img = $('<img>').attr('src',content.firstimage || '/resources/images/noimage.PNG');
+			var title = $('<div>').addClass('linea').text('Name: ' + content.title);
+			var addr = $('<div>').addClass('lineb').text('Location: ' + content.addr);
+			var heart = $('<div>').addClass('linec').text('하트 별');
+			
+			// 생성한 div에 정보 추가
+			imgDiv.append(img);
+			textDiv.append(title, addr, heart);
+			newDiv.append(imgDiv, textDiv);
+			console.log(tcontainer);
+			tcontainer.append(newDiv);
+			
+			 var marker = new naver.maps.Marker({
+		            position: new naver.maps.LatLng(content.mapy, content.mapx),
+		            map: map
+		        });
+			alert('marker='+marker);
+		        // 클로저를 사용하여 정보창 내용 설정
+		        (function (marker, title) {
+		            var infoWindow = new naver.maps.InfoWindow({
+		                content: '<div style="width:150px;text-align:center;padding:10px;"><b>"' + title + '"</b>.</div>'
+		            });
+
+		            naver.maps.Event.addListener(marker, 'click', function () {
+		                infoWindow.open(map, marker);
+		            });
+		        })(marker, content.title);
+
+		}
+
+		// 추가로 필요한 정보는 여기에 계속 추가할 수 있습니다.
+	}
 
     return {
         myplan : myplan,
@@ -209,6 +262,7 @@ let PlanModule = ( ()=>{
         displayTourInformation : displayTourInformation,
         createDiv : createDiv,
         copyDiv : copyDiv,
-        removeDiv : removeDiv
+        removeDiv : removeDiv,
+        displayLodgingInformation:displayLodgingInformation
     };
-});
+})();
