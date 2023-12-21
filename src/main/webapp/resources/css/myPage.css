@@ -1,6 +1,7 @@
 @charset "UTF-8";
 *{margin:0; padding:0;}
 a{text-decoration: none;}
+a:visited{color: black;}
 .cursor{cursor: pointer;}
 header{position: relative;}
 header #top{padding:10px 0; height:20px; width:100%; position:relative;}
@@ -18,10 +19,11 @@ header #topcenpro p.profile_img span img{height: 100px;}
 header #topcenpro p.username{margin: 12px 0;}
 header #topcenpro p.username span{font-size: larger;}
 header #topcenpro p.profilemanage span{font-weight: 600;}
+header #topcenpro p.profilemanage span a:visited{color: blue;}
 
 
 main{width: 100%;}
-main #wrap{padding: 0 20%; }
+main #wrap{padding: 0 20%; max-width: 1200px;}
 main #wrap .category{
     display: flex;
     padding-bottom: 80px;
@@ -91,7 +93,12 @@ main #section #schedule .schedule_content p.schewritter{
 #hamburger_content p{
     cursor: pointer;
 }
-select{border: none;}
+select{border: none; 
+	-o-appearance: none;
+  	-webkit-appearance: none;
+  	-moz-appearance: none;
+  	appearance: none;
+}
 
 main #mycitylist .citywrap{
 	display:flex; padding: 5px; flex-wrap: wrap; width:100%; box-sizing: border-box;

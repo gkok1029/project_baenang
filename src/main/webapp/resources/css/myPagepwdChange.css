@@ -1,0 +1,35 @@
+@charset "UTF-8";
+*{margin:0; padding:0;}
+a{text-decoration: none;}
+a:visited{color: black;}
+.cursor{cursor: pointer;}
+
+
+#wrap{width: 100%; padding-top: 30px;}
+#wrap #innerwrap{padding: 0 25%;}
+#wrap #innerwrap #formContainer{display: flex; justify-content: center;}
+#formContainer #pwdTable{
+    width: 400px;
+}
+#formContainer #pwdTable tr{
+    height: 30px;
+}
+#formContainer #pwdTable th{
+    width: 30%; text-align: end; padding-right: 10px; box-sizing: border-box;
+}
+#formContainer #pwdTable td input{
+    width: 100%; font-size: 16px; border: none; background-color: rgb(238, 238, 238);
+}
+
+
+#bottomContainer{width: 100%; padding-top: 34px;}
+#formBottom{
+    display: flex; width: 100%; justify-content: space-evenly;
+}
+#formBottom button{
+    background-color: rgb(163, 247, 253); width: 136px;
+    height: 32px; cursor: pointer; border-radius: 15px; border: none;
+}
+#formBottom button:hover{
+    background-color: rgb(144, 211, 214);
+}

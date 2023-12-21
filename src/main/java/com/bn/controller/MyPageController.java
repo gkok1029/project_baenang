@@ -26,12 +26,10 @@ public class MyPageController {
 		String userName= (String)session.getAttribute("userName");
 		
 		if(userName==null) {
-			//로그인하지 않은 경우==> 
-			log.info("로그인 해야함");
+			log.info("에러메세지:");
 			return "error";
 		}
 		
-		// 회원 프로필 가져오기
 		MemberVo un= mypageService.getProfile(userName);
 		
 		MypageVo my = new MypageVo();
@@ -39,14 +37,11 @@ public class MyPageController {
 		my.setFilter(filter);
 		my.setM_id(un.getM_ID());
 		
-		//회원의 전체여행일정 가져오기
 		List<MypageVo> pl= mypageService.getPlanList(my);
 		
 		
-		//회원의 공유여행일정 가져오기
 		
 		
-		//일정 삭제하기
 		
 		m.addAttribute("user", un);
 		m.addAttribute("plan", pl);
@@ -59,25 +54,28 @@ public class MyPageController {
 		String userName= (String)session.getAttribute("userName");
 		
 		if(userName==null) {
-			//로그인하지 않은 경우==> 
-			log.info("로그인 해야함");
+			log.info("에러메세지: ");
 			return "error";
 		}
 		
-		// 회원 프로필 가져오기
-		//MemberVo un= mypageService.getProfile(userName);
-		
-		//회원의 전체여행일정 가져오기
-		//List<MypageVo> pl= mypageService.getPlanList(un.getM_ID());
-		
-		//회원의 공유여행일정 가져오기
-		
-		
-		//일정 삭제하기
-		
-		//m.addAttribute("user", un);
-		//m.addAttribute("plan", pl);
+		MemberVo user = mypageService.getProfile(userName);
+		m.addAttribute("user", user);
 		return "myPageInfo";
+	}
+	
+	@RequestMapping(value = "/user/mypagepwdchange")
+	public String mypagepwdChange(Model m, HttpSession session) {
+		
+		String userName= (String)session.getAttribute("userName");
+		
+		if(userName==null) {
+			log.info("에러메세지: ");
+			return "error";
+		}
+		
+		MemberVo user = mypageService.getProfile(userName);
+		m.addAttribute("user", user);
+		return "myPagepwdChange";
 	}
 	
 }
