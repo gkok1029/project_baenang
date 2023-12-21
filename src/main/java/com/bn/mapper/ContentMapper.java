@@ -9,6 +9,6 @@ public interface ContentMapper {
 
 	public int insertdb(ContentVo vo);
 	
-	 List<ContentVo> searchInRange(Map<String, Double> cd);
+	 List<ContentVo> searchInRange(Map<String, Object> cd);
 }
 
