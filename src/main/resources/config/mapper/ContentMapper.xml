@@ -6,13 +6,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.bn.mapper.ContentMapper">
 	<insert id="insertdb" parameterType="Content">
 	INSERT INTO content (
-    contentid, contenttypeid, code, title, tel, addr, firstimage, mapx, mapy
-) VALUES (
-    #{contentid}, #{contenttypeid}, #{code}, #{title}, #{tel},
-    #{addr}, #{firstimage}, #{mapx}, #{mapy}
-)
+    	contentid, contenttypeid, code, title, tel, addr, firstimage, mapx, mapy
+	) VALUES (
+    	#{contentid}, #{contenttypeid}, #{code}, #{title}, #{tel},
+    	#{addr}, #{firstimage}, #{mapx}, #{mapy}
+	)
 	</insert>
+	
 	<select id="searchInRange" parameterType="map" resultType="Content">
 	SELECT * FROM content WHERE to_number(mapx) BETWEEN #{mapx}-0.012 AND #{mapx}+0.012 AND mapy BETWEEN #{mapy}-0.009 AND #{mapy}+0.009 
 	</select>
+	
 </mapper>

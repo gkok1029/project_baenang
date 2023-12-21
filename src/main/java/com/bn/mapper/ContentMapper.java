@@ -11,3 +11,4 @@ public interface ContentMapper {
 	
 	 List<ContentVo> searchInRange(Map<String, Double> cd);
 }
+

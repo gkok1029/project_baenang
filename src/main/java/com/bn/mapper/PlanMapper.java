@@ -5,9 +5,10 @@ import java.util.List;
 import com.bn.model.PlanVo;
 
 public interface PlanMapper {
-	public int insert(PlanVo vo);//planÀúÀå
+	public int insert(PlanVo vo);//planï¿½ï¿½ï¿½ï¿½
 	
-	public List<PlanVo> selectAll(int m_id);//È¸¿ø¾ÆÀÌµðÀÇ ¸ðµç ÇÃ·£ ºÒ·¯¿À±â
+	public List<PlanVo> selectAll(int m_id);//È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	public PlanVo selectPlan(int p_id);//plan¹øÈ£·Î ÇÃ·£ºÒ·¯¿À±â
+	public PlanVo selectPlan(int p_id);//planï¿½ï¿½È£ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 }
+
