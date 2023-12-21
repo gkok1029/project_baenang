@@ -15,13 +15,13 @@ public class MypageServiceImpl implements MypageService {
 	
 	@Inject
 	private MypageMapper mypageMapper;
-	public MemberVo getProfile(String M_NNAME) {
-		return mypageMapper.getProfile(M_NNAME);
+	public MemberVo getProfile(String m_nname) {
+		return mypageMapper.getProfile(m_nname);
 	}
 	@Override
-	public List<MypageVo> getPlanList(long m_ID) {
+	public List<MypageVo> getPlanList(MypageVo my) {
 		// TODO Auto-generated method stub
-		return mypageMapper.getPlanList(m_ID);
+		return mypageMapper.getPlanList(my);
 	}
 	
 	
