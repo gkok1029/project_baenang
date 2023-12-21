@@ -19,7 +19,7 @@
 <body>
 	<header>
 		<div id=top>
-			<div class=profile>Profile</div>
+			<div class=profile><a href="/user/mypage">Profile</a></div>
 		</div>
 		<div id=topbg>
             
@@ -29,7 +29,7 @@
             	<%-- ${user} --%>
                 <p class="profile_img"><span><img alt="${user.getM_NNAME()}" src="../resources/img/${user.getM_IMAGE()}"></span></p>
                 <p class="username"><span>${user.getM_NNAME()}</span></p>
-                <p class="profilemanage"><span><a href="#">프로필 관리</a></span></p>
+                <p class="profilemanage"><span><a href="/user/mypageinfo">프로필 관리</a></span></p>
             </div>
         </div>
 	</header>
@@ -50,15 +50,31 @@
                         <span id="share_sche" class="cursor">공유 일정</span>
                         <span class="cursor">
 	                        <form name="frm" action="mypage">
-	                            <select name="filter" onchange="submit()">
-	                                <option value="recentday" <c:if test="${param.filter=='recentday'}">selected</c:if>>최근 수정일 순</option>
-	                                <option value="travelday" <c:if test="${param.filter=='travelday'}">selected</c:if>>여행 임박 순</option>
+	                            <select id="filter" name="filter" onchange="submit()">
+	                                <option id="recentday" value="recentday1" <c:if test="${param.filter=='recentday1' or param.filter=='recentday2'}">selected</c:if>>최근 수정일 순</option>
+	                                <option id="travelday" value="travelday1" <c:if test="${param.filter=='travelday1' or param.filter=='travelday2'}">selected</c:if>>여행 임박 순</option>
 	                            </select>
+	                            <span id="updown" title="up" style="padding-left:5px;">&#8597</span>
 	                        </form>
                             
                         </span>
                     </div>
                     <script>
+                        $('#updown').click(function(e){
+                        	let updown=$(this).attr('title');
+                        	alert(updown);
+                        	if(updown=='up'){
+                        		$('#recentday').val('recentday2');
+                        		$('#travelday').val('travelday2');
+                        		$(this).attr('title','down');
+                        	}else{
+                        		$('#recentday').val('recentday1');
+                        		$('#travelday').val('travelday1');
+                        		$(this).attr('title','up');
+                        	};
+                        	
+                        	frm.submit(); //title이 down으로 변경이 안됨 option의 value값도 변경이 안됌
+                        });
                         
                         $("#total_sche").click(function(){
                             $("#section.tot_sche").show();

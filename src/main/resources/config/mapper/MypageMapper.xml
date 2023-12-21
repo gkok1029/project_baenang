@@ -15,13 +15,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    select pl.*, (select min(dp_start) from detail_planner where pl.p_id = p_id) dp_start,
 	    (select max(dp_end) from detail_planner where pl.p_id = p_id) dp_end
 	    from planner pl) where m_id = #{m_id}
-	    <if test="filter == 'recentday'">
-	    	and dp_start > sysdate
+	    <if test="filter == 'recentday1'">
+    		order by p_moddate asc
+	    </if>
+	    <if test="filter == 'recentday2'">
     		order by p_moddate desc
 	    </if>
-	    <if test="filter == 'travelday'">
-	    	and dp_start > sysdate
+	    <if test="filter == 'travelday1'">
     		order by dp_start asc
+	    </if>
+	    <if test="filter == 'travelday2'">
+    		order by dp_start desc
 	    </if>
 	    
 	</select>
