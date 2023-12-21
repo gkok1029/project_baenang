@@ -1,7 +1,5 @@
 package com.bn.controller;
 
-
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -11,7 +9,6 @@ import java.nio.charset.StandardCharsets;
 
 import javax.inject.Inject;
 
-import org.apache.ibatis.reflection.SystemMetaObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.PropertySource;
@@ -101,8 +98,10 @@ public class DbController {
 							vo.setFirstimage(firstimage);
 							vo.setMapx(mapx);
 							vo.setMapy(mapy);
+							
 							if(contentid!=null) {
 							int n= dService.insertdb(vo);
+							System.out.println(n);
 							}else {
 								System.out.println("�����Ͱ� �����ϴ�.");
 								
@@ -130,52 +129,6 @@ public class DbController {
 		return "���¹ٺ���û�̾�";
 	}
 	
-	@ResponseBody
-	@RequestMapping("/jdgdown")
-	private String dbuserfill(@RequestParam ModelMap map) {
-		
-		try {
-			
-			String contentid=map.getAttribute("contentid").toString();
-			log.info(contentid);
-			String contenttypeid=map.getAttribute("contenttypeid").toString();
-			log.info(contenttypeid);
-			String code = map.getAttribute("cat3").toString();
-			log.info(code);
-			String title = map.getAttribute("title").toString();
-			String tel = map.getAttribute("tel").toString();
-			String addr1 = map.getAttribute("addr1").toString();
-			String addr2 = map.getAttribute("addr2").toString();
-			String firstimage = map.getAttribute("firstimage").toString();
-			String addr=addr1+addr2;
-			String mapx=map.getAttribute("mapx").toString();
-			String mapy=map.getAttribute("mapy").toString();
-			
-			ContentVo vo=new ContentVo();
-			vo.setContentid(contentid);
-			vo.setContenttypeid(contenttypeid);
-			vo.setCode(code);
-			vo.setTitle(title);
-			vo.setTel(tel);
-			vo.setAddr(addr);
-			vo.setFirstimage(firstimage);
-			vo.setMapx(mapx);
-			vo.setMapy(mapy);
-			System.out.println(vo);
-			if(contentid!=null) {
-			int n= dService.insertdb(vo);
-			System.out.println(n);
-			}else {
-				System.out.println("�����Ͱ� �����ϴ�.");
-				
-			}
-				
-		}catch(Exception e){
-			log.error("error: {}",e.getMessage());
-			
-		}
-		
-		return "���¹ٺ���û�̾�";
-	}
+	
 	
 }

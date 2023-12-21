@@ -2,6 +2,7 @@ package com.bn.service;
 
 import java.util.List;
 
+import com.bn.model.DtailPlanVo;
 import com.bn.model.PlanVo;
 
 public interface PlanService {
@@ -10,5 +11,7 @@ public interface PlanService {
 	public PlanVo selectPlan(int p_id);
 	
 	public List<PlanVo> selectAll(int m_id);
+	
+	public int insertdp(DtailPlanVo vo);
 
 }
