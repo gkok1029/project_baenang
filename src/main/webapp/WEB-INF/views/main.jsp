@@ -186,13 +186,30 @@
 	<div class="blog-con">
 
         <c:forEach var="imageFile" items="${imageFiles}">
-            
             	<% 
 			        for (String imageFile : imgFiles) {
-			    %>
-			        <a href="#" class="blogImg"><img src="${pageContext.request.contextPath}/resources/img/<%= imageFile %>" 
+			            
+			            // 파일명에서 마지막 점의 위치 찾기
+			            int extensionIndex = imageFile.lastIndexOf(".");
+	            		
+			            if (extensionIndex != -1) {
+				            // 이미지 파일의 확장자 추출
+				            String extension = imageFile.substring(extensionIndex + 1);
+				         	// 확장자를 제외한 파일명 추출
+			                String imgFileName = imageFile.substring(0, extensionIndex);
+				         	
+				            // 추출한 확장자 출력하기 
+				            System.out.println("확장자 : " + extension);
+				         	// 추출한 파일명의 확장자 제외하고 출력하기
+			                System.out.println("파일명 (확장자 제외): " + imgFileName);
+				        
+                %>
+        		<a href="<%= "/blog/get?p_id="+imgFileName %>" class="blogImg"><img src="${pageContext.request.contextPath}/resources/img/<%= imageFile %>" 
 			        style="margin: 10px; width:200px; height:200px;"></a>
-			    <% 
+                <%
+			            } else { //확장자가 없는 파일일때
+			                System.out.println("확장자가 없는 파일입니다.");
+			            }
 			        }
 			    %>
             
