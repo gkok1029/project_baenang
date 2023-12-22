@@ -66,16 +66,12 @@ public class MyPageController {
 	@RequestMapping(value = "/user/mypagepwdchange")
 	public String mypagepwdChange(Model m, HttpSession session) {
 		
-		String userName= (String)session.getAttribute("userName");
 		
-		if(userName==null) {
-			log.info("에러메세지: ");
-			return "error";
-		}
-		
-		MemberVo user = mypageService.getProfile(userName);
-		m.addAttribute("user", user);
 		return "myPagepwdChange";
+	}
+	@RequestMapping(value = "/user/mypageout")
+	public String mypageOut(Model m, HttpSession session) {
+		return "myPageOut";
 	}
 	
 }

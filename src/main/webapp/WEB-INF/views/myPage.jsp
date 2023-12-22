@@ -19,7 +19,7 @@
 <body>
 	<header>
 		<div id=top>
-			<div class=profile><a href="/user/mypage">Profile</a></div>
+			<div class=profile><a href="/user/mypage"><img alt="gomypage" src="../resources/img/mypage.png"></a></div>
 		</div>
 		<div id=topbg>
             
@@ -50,11 +50,12 @@
                         <span id="share_sche" class="cursor">공유 일정</span>
                         <span class="cursor">
 	                        <form name="frm" action="mypage">
+	                        	<input type="hidden" name="mode" id="mode" value="up">
 	                            <select id="filter" name="filter" onchange="submit()">
 	                                <option id="recentday" value="recentday1" <c:if test="${param.filter=='recentday1' or param.filter=='recentday2'}">selected</c:if>>최근 수정일 순</option>
 	                                <option id="travelday" value="travelday1" <c:if test="${param.filter=='travelday1' or param.filter=='travelday2'}">selected</c:if>>여행 임박 순</option>
 	                            </select>
-	                            <span id="updown" title="up" style="padding-left:5px;">&#8597</span>
+	                            <span id="updown" title="${param.mode}" style="padding-left:5px;">&#8597</span>
 	                        </form>
                             
                         </span>
@@ -62,18 +63,20 @@
                     <script>
                         $('#updown').click(function(e){
                         	let updown=$(this).attr('title');
-                        	alert(updown);
-                        	if(updown=='up'){
+                        	//alert(updown);
+                        	if(updown==''||updown=='up'){
                         		$('#recentday').val('recentday2');
                         		$('#travelday').val('travelday2');
                         		$(this).attr('title','down');
+                        		$('#mode').val('down');
                         	}else{
                         		$('#recentday').val('recentday1');
                         		$('#travelday').val('travelday1');
                         		$(this).attr('title','up');
+                        		$('#mode').val('up');
                         	};
                         	
-                        	frm.submit(); //title이 down으로 변경이 안됨 option의 value값도 변경이 안됌
+                        	frm.submit();
                         });
                         
                         $("#total_sche").click(function(){
