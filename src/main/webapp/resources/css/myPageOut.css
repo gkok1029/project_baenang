@@ -1,0 +1,17 @@
+@charset "UTF-8";
+*{margin:0; padding:0;}
+a{text-decoration: none;}
+a:visited{color: black;}
+.cursor{cursor: pointer;}
+
+
+#wrap{width: 100%; padding: 30px; box-sizing: border-box;}
+#wrap #innerwrap h2{text-align: center;}
+#bottomContainer{width: 100%; padding-top: 34px; display: flex; width: 100%; justify-content: space-evenly;}
+button{
+    background-color: #52DCD1; width: 136px;
+    height: 32px; cursor: pointer; border-radius: 15px; border: none;
+}
+button:hover{
+    background-color: #3ed9cd;
+}

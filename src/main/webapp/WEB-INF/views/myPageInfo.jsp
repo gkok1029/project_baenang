@@ -19,14 +19,14 @@
 <body>
 	<header>
 		<div id=top>
-			<div class=profile><a href="/user/mypage">Profile</a></div>
+			<div class=profile><a href="/user/mypage"><img alt="gomypage" src="../resources/img/mypage.png"></a></div>
 		</div>
 		<div id=topbg>
             
         </div>
 		<div id="topcenprowrap">
             <div id=topcenpro>
-                <p class="profile_img"><span><img alt="${user.getM_NNAME()}" src="../resources/img/${user.getM_IMAGE()}"></span></p>
+                <p class="profile_img"><span class="cursor"><img alt="${user.getM_NNAME()}" src="../resources/img/${user.getM_IMAGE()}"><img id="edit" alt="edit" src="../resources/img/edit.png"></span></p>
                 <p class="username"><span>${user.getM_NNAME()}</span></p>
             </div>
         </div>
@@ -57,6 +57,11 @@
         	function openPwd(){
         		let url="../user/mypagepwdchange";
         		win=open(url,"myPagepwdChange","width=800, height=300, left=250, top=250")
+        	}
+        	
+        	function openOut(){
+        		let url="../user/mypageout";
+        		win=open(url,"myPageOut","width=400, height=400, left=250, top=250")
         	}
         </script>
     </main>
