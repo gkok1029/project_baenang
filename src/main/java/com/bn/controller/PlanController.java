@@ -145,7 +145,7 @@ public class PlanController {
 	}
 	@ResponseBody
 	@RequestMapping("/tour")
-	public ModelMap showinfo (@RequestParam String x,@RequestParam String y, @RequestParam(required = false) String ctype) {
+	public ModelMap showinfo (@RequestParam String x,@RequestParam String y, @RequestParam(required = false) String ctype,@RequestParam(required=false)String cat) {
 		ModelMap map=new ModelMap();
 		try {
 		Map<String,Object> cd=new HashMap<>();
@@ -154,9 +154,10 @@ public class PlanController {
 		cd.put("mapx",mapx);
 		cd.put("mapy",mapy);
 		cd.put("ctype", ctype);
+		cd.put("cat", cat);
 		List<ContentVo>nd=dService.searchInRange(cd);
 		map.addAttribute("contentList",nd);
-		
+		System.out.println("controller:" +nd.size());
 		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
 		}catch (NumberFormatException e) {
 	        // 숫자 변환 중 예외 발생 시 처리
@@ -169,6 +170,7 @@ public class PlanController {
 	    }
 		return map;
 	}
+	
 	
 
 

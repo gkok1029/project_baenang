@@ -80,7 +80,7 @@ let PlanModule = ( ()=>{
 			success : function(res) {
 			
 			displayTourInformation(res.contentList,x,y);	
-			console.log(res.contentList.length);
+			
 			},
 			error : function(err) {
 				alert('error: ' + err.status);
