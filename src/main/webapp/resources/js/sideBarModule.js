@@ -10,6 +10,7 @@ let SidebarModule = (function () {
     let step1Button = createSidebarButton("btn-step1", "STEP 1<br>날짜확인");
     let step2Button = createSidebarButton("btn-step2", "STEP 2<br>장소확인");
     let step3Button = createSidebarButton("btn-step3", "STEP 3<br>숙소설정");
+    
 
     let nextButton = document.createElement("button");
     nextButton.className = "bottom-button";
@@ -60,6 +61,7 @@ let SidebarModule = (function () {
 	        $("#search_frame").css({
 	            'width': '600px',
 	        });
+	        lodging(x,y);
 	    });        
 		
 		let searchFrame = document.getElementById("search_frame");
