@@ -66,22 +66,16 @@ public class LoginController {
 		}
 	}
 	
-	@PostMapping("/logout")
+	@RequestMapping("/logout")
     public String logout(HttpSession session) {
-        session.invalidate(); // ¼¼¼Ç ÃÊ±âÈ­ (·Î±×¾Æ¿ô)
-        return "redirect:/login"; // ·Î±×¾Æ¿ô ÈÄ ·Î±×ÀÎ ÆäÀÌÁö·Î ÀÌµ¿
+        session.invalidate(); // ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ (ï¿½Î±×¾Æ¿ï¿½)
+        return "redirect:/login"; // ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
     }
 	
 	@RequestMapping("/login")
 	public String Login() {
 		
 		return "login";
-	}
-	
-	@RequestMapping("/user/main")
-	public String goMain() {
-		
-		return "main";
 	}
 	
 	@RequestMapping("/forgot")

@@ -1,9 +1,10 @@
 package com.bn.service;
 
 import java.util.List;
-import java.util.Map;
 
 public interface MainService {
 	
 	public String rec(String contentid);
+
+	public List<String> search(String title);
 }
