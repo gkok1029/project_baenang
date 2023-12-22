@@ -11,6 +11,9 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
+
+  --bs-micho-rgb: 82,220,209;
+  --bs-mincho: #52DCD1;
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -8162,6 +8165,21 @@ textarea.form-control-lg {
 .bg-dark {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-cyan {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-cyan-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-blue {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-blue-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-mincho {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-mincho-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-black {

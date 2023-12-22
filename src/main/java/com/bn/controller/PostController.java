@@ -51,9 +51,9 @@ public class PostController {
 		return "redirect:/blog/posts";
 	}
 	
-	@GetMapping("/get")
+	@GetMapping({"/get", "/modify"})
 	public void get(@RequestParam("p_id") int p_id, Model model) {
-		log.info("/get");
+		log.info("/get or /modi");
 		model.addAttribute("post", service.get(p_id));
 	}
 	

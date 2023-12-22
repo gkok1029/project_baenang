@@ -12,7 +12,7 @@
 	</div>
 </div>
 
-<div class="row">
+<div style="background-color: #52DCD1" class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">get post</div>
@@ -32,7 +32,7 @@
 				
 				
 			
-				<button data-oper='modify' class="btn btn-default">Modify</button>
+				<button data-oper='modify' class="btn btn-default">이 게시물 수정하기</button>
 				<button data-oper='list' class="btn btn-info">List</button>
 				
 				
