@@ -5,6 +5,7 @@
 		border: 1px solid red;
 	}
 	body {
+		background-color: #D4F4FA;
 	    font-family: Arial, sans-serif;
 	}
 	.navi {
@@ -17,7 +18,17 @@
 	    text-decoration: none;
 	    color: #007bff;
 	}
-	
+	#search_block{
+		width: 700px;
+		display: flex;
+		flex-wrap: nowrap; /* 줄 바꿈 방지 */
+	}
+	#search_block > form{
+		width: 700px;
+	}
+	#search_block > form > a > img{
+		height:35px;
+	}
 	#search-container {
 	    text-align: center;
 	    margin-top: 50px;
@@ -26,24 +37,28 @@
 	    padding: 10px;
 	    width: 300px;
 	    font-size: 16px;
+	    
+        display: inline-block;
+    	width: 70%; /* 조절 가능한 너비 */
+	    
 	}
-	#search-button {
-	    padding: 10px;
-	    font-size: 16px;
+	#search-box::placeholder {
+    	text-align: center;
 	}
 	#blog-container {
 	    margin-top: 20px;
+	    text-align:center;
 	}
-	img .item{
-			    /* 각각의 아이템 스타일 */
-	margin-right: 20px; /* 각 아이템 간격 설정 */
-	 width: 200px; 
-	 height: 200px;
+	#city{
+		text-align: center;
 	}
-	 .citiesImg{
-	 width: 30%; /* 이미지가 부모 요소에 꽉 차게 됩니다. */
-	 height: auto; /* 가로 비율 유지하면서 세로 비율을 조절합니다. */
-	 border: 2px solid blue; /* 예시: 테두리 스타일을 추가합니다. */
+	
+	.citiesImg{
+	margin: 30px;
+	width: 20%;
+	height: auto; /* 가로 비율 유지하면서 세로 비율을 조절. */
+	border: 2px solid gray;
+	border-radius: 10px;
 	}
 	   li{
 	   	list-style: none;
@@ -54,7 +69,7 @@
 	white-space: nowrap; /* 텍스트 줄바꿈 방지 */
 	      }
 	      
-	      #search-container {
+	#search-container {
 	    display: flex;
 	    flex-direction: column;
 	    align-items: center;
