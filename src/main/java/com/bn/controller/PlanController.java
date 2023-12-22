@@ -162,13 +162,13 @@ public class PlanController {
 		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
 		System.out.println(map.toString());
 		}catch (NumberFormatException e) {
-	        // 숫자 변환 중 예외 발생 시 처리
+	        // �닽�옄 蹂��솚 以� �삁�쇅 諛쒖깮 �떆 泥섎━
 	        map.addAttribute("error", "Invalid coordinates. Please provide valid numeric values for x and y.");
-	        e.printStackTrace(); // 예외 로그 출력 (개발 중에만 사용, 운영에서는 로깅 시스템 활용)
+	        e.printStackTrace(); // �삁�쇅 濡쒓렇 異쒕젰 (媛쒕컻 以묒뿉留� �궗�슜, �슫�쁺�뿉�꽌�뒗 濡쒓퉭 �떆�뒪�뀥 �솢�슜)
 	    } catch (Exception e) {
-	        // 다른 예외 발생 시 처리
+	        // �떎瑜� �삁�쇅 諛쒖깮 �떆 泥섎━
 	        map.addAttribute("error", "An unexpected error occurred.");
-	        e.printStackTrace(); // 예외 로그 출력 (개발 중에만 사용, 운영에서는 로깅 시스템 활용)
+	        e.printStackTrace(); // �삁�쇅 濡쒓렇 異쒕젰 (媛쒕컻 以묒뿉留� �궗�슜, �슫�쁺�뿉�꽌�뒗 濡쒓퉭 �떆�뒪�뀥 �솢�슜)
 	    }
 		return map;
 	}

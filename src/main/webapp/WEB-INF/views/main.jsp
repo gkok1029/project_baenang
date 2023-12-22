@@ -75,7 +75,7 @@
 	    $.ajax({
 	        type: 'get',
 	        //dataType: 'text',
-	        url: 'search?keyword=' + keyword,
+	        url: 'msearch?keyword=' + keyword,
 	        cache: false,
 	        processData: true,
 	        success: function (title) {
@@ -146,12 +146,12 @@
         	<h1>어디로 여행을 떠나시나요?</h1>
 		</div>
 		<div id="search_block">
-	        <form action=plan.jsp" method="GET">
+	        <form action="/plan" method="GET">
 	        	
         		<input type="text" id="search-box" name="keyword" placeholder="도시명을 검색해보세요."
 			       class="form-control dropdown-toggle" data-toggle="dropdown" 
 			       aria	-haspopup="true" aria-expanded="false" oninput="onKeywordInput()">
-			    <a href="plan.jsp"><img src="${pageContext.request.contextPath}/resources/img/main/search.png" alt="search"></a>
+			    <a href="/plan"><img src="${pageContext.request.contextPath}/resources/img/main/search.png" alt="search"></a>
 	            
 	           	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				    <a class="dropdown-item" id="search_content" href="#"></a>
