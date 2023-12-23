@@ -198,7 +198,7 @@ public class PlanController {
     	return n;
     }
     @ResponseBody
-    @RequestMapping("/makeschedule")
+    @RequestMapping(value="/makeschedule",produces="application/json; charset=UTF-8")
     public String[] makeschedule() {
     	String[] result={"126.4946032358,33.2620894948","126.7640945189,33.4734065616", "126.5238756154,33.5118484611",
                 "126.5867476162,33.5255451704", "126.3809026350,33.4810246035"};
@@ -250,7 +250,8 @@ public class PlanController {
 			String text = URLEncoder.encode(part1, "UTF-8");
 			String text2 = URLEncoder.encode(part2, "UTF-8");
     		System.out.println("ㅎㅇ1");
-			String apiURL = "https://naveropenapi.apigw.ntruss.com/map-direction/v1/driving?start={"+part1+"}&goal={"+part2+"}";
+			String apiURL = "https://naveropenapi.apigw.ntruss.com/map-direction/v1/driving?start="+part1+"&goal="+part2+"&option=traoptimal";
+			
 			System.out.println(apiURL);
 			URL url = new URL(apiURL);
 			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
@@ -290,7 +291,7 @@ public class PlanController {
 		}
     	
     	
-    return 1;	
+    return 1;
     }
     
 }
