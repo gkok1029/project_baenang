@@ -8,12 +8,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT title FROM content WHERE contentid = #{contentid}
 	</select>
 	
-	<select id="search" parameterType="string" resultType="string">
+	<select id="search" parameterType="string" resultType="Content">
 	    <![CDATA[
-	        SELECT title FROM content WHERE title LIKE '%' || #{title} || '%' AND ROWNUM <= 5
+	        SELECT title,contentid,addr FROM content WHERE title LIKE '%' || #{title} || '%' AND ROWNUM <= 5
 	    ]]>
 	</select>
 
-
-
 </mapper>
+

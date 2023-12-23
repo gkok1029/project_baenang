@@ -53,7 +53,14 @@
 	}
 	<%-- --------------------------------------------------------------------------------------- --%>	
 	
-	<%-- -------------------------- 도시사진을 누르면 해당 도시의 정보팝업창을 띄워주는 기 ------------------------- --%>	
+	<%-- ------------------------------------- 스크롤 다운 기능 -------------------------------------- --%>	
+    function scrollToTravelInfo() {
+        var travelInfoSection = document.getElementById('city');
+        travelInfoSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    <%-- --------------------------------------------------------------------------------------- --%>	
+	
+	<%-- -------------------------- 도시사진을 누르면 해당 도시의 정보팝업창을 띄워주는 기능 ------------------------- --%>	
 	function openPopup(cityId) {
 	    // 팝업으로 띄울 페이지의 URL
         var popupUrl = "/city?cityId=" + cityId;
@@ -78,7 +85,7 @@
 	        url: 'msearch?keyword=' + keyword,
 	        cache: false,
 	        processData: true,
-	        success: function (title) {
+	        success: function (title, contentid, addr) {
 	            // 받은 결과를 dropdown에 표시
 	           	//alert("반환된 값 : "+title.title);
 	            //updateDropdown(title.title);
@@ -121,7 +128,7 @@
     	boolean isLoggedIn = userId != null;
 	%>
 	<div id="navi" class="navi">
-		<a href="#">여행지</a>
+		<a href="#" onclick="scrollToTravelInfo()">여행지</a>
 		<a href="/blog/bloghub">블로그</a><!-- 블로그페이지 허브로 이동 -->
 		<a href="/plan">스케쥴</a><!-- 여행계획페이지 일정선택으로 이동 -->
     <%-- 사용자가 로그인한 경우 적절한 링크를 보여줍니다 --%>
@@ -182,7 +189,7 @@
 
 <div id="blog-container">
     <h2>추 천 블 로 그</h2>
-	
+	<br>
 	<div class="blog-con">
 
         <c:forEach var="imageFile" items="${imageFiles}">
@@ -219,7 +226,10 @@
 </div>
 <%-- --------------------------------------------------------------- --%>
 <br><br>
-<%-- --------------- 특정 도시에 대한 이미지와 정보를 보여주는 팝업창으로 이동시켜주는 기능 ------------------- --%>
+<%-- --------------- 특정 도시에 대한 이미지와 정보를 보여주는 팝업창으로 이동시켜주는 기능 -------------------
+
+<!-- Add an anchor point for smooth scrolling -->
+<div id="city-anchor"></div>
 <div id="city">
 	<h2> 지역별 여행 정보 </h2>
 	<div>
@@ -243,6 +253,7 @@
 		</a>
 	</div>
 </div>
-<%-- --------------------------------------------------------------------------------------- --%>
+
+--------------------------------------------------------------------------------------- --%>
 </body>
 </html>

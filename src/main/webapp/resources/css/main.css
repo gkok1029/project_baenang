@@ -1,15 +1,12 @@
 @charset "UTF-8";
 
 <style>
-	div{
-		border: 1px solid red;
-	}
 	body {
 		background-color: #D4F4FA;
 	    font-family: Arial, sans-serif;
 	}
 	.navi {
-	    background-color: #f8f9fa;
+	    background-color: #D4F4FA;
 	    padding: 10px;
 	    text-align: center;
 	}
@@ -27,7 +24,8 @@
 		width: 700px;
 	}
 	#search_block > form > a > img{
-		height:35px;
+		height:38px;
+		margin-bottom:5px;
 	}
 	#search-container {
 	    text-align: center;
@@ -40,35 +38,36 @@
 	    
         display: inline-block;
     	width: 70%; /* 조절 가능한 너비 */
-	    
 	}
 	#search-box::placeholder {
     	text-align: center;
 	}
-	#blog-container {
-	    margin-top: 20px;
-	    text-align:center;
-	}
 	#city{
 		text-align: center;
 	}
-	
 	.citiesImg{
-	margin: 30px;
-	width: 20%;
-	height: auto; /* 가로 비율 유지하면서 세로 비율을 조절. */
-	border: 2px solid gray;
-	border-radius: 10px;
+		margin: 30px;
+		width: 20%;
+		height: auto; /* 가로 비율 유지하면서 세로 비율을 조절. */
+		border: 2px solid gray;
+		border-radius: 10px;
 	}
-	   li{
-	   	list-style: none;
-	   }
-	   .blog-con{
-	    	display: flex;
-	 overflow-x: auto; /* 수평 스크롤을 허용 */
-	white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-	      }
-	      
+	li{
+		list-style: none;
+	}
+	#blog-container {
+		width:95%;
+		margin:0 auto;
+		padding: 20px;
+		text-align:center;
+		border:1px solid red;
+		border-radius: 20px;
+	}
+	.blog-con{
+	   	display: flex;
+		overflow-x: auto; /* 수평 스크롤을 허용 */
+		white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+	}
 	#search-container {
 	    display: flex;
 	    flex-direction: column;
@@ -76,7 +75,6 @@
 	    text-align: center;
 	    margin-top: 50px;
 	}
-	
 	#search-container div {
 	    margin-bottom: 10px; /* 각 div 간격 조절 */
 	}

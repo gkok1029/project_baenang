@@ -36,7 +36,6 @@ public class CityController {
     @RequestMapping(value = "/getCityData", method = RequestMethod.GET)
     @ResponseBody
     public CityVO getCityData(@RequestParam String cityId) {
-        // 서비스에서 해당 cityId에 대한 데이터를 가져옴
     	log.info("CC : "+cityId);
     	CityVO vo=cityService.getCityById(cityId);
         return vo;
