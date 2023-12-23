@@ -7,19 +7,20 @@
 <title>비밀번호 찾기페이지</title>
 <!-- jQuery CDN 추가 -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="/resources/css/forgot.css" rel="stylesheet">
 </head>
 <body>
   <h1>비밀번호 찾기</h1>
   <!-- 이메일 입력 폼 -->
   <form id="emailForm">
-    <label for="email">이메일:</label>
+    <label for="email">이메일</label>
     <input type="email" id="email" name="M_EMAIL" required>
     <button type="button" onclick="sendEmail()">임시 비밀번호 발급 코드 요청</button>
   </form>
   
   <!-- 코드 입력 폼 -->
   <form id="codeForm">
-    <label for="code">코드:</label>
+    <label for="code">코드</label>
     <input type="text" id="code" name="code" required>
     <button type="button" onclick="verifyCode()">인증하기</button>
   </form>
