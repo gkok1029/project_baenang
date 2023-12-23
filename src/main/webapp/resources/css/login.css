@@ -1,7 +1,8 @@
 body{
   margin: 0;
   color: #6a6f8c;
-  background: #c8c8c8;
+  background:url('/resources/images/loginbackground.jpg') no-repeat center;
+  background-size: cover;
   font: 600 16px/18px 'Open Sans', sans-serif;
 }
 *,:after,:before{box-sizing:border-box}
@@ -9,22 +10,43 @@ body{
 .clearfix:after{clear:both;display:block}
 a{color:inherit;text-decoration:none}
 
+.logo-container {
+  text-align: center;
+}
+
+.slogan {
+  font-size: 14px; /* 텍스트 크기 조절 */
+  margin-top: -30px; /* 로고와의 간격 조절 */
+  margin-bottom: 30px;
+  color: #00ffff; /* 텍스트 색상 */
+}
+
+.logo {
+  position: absolute;
+  top: 20px; /* 상단 여백 값 */
+  left: 50%; /* 화면 가로 중앙에 위치 */
+  transform: translateX(-50%); /* 중앙 정렬을 위한 가로 이동 */
+  width: 100px; /* 원하는 너비 값으로 수정 */
+  height: auto; /* 높이는 자동으로 조정됩니다. */
+}
+
 .login-wrap{
   height:80%;
   width:100%;
-  margin:auto;
+  margin: 125px auto 0; 
   max-width:525px;
   min-height:670px;
   position:relative;
-  background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center;
+  background:url('/resources/images/loginbackground.jpg') no-repeat center;
+  background-size: cover;
   box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 .login-html{
   width:100%;
   height:100%;
   position:absolute;
-  padding:90px 70px 50px 70px;
-  background:rgba(40,57,101,.9);
+  padding:150px 70px 50px 70px;
+  background:rgba(40,57,101,9);
 }
 .login-html .sign-in-htm,
 .login-html .sign-up-htm{
@@ -92,7 +114,7 @@ a{color:inherit;text-decoration:none}
   font-size:12px;
 }
 .login-form .group .button{
-  background:#1161ee;
+  background:#52DCD1;
 }
 .login-form .group label .icon{
   width:15px;
