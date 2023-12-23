@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bn.model.ContentVo;
 import com.bn.service.MainServiceImpl;
 
 import lombok.extern.log4j.Log4j;
@@ -56,8 +57,9 @@ public class MainController {
 
 	
 	 @ResponseBody
-	 @GetMapping("/msearch") public List<String> search(@RequestParam String keyword) {
-		List<String> result = null;
+	 @GetMapping("/msearch") 
+	 public List<ContentVo> search(@RequestParam String keyword) {
+		List<ContentVo> result = null;
 		
 		try {
 			result = msi.search(keyword);
@@ -66,7 +68,22 @@ public class MainController {
 		}
 		 
 		 System.out.println(result);
-		 return result;
+		 
+		 List<ContentVo> searchList = result; // 받아온 데이터를 searchList에 할당
+
+		 for (ContentVo content : searchList) {
+		     String title = content.getTitle();
+		     System.out.println("title: " + title);
+		 }
+		 for (ContentVo content : searchList) {
+			 String contentid = content.getContentid();
+			 System.out.println("contentid: " + contentid);
+		 }
+		 for (ContentVo content : searchList) {
+			 String addr = content.getAddr();
+			 System.out.println("addr: " + addr);
+		 }
+		 return searchList;
 	 }
 	 
 	
