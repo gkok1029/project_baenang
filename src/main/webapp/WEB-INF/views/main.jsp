@@ -33,14 +33,27 @@
 			processData:true,
 			success:function(res){
 				alert("최근 트렌드 관광지 추천 : "+res.title);
-				$('#recommand').append(res.title);
+				
+				$('#search_content').empty();
+				$('#search_content1').empty();
+				$('#search_content2').empty();
+				$('#search_content3').empty();
+				$('#search_content4').empty();
+				
+				$('#search_content').append(res.title);
+				$('#search_content1').append("추천2");
+				$('#search_content2').append("추천3");
+				$('#search_content3').append("추천4");
+				$('#search_content4').append("추천5");
 			},
 			error:function(err){
 				alert('error: '+err.status);
 			}
 		})
 	}
+	<%-- --------------------------------------------------------------------------------------- --%>	
 	
+	<%-- -------------------------- 도시사진을 누르면 해당 도시의 정보팝업창을 띄워주는 기 ------------------------- --%>	
 	function openPopup(cityId) {
 	    // 팝업으로 띄울 페이지의 URL
         var popupUrl = "/city?cityId=" + cityId;
@@ -54,7 +67,6 @@
 	<%-- --------------------------------------------------------------------------------------- --%>	
 	
 	<%-- ------------------------관광지 검색기능 ------------------------- --%>
-	
 	// #search-box 입력 시마다 호출되는 함수
 	function onKeywordInput() {
 	    var keyword = document.getElementById('search-box').value;
@@ -63,7 +75,7 @@
 	    $.ajax({
 	        type: 'get',
 	        //dataType: 'text',
-	        url: 'search?keyword=' + keyword,
+	        url: 'msearch?keyword=' + keyword,
 	        cache: false,
 	        processData: true,
 	        success: function (title) {
@@ -87,7 +99,6 @@
 	        }
 	    });
 	}
-	
 	<%-- --------------------------------------------------------- --%>
 	
 </script>
@@ -98,6 +109,7 @@
 </head>
 
 <body>
+
 <%-- -------------------------------- 탑 네비게이션 -------------------------------- --%>
 	<%
 		// 세션을 가져옵니다
@@ -126,36 +138,35 @@
 		<a href="../dbbutton">DBDownload</a>
 
 	</div>
-
 <%-- ----------------------------------------------------------------------------- --%>
 
 <%-- ---------------------------- 검색 관련 뷰페이지 컨텐트 ---------------------------- --%>
-
     <div id="search-container" class="justify-content-center align-items-center">
 		<div>
         	<h1>어디로 여행을 떠나시나요?</h1>
 		</div>
-		<div>
-	        <form action="search.jsp" method="GET">
-	        		<input type="text" id="search-box" name="keyword" placeholder="도시명을 검색해보세요."
-				       class="form-control dropdown-toggle" data-toggle="dropdown" 
-				       aria-haspopup="true" aria-expanded="false" oninput="onKeywordInput()">
+		<div id="search_block">
+	        <form action="/plan" method="GET">
+	        	
+        		<input type="text" id="search-box" name="keyword" placeholder="도시명을 검색해보세요."
+			       class="form-control dropdown-toggle" data-toggle="dropdown" 
+			       aria	-haspopup="true" aria-expanded="false" oninput="onKeywordInput()">
+			    <a href="/plan"><img src="${pageContext.request.contextPath}/resources/img/main/search.png" alt="search"></a>
 	            
 	           	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				    <a class="dropdown-item" id="search_content" href="#" id="recommand"></a>
+				    <a class="dropdown-item" id="search_content" href="#"></a>
 				    <a class="dropdown-item" id="search_content1" href="#">최근 트렌드 순위 2</a>
 				    <a class="dropdown-item" id="search_content2" href="#">최근 트렌드 순위 3</a>
 				    <a class="dropdown-item" id="search_content3" href="#">최근 트렌드 순위 4</a>
 				    <a class="dropdown-item" id="search_content4" href="#">최근 트렌드 순위 5</a>
 				</div>
+				
 	            
-	            <button type="submit" id="search-button">검색</button>
 	        </form>
         </div>
     </div>
-    
 <%-- ----------------------------------------------------------------------------- --%>    
-
+<br><br>
 <%-- --------------- 블로그 썸네일을 가져와 보여주는 기능 ------------------- --%>
 <%
     // 이미지 파일이 있는 폴더 경로
@@ -170,7 +181,7 @@
 %>
 
 <div id="blog-container">
-    <p>블 로 그</p>
+    <h2>추 천 블 로 그</h2>
 	
 	<div class="blog-con">
 
@@ -179,7 +190,8 @@
             	<% 
 			        for (String imageFile : imgFiles) {
 			    %>
-			        <a href="#" id="item"><img src="${pageContext.request.contextPath}/resources/img/<%= imageFile %>"></a>
+			        <a href="#" class="blogImg"><img src="${pageContext.request.contextPath}/resources/img/<%= imageFile %>" 
+			        style="margin: 10px; width:200px; height:200px;"></a>
 			    <% 
 			        }
 			    %>
@@ -188,29 +200,31 @@
        
 	</div>
 </div>
-
 <%-- --------------------------------------------------------------- --%>
-
-<%-- --------------- 특정 도시에 대한 이미지와 정보를 보여주는 팝업창으로 이동시켜주는 기 ------------------- --%>
-<div>
-    <a href="#" id="Seoul" name="Seoul" class="city" onclick="openPopup('Seoul')">
-    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png" alt="Seoul Image">
-	</a>
-	<a href="#" id="Busan" name="Busan" class="city" onclick="openPopup('Busan')">
-    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Busan.png" alt="Seoul Image">
-	</a>
-	<a href="#" id="Daejeon" name="Daejeon" class="city" onclick="openPopup('Daejeon')">
-    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Daejeon.png" alt="Seoul Image">
-	</a>
-	<a href="#" id="Incheon" name="Incheon" class="city" onclick="openPopup('Incheon')">
-    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Incheon.png" alt="Seoul Image">
-	</a>
-	<a href="#" id="Gwangju" name="Gwangju" class="city" onclick="openPopup('Gwangju')">
-    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gwangju.png" alt="Seoul Image">
-	</a>
-	<a href="#" id="Gangwon" name="Gangwon" class="city" onclick="openPopup('Gangwon')">
-    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gangwon.png" alt="Seoul Image">
-	</a>
+<br><br>
+<%-- --------------- 특정 도시에 대한 이미지와 정보를 보여주는 팝업창으로 이동시켜주는 기능 ------------------- --%>
+<div id="city">
+	<h2> 지역별 여행 정보 </h2>
+	<div>
+	    <a href="#" id="Seoul" name="Seoul" class="city" onclick="openPopup('Seoul')">
+	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png" alt="Seoul Image">
+		</a>
+		<a href="#" id="Busan" name="Busan" class="city" onclick="openPopup('Busan')">
+	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Busan.png" alt="Seoul Image">
+		</a>
+		<a href="#" id="Daejeon" name="Daejeon" class="city" onclick="openPopup('Daejeon')">
+	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Daejeon.png" alt="Seoul Image">
+		</a>
+		<a href="#" id="Incheon" name="Incheon" class="city" onclick="openPopup('Incheon')">
+	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Incheon.png" alt="Seoul Image">
+		</a>
+		<a href="#" id="Gwangju" name="Gwangju" class="city" onclick="openPopup('Gwangju')">
+	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gwangju.png" alt="Seoul Image">
+		</a>
+		<a href="#" id="Gangwon" name="Gangwon" class="city" onclick="openPopup('Gangwon')">
+	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gangwon.png" alt="Seoul Image">
+		</a>
+	</div>
 </div>
 <%-- --------------------------------------------------------------------------------------- --%>
 </body>

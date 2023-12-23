@@ -56,7 +56,7 @@ public class MainController {
 
 	
 	 @ResponseBody
-	 @GetMapping("/search") public List<String> search(@RequestParam String keyword) {
+	 @GetMapping("/msearch") public List<String> search(@RequestParam String keyword) {
 		List<String> result = null;
 		
 		try {
