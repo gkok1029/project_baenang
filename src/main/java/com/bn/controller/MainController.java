@@ -55,7 +55,31 @@ public class MainController {
 		return map;
 	}
 
-	
+
+	@ResponseBody
+	 @GetMapping("/msearch") 
+	 public List<ContentVo> search(@RequestParam String keyword) {
+		List<ContentVo> result = null;
+		
+		try {
+			result = msi.search(keyword);
+		}catch(Exception e) {
+			
+		}
+		 
+		 System.out.println(result);
+		 
+		 List<ContentVo> searchList = result; // 받아온 데이터를 searchList에 할당
+
+		 for (ContentVo content : searchList) {
+		     String cityName = content.getCITYNAME();
+		     System.out.println(cityName);
+		 }
+		System.out.println("searchList[0] : "+searchList);
+		 return searchList;
+	 }
+	 
+	 /*
 	 @ResponseBody
 	 @GetMapping("/msearch") 
 	 public List<ContentVo> search(@RequestParam String keyword) {
@@ -85,6 +109,7 @@ public class MainController {
 		 }
 		 return searchList;
 	 }
+	 */
 	 
 	
 	/*

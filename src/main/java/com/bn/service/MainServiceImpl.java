@@ -27,5 +27,5 @@ public class MainServiceImpl implements MainService {
 		log.info("ServiceImpl title : "+title);
 		return this.mainMapper.search(title);
 	}
-
+	
 }

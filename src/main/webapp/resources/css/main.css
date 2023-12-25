@@ -69,6 +69,7 @@
 		white-space: nowrap; /* 텍스트 줄바꿈 방지 */
 	}
 	#search-container {
+		height:400px;
 	    display: flex;
 	    flex-direction: column;
 	    align-items: center;
