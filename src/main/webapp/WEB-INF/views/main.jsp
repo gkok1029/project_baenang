@@ -85,21 +85,21 @@
 	        url: 'msearch?keyword=' + keyword,
 	        cache: false,
 	        processData: true,
-	        success: function (title, contentid, addr) {
+	        success: function (title) {
 	            // 받은 결과를 dropdown에 표시
 	           	//alert("반환된 값 : "+title.title);
 	            //updateDropdown(title.title);
-	            $("#search_content").empty();
 	            $("#search_content1").empty();
 	            $("#search_content2").empty();
 	            $("#search_content3").empty();
 	            $("#search_content4").empty();
+	            $("#search_content5").empty();
 	            
-	            $("#search_content").append(title[0]);
-	            $("#search_content1").append(title[1]);
-	            $("#search_content2").append(title[2]);
-	            $("#search_content3").append(title[3]);
-	            $("#search_content4").append(title[4]);
+	            $("#search_content1").append(title[0]);
+	            $("#search_content2").append(title[1]);
+	            $("#search_content3").append(title[2]);
+	            $("#search_content4").append(title[3]);
+	            $("#search_content5").append(title[4]);
 	        },
 	        error: function (err) {
 	            console.error('Error: ' + err.status);
@@ -139,12 +139,6 @@
         <a href="/login">로그인</a>
     <% } %>
 	</div>
-	
-	<div class="navi">
-		<a href="../">Home</a>
-		<a href="../dbbutton">DBDownload</a>
-
-	</div>
 <%-- ----------------------------------------------------------------------------- --%>
 
 <%-- ---------------------------- 검색 관련 뷰페이지 컨텐트 ---------------------------- --%>
@@ -161,11 +155,11 @@
 			    <a href="/plan"><img src="${pageContext.request.contextPath}/resources/img/main/search.png" alt="search"></a>
 	            
 	           	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				    <a class="dropdown-item" id="search_content" href="#"></a>
-				    <a class="dropdown-item" id="search_content1" href="#">최근 트렌드 순위 2</a>
-				    <a class="dropdown-item" id="search_content2" href="#">최근 트렌드 순위 3</a>
-				    <a class="dropdown-item" id="search_content3" href="#">최근 트렌드 순위 4</a>
-				    <a class="dropdown-item" id="search_content4" href="#">최근 트렌드 순위 5</a>
+				    <a class="dropdown-item" id="search_content1" href="#"></a>
+				    <a class="dropdown-item" id="search_content2" href="#">최근 트렌드 순위 2</a>
+				    <a class="dropdown-item" id="search_content3" href="#">최근 트렌드 순위 3</a>
+				    <a class="dropdown-item" id="search_content4" href="#">최근 트렌드 순위 4</a>
+				    <a class="dropdown-item" id="search_content5" href="#">최근 트렌드 순위 5</a>
 				</div>
 				
 	            
