@@ -17,13 +17,8 @@
 <title>My Page Info</title>
 </head>
 <body>
+<jsp:include page="top.jsp"/>
 	<header>
-		<div id=top>
-			<div class=profile><a href="/user/mypage"><img alt="gomypage" src="../resources/img/mypage.png"></a></div>
-		</div>
-		<div id=topbg>
-            
-        </div>
 		<div id="topcenprowrap">
             <div id=topcenpro>
                 <p class="profile_img"><span class="cursor"><img alt="${user.getM_NNAME()}" src="../resources/img/${user.getM_IMAGE()}"><img id="edit" alt="edit" src="../resources/img/edit.png"></span></p>
@@ -36,17 +31,17 @@
             <div id="innerwrap">
                 <div class="joinday">가입일 : ${user.getM_RDATE()}</div>
                 <div id="formContainer">
-                    <form action="" name="memberinfo" class="info" id="infoF" method="post">
-	                    <h3 class="pad">닉네임</h4>
-	                	<div id="inputContainer" class="pad"><input type="text" name="name" value="${user.getM_NNAME()}"></div>
-	                    <h3 class="pad">이메일</h4>
+                    <form action="mypageinfosubmit" name="memberinfo" class="info" id="infoF" method="post">
+	                    <h3 class="pad">닉네임</h3>
+	                	<div id="inputContainer" class="pad"><input type="text" name="nick" value="${user.getM_NNAME()}"></div>
+	                    <h3 class="pad">이메일</h3>
 	                    <div id="inputContainer" class="pad"><input type="text" name="userid"  value="${user.getM_EMAIL()}" readonly></div>
                     </form>
                     <p id="pwdch" class=cursor onclick="openPwd()">비밀번호를 변경하시겠습니까?</p>
                 </div>
                 <div id="bottomContainer">
                     <div id="formBottom">
-                        <button type="submit" onclick="submit()">수정완료</button>
+                        <button type="submit" onclick="infoChange()">수정완료</button>
                         <button type="button" onclick="openOut()">회원탈퇴</button>
                     </div>
                 </div>
@@ -62,6 +57,10 @@
         	function openOut(){
         		let url="../user/mypageout";
         		win=open(url,"myPageOut","width=400, height=400, left=250, top=250")
+        	}
+        	
+        	function infoChange(){
+        		memberinfo.submit();
         	}
         </script>
     </main>
