@@ -30,6 +30,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    
 	</select>
 	
+	<update id="updatePwd" parameterType="Member">
+		update member set m_pwd=#{M_PWD} where m_id=#{M_ID}
+	</update>
+	
+	<update id="updateNickname" parameterType="Member">
+		update member set m_nname=#{M_NNAME} where m_id=#{M_ID}
+	</update>
+	
 	
 	
 </mapper>
