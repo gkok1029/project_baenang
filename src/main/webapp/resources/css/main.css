@@ -42,6 +42,10 @@
 	#search-box::placeholder {
     	text-align: center;
 	}
+	.dropdown-menu > a > img{
+		width:35px;
+		height:35px;
+	}
 	#city{
 		text-align: center;
 	}

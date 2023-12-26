@@ -1,5 +1,6 @@
 package com.bn.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -58,7 +59,7 @@ public class MainController {
 
 	@ResponseBody
 	 @GetMapping("/msearch") 
-	 public List<ContentVo> search(@RequestParam String keyword) {
+	 public String[] search(@RequestParam String keyword) {
 		List<ContentVo> result = null;
 		
 		try {
@@ -67,16 +68,20 @@ public class MainController {
 			
 		}
 		 
-		 System.out.println(result);
+		 System.out.println("Controller : "+result);
 		 
 		 List<ContentVo> searchList = result; // 받아온 데이터를 searchList에 할당
-
-		 for (ContentVo content : searchList) {
-		     String cityName = content.getCITYNAME();
-		     System.out.println(cityName);
+		
+		String[] cityNameList = new String[5]; //jsp에 .append로 넣을 수 있게 스트링타입의 배열을 생성 
+		
+		 for (int i = 0; i < searchList.size(); i++) {
+		     ContentVo content = searchList.get(i); 
+		     String cityName = content.getCITYNAME(); // Vo클래스의 getter 메서드를 사용하여 CITYNAME의 값만 추출 
+		     cityNameList[i]=cityName;
+		     System.out.println("cityNameList["+i+"] : " + cityNameList[i]);
 		 }
-		System.out.println("searchList[0] : "+searchList);
-		 return searchList;
+		 
+		 return cityNameList;
 	 }
 	 
 	 /*
