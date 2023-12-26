@@ -1,11 +1,6 @@
 package com.bn.controller;
 
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,15 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bn.model.CityVo;
 import com.bn.model.ContentVo;
 import com.bn.model.DtailPlanVo;
 import com.bn.model.PlanVo;
 import com.bn.service.DbService;
-import com.bn.service.MainService;
 import com.bn.service.PlanService;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import lombok.extern.log4j.Log4j;
 
@@ -59,6 +51,8 @@ public class PlanController {
 	private PlanVo pvo;
 	
 	private ContentVo cvo;
+	
+	private CityVo cityvo;
 
 	@GetMapping("/plan")
 	public String plan(@RequestParam String search,Model model) {
