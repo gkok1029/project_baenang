@@ -43,8 +43,6 @@
 		<beans:property name="maxUploadSize"  value="-1" />
 		<!-- -1 주면 무제한 업로드 가능 -->
 	</beans:bean>
-	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></beans:bean>
-	
 	
 </beans:beans>
 
