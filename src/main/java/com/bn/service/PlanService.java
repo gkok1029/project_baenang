@@ -2,7 +2,7 @@ package com.bn.service;
 
 import java.util.List;
 
-import com.bn.model.ContentVo;
+import com.bn.model.CityVo;
 import com.bn.model.DtailPlanVo;
 import com.bn.model.PlanVo;
 

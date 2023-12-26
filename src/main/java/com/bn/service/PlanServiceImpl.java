@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.bn.mapper.PlanMapper;
-import com.bn.model.ContentVo;
+import com.bn.model.CityVo;
 import com.bn.model.DtailPlanVo;
 import com.bn.model.PlanVo;
 
