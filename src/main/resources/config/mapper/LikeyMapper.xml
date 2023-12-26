@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<select id="findLike" resultType="int">
+		select count(*) from likey where board_no = #{board_no} and user_no = #{user_no}
+</select>
