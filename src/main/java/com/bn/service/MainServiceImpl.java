@@ -25,10 +25,8 @@ public class MainServiceImpl implements MainService {
 	@Override
 	public List<CityVo> search(String title) {
 		List<CityVo> result;
-		//log.info("ServiceImpl title : "+title);
-		System.out.println("ServiceImpl title : "+title);
+		log.info("ServiceImpl title : "+title);
 		result = mainMapper.search(title);
-		System.out.println("MC : result : "+result);
 		
 		return result;
 	}
