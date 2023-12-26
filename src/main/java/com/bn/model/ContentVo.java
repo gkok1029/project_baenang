@@ -23,6 +23,5 @@ public class ContentVo {
 	String firstimage;
 	String mapx;
 	String mapy;
-	String CITYNAME;
 
 }

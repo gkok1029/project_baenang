@@ -24,13 +24,13 @@
 	<%-- ------------------------관광도시 검색 자동완성기능 ------------------------- --%>
 	
     // 검색 결과를 클릭했을 때 실행되는 함수
-    function onSearchResultClick(cityName) {
+    function onSearchResultClick(cityName,LONGITUDE,LATITUDE ) {
         // 동적으로 URL을 생성하고 요청을 보냄
-        var url = "/plan?search=" + cityName;
+        var url = "/plan?search=" + cityName + "&LONGITUDE="+LONGITUDE+"&LATITUDE="+LATITUDE;
         window.location.href = url;
     }
     
- // AJAX를 사용하여 검색어에 따른 결과를 가져오는 함수
+ <%--// AJAX를 사용하여 검색어에 따른 결과를 가져오는 함수
     function onKeywordInput() {
         var keyword = document.getElementById('search-box').value;
 
@@ -57,7 +57,54 @@
                 console.error('Error: ' + err.status);
             }
         });
+    } --%>
+ 
+    function onKeywordInput() {
+        var keyword = document.getElementById('search-box').value;
+
+        // AJAX를 사용하여 서버에 요청
+        $.ajax({
+            type: 'get',
+            url: 'msearch?keyword=' + keyword,
+           	dataType: 'json',
+            cache: false,
+            processData: true,
+            success: function (result) {
+                // 받은 결과를 dropdown에 표시
+				var cvo=result.cvo;
+                for (var i = 0; i < 5; i++) {
+                    var vo = cvo[i];
+                    
+                    // Check if result[i] is not null before accessing its properties
+                    if (vo !== null) {
+                        var cityName = vo.CITYNAME;
+                        var LONGITUDE = vo.LONGITUDE;
+                        var LATITUDE = vo.LATITUDE;
+                        
+                        console.log("cityName"+ cityName);
+                        console.log("LONGITUDE"+ LONGITUDE);
+                        console.log("LATITUDE"+ LATITUDE);
+                        
+
+                        // 동적으로 생성된 a 태그에 클릭 이벤트 추가
+                        var dropdownItem = '<a class="dropdown-item" href="#" onclick="onSearchResultClick(\''  +cityName + ', ' + LONGITUDE + ', ' + LATITUDE + ')">' + cityName + '</a>';
+
+                        // 해당 id의 엘리먼트를 찾아 내용을 변경
+                        $("#search_content" + (i + 1)).empty().append(dropdownItem);
+                    } else {
+                        // Handle the case where result[i] is null
+                        $("#search_content" + (i + 1)).empty();
+                    }
+                }
+            },
+            error: function (err) {
+                console.error('Error: ' + err.status);
+            }
+        });
     }
+ 
+ 
+ 	
 	
 	<%-- --------------------------------------------------------- --%>
 	

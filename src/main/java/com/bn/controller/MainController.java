@@ -1,6 +1,5 @@
 package com.bn.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bn.model.ContentVo;
+import com.bn.model.CityVo;
 import com.bn.service.MainServiceImpl;
 
 import lombok.extern.log4j.Log4j;
@@ -59,10 +58,26 @@ public class MainController {
 
 	@ResponseBody
 	 @GetMapping("/msearch") 
-	 public String[] search(@RequestParam String keyword) {
-		List<ContentVo> result = null;
-		
+	 public ModelMap search(@RequestParam String keyword) {
+		ModelMap result = new ModelMap();
 		try {
+			List<CityVo> cvo=msi.search(keyword);
+			result.addAttribute("cvo",cvo);
+		}catch(Exception e) {
+			
+		}
+		System.out.println("MC: "+result.toString());
+		return result;
+	 }
+	
+	/*
+	@ResponseBody
+	 @GetMapping("/msearch") 
+	 public String[] search(@RequestParam String keyword) {
+		List<CityVo> result = null;
+		System.out.println(keyword);
+		try {
+			System.out.println("hihi");
 			result = msi.search(keyword);
 		}catch(Exception e) {
 			
@@ -70,19 +85,27 @@ public class MainController {
 		 
 		 System.out.println("Controller : "+result);
 		 
-		 List<ContentVo> searchList = result; // 받아온 데이터를 searchList에 할당
+		 List<CityVo> searchList = result; // 받아온 데이터를 searchList에 할당
 		
 		String[] cityNameList = new String[5]; //jsp에 .append로 넣을 수 있게 스트링타입의 배열을 생성 
 		
 		 for (int i = 0; i < searchList.size(); i++) {
-		     ContentVo content = searchList.get(i); 
+			 CityVo content = searchList.get(i); 
+		     
 		     String cityName = content.getCITYNAME(); // Vo클래스의 getter 메서드를 사용하여 CITYNAME의 값만 추출 
+		     System.out.println("MC:cityName: "+cityName);
+		     String longitute = content.getLONGITUDE();
+		     System.out.println("MC:longitute: "+longitute);
+		     String latitute = content.getLATITUDE();
+		     System.out.println("MC:latitute: "+latitute);
+		     
 		     cityNameList[i]=cityName;
 		     System.out.println("cityNameList["+i+"] : " + cityNameList[i]);
 		 }
 		 
 		 return cityNameList;
 	 }
+	 */
 	 
 	 /*
 	 @ResponseBody
