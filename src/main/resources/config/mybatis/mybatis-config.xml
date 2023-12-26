@@ -3,24 +3,25 @@
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-<typeAliases>
-	<typeAlias type="com.bn.model.PlanVo" alias="Plan"/>
-	<typeAlias type="com.bn.model.ContentVo" alias="Content"/>
-	<typeAlias type="com.bn.model.DtailPlanVo" alias="Dplan"/>
-	<typeAlias type="com.bn.model.CityVO" alias="City"/>
-	<typeAlias type="com.bn.model.MemberVo" alias="Member"/>
-	<typeAlias type="com.bn.model.PostVo" alias="Post"/>
-	<typeAlias type="com.bn.model.MypageVo" alias="Mypage"/>
-</typeAliases>
-
-<mappers>
-	<mapper resource="config/mapper/PlanMapper.xml"/>
-	<mapper resource="config/mapper/ContentMapper.xml"/>
-	<mapper resource="config/mapper/SignupMapper.xml"/>
-	<mapper resource="config/mapper/LoginMapper.xml"/>
-	<mapper resource="config/mapper/MainMapper.xml"/>
-	<mapper resource="config/mapper/CityMapper.xml"/>
-	<mapper resource="config/mapper/PostMapper.xml"/>
-	<mapper resource="config/mapper/MypageMapper.xml"/>
-</mappers>
+	<typeAliases>
+		<typeAlias type="com.bn.model.PlanVo" alias="Plan"/>
+		<typeAlias type="com.bn.model.ContentVo" alias="Content"/>
+		<typeAlias type="com.bn.model.DtailPlanVo" alias="Dplan"/>
+		<typeAlias type="com.bn.model.CityVO" alias="City"/>
+		<typeAlias type="com.bn.model.MemberVo" alias="Member"/>
+		<typeAlias type="com.bn.model.PostVo" alias="Post"/>
+		<typeAlias type="com.bn.model.MypageVo" alias="Mypage"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="config/mapper/PlanMapper.xml"/>
+		<mapper resource="config/mapper/ContentMapper.xml"/>
+		<mapper resource="config/mapper/SignupMapper.xml"/>
+		<mapper resource="config/mapper/LoginMapper.xml"/>
+		<mapper resource="config/mapper/MainMapper.xml"/>
+		<mapper resource="config/mapper/CityMapper.xml"/>
+		<mapper resource="config/mapper/PostMapper.xml"/>
+		<mapper resource="config/mapper/MypageMapper.xml"/>
+	</mappers>
+	
 </configuration>
