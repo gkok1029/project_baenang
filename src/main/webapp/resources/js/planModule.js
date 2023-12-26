@@ -121,6 +121,7 @@ let PlanModule = ( ()=>{
 			imgDiv.append(img);
 			textDiv.append(title, addr, heart);
 			newDiv.append(imgDiv, textDiv);
+			console.log(tcontainer);
 			tcontainer.append(newDiv);
 			 var marker = new naver.maps.Marker({
 		            position: new naver.maps.LatLng(content.mapy, content.mapx),
