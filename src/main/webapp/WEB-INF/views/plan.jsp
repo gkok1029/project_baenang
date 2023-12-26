@@ -138,38 +138,14 @@
 
 </body>
 <script>
-let x;
-let y;
+let cityname='${cityvo.CITYNAME}';
+let y='${cityvo.LATITUDE}';
+let x='${cityvo.LONGITUDE}';
 
-	//맵모듈
-	function handleEnterKey(event) {
-		if (event.key === "Enter") {
-			submitForm(); // 엔터 키를 눌렀을 때 submitForm 함수 호출
-		}
-	}
-
-	// 폼 제출 함수
-	function submitForm() {
 		
-		var inputValue = document.querySelector('input[type="text"]').value;
-		$.ajax({
-			type : 'get',
-			dataType : 'json',
-			url : 'search?addr=' + inputValue,
-			cache : false,
-			processData : true,
-			success : function(res) {
-				PlanModule.tour(res.x, res.y);
-				x=res.x;
-				y=res.y;
-			},
-			error : function(err) {
-				alert('error: ' + err.status);
-			}
+	PlanModule.tour(x,y);
 
-		})
 
-	}	
 	
 	function lodging(lat, len) {
 		let x = lat;
