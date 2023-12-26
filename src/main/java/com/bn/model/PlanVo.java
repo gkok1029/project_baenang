@@ -16,8 +16,6 @@ public class PlanVo {
 	String p_name;//�÷��̸�
 	Date p_birth;//�÷�������
 	Date p_moddate;//�÷�������
-	int count;
-	
 	
 	
 }
