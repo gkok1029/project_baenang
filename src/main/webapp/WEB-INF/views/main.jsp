@@ -109,13 +109,12 @@
 			    <a href="/plan"><img src="${pageContext.request.contextPath}/resources/img/main/search.png" alt="search"></a>
 	            
 	           	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				    <a class="dropdown-item" id="search_content1" href="#"><img alt="SeoulIMG" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png"> 서울 </a>
-				    <a class="dropdown-item" id="search_content2" href="#"><img alt="DaejeonIMG" src="${pageContext.request.contextPath}/resources/img/cities/Daejeon.png"> 대전 </a>
-				    <a class="dropdown-item" id="search_content3" href="#"><img alt="JejuIMG" src="${pageContext.request.contextPath}/resources/img/cities/Jeju.png"> 제주 </a>
-				    <a class="dropdown-item" id="search_content4" href="#"><img alt="GangneungIMG" src="${pageContext.request.contextPath}/resources/img/cities/Gangneung.png"> 강릉 </a>
-				    <a class="dropdown-item" id="search_content5" href="#"><img alt="BusanIMG" src="${pageContext.request.contextPath}/resources/img/cities/Busan.png"> 부산 </a>
+				    <a class="dropdown-item" id="search_content1" href="/plan?search=서울"><img alt="SeoulIMG" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png"> 서울 </a>
+				    <a class="dropdown-item" id="search_content2" href="/plan?search=대전"><img alt="DaejeonIMG" src="${pageContext.request.contextPath}/resources/img/cities/Daejeon.png"> 대전 </a>
+				    <a class="dropdown-item" id="search_content3" href="/plan?search=제주"><img alt="JejuIMG" src="${pageContext.request.contextPath}/resources/img/cities/Jeju.png"> 제주 </a>
+				    <a class="dropdown-item" id="search_content4" href="/plan?search=강릉"><img alt="GangneungIMG" src="${pageContext.request.contextPath}/resources/img/cities/Gangneung.png"> 강릉 </a>
+				    <a class="dropdown-item" id="search_content5" href="/plan?search=부산"><img alt="BusanIMG" src="${pageContext.request.contextPath}/resources/img/cities/Busan.png"> 부산 </a>
 				</div>
-				
 	            
 	        </form>
         </div>
