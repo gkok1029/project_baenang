@@ -55,29 +55,12 @@ public class MainController {
 		return map;
 	}
 
-
-	@ResponseBody
-	 @GetMapping("/msearch") 
-	 public ModelMap search(@RequestParam String keyword) {
-		ModelMap result = new ModelMap();
-		try {
-			List<CityVo> cvo=msi.search(keyword);
-			result.addAttribute("cvo",cvo);
-		}catch(Exception e) {
-			
-		}
-		System.out.println("MC: "+result.toString());
-		return result;
-	 }
-	
-	/*
 	@ResponseBody
 	 @GetMapping("/msearch") 
 	 public String[] search(@RequestParam String keyword) {
 		List<CityVo> result = null;
-		System.out.println(keyword);
+		
 		try {
-			System.out.println("hihi");
 			result = msi.search(keyword);
 		}catch(Exception e) {
 			
@@ -91,53 +74,31 @@ public class MainController {
 		
 		 for (int i = 0; i < searchList.size(); i++) {
 			 CityVo content = searchList.get(i); 
-		     
 		     String cityName = content.getCITYNAME(); // Vo클래스의 getter 메서드를 사용하여 CITYNAME의 값만 추출 
-		     System.out.println("MC:cityName: "+cityName);
-		     String longitute = content.getLONGITUDE();
-		     System.out.println("MC:longitute: "+longitute);
-		     String latitute = content.getLATITUDE();
-		     System.out.println("MC:latitute: "+latitute);
-		     
 		     cityNameList[i]=cityName;
 		     System.out.println("cityNameList["+i+"] : " + cityNameList[i]);
 		 }
 		 
 		 return cityNameList;
 	 }
-	 */
 	 
-	 /*
-	 @ResponseBody
+	/*
+	@ResponseBody
 	 @GetMapping("/msearch") 
-	 public List<ContentVo> search(@RequestParam String keyword) {
-		List<ContentVo> result = null;
-		
+	 public List<CityVo> search(@RequestParam String keyword) {
+		List<CityVo> result = null;
 		try {
 			result = msi.search(keyword);
 		}catch(Exception e) {
 			
 		}
 		 
-		 System.out.println(result);
+		System.out.println("Controller result : "+result);
 		 
-		 List<ContentVo> searchList = result; // 받아온 데이터를 searchList에 할당
-
-		 for (ContentVo content : searchList) {
-		     String title = content.getTitle();
-		     System.out.println("title: " + title);
-		 }
-		 for (ContentVo content : searchList) {
-			 String contentid = content.getContentid();
-			 System.out.println("contentid: " + contentid);
-		 }
-		 for (ContentVo content : searchList) {
-			 String addr = content.getAddr();
-			 System.out.println("addr: " + addr);
-		 }
-		 return searchList;
+		 return result;
 	 }
-	 */
+	*/
+	 
 	 
 	
 	/*
