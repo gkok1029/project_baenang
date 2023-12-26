@@ -28,6 +28,7 @@ import com.bn.model.ContentVo;
 import com.bn.model.DtailPlanVo;
 import com.bn.model.PlanVo;
 import com.bn.service.DbService;
+import com.bn.service.MainService;
 import com.bn.service.PlanService;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -54,14 +55,18 @@ public class PlanController {
 	@Inject
 	private DbService dService;
 	
+	
 	private PlanVo pvo;
 	
 	private ContentVo cvo;
 
 	@GetMapping("/plan")
-	public String plan(Model model) {
+	public String plan(@RequestParam String search,Model model) {
 		model.addAttribute("NAVER_MAPS_KEY", NAVER_MAPS_KEY);
 		model.addAttribute("NAVER_MAPS_SECRET_KEY", NAVER_MAPS_SECRET_KEY);
+		cityvo=pservice.cityloc(search);
+		model.addAttribute("cityvo",cityvo);
+		System.out.println(cityvo.getLATITUDE());
 		return "plan";
 	}
 	
@@ -93,56 +98,7 @@ public class PlanController {
 		map.addAttribute("lvo",lvo);
 		return map;
 	}
-	@ResponseBody
-	@RequestMapping("/search")
-	public ModelMap search(@RequestParam String addr) {
-		ModelMap map = new ModelMap();
-		try {
-			String text = URLEncoder.encode(addr, "UTF-8");
-			log.info(addr);
 
-			String apiURL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query=" + text;
-			URL url = new URL(apiURL);
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			conn.setUseCaches(false);
-			conn.setDoOutput(true);
-			conn.setDoInput(true);
-			conn.setRequestProperty("Content-Type", "text/plain");
-			conn.setRequestProperty("X-NCP-APIGW-API-KEY-ID", NAVER_MAPS_KEY);
-			conn.setRequestProperty("X-NCP-APIGW-API-KEY", NAVER_MAPS_SECRET_KEY);
-			int responseCode = conn.getResponseCode();
-			if (responseCode == 200) {
-				BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-				String inputLine;
-				StringBuilder response = new StringBuilder();
-				while ((inputLine = in.readLine()) != null) {
-					response.append(inputLine);
-				}
-				in.close();
-
-				JsonObject jsonResponse = JsonParser.parseString(response.toString()).getAsJsonObject();
-				JsonArray addresses = jsonResponse.getAsJsonArray("addresses");
-
-				if (addresses.size() > 0) {
-					JsonObject firstAddress = addresses.get(0).getAsJsonObject();
-					String x = firstAddress.get("x").getAsString();
-					String y = firstAddress.get("y").getAsString();
-					map.addAttribute("x", x);
-					map.addAttribute("y", y);
-				} else {
-					String x = jsonResponse.get("x").getAsString();
-					String y = jsonResponse.get("y").getAsString();
-					map.addAttribute("x", x);
-					map.addAttribute("y", y);
-				}
-			}
-		} catch (Exception e) {
-			log.error("search error: "+e);
-			map.addAttribute("error", "Error occurred");
-		}
-		
-		return map;
-	}
 	@ResponseBody
 	@RequestMapping("/tour")
 	public ModelMap showinfo (@RequestParam String x,@RequestParam String y, @RequestParam(required = false) String ctype,@RequestParam(required=false)String cat) {
@@ -185,14 +141,14 @@ public class PlanController {
     @ResponseBody
     @PostMapping("/dpsave")
     public int dtailplan(@RequestParam DtailPlanVo vo) {
-    	int n=pservice.insertdp(vo);
+    	int n=pservice.insertDp(vo);
     	
     	return n;
     }
     @ResponseBody
     @PostMapping("/dpretrieve")
     public int dtailplanretrieve(@RequestParam DtailPlanVo vo) {
-    	int n=pservice.insertdp(vo);
+    	int n=pservice.insertDp(vo);
     	
     	return n;
     }

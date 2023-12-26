@@ -52,7 +52,7 @@ let ViewPageModule = (function () {
 
         // 첫 번째 하위 div 엘리먼트 생성
         let firstChildDiv = $("<div>");
-        let h2Element = $("<h2>").text("제주");
+        let h2Element = $("<h2>").text(cityname);
         firstChildDiv.append(h2Element);
 
         let dateDiv = $("<div>").attr("id", "date").text("2023.12.22(금) - 2023.12.29(금)");

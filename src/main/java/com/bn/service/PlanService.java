@@ -2,6 +2,7 @@ package com.bn.service;
 
 import java.util.List;
 
+import com.bn.model.ContentVo;
 import com.bn.model.DtailPlanVo;
 import com.bn.model.PlanVo;
 
@@ -12,6 +13,8 @@ public interface PlanService {
 	
 	public List<PlanVo> selectAll(int m_id);
 	
-	public int insertdp(DtailPlanVo vo);
+	public int insertDp(DtailPlanVo vo);
+	
+	public CityVo cityloc(String CITYNAME);
 
 }
