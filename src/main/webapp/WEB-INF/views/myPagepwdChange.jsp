@@ -20,7 +20,7 @@
 	<div id="wrap">
 	    <div id="innerwrap">
 	        <div id="formContainer">
-	            <form action="" name="pwdchange" class="pwdf" id="pwdF" method="post">
+	            <form action="pwdchange" name="pwdchange" class="pwdf" id="pwdF" method="post">
 	                <table id="pwdTable">
 	                    <tr>
 	                        <th>현재 비밀번호</th>
@@ -45,11 +45,15 @@
 	        </div>
 	        <div id="bottomContainer">
 	            <div id="formBottom">
-	                <button type="submit">수정완료</button>
+	                <button type="submit" onclick="pwdClose()">수정완료</button>
 	            </div>
 	        </div>
-	        
 	    </div>
 	</div>
+    <script type="text/javascript">
+    	function pwdClose(){
+    		pwdchange.submit();
+    	}
+    </script>
 </body>
 </html>
