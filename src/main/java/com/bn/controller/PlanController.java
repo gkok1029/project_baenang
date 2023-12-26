@@ -145,22 +145,20 @@ public class PlanController {
 	}
 	@ResponseBody
 	@RequestMapping("/tour")
-	public ModelMap showinfo (@RequestParam String x,@RequestParam String y, @RequestParam(required = false) String ctype) {
+	public ModelMap showinfo (@RequestParam String x,@RequestParam String y, @RequestParam(required = false) String ctype,@RequestParam(required=false)String cat) {
 		ModelMap map=new ModelMap();
 		try {
 		Map<String,Object> cd=new HashMap<>();
 		double mapx=Double.parseDouble(x);
 		double mapy=Double.parseDouble(y);
-		if(ctype!=null &&ctype!="") {
-		int contenttypeid=Integer.parseInt(ctype);
-		cd.put("contenttypeid", contenttypeid);
-		}
 		cd.put("mapx",mapx);
 		cd.put("mapy",mapy);
+		cd.put("ctype", ctype);
+		cd.put("cat", cat);
 		List<ContentVo>nd=dService.searchInRange(cd);
 		map.addAttribute("contentList",nd);
+		System.out.println("controller:" +nd.size());
 		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
-		System.out.println(map.toString());
 		}catch (NumberFormatException e) {
 	        // �닽�옄 蹂��솚 以� �삁�쇅 諛쒖깮 �떆 泥섎━
 	        map.addAttribute("error", "Invalid coordinates. Please provide valid numeric values for x and y.");
@@ -172,6 +170,7 @@ public class PlanController {
 	    }
 		return map;
 	}
+	
 	
 
 
