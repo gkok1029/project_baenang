@@ -1,10 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naver Map with Number Marker</title>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dsbc03s9xu"></script>
 </head>
-<body>
+<body style="margin: 0; padding: 0;">
+
+<!-- 지도를 표시할 div -->
+<div id="map" style="width: 100%; height: 400px;"></div>
+
+<script>
+    // 지도 초기화
+    var map = new naver.maps.Map('map', {
+        center: new naver.maps.LatLng(37.5665, 126.9780), // 서울의 좌표
+        zoom: 10
+    });
+
+    // 숫자 마커 생성 함수
+    function createNumberMarker(position, number) {
+        var marker = new naver.maps.Marker({
+            position: position,
+            map: map,
+            icon: {
+                content: "<div class='number-marker'>" + number + "</div>",
+                size: new naver.maps.Size(28, 28),
+                anchor: new naver.maps.Point(14, 14)
+            }
+        });
+
+        return marker;
+    }
+
+    // 숫자 마커 추가 예제
+    var marker1 = createNumberMarker(new naver.maps.LatLng(37.5665, 126.9780), 1);
+    var marker2 = createNumberMarker(new naver.maps.LatLng(37.5651, 126.9784), 2);
+    var marker3 = createNumberMarker(new naver.maps.LatLng(37.5663, 126.9776), 3);
+
+    // 스타일링을 위한 CSS
+    var styles = document.createElement('style');
+    styles.innerHTML = ".number-marker { background-color: #3498db; color: #fff; border-radius: 50%; width: 24px; height: 24px; line-height: 24px; text-align: center; font-size: 14px; font-weight: bold; }";
+    document.head.appendChild(styles);
+</script>
 
 </body>
 </html>
