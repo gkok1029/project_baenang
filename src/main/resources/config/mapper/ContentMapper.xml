@@ -14,9 +14,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<select id="searchInRange" parameterType="map" resultType="Content">
-	SELECT * FROM content WHERE to_number(mapx) BETWEEN #{mapx}-0.24 AND #{mapx}+0.24 AND mapy BETWEEN #{mapy}-0.18 AND #{mapy}+0.18
+	SELECT * FROM content WHERE mapx BETWEEN #{mapx}-0.24 AND #{mapx}+0.24 AND mapy BETWEEN #{mapy}-0.18 AND #{mapy}+0.18
 	<if test="ctype !=null and ctype!=0">
 	and contenttypeid=#{ctype}
+	</if> 
+	<if test="cat !=null">
+	and code=#{cat:VARCHAR}
+	</if>
+	<if test="cat==null and ctype==null">
+	and contenttypeid in ('12','14','15','25','28')
 	</if> 
 	</select>
 

@@ -138,11 +138,8 @@
 
 </body>
 <script>
-	//다음버튼
-	function getStep(){
-		let step;
-			
-	}
+let x;
+let y;
 
 	//맵모듈
 	function handleEnterKey(event) {
@@ -153,7 +150,7 @@
 
 	// 폼 제출 함수
 	function submitForm() {
-		// 여기에 입력값을 처리하는 코드를 추가하면 됩니다.
+		
 		var inputValue = document.querySelector('input[type="text"]').value;
 		$.ajax({
 			type : 'get',
@@ -163,7 +160,8 @@
 			processData : true,
 			success : function(res) {
 				PlanModule.tour(res.x, res.y);
-				lodging(res.x,res.y);
+				x=res.x;
+				y=res.y;
 			},
 			error : function(err) {
 				alert('error: ' + err.status);
@@ -174,8 +172,8 @@
 	}	
 	
 	function lodging(lat, len) {
-		var x = lat;
-		var y = len;
+		let x = lat;
+		let y = len;
 		var ctype="32";
 
 		$.ajax({
@@ -186,7 +184,6 @@
 			processData : true,
 			success : function(res) {
 				PlanModule.displayLodgingInformation(res.contentList,x,y);
-				
 
 			},
 			error : function(err) {
@@ -194,6 +191,57 @@
 			}
 		})
 	}
-	
+	function restaurant(){
+		var ctype="39";
+		$.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : 'tour?x=' + x + '&y=' + y + '&ctype=' +ctype,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				PlanModule.displayTourInformation(res.contentList,x,y);
+
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+		})
+	}
+	function cafe(){
+		var cat="A05020900";
+		$.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : 'tour?x=' + x + '&y=' + y + '&cat=' +cat,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				PlanModule.displayTourInformation(res.contentList,x,y);
+
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+		})
+		
+	}
+	function attraction(){
+		$.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : 'tour?x=' + x + '&y=' + y,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				PlanModule.displayTourInformation(res.contentList,x,y);
+
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+		})
+		
+	}
 </script>
 </html>
