@@ -28,6 +28,19 @@ public class DbServiceImpl implements DbService {
 		return this.contentMapper.searchInRange(cd);
 	}
 
+	@Override
+	public int count(int contentid) {
+		
+		return this.contentMapper.count(contentid);
+	}
+
+	@Override
+	public String reqstring(String string) {
+		
+		
+		return this.contentMapper.reqstring(string);
+	}
+
 
 
 }
