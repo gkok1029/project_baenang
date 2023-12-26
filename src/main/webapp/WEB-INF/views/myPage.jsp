@@ -22,7 +22,7 @@
 		<div id="topcenprowrap">
             <div id=topcenpro>
             	<%-- ${user} --%>
-                <p class="profile_img"><span><img alt="${user.getM_NNAME()}" src="../resources/img/${user.getM_IMAGE()}"></span></p>
+                <p class="profile_img"><span><img alt="${user.getM_NNAME()}" src="../resources/img/profile/${user.getM_IMAGE()}"></span></p>
                 <p class="username"><span>${user.getM_NNAME()}</span></p>
                 <p class="profilemanage"><span><a href="/user/mypageinfo">프로필 관리</a></span></p>
             </div>

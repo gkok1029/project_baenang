@@ -21,8 +21,8 @@
 	    <div id="innerwrap">
 	        <h2>탈퇴 하시겠습니까?</h2>
 	        <div id="bottomContainer">
-                <button type="submit" class="cursor">예</button>
-                <button type="button" class="cursor">아니오</button>
+                <button type="submit" class="cursor" name="yes" onclick="window.close()" action="/out">예</button>
+                <button type="button" class="cursor" name="no" onclick="window.close()">아니오</button>
 	        </div>
 	    </div>
 	</div>
