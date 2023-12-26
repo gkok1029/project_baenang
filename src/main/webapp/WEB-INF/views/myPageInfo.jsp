@@ -21,7 +21,18 @@
 	<header>
 		<div id="topcenprowrap">
             <div id=topcenpro>
-                <p class="profile_img"><span class="cursor"><img alt="${user.getM_NNAME()}" src="../resources/img/${user.getM_IMAGE()}"><img id="edit" alt="edit" src="../resources/img/edit.png"></span></p>
+                <p class="profile_img">
+                <!-- 파일 업로드를 위한 input 요소 -->
+                <form id="imgF" name="imgF" action="mypageinfopic" method="post" enctype="multipart/form-data">
+                	<input type="file" id="editmf" name="editmf" style="display: none" accept="image/*">
+                </form>
+			    
+                	<span class="cursor">
+	                	<img id="proimg" alt="${user.getM_NNAME()}" src="/resources/profile/${user.getM_IMAGE()}">
+	                	<img id="edit" alt="edit" src="../resources/img/profile/edit.png" name="edit" onclick="editPic()">
+	                	<input type="hidden"/>
+                	</span>
+               	</p>
                 <p class="username"><span>${user.getM_NNAME()}</span></p>
             </div>
         </div>
@@ -61,6 +72,22 @@
         	
         	function infoChange(){
         		memberinfo.submit();
+        	}
+        	
+        	function editPic(){
+        		$('#editmf').click();
+        		$('#editmf').on('change',handlefileup);
+        	}
+        	function handlefileup(e){
+        		let fileInput=document.getElementById('editmf');
+        		if(!fileInput.files||!fileInput.files[0]){
+        			alert('변경할 이미지 파일을 선택하세')
+        			return;
+        		}
+        		imgUrl=URL.createObjectURL(fileInput.files[0]);
+        		$('#proimg').attr('src',imgUrl);//이미지 미리보기
+        		
+        		$('#imgF').submit();
         	}
         </script>
     </main>
