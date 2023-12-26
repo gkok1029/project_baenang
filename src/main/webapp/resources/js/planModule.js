@@ -237,7 +237,7 @@ let PlanModule = ( ()=>{
 			 var marker = new naver.maps.Marker({
 		            position: new naver.maps.LatLng(content.mapy, content.mapx),
 		            map: map,
-		            icon:{content: '<div style="background-color: red; width: 20px; height: 20px; border-radius: 50%;"></div>'}
+		            icon:{url:'/resources/images/캡처.PNG'}
 		        });
 		        // 클로저를 사용하여 정보창 내용 설정
 		        (function (marker, title) {
