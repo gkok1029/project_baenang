@@ -1,9 +1,10 @@
-@charset "UTF-8";
-
-<style>
-	body {
-		background-color: #D4F4FA;
-	    font-family: Arial, sans-serif;
+	body{
+	  margin: 0;
+	  color: #6a6f8c;
+	  background:url('/resources/images/loginbackground.jpg') no-repeat center;
+	  background-size: cover;
+	  font: 600 16px/18px 'Open Sans', sans-serif;
+	  justify-content: center;
 	}
 	.navi {
 	    background-color: #D4F4FA;
@@ -28,8 +29,13 @@
 		margin-bottom:5px;
 	}
 	#search-container {
+		width:50%;
+		height:auto;
+		border: 1px solid white;
+		border-radius:20px;
+		background-color: #D4F4FA;
 	    text-align: center;
-	    margin-top: 50px;
+	    margin:0 auto;
 	}
 	#search-box {
 	    padding: 10px;
@@ -60,11 +66,12 @@
 		list-style: none;
 	}
 	#blog-container {
+		background-color: #D4F4FA;
 		width:95%;
 		margin:0 auto;
 		padding: 20px;
 		text-align:center;
-		border:1px solid red;
+		border:1px solid white;
 		border-radius: 20px;
 	}
 	.blog-con{
@@ -84,4 +91,3 @@
 	    margin-bottom: 10px; /* 각 div 간격 조절 */
 	}
         
-</style>
