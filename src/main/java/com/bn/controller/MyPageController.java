@@ -1,13 +1,17 @@
 package com.bn.controller;
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 import javax.inject.Inject;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bn.model.MemberVo;
 import com.bn.model.MypageVo;
@@ -66,6 +70,74 @@ public class MyPageController {
 		return "myPageInfo";
 	}
 	
+	@RequestMapping(value = "/mypageinfopic")
+	public String mypageInfo(Model m, HttpSession session, 
+			@RequestParam("editmf") MultipartFile mf, MypageVo vo) {
+		log.info("editmf: "+mf);
+		String userName= (String)session.getAttribute("userName");
+		
+		if(userName==null) {
+			log.info("에러메세지: ");
+			return "error";
+		}
+		
+		//1. 파일 업로드 처리
+		//[1] 업로드할 절대경로 얻어오기
+		ServletContext app=session.getServletContext();
+		String upDir=app.getRealPath("/resources/profile");
+		log.info("upDir: "+upDir);
+		
+		File dir=new File(upDir);
+		if(!dir.exists()) {
+			dir.mkdirs();//업로드 디렉토리 생성
+		}
+		
+		//[2] 업로드한 파일명,파일크기 알아내기
+		if(!mf.isEmpty()) {//첨부했다면
+			String fname=mf.getOriginalFilename();//원본파일명
+			long fsize=mf.getSize();//파일크기
+			//파일컨텐트타입
+			//String ctype=mf.getContentType();
+			UUID uuid=UUID.randomUUID();
+			String filename=uuid.toString()+"_"+fname;//물리적 파일명
+			log.info("fname: "+fname+", filename: "+filename);
+			
+			vo.setFilename(filename);//uuid_filename
+			vo.setOriginFilename(fname);//filename
+			vo.setFilesize(fsize);
+		
+			//[3] 업로드 처리--transferTo()
+			try {
+				mf.transferTo(new File(upDir, filename));
+				
+			} catch (Exception e) {
+				log.error("파일 업로드 실패: "+e);
+			}
+		}//if-------------------
+		
+		
+		MemberVo user = mypageService.getProfile(userName);
+		
+		
+		vo.setM_id(user.getM_ID());
+		
+		int n=mypageService.updateProfileImage(vo);
+		
+		if(n>0) {
+			
+			return "redirect:/user/mypageinfo";
+			
+		}else {
+			m.addAttribute("msg","사진을 선택하십시오");
+			m.addAttribute("loc","javascript:history.back()");
+			
+			return "message";
+		}
+		
+		
+		
+	}
+	
 	@RequestMapping(value = "/mypageinfosubmit")
 	public String mypageInfosubmit(Model m, HttpSession session, String nick) {
 		
@@ -93,7 +165,6 @@ public class MyPageController {
 	@RequestMapping(value = "/mypagepwdchange")
 	public String mypagepwdChange(Model m, HttpSession session) {
 		
-		String userName= (String)session.getAttribute("userName");
 		
 		
 		return "myPagepwdChange";
@@ -136,6 +207,18 @@ public class MyPageController {
 	}
 	@RequestMapping(value = "/mypageout")
 	public String mypageOut(Model m, HttpSession session) {
+		
+		return "myPageOut";
+	}
+	
+	@RequestMapping(value = "/out")
+	public String mypageOutProcess(Model m, HttpSession session, String yes) {
+		
+		String userName= (String)session.getAttribute("userName");
+		int n = mypageService.memberOut(userName);
+		
+		
+		
 		return "myPageOut";
 	}
 	

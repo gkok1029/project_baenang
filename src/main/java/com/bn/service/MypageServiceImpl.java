@@ -63,6 +63,16 @@ public class MypageServiceImpl implements MypageService {
 		// TODO Auto-generated method stub
 		return mypageMapper.updateNickname(user);
 	}
+	@Override
+	public int memberOut(String usermail) {
+		// TODO Auto-generated method stub
+		return mypageMapper.memberOut(usermail);
+	}
+	@Override
+	public int updateProfileImage(MypageVo vo) {
+		// TODO Auto-generated method stub
+		return mypageMapper.updateProfileImage(vo);
+	}
 	
 	
 	
