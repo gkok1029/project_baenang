@@ -26,6 +26,7 @@
 	            data: { cityId: cityName },
 	            success: function (data) {
 	                // 받아온 데이터를 각각의 <td>에 넣기
+	                $('h1').append('<td>' + data.cityId + '</td>');
 	                $('table tr:last').append('<td>' + data.cityId + '</td>');
 	                $('table tr:last').append('<td>' + data.cityImage + '</td>');
 	                $('table tr:last').append('<td>' + data.cityIntro + '</td>');
@@ -40,7 +41,7 @@
     </script>
 
 <body>
-    <h1>City List</h1>
+    <h1></h1>
     <table border="1">
         <tr>
             <th>City ID</th>
@@ -52,6 +53,9 @@
         <tr>
         
         </tr>
+        
+        
+        
     </table>
 </body>
 </html>

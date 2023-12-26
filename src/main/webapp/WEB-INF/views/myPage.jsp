@@ -17,13 +17,8 @@
 <title>My Page</title>
 </head>
 <body>
+<jsp:include page="top.jsp"/>
 	<header>
-		<div id=top>
-			<div class=profile><a href="/user/mypage"><img alt="gomypage" src="../resources/img/mypage.png"></a></div>
-		</div>
-		<div id=topbg>
-            
-        </div>
 		<div id="topcenprowrap">
             <div id=topcenpro>
             	<%-- ${user} --%>

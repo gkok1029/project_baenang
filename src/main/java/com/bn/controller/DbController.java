@@ -74,11 +74,8 @@ public class DbController {
 						for (int i = 0; i < items.size(); i++) {
 							JsonObject item = items.get(i).getAsJsonObject();
 							String contentid=item.get("contentid").getAsString();
-							log.info(contentid);
 							String contenttypeid=item.get("contenttypeid").getAsString();
-							log.info(contenttypeid);
 							String code = item.get("cat3").getAsString();
-							log.info(code);
 							String title = item.get("title").getAsString();
 							String tel = item.get("tel").getAsString();
 							String addr1 = item.get("addr1").getAsString();
