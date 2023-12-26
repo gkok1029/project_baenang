@@ -138,8 +138,8 @@
 
 </body>
 <script>
-let x;
-let y;
+let x=126.5312;
+let y=33.4996;
 
 	//맵모듈
 	function handleEnterKey(event) {

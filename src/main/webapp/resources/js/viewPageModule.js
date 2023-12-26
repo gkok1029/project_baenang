@@ -185,7 +185,7 @@ let ViewPageModule = (function () {
                     "id": "searchBar",
                     "type": "text"
                 }).val("장소명을 입력하세요"),
-                $("<button>").addClass("search-button").attr("id","searchBtn").text("검색")
+                $("<button>").addClass("search-button").attr("id","searchBtn").text("검색").on('click')
             ),
             //버튼들
             $("<div>").addClass("cat-buttons").attr("id","catButtons").append(

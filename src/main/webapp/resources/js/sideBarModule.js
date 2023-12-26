@@ -43,6 +43,7 @@ let SidebarModule = (function () {
                 //ViewPageModule.showView('view1', '#btn-step1');
                 $(".view").attr("id","view1");
                 ViewPageModule.viewPageLoding();
+                initialize()
                 console.log("버튼1 클릭");
             });
         
@@ -50,6 +51,8 @@ let SidebarModule = (function () {
                 //ViewPageModule.showView('view2', '#btn-step2');             
                 $(".view").attr("id","view2");
                 ViewPageModule.viewPageLoding();
+                PlanModule.tour(x,y);
+                initialize()
                 console.log("버튼2 클릭");
             });
         
@@ -57,6 +60,7 @@ let SidebarModule = (function () {
                 //ViewPageModule.showView('view3', '#btn-step3');             
                 $(".view").attr("id","view3");
                 ViewPageModule.viewPageLoding();
+                initialize()
                 console.log("버튼3 클릭");
             });
 
@@ -93,6 +97,7 @@ let SidebarModule = (function () {
                 //ViewPageModule.showView('view2', '#btn-step2');                
                 $(".view").attr("id","view2");
                 ViewPageModule.viewPageLoding();
+                PlanModule.tour(x,y);
                 initialize()
                 console.log("버튼2 클릭");
             });
@@ -137,6 +142,7 @@ let SidebarModule = (function () {
                 //ViewPageModule.showView('view2', '#btn-step2');
                 $(".view").attr("id","view2");
                 ViewPageModule.viewPageLoding();
+                PlanModule.tour(x,y);
                 console.log("버튼2 클릭");
                 initialize()
             });

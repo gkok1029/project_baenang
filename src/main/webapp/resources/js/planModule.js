@@ -78,7 +78,7 @@ let PlanModule = ( ()=>{
 			cache : false,
 			processData : true,
 			success : function(res) {
-			
+			console.log("planModule.tour 실행 x,y값 : "+x+","+y);
 			displayTourInformation(res.contentList,x,y);	
 			
 			},
