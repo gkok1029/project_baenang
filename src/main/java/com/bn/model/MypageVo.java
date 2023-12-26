@@ -30,4 +30,8 @@ public class MypageVo {
 	private long i_id;//초대id
 	private int i_per;//권한
 	private int i_status;//초대상태
+	
+	private String filename;//물리적파일명(uuid_a.txt)
+	private String originFilename;//원본파일명(a.txt)
+	private long filesize;//첨부파일크기
 }

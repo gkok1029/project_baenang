@@ -14,5 +14,9 @@ public interface MypageMapper {
 	public int updatePwd(MemberVo user);
 
 	public int updateNickname(MemberVo user);
+
+	public int memberOut(String usermail);
+
+	public int updateProfileImage(MypageVo vo);
 	
 }

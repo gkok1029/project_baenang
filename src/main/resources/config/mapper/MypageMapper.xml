@@ -38,6 +38,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update member set m_nname=#{M_NNAME} where m_id=#{M_ID}
 	</update>
 	
+	<update id="memberOut" parameterType="String">
+		update member set m_status=-1 where m_id=#{M_ID}
+	</update>
+	
+	<update id="updateProfileImage" parameterType="Mypage">
+		update member set m_image=#{filename} where m_id=#{m_id}
+	</update>
 	
 	
 </mapper>

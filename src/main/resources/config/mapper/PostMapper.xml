@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 <insert id="postInsert">
-	INSERT INTO post (p_id, p_title, p_content, p_views, p_credate, p_moddate)
+	INSERT INTO post (p_id, m_id, p_title, p_content, p_views, p_credate, p_moddate)
     VALUES (SEQUENCE_POST.nextval, #{p_title}, #{p_content}, 0, sysdate, sysdate)
 </insert>
 
@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<selectKey keyProperty="p_id" order="BEFORE" resultType="_int">
 		select SEQUENCE_POST.nextval from dual
 	</selectKey>
-	INSERT INTO post (p_id, p_title, p_content, p_views, p_credate, p_moddate)
+	INSERT INTO post (p_id, m_id, p_title, p_content, p_views, p_credate, p_moddate)
     VALUES (#{p_id}, #{p_title}, #{p_content}, 0, sysdate, sysdate)
 </insert>
 
