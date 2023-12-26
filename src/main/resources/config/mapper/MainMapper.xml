@@ -9,9 +9,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
-	<select id="search" parameterType="string" resultType="Content">
+	<select id="search" parameterType="string" resultType="City">
 	    <![CDATA[
-	        SELECT cityname FROM city WHERE cityname LIKE '%' || #{title} || '%' AND ROWNUM <= 5
+	        SELECT * FROM city WHERE cityname LIKE '%' || #{title} || '%' AND ROWNUM <= 5
 	    ]]>
 	</select>
 	

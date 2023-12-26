@@ -14,58 +14,58 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <!-- 외부 CSS 파일 참조 -->
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css">
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script>
-
-	<%-- ------------------------관광도시 검색 자동완성기능 ------------------------- --%>
-	
-    // 검색 결과를 클릭했을 때 실행되는 함수
-    function onSearchResultClick(cityName) {
-        // 동적으로 URL을 생성하고 요청을 보냄
-        var url = "/plan?search=" + cityName;
-        window.location.href = url;
-    }
+<link href="/resources/css/main.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     
- // AJAX를 사용하여 검색어에 따른 결과를 가져오는 함수
-    function onKeywordInput() {
-        var keyword = document.getElementById('search-box').value;
+<script>
+<%-- ------------------------관광도시 검색 자동완성기능 ------------------------- --%>
 
-        // AJAX를 사용하여 서버에 요청
-        $.ajax({
-            type: 'get',
-            url: 'msearch?keyword=' + keyword,
-            cache: false,
-            processData: true,
-            success: function (cityNameList) {
-                // 받은 결과를 dropdown에 표시
-                for (var i = 0; i < 5; i++) {
-                    // cityNameList[i]가 null이면 빈 문자열로 처리
-                    var cityName = cityNameList[i] !== null ? cityNameList[i] : '';
-                    
-                    // 동적으로 생성된 a 태그에 클릭 이벤트 추가
-                    var dropdownItem = '<a class="dropdown-item" href="#" onclick="onSearchResultClick(\'' + cityName + '\')">' + cityName + '</a>';
-                    
-                    // 해당 id의 엘리먼트를 찾아 내용을 변경
-                    $("#search_content" + (i + 1)).empty().append(dropdownItem);
-                }
-            },
-            error: function (err) {
-                console.error('Error: ' + err.status);
+// 검색 결과를 클릭했을 때 실행되는 함수
+function onSearchResultClick(cityName) {
+    // 동적으로 URL을 생성하고 요청을 보냄
+    var url = "/plan?search=" + cityName;
+    window.location.href = url;
+}
+
+// AJAX를 사용하여 검색어에 따른 결과를 가져오는 함수
+function onKeywordInput() {
+    var keyword = document.getElementById('search-box').value;
+
+    // AJAX를 사용하여 서버에 요청
+    $.ajax({
+        type: 'get',
+        url: 'msearch?keyword=' + keyword,
+        cache: false,
+        processData: true,
+        success: function (cityNameList) {
+            // 받은 결과를 dropdown에 표시
+            for (var i = 0; i < 5; i++) {
+                // cityNameList[i]가 null이면 빈 문자열로 처리
+                var cityName = cityNameList[i] !== null ? cityNameList[i] : '';
+                
+                // 동적으로 생성된 a 태그에 클릭 이벤트 추가
+                var dropdownItem = '<a class="dropdown-item" href="#" onclick="onSearchResultClick(\'' + cityName + '\')">' + cityName + '</a>';
+                
+                // 해당 id의 엘리먼트를 찾아 내용을 변경
+                $("#search_content" + (i + 1)).empty().append(dropdownItem);
             }
-        });
-    }
-	
-	<%-- --------------------------------------------------------- --%>
-	
+        },
+        error: function (err) {
+            console.error('Error: ' + err.status);
+        }
+    });
+}
+
+<%-- --------------------------------------------------------- --%>
 </script>
+    
 
 <head>
     <meta charset="UTF-8">
     <title>메인페이지</title>
+    
 </head>
 
 <body>
@@ -83,7 +83,6 @@
 	<div id="navi" class="navi">
 		<a href="/main">홈</a>
 		<a href="/blog/bloghub">블로그</a><!-- 블로그페이지 허브로 이동 -->
-		<a href="/plan">스케쥴</a><!-- 여행계획페이지 일정선택으로 이동 -->
     <%-- 사용자가 로그인한 경우 적절한 링크를 보여줍니다 --%>
     <% if (isLoggedIn) { %>
     	<a href="/user/mypage">마이페이지</a>
@@ -103,19 +102,18 @@
 		<div id="search_block">
 	        <form action="/plan" method="GET">
 	        	
-        		<input type="text" id="search-box" name="keyword" placeholder="도시명을 검색해보세요."
+        		<input type="text" id="search-box" name="search" placeholder="도시명을 검색해 주세요."
 			       class="form-control dropdown-toggle" data-toggle="dropdown" 
 			       aria	-haspopup="true" aria-expanded="false" oninput="onKeywordInput()">
 			    <a href="/plan"><img src="${pageContext.request.contextPath}/resources/img/main/search.png" alt="search"></a>
 	            
 	           	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				    <a class="dropdown-item" id="search_content1" href="#"><img alt="SeoulIMG" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png"> 서울 </a>
-				    <a class="dropdown-item" id="search_content2" href="#"><img alt="DaejeonIMG" src="${pageContext.request.contextPath}/resources/img/cities/Daejeon.png"> 대전 </a>
-				    <a class="dropdown-item" id="search_content3" href="#"><img alt="JejuIMG" src="${pageContext.request.contextPath}/resources/img/cities/Jeju.png"> 제주 </a>
-				    <a class="dropdown-item" id="search_content4" href="#"><img alt="GangneungIMG" src="${pageContext.request.contextPath}/resources/img/cities/Gangneung.png"> 강릉 </a>
-				    <a class="dropdown-item" id="search_content5" href="#"><img alt="BusanIMG" src="${pageContext.request.contextPath}/resources/img/cities/Busan.png"> 부산 </a>
+				    <a class="dropdown-item" id="search_content1" href="/plan?search=서울"><img alt="SeoulIMG" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png"> 서울 </a>
+				    <a class="dropdown-item" id="search_content2" href="/plan?search=대전"><img alt="DaejeonIMG" src="${pageContext.request.contextPath}/resources/img/cities/Daejeon.png"> 대전 </a>
+				    <a class="dropdown-item" id="search_content3" href="/plan?search=제주"><img alt="JejuIMG" src="${pageContext.request.contextPath}/resources/img/cities/Jeju.png"> 제주 </a>
+				    <a class="dropdown-item" id="search_content4" href="/plan?search=강릉"><img alt="GangneungIMG" src="${pageContext.request.contextPath}/resources/img/cities/Gangneung.png"> 강릉 </a>
+				    <a class="dropdown-item" id="search_content5" href="/plan?search=부산"><img alt="BusanIMG" src="${pageContext.request.contextPath}/resources/img/cities/Busan.png"> 부산 </a>
 				</div>
-				
 	            
 	        </form>
         </div>
