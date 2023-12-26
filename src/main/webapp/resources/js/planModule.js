@@ -79,8 +79,8 @@ let PlanModule = ( ()=>{
 			processData : true,
 			success : function(res) {
 			
-			displayTourInformation(res.contentList,x,y);	
-			console.log(res.contentList.length);
+			displayTourInformation(res.contentList,x,y);
+			
 			},
 			error : function(err) {
 				alert('error: ' + err.status);
