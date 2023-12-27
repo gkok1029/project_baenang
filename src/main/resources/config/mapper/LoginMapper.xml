@@ -16,6 +16,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE M_EMAIL = #{userEmail} 
 </update>
 
+<select id="statusCheck" parameterType="String" resultType="int">
+    SELECT M_STATUS FROM MEMBER
+    WHERE M_EMAIL = #{M_EMAIL}
+</select>
+
 
 
 </mapper>

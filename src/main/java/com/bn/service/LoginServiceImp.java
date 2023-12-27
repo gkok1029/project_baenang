@@ -47,6 +47,17 @@ public class LoginServiceImp implements LoginService{
 		}
 	}
 
+	@Override
+	public int statusCheck(String userEmail) {
+		int n = 0;
+		try {
+			n = loginMapper.statusCheck(userEmail);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+
 	
 	
 	
