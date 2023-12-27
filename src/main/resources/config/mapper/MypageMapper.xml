@@ -10,6 +10,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</select>
 	
+	<select id="getMyProfile" resultType="Mypage" parameterType="String">
+		select * from member
+		where M_NNAME = #{m_nname}
+		
+	</select>
+	
 	<select id="getPlanList" resultType="Mypage" parameterType="Mypage">
 		select * from (
 	    select pl.*, (select min(dp_start) from detail_planner where pl.p_id = p_id) dp_start,
@@ -38,7 +44,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update member set m_nname=#{M_NNAME} where m_id=#{M_ID}
 	</update>
 	
-	<update id="memberOut" parameterType="String">
+	<update id="memberOut" parameterType="Member">
 		update member set m_status=-1 where m_id=#{M_ID}
 	</update>
 	
@@ -46,5 +52,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update member set m_image=#{filename} where m_id=#{m_id}
 	</update>
 	
+	<delete id="deleteDPlan" parameterType="Mypage">
+		delete from detail_planner where p_id = #{value}
+	</delete>
+	
+	<delete id="deletePlan" parameterType="Mypage">
+		delete from planner where p_id = #{value}
+	</delete>
 	
 </mapper>

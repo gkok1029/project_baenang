@@ -17,8 +17,12 @@ public interface MypageService {
 
 	public int updateNickname(MemberVo user);
 
-	public int memberOut(String usermail);
+	public int memberOut(MemberVo user);
 
 	public int updateProfileImage(MypageVo vo);
-	
+
+	public int deletePlan(MypageVo my);
+
+	public int deleteDPlan(MypageVo my);
+
 }
