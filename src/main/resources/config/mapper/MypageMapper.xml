@@ -10,11 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</select>
 	
-	<select id="getMyProfile" resultType="Mypage" parameterType="String">
-		select * from member
-		where M_NNAME = #{m_nname}
-		
-	</select>
+	
 	
 	<select id="getPlanList" resultType="Mypage" parameterType="Mypage">
 		select * from (
@@ -53,11 +49,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<delete id="deleteDPlan" parameterType="Mypage">
-		delete from detail_planner where p_id = #{value}
+		delete from detail_planner where p_id = #{p_id}
 	</delete>
 	
 	<delete id="deletePlan" parameterType="Mypage">
-		delete from planner where p_id = #{value}
+		delete from planner where p_id = #{p_id}
 	</delete>
 	
 </mapper>
