@@ -40,7 +40,8 @@ public class LoginController {
 	@PostMapping("/loginCheck2")
 	public String loginCheck2(MemberVo member, HttpSession session, HttpServletResponse response) {
 		String name = loginService.loginCheck2(member);
-		if(name != null) {
+		int status = loginService.statusCheck(member.getM_EMAIL());
+		if(name != null && status == 1) {
 			 Cookie userCookie = new Cookie("sessionId", session.getId());
 		        userCookie.setMaxAge(60*30); 
 		        userCookie.setPath("/");
@@ -48,9 +49,10 @@ public class LoginController {
 		        session.setAttribute("userName", name);
 		        session.setAttribute("userEmail", member.getM_EMAIL());
 			return "success";
-		}else {
+		}else if(status == -1){
+			return "deleted";
+		}else
 			return "failed";
-		}
 	}
 	
 	@RequestMapping("/logout")

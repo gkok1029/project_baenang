@@ -7,7 +7,7 @@ import com.bn.model.MemberVo;
 public interface LoginService {
 	
 	public String loginCheck2(MemberVo member);
-	
 	public void tempPass(String userEmail, String temppass);
+	public int statusCheck(String userEmail);
 	
 }
