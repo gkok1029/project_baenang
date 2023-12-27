@@ -56,7 +56,7 @@ public class MainController {
 	}
 
 	@ResponseBody
-	 @GetMapping("/msearch") 
+	 @GetMapping("/msearch")
 	 public String[] search(@RequestParam String keyword) {
 		List<CityVo> result = null;
 		
@@ -68,13 +68,13 @@ public class MainController {
 		 
 		 System.out.println("Controller : "+result);
 		 
-		 List<CityVo> searchList = result; // 받아온 데이터를 searchList에 할당
+		 List<CityVo> searchList = result; // 諛쏆븘�삩 �뜲�씠�꽣瑜� searchList�뿉 �븷�떦
 		
-		String[] cityNameList = new String[5]; //jsp에 .append로 넣을 수 있게 스트링타입의 배열을 생성 
+		String[] cityNameList = new String[5]; //jsp�뿉 .append濡� �꽔�쓣 �닔 �엳寃� �뒪�듃留곹��엯�쓽 諛곗뿴�쓣 �깮�꽦 
 		
 		 for (int i = 0; i < searchList.size(); i++) {
 			 CityVo content = searchList.get(i); 
-		     String cityName = content.getCITYNAME(); // Vo클래스의 getter 메서드를 사용하여 CITYNAME의 값만 추출 
+		     String cityName = content.getCITYNAME(); // Vo�겢�옒�뒪�쓽 getter 硫붿꽌�뱶瑜� �궗�슜�븯�뿬 CITYNAME�쓽 媛믩쭔 異붿텧 
 		     cityNameList[i]=cityName;
 		     System.out.println("cityNameList["+i+"] : " + cityNameList[i]);
 		 }

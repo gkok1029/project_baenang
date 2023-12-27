@@ -263,7 +263,6 @@ let ViewPageModule = (function () {
         //Step3 div 생성
         // 부모 엘리먼트 선택
         let parentElement = $(".view").eq(0);
-
         // div.view-container 엘리먼트 생성
         let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1");
         
@@ -312,7 +311,6 @@ let ViewPageModule = (function () {
 
         // 부모 엘리먼트 선택
         let parentElement = $(".view").eq(0);
-
         let arrDiv = [];
         for(let i=1;i<=4;i++){
             let div = $('<div>').html(i+"일차<br>").append(

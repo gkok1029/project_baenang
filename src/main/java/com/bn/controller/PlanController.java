@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -46,7 +47,6 @@ public class PlanController {
 	
 	@Inject
 	private DbService dService;
-	
 	
 	private PlanVo pvo;
 	
@@ -95,7 +95,7 @@ public class PlanController {
 
 	@ResponseBody
 	@RequestMapping("/tour")
-	public ModelMap showinfo (@RequestParam String x,@RequestParam String y, @RequestParam(required = false) String ctype,@RequestParam(required=false)String cat) {
+	public ModelMap showinfo (@RequestParam String x,@RequestParam String y,@RequestParam(required=false)String cat, @RequestParam(required=false)String ctype,HttpSession session) {
 		ModelMap map=new ModelMap();
 		try {
 		Map<String,Object> cd=new HashMap<>();
@@ -103,11 +103,13 @@ public class PlanController {
 		double mapy=Double.parseDouble(y);
 		cd.put("mapx",mapx);
 		cd.put("mapy",mapy);
-		cd.put("ctype", ctype);
 		cd.put("cat", cat);
+		cd.put("ctype", ctype);
 		List<ContentVo>nd=dService.searchInRange(cd);
 		map.addAttribute("contentList",nd);
+		session.setAttribute("contentList",nd);
 		System.out.println("controller:" +nd.size());
+		System.out.println(nd.toString());
 		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
 		}catch (NumberFormatException e) {
 	        // �닽�옄 蹂��솚 以� �삁�쇅 諛쒖깮 �떆 泥섎━
@@ -146,4 +148,16 @@ public class PlanController {
     	
     	return n;
     }
+	
+    @ResponseBody
+    @GetMapping("/Csearch")
+    public String[] csearch(@RequestParam String keyword,HttpSession session){
+    	String[] x= {};
+    	List<ContentVo>vo=(List<ContentVo>) session.getAttribute("contentList");
+    	
+    	
+    	
+    	return x;
+    }
+ 
 }
