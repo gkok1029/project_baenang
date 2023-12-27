@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.bn.mapper.PlanMapper;
+import com.bn.model.CityVo;
 import com.bn.model.DtailPlanVo;
 import com.bn.model.PlanVo;
 
@@ -35,9 +36,15 @@ public class PlanServiceImpl implements PlanService {
 	}
 
 	@Override
-	public int insertdp(DtailPlanVo vo) {
+	public int insertDp(DtailPlanVo vo) {
 		// TODO Auto-generated method stub
 		return this.planmapper.insertDp(vo);
+	}
+
+	@Override
+	public CityVo cityloc(String CITYNAME) {
+		
+		return this.planmapper.cityloc(CITYNAME);
 	}
 
 }
