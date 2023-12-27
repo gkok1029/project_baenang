@@ -15,7 +15,14 @@
 </script>
 
 <body>
-	<h1>${contentid}</h1>
+	<div id="container">
+		<div id="cityname">
+			<h1> ${title}</h1>
+		</div>
+		<div id="overview">
+			${overview}
+		</div>
+	</div>
 	
 	
 	

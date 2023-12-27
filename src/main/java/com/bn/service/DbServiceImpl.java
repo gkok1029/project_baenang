@@ -28,6 +28,4 @@ public class DbServiceImpl implements DbService {
 		return this.contentMapper.searchInRange(cd);
 	}
 
-
-
 }

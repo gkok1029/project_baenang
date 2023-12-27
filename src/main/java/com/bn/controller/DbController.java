@@ -126,6 +126,4 @@ public class DbController {
 		return "���¹ٺ���û�̾�";
 	}
 	
-	
-	
 }

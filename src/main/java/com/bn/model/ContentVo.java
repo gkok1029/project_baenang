@@ -12,7 +12,7 @@ public class ContentVo {
 	}
 	
 	public ContentVo(String contentid, String contenttypeid, String code, String title, String tel, String addr,
-			String firstimage2, String mapx2, String mapy2) {
+			String firstimage, String mapx, String mapy, String overview) {
 	}
 	String contentid;
 	String contenttypeid;
@@ -23,5 +23,6 @@ public class ContentVo {
 	String firstimage;
 	String mapx;
 	String mapy;
+	String overview;
 
 }
