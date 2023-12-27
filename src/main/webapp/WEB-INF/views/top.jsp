@@ -16,22 +16,19 @@
 		String userId = (String) currentSession.getAttribute("userName");
     	boolean isLoggedIn = userId != null;
 	%>
-	<div id="navi" class="navi">
-		<ul>
-			<li class="navbar1"><a href="#">여행지</a></li>
-			<li class="navbar2"><a href="/blog/bloghub">블로그</a><!-- 블로그페이지 허브로 이동 --></li>
-			<li class="navbar3"><a href="/plan">스케쥴</a><!-- 여행계획페이지 일정선택으로 이동 --></li>
-		</ul>
     	<%-- 사용자가 로그인한 경우 적절한 링크를 보여줍니다 --%>
-	</div>
     
     <div id="topR">
-    <% if (isLoggedIn) { %>
-    	<a href="/user/mypage">마이페이지</a>
-        <a href="/logout">로그아웃</a>
-    <% } else { %>
-        <a href="/login">로그인</a>
-    <% } %>
-    </div>
+	    <ul class="nav">
+	    	<li><a href="/user/main">홈</a></li>
+	    	<li><a href="/blog/bloghub">블로그</a></li>
+	    	<% if (isLoggedIn) { %>
+	    	<li><a href="/user/mypage">마이페이지</a></li>
+	    	<li><a href="/logout">로그아웃</a></li>
+	    	<% } else { %>
+	    	<li><a href="/login">로그인</a></li>
+	    	<% } %>
+	    </ul>
+	</div>	
 	<%-- ----------------------------------------------------------------------------- --%>
 </header>
