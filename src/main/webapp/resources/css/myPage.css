@@ -86,8 +86,8 @@ main #section #schedule .schedule_content p.schewritter{
     font-size: 18px;
     padding: 10px;
 }
-#hamburger_content p.invite{
-    margin: 16px 0;
+#hamburger_content p{
+    margin: 5px 0;
     padding: 4px 0;
 }
 #hamburger_content p{
