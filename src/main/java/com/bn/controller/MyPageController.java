@@ -253,17 +253,15 @@ public class MyPageController {
 		
 		my.setM_nname(userName);
 		
-		//my.getP_id();
-		//my.getM_id();
 		
 		int nn= mypageService.deleteDPlan(my);
 		int n= mypageService.deletePlan(my);
 		
 		if(n>0 & nn>0) {
-			return "myPage";
+			return "redirect:/user/mypage";
 		} else {
 			
-			return "myPage";
+			return "redirect:/user/mypage";
 		}
 		
 	}
@@ -274,9 +272,10 @@ public class MyPageController {
 		String userName= (String)session.getAttribute("userName");
 		MemberVo user = mypageService.getProfile(userName);
 		
+		session.setAttribute("p_id",my.getP_id());
+		log.info("p_id=="+my.getP_id());
 		
-		
-		return "myPage";
+		return "redirect:/plan";
 	}
 	
 	

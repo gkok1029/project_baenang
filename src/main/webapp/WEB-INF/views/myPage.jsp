@@ -116,8 +116,12 @@
                                     <span></span>
                                 </div>
                                 <div id="hamburger_content" class="hamburger_content">
-                                	<form action="/user/delplan" id="delF" name="delF"><p class="del">삭제</p></form>
-                                    <p class="upplan">수정</p>
+                                	<form action="/user/delplan" id="delF" name="delF">
+                                	<input type="hidden" name="p_id" value="${plan.p_id}"/>
+                                	<p class="del">삭제</p></form>
+                                	<form action="/user/upplan" id="upF${plan.p_id}" name="upF">
+                                	<input type="hidden" name="p_id" value="${plan.p_id}"/>
+                                    <p class="upplan" data-plan="${plan.p_id }">수정</p></form>
                                 </div>
                             </div>
                         </div>
@@ -128,21 +132,20 @@
                     <!--전체 일정 섹션-->
 					<script type="text/javascript">
 						$('.del').click(function (){
-							$('#delF').submit();							
+							
+							let x=confirm('정말 삭제 하시겠습니까?');
+							if(x==true){
+								$('#delF').submit();
+							}
+														
+						});
+						
+						$('.upplan').click(function (){
+							let pid=$(this).data('plan');
+							$('#upF'+pid).submit();
+														
 						});
 					
-						function goTour(){
-							$.ajax({
-								url:"/user/upplan&p_id="+${plan[0].p_id}+"&m_id="+${user.getM_ID()},
-								type:"get",
-								dataType:"text",
-								cache:false,
-								success:function(res){
-									
-								}
-							});
-						}
-						
                         $(".hamburger").click(function(){
                             $(this).parent().children("#hamburger_content").toggle();
                         });
