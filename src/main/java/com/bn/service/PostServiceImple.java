@@ -43,7 +43,7 @@ public class PostServiceImple implements PostService {
 	}
 
 	@Override
-	public List<PostVo> getList() {
+	public List<PostVo> getList(int p_id) {
 		log.info("get list");
 		return mapper.getList();
 	}

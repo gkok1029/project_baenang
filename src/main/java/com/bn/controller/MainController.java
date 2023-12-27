@@ -1,6 +1,5 @@
 package com.bn.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bn.model.ContentVo;
+import com.bn.model.CityVo;
 import com.bn.service.MainServiceImpl;
 
 import lombok.extern.log4j.Log4j;
@@ -56,11 +55,10 @@ public class MainController {
 		return map;
 	}
 
-
 	@ResponseBody
 	 @GetMapping("/msearch") 
 	 public String[] search(@RequestParam String keyword) {
-		List<ContentVo> result = null;
+		List<CityVo> result = null;
 		
 		try {
 			result = msi.search(keyword);
@@ -70,12 +68,12 @@ public class MainController {
 		 
 		 System.out.println("Controller : "+result);
 		 
-		 List<ContentVo> searchList = result; // 받아온 데이터를 searchList에 할당
+		 List<CityVo> searchList = result; // 받아온 데이터를 searchList에 할당
 		
 		String[] cityNameList = new String[5]; //jsp에 .append로 넣을 수 있게 스트링타입의 배열을 생성 
 		
 		 for (int i = 0; i < searchList.size(); i++) {
-		     ContentVo content = searchList.get(i); 
+			 CityVo content = searchList.get(i); 
 		     String cityName = content.getCITYNAME(); // Vo클래스의 getter 메서드를 사용하여 CITYNAME의 값만 추출 
 		     cityNameList[i]=cityName;
 		     System.out.println("cityNameList["+i+"] : " + cityNameList[i]);
@@ -84,37 +82,23 @@ public class MainController {
 		 return cityNameList;
 	 }
 	 
-	 /*
-	 @ResponseBody
+	/*
+	@ResponseBody
 	 @GetMapping("/msearch") 
-	 public List<ContentVo> search(@RequestParam String keyword) {
-		List<ContentVo> result = null;
-		
+	 public List<CityVo> search(@RequestParam String keyword) {
+		List<CityVo> result = null;
 		try {
 			result = msi.search(keyword);
 		}catch(Exception e) {
 			
 		}
 		 
-		 System.out.println(result);
+		System.out.println("Controller result : "+result);
 		 
-		 List<ContentVo> searchList = result; // 받아온 데이터를 searchList에 할당
-
-		 for (ContentVo content : searchList) {
-		     String title = content.getTitle();
-		     System.out.println("title: " + title);
-		 }
-		 for (ContentVo content : searchList) {
-			 String contentid = content.getContentid();
-			 System.out.println("contentid: " + contentid);
-		 }
-		 for (ContentVo content : searchList) {
-			 String addr = content.getAddr();
-			 System.out.println("addr: " + addr);
-		 }
-		 return searchList;
+		 return result;
 	 }
-	 */
+	*/
+	 
 	 
 	
 	/*

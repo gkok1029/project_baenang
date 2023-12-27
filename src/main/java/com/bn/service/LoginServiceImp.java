@@ -21,29 +21,14 @@ public class LoginServiceImp implements LoginService{
 	private LoginMapper loginMapper;
 		
 	@Override
-	public int loginCheck(MemberVo member) {
-		int n=0;
-		
+	public String loginCheck2(MemberVo member) {
 		try {
-		n = loginMapper.loginCheck(member);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return n;
-	}
-
-	@Override
-	public String loginCheck2(MemberVo member, HttpSession session) {
-		try {
-			 String encryptedPassword = passwordEncoder.encrypt(member.getM_EMAIL(),member.getM_PWD()); // ºñ¹Ð¹øÈ£¸¦ ÇØ½ÌÇÕ´Ï´Ù.
-	         member.setM_PWD(encryptedPassword); // ÇØ½ÌµÈ ºñ¹Ð¹øÈ£·Î ¼³Á¤ÇÕ´Ï´Ù.
+			 String encryptedPassword = passwordEncoder.encrypt(member.getM_EMAIL(),member.getM_PWD()); // ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½Ø½ï¿½ï¿½Õ´Ï´ï¿½.
+	         member.setM_PWD(encryptedPassword); // ï¿½Ø½Ìµï¿½ ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 			 String name = loginMapper.loginCheck2(member);
 			if(name != null) {
-				session.setAttribute("userEmail", member.getM_EMAIL());
-				session.setAttribute("name", name);
+				return name;
 			}
-			return name;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -60,6 +45,17 @@ public class LoginServiceImp implements LoginService{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public int statusCheck(String userEmail) {
+		int n = 0;
+		try {
+			n = loginMapper.statusCheck(userEmail);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return n;
 	}
 
 	

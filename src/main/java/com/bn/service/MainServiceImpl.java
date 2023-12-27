@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bn.mapper.MainMapper;
-import com.bn.model.ContentVo;
+import com.bn.model.CityVo;
 
 import lombok.extern.log4j.Log4j;
 
@@ -23,9 +23,12 @@ public class MainServiceImpl implements MainService {
 	}
 	
 	@Override
-	public List<ContentVo> search(String title) {
+	public List<CityVo> search(String title) {
+		List<CityVo> result;
 		log.info("ServiceImpl title : "+title);
-		return this.mainMapper.search(title);
+		result = mainMapper.search(title);
+		
+		return result;
 	}
 	
 }
