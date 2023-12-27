@@ -79,7 +79,7 @@ let PlanModule = ( ()=>{
 			processData : true,
 			success : function(res) {
 			
-			displayTourInformation(res.contentList,x,y);	
+			displayTourInformation(res.contentList,x,y);
 			
 			},
 			error : function(err) {
@@ -89,7 +89,7 @@ let PlanModule = ( ()=>{
 	}
 
     function displayTourInformation(contentList,x,y) {
-		var tcontainer = $('#places'); // 새로운 container 추가
+		var tcontainer = $('.places-container'); // 새로운 container 추가
 		//var container = document.getElementById('travels-container');
 		// 기존 내용 비우기
 		tcontainer.empty();
@@ -102,27 +102,25 @@ let PlanModule = ( ()=>{
 
 			var content = contentList[i];
 			var contentid=content.contentid;
-			var newDiv=createDiv(contentid);
+			
 			// 새로운 div 동적으로 생성
 			/* var newDiv = $('<div>').addClass('traveld').attr('id', 'content' + i).click(function() {
 	        copyDiv('content' + i);
 	    	}); */
 	    
+			var placeDiv = ViewPageModule.createPlaceDiv();
+			// console.log(placeDiv);
+	    	$('.place-image').attr('id', 'img'+contentid);
+			$('.place-img').attr('src',content.firstimage || '/resources/images/noimage.PNG');
 
-	    	var imgDiv = $('<div>').addClass('travelimg').attr('id', 'img'+contentid);
-
-	    	var textDiv = $('<div>').addClass('traveltext').attr('id', 'text' + contentid);
-			var img = $('<img>').attr('src',content.firstimage || '/resources/images/noimage.PNG');
-			var title = $('<div>').addClass('linea').text('Name: ' + content.title);
-			var addr = $('<div>').addClass('lineb').text('Location: ' + content.addr);
-			var heart = $('<div>').addClass('linec').text('하트 별');
+	    	$('.place-details').attr('id', 'text' + contentid);
+			$('.place-title').text('Name: ' + content.title);
+			$('.place-cat').text("카테고리");
+			$('.place-addr').text('Location: ' + content.addr);
 			
-			// 생성한 div에 정보 추가
-			imgDiv.append(img);
-			textDiv.append(title, addr, heart);
-			newDiv.append(imgDiv, textDiv);
-			console.log(tcontainer);
-			tcontainer.append(newDiv);
+			
+			tcontainer.append(placeDiv);
+			
 			 var marker = new naver.maps.Marker({
 		            position: new naver.maps.LatLng(content.mapy, content.mapx),
 		            map: map
@@ -203,6 +201,7 @@ let PlanModule = ( ()=>{
             parent.removeChild(Div);
         }
     }
+	//호텔
     function displayLodgingInformation(contentList,x,y) {
 		var tcontainer = $('#hotels'); // 새로운 container 추가
 		//var container = document.getElementById('travels-container');
@@ -223,21 +222,17 @@ let PlanModule = ( ()=>{
 	        copyDiv('content' + i);
 	    	}); */
 	    
-
-	    	var imgDiv = $('<div>').addClass('hotelimg').attr('id', 'img'+contentid);
-
-	    	var textDiv = $('<div>').addClass('hoteltext').attr('id', 'text' + contentid);
-			var img = $('<img>').attr('src',content.firstimage || '/resources/images/noimage.PNG');
-			var title = $('<div>').addClass('linea').text('Name: ' + content.title);
-			var addr = $('<div>').addClass('lineb').text('Location: ' + content.addr);
-			var heart = $('<div>').addClass('linec').text('하트 별');
+			var placeDiv = ViewPageModule.createPlaceDiv();
 			
-			// 생성한 div에 정보 추가
-			imgDiv.append(img);
-			textDiv.append(title, addr, heart);
-			newDiv.append(imgDiv, textDiv);
-			console.log(tcontainer);
-			tcontainer.append(newDiv);
+	    	$('.place-image').attr('id', 'img'+contentid);
+			$('.place-img').attr('src',content.firstimage || '/resources/images/noimage.PNG');
+
+	    	$('.place-details').attr('id', 'text' + contentid);
+			$('.place-title').text('Name: ' + content.title);
+			$('.place-cat').text("카테고리");
+			$('.place-addr').text('Location: ' + content.addr);
+	    	
+			tcontainer.append(placeDiv);
 			
 			 var marker = new naver.maps.Marker({
 		            position: new naver.maps.LatLng(content.mapy, content.mapx),
@@ -261,6 +256,109 @@ let PlanModule = ( ()=>{
 		// 추가로 필요한 정보는 여기에 계속 추가할 수 있습니다.
 	}
 
+	//맵모듈
+	function handleEnterKey(event) {
+		if (event.key === "Enter") {
+			submitForm(); // 엔터 키를 눌렀을 때 submitForm 함수 호출
+		}
+	}
+
+	// 폼 제출 함수
+	function submitForm() {
+		
+		var inputValue = document.querySelector('input[type="text"]').value;
+		$.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : 'search?addr=' + inputValue,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				PlanModule.tour(res.x, res.y);
+				x=res.x;
+				y=res.y;
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+
+		})
+
+	}	
+	
+	function lodging(lat, len) {
+		let x = lat;
+		let y = len;
+		var ctype="32";
+
+		$.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : 'tour?x=' + x + '&y=' + y + '&ctype=' +ctype,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				PlanModule.displayLodgingInformation(res.contentList,x,y);
+
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+		})
+	}
+	function restaurant(){
+		var ctype="39";
+		$.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : 'tour?x=' + x + '&y=' + y + '&ctype=' +ctype,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				PlanModule.displayTourInformation(res.contentList,x,y);
+
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+		})
+	}
+	function cafe(){
+		var cat="A05020900";
+		$.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : 'tour?x=' + x + '&y=' + y + '&cat=' +cat,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				PlanModule.displayTourInformation(res.contentList,x,y);
+
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+		})
+		
+	}
+	function attraction(){
+		$.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : 'tour?x=' + x + '&y=' + y,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				PlanModule.displayTourInformation(res.contentList,x,y);
+
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+		})
+		
+	}
+
     return {
         myplan : myplan,
         memberplan : memberplan,
@@ -270,6 +368,10 @@ let PlanModule = ( ()=>{
         createDiv : createDiv,
         copyDiv : copyDiv,
         removeDiv : removeDiv,
-        displayLodgingInformation:displayLodgingInformation
+        displayLodgingInformation:displayLodgingInformation,
+		lodging : lodging,
+		restaurant : restaurant,
+		cafe : cafe,
+		attraction : attraction
     };
 })();
