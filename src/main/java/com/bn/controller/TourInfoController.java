@@ -6,14 +6,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bn.model.ContentVo;
 import com.bn.service.TourInfoService;
@@ -30,27 +28,50 @@ public class TourInfoController {
 	@Autowired
 	private TourInfoService ti;
 	
+	private ContentVo vo;
+	
+	//plan에서 검색된 관광지 목록의 info버튼 클릭시 요청을 받도록 설계 
 	@RequestMapping("/tourInfo")
-	public List<ContentVo> tourInfo(@RequestParam String title, Model model) {
+	public String tourInfo(@RequestParam String contentid, Model model) {
 		
-		List<ContentVo> vo=null;
-		vo=ti.getCityData(title);
+		vo=null;
+		vo=ti.getCityData(contentid);
 		
+		//select overview from content where contentid=${contentid} 의 반환값(요청된 contentid의 overview이 있는지 확인하는 함수)
+		String exist = ti.existOverview(contentid);
+		if(exist==null) {
+			System.out.println("Overview is empty!! I'll bring it from API");
+			overviewfill(contentid);
+		}else {
+			System.out.println("Overview data is already exist!! I'll show you Tourinfo from DB");
+		}
 		model.addAttribute("vo",vo);
-		log.info(vo);
+		log.info("Last : "+vo);
 		
-		return vo;
+		return "tourInfo";
 	}
-
+	/*
+	//TourInfo.jsp 페이지가 호출된 직후 실행되는 function(contentid)을 통해 /existOverview?contentid=#{contentid} 의 형식으로 파라미터를 받아
 	@ResponseBody
-	@RequestMapping("/overviewdown")
-	private String overviewfill() {
+	@RequestMapping("/existOverview")
+	private String existOverview(String contentid) {
+		String exist = ti.existOverview(contentid);
+		if(exist==null) {
+			overviewfill(contentid);
+		}
+		System.out.println("Overview data is already exist!! I'll show you Tourinfo");
+		return "";
+	}
+	*/
+
+	private String overviewfill(String contentid) {
+		
+		String result="";
+		
 		try {
-			String contentId;
-			
 			String pkey="g+INH4ICelRYTwvUPjujUIt/O1i9eSZAmhiCR9xJLT3v4P4aNkdXnRnDCkDGMKIdpXvJPsGJ9I5HTG6T2lmjkg==";
 			String key = URLEncoder.encode(pkey, "UTF-8");
-			String apiURL="https://apis.data.go.kr/B551011/KorService1/detailCommon1?MobileOS=ETC&MobileApp=2clipse&_type=json&contentId=127480&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&serviceKey="+key;
+			String apiURL="https://apis.data.go.kr/B551011/KorService1/detailCommon1?MobileOS=ETC&MobileApp=2clipse&_type=json&contentId="+contentid+"&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&serviceKey="+key;
 			URL url = new URL(apiURL);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setUseCaches(false);
@@ -58,6 +79,7 @@ public class TourInfoController {
 			conn.setDoInput(true);
 			conn.setRequestProperty("Content-Type", "text/plain");
 			int responseCode = conn.getResponseCode();
+			
 			if (responseCode == 200) {
 				BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(),StandardCharsets.UTF_8));
 				String inputLine;
@@ -78,15 +100,17 @@ public class TourInfoController {
 							JsonObject item = items.get(i).getAsJsonObject();
 							String overview = item.get("overview").getAsString();
 							
-							ContentVo vo=new ContentVo();
 							vo.setOverview(overview);
+							
+							log.info("vo.setOverview(overview) : "+vo);
+							
+							result = vo.toString();
 							
 							if(overview!=null) {
 								int n= ti.insertOverview(vo);
-								System.out.println(n);
+								System.out.println("INSERT 성공:1, 실패:0 >> : "+n);
 							}else {
 								System.out.println("�����Ͱ� �����ϴ�.");
-								
 							}
 						}
 					} else {
@@ -101,7 +125,7 @@ public class TourInfoController {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-	return "���¹ٺ���û�̾�";
+	return result;
 	}
 	
 }

@@ -6,10 +6,10 @@ import com.bn.model.ContentVo;
 
 public interface TourInfoService {
 	
-	public List<ContentVo> getCityData(String title);
+	public ContentVo getCityData(String contentid);
 	
 	public int insertOverview(ContentVo vo);
 	
-	public List<ContentVo> existOverview(String title);
+	public String existOverview(String title);
 	
 }

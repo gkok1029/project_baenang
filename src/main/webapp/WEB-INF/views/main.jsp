@@ -22,6 +22,13 @@
 <script>
 <%-- ------------------------관광도시 검색 자동완성기능 ------------------------- --%>
 
+function dummy(){
+	var contentid='126273';
+	var url = "/tourInfo?contentid="+contentid;
+	// 새 창에서 tourInfo.jsp를 팝업으로 열기
+    window.open(url, "TourInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
+}
+
 // 검색 결과를 클릭했을 때 실행되는 함수
 function onSearchResultClick(cityName) {
     // 동적으로 URL을 생성하고 요청을 보냄
@@ -82,6 +89,7 @@ function onKeywordInput() {
 	%>
 	<div id="navi" class="navi">
 		<a href="/dbbutton">dbdown</a>
+		<button onclick="dummy()">call of dummy</button>
 		<a href="/main">홈</a>
 		<a href="/blog/bloghub">블로그</a><!-- 블로그페이지 허브로 이동 -->
     <%-- 사용자가 로그인한 경우 적절한 링크를 보여줍니다 --%>
