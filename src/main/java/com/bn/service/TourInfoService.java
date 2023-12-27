@@ -10,6 +10,6 @@ public interface TourInfoService {
 	
 	public int insertOverview(ContentVo vo);
 	
-	public boolean existOverview(ContentVo vo);
+	public List<ContentVo> existOverview(String title);
 	
 }

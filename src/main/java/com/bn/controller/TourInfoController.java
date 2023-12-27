@@ -79,9 +79,9 @@ public class TourInfoController {
 							String overview = item.get("overview").getAsString();
 							
 							ContentVo vo=new ContentVo();
-							vo.setFirstimage(overview);
+							vo.setOverview(overview);
 							
-							if(contentid!=null) {
+							if(overview!=null) {
 								int n= ti.insertOverview(vo);
 								System.out.println(n);
 							}else {
@@ -99,8 +99,7 @@ public class TourInfoController {
 				System.out.println("API ��û�� �����߽��ϴ�. ���� �ڵ�: " + responseCode);
 			}
 		}catch(Exception e){
-			log.error("error: {}",e.getMessage());
-			
+			e.printStackTrace();
 		}
 	return "���¹ٺ���û�̾�";
 	}
