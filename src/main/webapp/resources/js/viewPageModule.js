@@ -13,7 +13,7 @@ let ViewPageModule = (function () {
             console.log("class가 view인 엘리먼츠가 없다");
             return;
         };
-        console.log("뷰페이지 로딩 시작 viewId : "+viewId);
+        
         switch(viewId){
             case "view1" : step1Loding();
                 break;
@@ -188,24 +188,27 @@ let ViewPageModule = (function () {
                 $("<button>").addClass("search-button").attr("id","searchBtn").text("검색").on('click')
             ),
             //버튼들
-            $("<div>").addClass("cat-buttons").attr("id","catButtons").append(
+            $("<div>").addClass("cat-buttons").attr("id","catButtons").append(                
                 $("<div>").append(
-                    $("<button>").addClass("cat-button").attr("id","recommendationBtn").text("추천장소")
+                    $("<button>").addClass("cat-button").attr("id","attractionBtn").text("명소").on('click',function(){
+                        attraction()
+                    })
                 ),
                 $("<div>").append(
-                    $("<button>").addClass("cat-button").attr("id","attractionBtn").text("명소")
+                    $("<button>").addClass("cat-button").attr("id","restaurantBtn").text("식당").on('click',function(){
+                        restaurant()
+                    })
                 ),
                 $("<div>").append(
-                    $("<button>").addClass("cat-button").attr("id","restaurantBtn").text("식당")
-                ),
-                $("<div>").append(
-                    $("<button>").addClass("cat-button").attr("id","cafeBtn").text("카페")
+                    $("<button>").addClass("cat-button").attr("id","cafeBtn").text("카페").on('click',function(){
+                        cafe()
+                    })
                 )
             )
         );
         
         // 장소 리스트 생성 테이블 div
-        let placesContainerDiv = $('<div>').addClass('places-container').attr("id","placesContainer").append(createPlaceDiv())
+        let placesContainerDiv = $('<div>').addClass('places-container').attr("id","placesContainer");
         
 
         //부모 엘리먼트 view
@@ -228,10 +231,7 @@ let ViewPageModule = (function () {
             //이미지 div
             $('<div>').addClass("place-image").attr("id","placeImage").append(
                 //이미지 태그
-                $('<img>').addClass("place-img").attr(
-                    "src",
-                    "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzExMTRfMzYg%2FMDAxNjk5OTY4OTc2Mzk2.bYxC69S-RhRfWsVazjOSlsj23s3MOwMwJud2pUM2_Fwg.JK9kuLGKJXE2yslbx3Z_9qnrzriouNd0sH0v3acREkUg.JPEG.okayall%2F20231110_163451.jpg&type=sc960_832"
-                )
+                $('<img>').addClass("place-img")
             ),
             //장소 디테일 div
             $('<div>').addClass("place-details").attr("id","placeDetails").append(
@@ -244,11 +244,12 @@ let ViewPageModule = (function () {
                     //장소 주소 div
                     $('<div>').addClass("place-addr").attr("id","placeAddr").text("주소")
                 ),
-                //장소 추가 div
-                $('<div>').addClass("place-add").attr("id","placeAdd").append(
-                    //장소 추가 button
-                    $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","placeAddButton")
-                )
+                $('<div>').addClass("place-summary").attr("id","placeSummary").text("설명")
+            ),
+            
+            $('<div>').addClass("place-add").attr("id","placeAdd").append(
+                //장소 추가 button
+                $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","placeAddButton")
             )
         )                
     }
@@ -283,13 +284,8 @@ let ViewPageModule = (function () {
                     "type": "text"
                 }).val("장소명을 입력하세요"),
                 $("<button>").addClass("search-button").attr("id","searchBtn").text("검색")
-            ),
-            //버튼들
-            $("<div>").addClass("cat-buttons").attr("id","catButtons").append(
-                $("<div>").append(
-                    $("<button>").addClass("cat-button").attr("id","recommendationHotelBtn").text("추천숙소")
-                )
             )
+            
         );
         // 장소 리스트 생성 테이블 div
         let placesContainerDiv = $('<div>').addClass('places-container').attr("id","placesContainer").append(createPlaceDiv())
@@ -317,7 +313,7 @@ let ViewPageModule = (function () {
 
         let arrDiv = [];
         for(let i=1;i<=4;i++){
-            let div = $('div>').html(i+"일차<br>").append(
+            let div = $('<div>').html(i+"일차<br>").append(
                     $('<img>').addClass("picked").attr("src","/src/main/webapp/resources/images/noimage.PNG"),
                     $('<img>').addClass("picked").attr("src","/src/main/webapp/resources/images/noimage.PNG"),
                     $('<img>').addClass("picked").attr("src","/src/main/webapp/resources/images/noimage.PNG")
@@ -325,7 +321,7 @@ let ViewPageModule = (function () {
             arrDiv.push(div);
             
         }
-
+        
         // div.view-container 엘리먼트 생성
         let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1").append(
             $('<div>').append( $('<h3>').text("나의 제주 여행 pick n개") ),
@@ -354,14 +350,13 @@ let ViewPageModule = (function () {
                 })
             )
         );
-                console.log(viewContainerDiv.parent());
         parentElement.append(viewContainerDiv);
     }
 
     function showView(viewId, btnId) {
         // $('.view').hide();
         // $(viewId).show();
-        console.log("showView 실행 viewId,btnId : "+viewId+btnId);
+        
         $('.sidebar-button').css({
             'color': 'gray',
             'opacity': '0.5',
@@ -378,7 +373,8 @@ let ViewPageModule = (function () {
 
     return {
         showView: showView,
-        viewPageLoding : viewPageLoding
+        viewPageLoding : viewPageLoding,
+        createPlaceDiv : createPlaceDiv
         
     };
 })();

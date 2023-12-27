@@ -8,11 +8,9 @@ let SidebarModule = (function () {
             flag.remove();
         }
 
-        console.log("sidebar 생성");
         // private 변수 및 함수 정의
         let sidebarElement = $("<div>").attr("id", "sidebar");
 
-        console.log("mainLogo 생성 및 요소 설정");
         let mainLogoButton = $("<button>")
             .attr("id", "main-logo")
             .html('<img class="logo" src="" alt="Main Logo"/>');
@@ -27,138 +25,135 @@ let SidebarModule = (function () {
 
         //현재 viewId 확인 default view1
         let viewId = document.getElementsByClassName("view")[0].id;
-        console.log("현재 viewId : "+viewId);
 
         if(viewId==="view1"){
             //steps 버튼 생성
-            console.log("steps 버튼 생성");
+            
             let step1Button = createSidebarButton("btn-step1", "STEP 1<br>날짜확인");
             let step2Button = createSidebarButton("btn-step2", "STEP 2<br>장소확인");
             let step3Button = createSidebarButton("btn-step3", "STEP 3<br>숙소설정");
             
 
             //버튼에 이벤트 리스너 추가
-            console.log("버튼에 이벤트 생성")
+            
             step1Button.on('click', function () {
-                //ViewPageModule.showView('view1', '#btn-step1');
+                
                 $(".view").attr("id","view1");
                 ViewPageModule.viewPageLoding();
                 initialize()
-                console.log("버튼1 클릭");
+                ViewPageModule.showView('view1', '#btn-step1');
             });
         
             step2Button.on('click', function () {
-                //ViewPageModule.showView('view2', '#btn-step2');             
+                
                 $(".view").attr("id","view2");
                 ViewPageModule.viewPageLoding();
                 PlanModule.tour(x,y);
                 initialize()
-                console.log("버튼2 클릭");
+                ViewPageModule.showView('view2', '#btn-step2');
+                
             });
         
             step3Button.on('click', function () {
-                //ViewPageModule.showView('view3', '#btn-step3');             
+                
                 $(".view").attr("id","view3");
                 ViewPageModule.viewPageLoding();
                 initialize()
-                console.log("버튼3 클릭");
+                ViewPageModule.showView('view3', '#btn-step3');             
+                
             });
 
             let nextButton = $("<button>").addClass("bottom-button").html("다음").on('click', function(){
-                console.log("step1에서 다음버튼 클릭")
+                
                 $(".view").attr("id","view2");
-                //ViewPageModule.showView('view2', '#btn-step2');
-                
                 ViewPageModule.viewPageLoding();
-                
-                console.log("2단계이동");
+                PlanModule.tour(x,y);
                 initialize()
+                ViewPageModule.showView('view2', '#btn-step2');
                 
             });
             sidebarElement.append(step1Button, step2Button, step3Button, nextButton);
             
         }else if(viewId==="view2"){
-            console.log("steps 버튼 생성");
+            
             let step1Button = createSidebarButton("btn-step1", "STEP 1<br>날짜확인");
             let step2Button = createSidebarButton("btn-step2", "STEP 2<br>장소확인");
             let step3Button = createSidebarButton("btn-step3", "STEP 3<br>숙소설정");
 
             //버튼에 이벤트 리스너 추가
-            console.log("버튼에 이벤트 생성")
+            
             step1Button.on('click', function () {
-                //ViewPageModule.showView('view1', '#btn-step1');
+                
                 $(".view").attr("id","view1");
                 ViewPageModule.viewPageLoding();
                 initialize()
-                console.log("버튼1 클릭");
+                ViewPageModule.showView('view1', '#btn-step1');
             });
         
             step2Button.on('click', function () {
-                //ViewPageModule.showView('view2', '#btn-step2');                
+                
                 $(".view").attr("id","view2");
                 ViewPageModule.viewPageLoding();
                 PlanModule.tour(x,y);
                 initialize()
-                console.log("버튼2 클릭");
+                ViewPageModule.showView('view2', '#btn-step2');
             });
         
             step3Button.on('click', function () {
-                //ViewPageModule.showView('view3', '#btn-step3');
+                
                 $(".view").attr("id","view3");
                 ViewPageModule.viewPageLoding();
                 initialize()
-                console.log("버튼3 클릭");
+                ViewPageModule.showView('view3', '#btn-step3');
             });
 
             let nextButton = $("<button>").addClass("bottom-button").html("다음").on('click', function(){
-                console.log("step2에서 다음버튼 클릭")
+                
                 $(".view").attr("id","view3");
-                //ViewPageModule.showView('view2', '#btn-step2');
-                
                 ViewPageModule.viewPageLoding();
-                
-                console.log("3단계이동");
                 initialize()
+                ViewPageModule.showView('view3', '#btn-step3');
                 
             });
             sidebarElement.append(step1Button, step2Button, step3Button, nextButton);
         }else if(viewId==="view3"){
-            console.log("steps 버튼 생성");
+            
             let step1Button = createSidebarButton("btn-step1", "STEP 1<br>날짜확인");
             let step2Button = createSidebarButton("btn-step2", "STEP 2<br>장소확인");
             let step3Button = createSidebarButton("btn-step3", "STEP 3<br>숙소설정");
 
             //버튼에 이벤트 리스너 추가
-            console.log("버튼에 이벤트 생성")
+            
             step1Button.on('click', function () {
-                //ViewPageModule.showView('view1', '#btn-step1');
+                
                 $(".view").attr("id","view1");
                 ViewPageModule.viewPageLoding();
                 initialize()
-                console.log("버튼1 클릭");
+                ViewPageModule.showView('view1', '#btn-step1');
+                
             });
         
             step2Button.on('click', function () {
-                //ViewPageModule.showView('view2', '#btn-step2');
+                
                 $(".view").attr("id","view2");
                 ViewPageModule.viewPageLoding();
                 PlanModule.tour(x,y);
-                console.log("버튼2 클릭");
                 initialize()
+                ViewPageModule.showView('view2', '#btn-step2');
             });
         
             step3Button.on('click', function () {
-                //ViewPageModule.showView('view3', '#btn-step3');
+                
                 $(".view").attr("id","view3");
-                ViewPageModule.viewPageLoding();
-                console.log("버튼3 클릭");
+                ViewPageModule.viewPageLoding();                
                 initialize()
+                ViewPageModule.showView('view3', '#btn-step3');
             });
 
             let nextButton = $("<button>").addClass("bottom-button").html("일정 생성").on('click', function(){
                 $(".view").attr("id","view4");
                 ViewPageModule.viewPageLoding();
-                console.log("4단계 이동");
+                
                 initialize()
             });
 

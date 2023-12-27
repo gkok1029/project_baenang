@@ -78,8 +78,8 @@ let PlanModule = ( ()=>{
 			cache : false,
 			processData : true,
 			success : function(res) {
-			console.log("planModule.tour 실행 x,y값 : "+x+","+y);
-			displayTourInformation(res.contentList,x,y);	
+			
+			displayTourInformation(res.contentList,x,y);
 			
 			},
 			error : function(err) {
@@ -89,7 +89,7 @@ let PlanModule = ( ()=>{
 	}
 
     function displayTourInformation(contentList,x,y) {
-		var tcontainer = $('#places'); // 새로운 container 추가
+		var tcontainer = $('.places-container'); // 새로운 container 추가
 		//var container = document.getElementById('travels-container');
 		// 기존 내용 비우기
 		tcontainer.empty();
@@ -102,27 +102,25 @@ let PlanModule = ( ()=>{
 
 			var content = contentList[i];
 			var contentid=content.contentid;
-			var newDiv=createDiv(contentid);
+			
 			// 새로운 div 동적으로 생성
 			/* var newDiv = $('<div>').addClass('traveld').attr('id', 'content' + i).click(function() {
 	        copyDiv('content' + i);
 	    	}); */
 	    
+			var placeDiv = ViewPageModule.createPlaceDiv();
+			// console.log(placeDiv);
+	    	$('.place-image').attr('id', 'img'+contentid);
+			$('.place-img').attr('src',content.firstimage || '/resources/images/noimage.PNG');
 
-	    	var imgDiv = $('<div>').addClass('travelimg').attr('id', 'img'+contentid);
-
-	    	var textDiv = $('<div>').addClass('traveltext').attr('id', 'text' + contentid);
-			var img = $('<img>').attr('src',content.firstimage || '/resources/images/noimage.PNG');
-			var title = $('<div>').addClass('linea').text('Name: ' + content.title);
-			var addr = $('<div>').addClass('lineb').text('Location: ' + content.addr);
-			var heart = $('<div>').addClass('linec').text('하트 별');
+	    	$('.place-details').attr('id', 'text' + contentid);
+			$('.place-title').text('Name: ' + content.title);
+			$('.place-cat').text("카테고리");
+			$('.place-addr').text('Location: ' + content.addr);
 			
-			// 생성한 div에 정보 추가
-			imgDiv.append(img);
-			textDiv.append(title, addr, heart);
-			newDiv.append(imgDiv, textDiv);
-			console.log(tcontainer);
-			tcontainer.append(newDiv);
+			
+			tcontainer.append(placeDiv);
+			
 			 var marker = new naver.maps.Marker({
 		            position: new naver.maps.LatLng(content.mapy, content.mapx),
 		            map: map
