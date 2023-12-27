@@ -10,18 +10,16 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 
-<script>
-	
-</script>
-
 <body>
 	<div id="container">
 		<div id="cityname">
-			<h1> ${title}</h1>
+			<h1> ${contentid}</h1>
 		</div>
+		<h1>개 요</h1>
 		<div id="overview">
-			${overview}
+			${vo.overview}
 		</div>
+		<div><img alt="picture" src="${vo.firstimage}"></div>
 	</div>
 	
 	

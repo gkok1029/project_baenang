@@ -6,20 +6,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.bn.mapper.TourInfoMapper">
 
 	<select id="getCityData" parameterType="string" resultType="Content">
-		SELECT title, firstimage, addr, tel, overview FROM content WHERE title = #{title}
+		SELECT * FROM content WHERE contentid = #{contentid}
 	</select>
 	
 			
-	<insert id="insertoverview" parameterType="string">
-	INSERT INTO content (
-    	overview
-	) VALUES (
-    	#{overview}
-	)
-	</insert>
+	<update id="insertOverview" parameterType="Content">
+		UPDATE CONTENT
+		SET OVERVIEW = #{overview}
+		WHERE contentid = #{contentid}
+	</update>
 	
-	<select id="existOverview" parameterType="string" resultType="Content">
-		SELECT overview FROM content WHERE title = #{title}
+	<select id="existOverview" parameterType="string" resultType="string">
+		SELECT overview FROM content WHERE contentid = #{contentid}
 	</select>
 	
 	<!-- 

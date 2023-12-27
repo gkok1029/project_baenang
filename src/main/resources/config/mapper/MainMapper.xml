@@ -15,6 +15,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    ]]>
 	</select>
 	
+	<select id="rec_city" parameterType="string" resultType="string">
+		SELECT title FROM city WHERE title = #{title}
+	</select>
+	
 	<!-- 
 	<select id="search" parameterType="string" resultType="Content">
 	    <![CDATA[

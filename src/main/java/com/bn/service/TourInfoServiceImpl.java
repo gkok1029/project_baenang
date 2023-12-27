@@ -1,7 +1,5 @@
 package com.bn.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,19 +16,20 @@ public class TourInfoServiceImpl implements TourInfoService {
 	private TourInfoMapper TourInfoMapper;
 	
 	@Override
-	public List<ContentVo> getCityData(String title) {
+	public ContentVo getCityData(String contentid) {
 		
-		return TourInfoMapper.getCityData(title);
+		ContentVo result = TourInfoMapper.getCityData(contentid);
+		log.info("TSI result : "+result);
+		return result;
 	}
 	
 	@Override
 	public int insertOverview(ContentVo vo) {
-		
-		return 1;
+		return TourInfoMapper.insertOverview(vo);
 	}
 	
 	@Override
-	public List<ContentVo> existOverview(String title) {
+	public String existOverview(String title) {
 		
 		return TourInfoMapper.existOverview(title);
 	}
