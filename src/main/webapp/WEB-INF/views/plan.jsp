@@ -42,6 +42,17 @@
 		background-color: white;
 	}
 </style>
+<script>
+	let x=126.5312;
+	let y=33.4996;
+	let trip = {
+		"title":"",
+		"days":{
+			
+		}
+	}	
+	
+</script>
 </head>
 <body>
 
@@ -137,8 +148,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>    
 
 </body>
-<script>
-let x=126.5312;
-let y=33.4996;
-</script>
 </html>

@@ -109,7 +109,7 @@ let PlanModule = ( ()=>{
 	    	}); */
 	    
 			var placeDiv = ViewPageModule.createPlaceDiv();
-			// console.log(placeDiv);
+			
 	    	$('.place-image').attr('id', 'img'+contentid);
 			$('.place-img').attr('src',content.firstimage || '/resources/images/noimage.PNG');
 
