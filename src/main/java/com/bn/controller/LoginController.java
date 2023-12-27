@@ -37,29 +37,16 @@ public class LoginController {
 	}
 
 	@ResponseBody
-	@PostMapping("/loginCheck")
-    public int loginCheck(MemberVo member) {
-		System.out.println("MemberVo" + member);
-		int result = loginService.loginCheck(member);
-		System.out.println(result);
-    	int failed = 0;
-    	if(result == 1) {
-    		return result;
-    	}
-    	return failed;
-    }
-	
-	@ResponseBody
 	@PostMapping("/loginCheck2")
 	public String loginCheck2(MemberVo member, HttpSession session, HttpServletResponse response) {
-		String name = loginService.loginCheck2(member, session);
+		String name = loginService.loginCheck2(member);
 		if(name != null) {
 			 Cookie userCookie = new Cookie("sessionId", session.getId());
 		        userCookie.setMaxAge(60*30); 
 		        userCookie.setPath("/");
 		        response.addCookie(userCookie);
 		        session.setAttribute("userName", name);
-			
+		        session.setAttribute("userEmail", member.getM_EMAIL());
 			return "success";
 		}else {
 			return "failed";
