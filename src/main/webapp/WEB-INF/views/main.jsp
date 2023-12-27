@@ -81,6 +81,7 @@ function onKeywordInput() {
     	boolean isLoggedIn = userId != null;
 	%>
 	<div id="navi" class="navi">
+		<a href="/dbbutton">dbdown</a>
 		<a href="/main">홈</a>
 		<a href="/blog/bloghub">블로그</a><!-- 블로그페이지 허브로 이동 -->
     <%-- 사용자가 로그인한 경우 적절한 링크를 보여줍니다 --%>

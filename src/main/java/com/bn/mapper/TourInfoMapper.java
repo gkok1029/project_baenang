@@ -8,4 +8,8 @@ public interface TourInfoMapper {
 	
 	public List<ContentVo> getCityData(String title);
 	
+	public int insertoverview(String title);
+	
+	public List<ContentVo> existOverview(String title);
+	
 }
