@@ -7,10 +7,8 @@ li{list-style: none;}
 }
 #top a{text-decoration: none; display: inline-block; color: black;}
 #top a:visited{color: black;}
-#top div{flex:1; font-size: 1.1em;}
+#top div{font-size: 1.1em;}
 #topL img{width:80px;}
-#navi ul{display: flex; justify-content: center;}
-#navi ul li{padding: 0 40px;}
-#navi ul li a{text-align: center;}
-#topR{text-align: right;}
-#topR a:first-child{margin-right: 28px;}
+#topR{display: flex; justify-content: flex-end;}
+#topR ul.nav{display: flex; justify-content: space-evenly; flex: 1; align-items: center;}
+#topR ul li{text-align: center; width: 100px; margin-right:12px; margin-left:12px;}
