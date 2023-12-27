@@ -24,5 +24,6 @@ public class ContentVo {
 	String mapx;
 	String mapy;
 	String overview;
+	int count;
 
 }

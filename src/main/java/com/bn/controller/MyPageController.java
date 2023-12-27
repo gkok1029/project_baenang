@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -46,7 +47,14 @@ public class MyPageController {
 		
 		List<MypageVo> pl= mypageService.getPlanList(my);
 		
+		ServletContext app=session.getServletContext();
+		String upDir=app.getRealPath("/resources/profile");
+		log.info("upDir: "+upDir);
 		
+		File dir=new File(upDir);
+		if(!dir.exists()) {
+			dir.mkdirs();//업로드 디렉토리 생성
+		}
 		
 		
 		
@@ -72,7 +80,7 @@ public class MyPageController {
 	
 	@RequestMapping(value = "/mypageinfopic")
 	public String mypageInfo(Model m, HttpSession session, 
-			@RequestParam("editmf") MultipartFile mf, MypageVo vo) {
+			@RequestParam("editmf") MultipartFile mf, MypageVo my) {
 		log.info("editmf: "+mf);
 		String userName= (String)session.getAttribute("userName");
 		
@@ -95,16 +103,16 @@ public class MyPageController {
 		//[2] 업로드한 파일명,파일크기 알아내기
 		if(!mf.isEmpty()) {//첨부했다면
 			String fname=mf.getOriginalFilename();//원본파일명
-			long fsize=mf.getSize();//파일크기
+			int fsize=(int)mf.getSize();//파일크기
 			//파일컨텐트타입
 			//String ctype=mf.getContentType();
 			UUID uuid=UUID.randomUUID();
 			String filename=uuid.toString()+"_"+fname;//물리적 파일명
 			log.info("fname: "+fname+", filename: "+filename);
 			
-			vo.setFilename(filename);//uuid_filename
-			vo.setOriginFilename(fname);//filename
-			vo.setFilesize(fsize);
+			my.setFilename(filename);//uuid_filename
+			my.setOriginFilename(fname);//filename
+			my.setFilesize(fsize);
 		
 			//[3] 업로드 처리--transferTo()
 			try {
@@ -119,9 +127,9 @@ public class MyPageController {
 		MemberVo user = mypageService.getProfile(userName);
 		
 		
-		vo.setM_id(user.getM_ID());
+		my.setM_id(user.getM_ID());
 		
-		int n=mypageService.updateProfileImage(vo);
+		int n=mypageService.updateProfileImage(my);
 		
 		if(n>0) {
 			
@@ -159,13 +167,11 @@ public class MyPageController {
 			session.setAttribute("userName", nick);
 		}
 		m.addAttribute("user", user);
-		return "myPageInfo";
+		return "redirect:/user/mypage";
 	}
 	
 	@RequestMapping(value = "/mypagepwdchange")
 	public String mypagepwdChange(Model m, HttpSession session) {
-		
-		
 		
 		return "myPagepwdChange";
 	}
@@ -212,14 +218,66 @@ public class MyPageController {
 	}
 	
 	@RequestMapping(value = "/out")
-	public String mypageOutProcess(Model m, HttpSession session, String yes) {
-		
+	public String mypageOutProcess(Model m, HttpSession session) {
 		String userName= (String)session.getAttribute("userName");
-		int n = mypageService.memberOut(userName);
+		MemberVo user = mypageService.getProfile(userName);
+		MemberVo tmp = new MemberVo();
 		
+		tmp.setM_ID(user.getM_ID());
+		int n = mypageService.memberOut(tmp);
 		
+		log.info("Her: n="+n);
 		
-		return "myPageOut";
+		if(n>0) {
+		 
+			String msg = "회원 탈퇴 완료";
+			m.addAttribute("result",msg);
+			m.addAttribute("loc","/login");
+		 
+			session.invalidate();
+			return "myPageOut";
+		} else {
+			String msg = "오류발생<br>고객센터에 문의하세요";
+		 	m.addAttribute("msg",msg);
+		 
+		 	return "message2";
+		}
+		
 	}
+	
+	@RequestMapping(value = "/delplan")
+	public String delPlan(Model m, HttpSession session, MypageVo my) {
+		String userName= (String)session.getAttribute("userName");
+		MemberVo user = mypageService.getProfile(userName);
+		log.info("my==="+my);
+		
+		my.setM_nname(userName);
+		
+		//my.getP_id();
+		//my.getM_id();
+		
+		int nn= mypageService.deleteDPlan(my);
+		int n= mypageService.deletePlan(my);
+		
+		if(n>0 & nn>0) {
+			return "myPage";
+		} else {
+			
+			return "myPage";
+		}
+		
+	}
+	
+	
+	@RequestMapping(value = "/upplan", method=RequestMethod.GET)//p_id파라미터 값을 넘겨줘야 한다
+	public String upPlan(Model m, HttpSession session, MypageVo my) {
+		String userName= (String)session.getAttribute("userName");
+		MemberVo user = mypageService.getProfile(userName);
+		
+		
+		
+		return "myPage";
+	}
+	
 	
 }
