@@ -18,11 +18,12 @@
 </head>
 <body>
 <jsp:include page="top.jsp"/>
+<div id=topbg></div>
 	<header>
 		<div id="topcenprowrap">
             <div id=topcenpro>
             	<%-- ${user} --%>
-                <p class="profile_img"><span><img alt="${user.getM_NNAME()}" src="../resources/img/profile/${user.getM_IMAGE()}"></span></p>
+                <p class="profile_img"><span><img alt="${user.getM_NNAME()}" src="/resources/profile/${user.getM_IMAGE()}"></span></p>
                 <p class="username"><span>${user.getM_NNAME()}</span></p>
                 <p class="profilemanage"><span><a href="/user/mypageinfo">프로필 관리</a></span></p>
             </div>
@@ -115,9 +116,8 @@
                                     <span></span>
                                 </div>
                                 <div id="hamburger_content" class="hamburger_content">
-                                    <p>삭제</p>
-                                    <p class="invite">초대</p>
-                                    <p>수정</p>
+                                	<form action="/user/delplan" id="delF" name="delF"><p class="del">삭제</p></form>
+                                    <p class="upplan">수정</p>
                                 </div>
                             </div>
                         </div>
@@ -126,10 +126,31 @@
                     </div>
                     </c:if>
                     <!--전체 일정 섹션-->
-
+					<script type="text/javascript">
+						$('.del').click(function (){
+							$('#delF').submit();							
+						});
+					
+						function goTour(){
+							$.ajax({
+								url:"/user/upplan&p_id="+${plan[0].p_id}+"&m_id="+${user.getM_ID()},
+								type:"get",
+								dataType:"text",
+								cache:false,
+								success:function(res){
+									
+								}
+							});
+						}
+						
+                        $(".hamburger").click(function(){
+                            $(this).parent().children("#hamburger_content").toggle();
+                        });
+                        
+                    </script>
 
                     <!--공유 일정 섹션-->
-                    <div id="section" class="sha_sche" style="display: none;">
+                    <!-- <div id="section" class="sha_sche" style="display: none;">
                         <div id="schedule">
                             <div class="schedule_img">여행이미지</div>
                             <div class="schedule_content">
@@ -174,15 +195,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!--공유 일정 섹션-->
-                    <script>
-                        $(".hamburger").click(function(){
-                            $(this).parent().children("#hamburger_content").toggle();
-                        });
-
-
-                    </script>
 
                 </div>
                 <!--나의 일정 블럭 종료-->
@@ -190,7 +204,7 @@
                 
                 
                 <!--나의 여행 도시 목록 시작-->
-				<div id="mycitylist" style="display: none;">
+				<!-- <div id="mycitylist" style="display: none;">
 					<div class="myschedule">나의 여행 도시 목록</div>
 					<div class="citywrap">
 						<div>도시</div>
@@ -202,7 +216,7 @@
 						<div>도시</div>
 						<div>도시</div>
 					</div>
-				</div>
+				</div> -->
 				<!--나의 여행 도시 목록 종료-->
 				
 				<script>

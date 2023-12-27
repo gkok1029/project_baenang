@@ -24,4 +24,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     DELETE FROM Planner
     WHERE p_id = #{p_id};
 	</delete>
+	
+	<select id="cityloc" parameterType="string" resultType="City">
+	select * from city where cityname=#{cityname}
+	</select>
 </mapper>

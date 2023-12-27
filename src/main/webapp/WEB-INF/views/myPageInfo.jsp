@@ -18,19 +18,18 @@
 </head>
 <body>
 <jsp:include page="top.jsp"/>
+<div id=topbg></div>
 	<header>
 		<div id="topcenprowrap">
             <div id=topcenpro>
-                <p class="profile_img">
                 <!-- 파일 업로드를 위한 input 요소 -->
-                <form id="imgF" name="imgF" action="mypageinfopic" method="post" enctype="multipart/form-data">
-                	<input type="file" id="editmf" name="editmf" style="display: none" accept="image/*">
-                </form>
-			    
+            <form id="imgF" name="imgF" action="mypageinfopic" method="post" enctype="multipart/form-data">
+               	<input type="file" id="editmf" name="editmf" style="display: none" accept="image/*">
+            </form>
+                <p class="profile_img">
                 	<span class="cursor">
 	                	<img id="proimg" alt="${user.getM_NNAME()}" src="/resources/profile/${user.getM_IMAGE()}">
 	                	<img id="edit" alt="edit" src="../resources/img/profile/edit.png" name="edit" onclick="editPic()">
-	                	<input type="hidden"/>
                 	</span>
                	</p>
                 <p class="username"><span>${user.getM_NNAME()}</span></p>
@@ -81,7 +80,7 @@
         	function handlefileup(e){
         		let fileInput=document.getElementById('editmf');
         		if(!fileInput.files||!fileInput.files[0]){
-        			alert('변경할 이미지 파일을 선택하세')
+        			alert('변경할 이미지 파일을 선택하세요')
         			return;
         		}
         		imgUrl=URL.createObjectURL(fileInput.files[0]);

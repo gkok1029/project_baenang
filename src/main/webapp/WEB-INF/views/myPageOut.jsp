@@ -19,12 +19,33 @@
 <body>
 	<div id="wrap">
 	    <div id="innerwrap">
+	    <c:if test="${result == null }">
 	        <h2>탈퇴 하시겠습니까?</h2>
 	        <div id="bottomContainer">
-                <button type="submit" class="cursor" name="yes" onclick="window.close()" action="/out">예</button>
-                <button type="button" class="cursor" name="no" onclick="window.close()">아니오</button>
+		        <form action="/user/out" name="outf" id="outf" method="post">
+	                <button type="button" class="cursor" name="yes" onclick="Btn()" >예</button>
+	                <button type="button" class="cursor" name="no" onclick="window.close()">아니오</button>
+		        </form>
 	        </div>
+        </c:if>	
+        <c:if test="${result != null }">
+	        <h2>${result}</h2>
+	        <div id="bottomContainer">
+                <button type="button" class="cursor" name="no" onclick="logout()">닫기</button>
+	        </div>
+        </c:if>	        
 	    </div>
 	</div>
+	
+	<script type="text/javascript">
+		function Btn(){
+			$('#outf').submit();
+		}
+		
+		function logout(){
+			opener.location.href="/login";
+			window.close();
+		}
+	</script>
 </body>
 </html>
