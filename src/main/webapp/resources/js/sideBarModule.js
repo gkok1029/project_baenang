@@ -15,7 +15,7 @@ let SidebarModule = (function () {
             .attr("id", "main-logo")
             .html('<img class="logo" src="" alt="Main Logo"/>');
 
-        console.log("mainLogo 클릭이벤트 설정");
+        //MainLogo 클릭이벤트 설정
         mainLogoButton.on('click', function () {
             window.location.href = '/main';
         });
@@ -25,7 +25,7 @@ let SidebarModule = (function () {
 
         //현재 viewId 확인 default view1
         let viewId = document.getElementsByClassName("view")[0].id;
-
+        console.log("사이드바 viewId : " + viewId);
         if(viewId==="view1"){
             //steps 버튼 생성
             
@@ -58,6 +58,7 @@ let SidebarModule = (function () {
                 
                 $(".view").attr("id","view3");
                 ViewPageModule.viewPageLoding();
+                PlanModule.lodging(x,y);
                 initialize()
                 ViewPageModule.showView('view3', '#btn-step3');             
                 
@@ -79,7 +80,7 @@ let SidebarModule = (function () {
             let step1Button = createSidebarButton("btn-step1", "STEP 1<br>날짜확인");
             let step2Button = createSidebarButton("btn-step2", "STEP 2<br>장소확인");
             let step3Button = createSidebarButton("btn-step3", "STEP 3<br>숙소설정");
-
+            
             //버튼에 이벤트 리스너 추가
             
             step1Button.on('click', function () {
@@ -103,6 +104,7 @@ let SidebarModule = (function () {
                 
                 $(".view").attr("id","view3");
                 ViewPageModule.viewPageLoding();
+                PlanModule.lodging(x,y);
                 initialize()
                 ViewPageModule.showView('view3', '#btn-step3');
             });
@@ -111,6 +113,7 @@ let SidebarModule = (function () {
                 
                 $(".view").attr("id","view3");
                 ViewPageModule.viewPageLoding();
+                PlanModule.lodging(x,y);
                 initialize()
                 ViewPageModule.showView('view3', '#btn-step3');
                 
@@ -121,7 +124,7 @@ let SidebarModule = (function () {
             let step1Button = createSidebarButton("btn-step1", "STEP 1<br>날짜확인");
             let step2Button = createSidebarButton("btn-step2", "STEP 2<br>장소확인");
             let step3Button = createSidebarButton("btn-step3", "STEP 3<br>숙소설정");
-
+            
             //버튼에 이벤트 리스너 추가
             
             step1Button.on('click', function () {
@@ -145,12 +148,13 @@ let SidebarModule = (function () {
             step3Button.on('click', function () {
                 
                 $(".view").attr("id","view3");
-                ViewPageModule.viewPageLoding();                
+                ViewPageModule.viewPageLoding();
+                PlanModule.lodging(x,y);              
                 initialize()
                 ViewPageModule.showView('view3', '#btn-step3');
             });
 
-            let nextButton = $("<button>").addClass("bottom-button").html("일정 생성").on('click', function(){
+            let nextButton = $("<button>").addClass("bottom-button").html("저장").on('click', function(){
                 $(".view").attr("id","view4");
                 ViewPageModule.viewPageLoding();
                 
@@ -159,9 +163,34 @@ let SidebarModule = (function () {
 
             sidebarElement.append(step1Button, step2Button, step3Button, nextButton);
         }else if(viewId="view5"){
-            console.log("view 5 시작")
+            console.log("view5 사이드바 생성");
+            let buttons = [];
+            let totalDaysBtn = createSidebarButton("btn-totalDays","전체일정").on('click',function(){
+                console.log("전체일정")
+            });
+            
+
+            for(let i=1; i<=3;i++){
+                let button = createSidebarButton("btn-day"+i,i+"일차").on('click',function(){
+                    console.log(i+"일차 일정");
+                });;
+                buttons.push(button);
+            }
+
+            let modifyBtn = createSidebarButton("btn-modify","편집").on('click',function(){
+                console.log("편집버튼")
+            });;
+            let savePlanBtn = createSidebarButton("btn-savePlan","저장").on('click',function(){
+                console.log("저장버튼")
+            });;
+            
+            sidebarElement.append(totalDaysBtn,...buttons,modifyBtn,savePlanBtn);
+            
+        }else if(viewId="view4"){
+            console.log("view4일때 사이드비");
+            return;
         }
-    
+        $(".view").attr("id","view1");
         // 부모 엘리먼트
         
         let sidebarContainer = $("#sidebar-container");

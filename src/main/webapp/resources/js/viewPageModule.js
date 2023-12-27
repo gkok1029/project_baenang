@@ -13,7 +13,7 @@ let ViewPageModule = (function () {
             console.log("class가 view인 엘리먼츠가 없다");
             return;
         };
-        
+        console.log("viewId : "+viewId);
         switch(viewId){
             case "view1" : step1Loding();
                 break;
@@ -22,6 +22,8 @@ let ViewPageModule = (function () {
             case "view3" : step3Loding();
                 break;
             case "view4" : step4Loding();
+                break;
+            case "view5" : step5Loding();
                 break;
         };
         
@@ -191,17 +193,17 @@ let ViewPageModule = (function () {
             $("<div>").addClass("cat-buttons").attr("id","catButtons").append(                
                 $("<div>").append(
                     $("<button>").addClass("cat-button").attr("id","attractionBtn").text("명소").on('click',function(){
-                        attraction()
+                        PlanModule.attraction()
                     })
                 ),
                 $("<div>").append(
                     $("<button>").addClass("cat-button").attr("id","restaurantBtn").text("식당").on('click',function(){
-                        restaurant()
+                        PlanModule.restaurant()
                     })
                 ),
                 $("<div>").append(
                     $("<button>").addClass("cat-button").attr("id","cafeBtn").text("카페").on('click',function(){
-                        cafe()
+                        PlanModule.cafe()
                     })
                 )
             )
@@ -314,9 +316,9 @@ let ViewPageModule = (function () {
         let arrDiv = [];
         for(let i=1;i<=4;i++){
             let div = $('<div>').html(i+"일차<br>").append(
-                    $('<img>').addClass("picked").attr("src","/src/main/webapp/resources/images/noimage.PNG"),
-                    $('<img>').addClass("picked").attr("src","/src/main/webapp/resources/images/noimage.PNG"),
-                    $('<img>').addClass("picked").attr("src","/src/main/webapp/resources/images/noimage.PNG")
+                    $('<img>').addClass("picked").attr("src","/resources/images/noimage.PNG"),
+                    $('<img>').addClass("picked").attr("src","/resources/images/noimage.PNG"),
+                    $('<img>').addClass("picked").attr("src","/resources/images/noimage.PNG")
                 );
             arrDiv.push(div);
             
@@ -326,31 +328,37 @@ let ViewPageModule = (function () {
         let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1").append(
             $('<div>').append( $('<h3>').text("나의 제주 여행 pick n개") ),
             $('<div>').append(
-                $('<img>').addClass("city").attr("src","/src/main/webapp/resources/images/noimage.PNG"),
-                $('<img>').addClass("city").attr("src","/src/main/webapp/resources/images/noimage.PNG")
+                $('<img>').addClass("city").attr("src","/resources/images/noimage.PNG"),
+                $('<img>').addClass("city").attr("src","/resources/images/noimage.PNG")
             ),
             $('<div>').attr("id","lastedit").append(
                 $('<div>').text("제주여행n").append( $('<a>').html("<br>2023.12.04~2023.12.05편집") ),
                 $('<div>').text("선택한 장소n").append( $('<a>').text("편집") ),
                 $('<div>').append(
-                    $('<img>').addClass("selt").attr("src","/src/main/webapp/resources/images/noimage.PNG"),
-                    $('<img>').addClass("selt").attr("src","/src/main/webapp/resources/images/noimage.PNG"),
-                    $('<img>').addClass("selt").attr("src","/src/main/webapp/resources/images/noimage.PNG"),
-                    $('<img>').addClass("selt").attr("src","/src/main/webapp/resources/images/noimage.PNG")                    
+                    $('<img>').addClass("selt").attr("src","/resources/images/noimage.PNG"),
+                    $('<img>').addClass("selt").attr("src","/resources/images/noimage.PNG"),
+                    $('<img>').addClass("selt").attr("src","/resources/images/noimage.PNG"),
+                    $('<img>').addClass("selt").attr("src","/resources/images/noimage.PNG")                    
                 ),
                 $('<div>').text("설정한 숙소 n개").append( $('<a>').text("편집") ),
                 $('<div>').append(
-                    $('<img>').addClass("sell").attr("src","/src/main/webapp/resources/images/noimage.PNG"),
-                    $('<img>').addClass("sell").attr("src","/src/main/webapp/resources/images/noimage.PNG"),
-                    $('<img>').addClass("sell").attr("src","/src/main/webapp/resources/images/noimage.PNG")
+                    $('<img>').addClass("sell").attr("src","/resources/images/noimage.PNG"),
+                    $('<img>').addClass("sell").attr("src","/resources/images/noimage.PNG"),
+                    $('<img>').addClass("sell").attr("src","/resources/images/noimage.PNG")
                 ),
                 ...arrDiv,
                 $('<button>').text("일정생성").on('click', function() {
-                    console.log("일정생성");
+                    $(".view").attr("id","view5");
+                    ViewPageModule.viewPageLoding();
+                    SidebarModule.initialize();
                 })
             )
         );
+        
         parentElement.append(viewContainerDiv);
+    }
+    function step5Loding(){
+        viewExistedCheck();
     }
 
     function showView(viewId, btnId) {
