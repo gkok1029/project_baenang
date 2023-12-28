@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bn.model.CityVo;
 import com.bn.model.ContentVo;
 import com.bn.service.InfoService;
 import com.google.gson.JsonArray;
@@ -28,26 +29,26 @@ public class InfoController {
 	@Autowired
 	private InfoService is;
 	
-	private ContentVo vo;
+	private ContentVo convo;
+	private CityVo civo;
 	
 	//------------------------ main.jsp 도시 목록의 info버튼 클릭시 요청을 받도록 설계 -----------------------------
 	@RequestMapping("/cityInfo")
-	public String cityInfo(@RequestParam String cityName, Model model) {
+	public String cityInfo(@RequestParam String cityname, Model model) {
 		
-		vo=null;
-		vo=is.getCityData(cityName);
-		
+		civo=null;
+		civo=is.getCityData(cityname);
+		String cname=civo.getCITYNAME();
 		//select overview from content where contentid=${contentid} 의 반환값(요청된 contentid의 overview이 있는지 확인하는 함수)
-		String exist = is.existOverview(cityName);
-		if(exist==null) {
-			System.out.println("Overview is empty!! Check your DB");
+		if(cname==null) {
+			System.out.println("CITYNAME is empty!! Check your DB");
 		}else {
-			System.out.println("Overview data is already exist!! I'll show you Tourinfo from DB");
+			System.out.println("I'll show you CITYNAME");
 		}
-		model.addAttribute("vo",vo);
-		log.info("Last : "+vo);
+		model.addAttribute("civo",civo);
+		log.info("Last : "+civo);
 		
-		return "tourInfo";
+		return "cityInfo";
 	}
 	//----------------------------------------------------------------------------------------------------
 	
@@ -55,8 +56,8 @@ public class InfoController {
 	@RequestMapping("/tourInfo")
 	public String tourInfo(@RequestParam String contentid, Model model) {
 		
-		vo=null;
-		vo=is.getCityData(contentid);
+		convo=null;
+		convo=is.getTourData(contentid);
 		
 		//select overview from content where contentid=${contentid} 의 반환값(요청된 contentid의 overview이 있는지 확인하는 함수)
 		String exist = is.existOverview(contentid);
@@ -66,8 +67,8 @@ public class InfoController {
 		}else {
 			System.out.println("Overview data is already exist!! I'll show you Tourinfo from DB");
 		}
-		model.addAttribute("vo",vo);
-		log.info("Last : "+vo);
+		model.addAttribute("vo",convo);
+		log.info("Last : "+convo);
 		
 		return "tourInfo";
 	}
@@ -110,14 +111,14 @@ public class InfoController {
 							JsonObject item = items.get(i).getAsJsonObject();
 							String overview = item.get("overview").getAsString();
 							
-							vo.setOverview(overview);
+							convo.setOverview(overview);
 							
-							log.info("vo.setOverview(overview) : "+vo);
+							log.info("vo.setOverview(overview) : "+convo);
 							
-							result = vo.toString();
+							result = convo.toString();
 							
 							if(overview!=null) {
-								int n= is.insertOverview(vo);
+								int n= is.insertOverview(convo);
 								System.out.println("INSERT 성공:1, 실패:0 >> : "+n);
 							}else {
 								System.out.println("�����Ͱ� �����ϴ�.");

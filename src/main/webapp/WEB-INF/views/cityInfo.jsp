@@ -3,6 +3,28 @@
 
 <!DOCTYPE html>
 <html>
+<style>
+	div{
+		border:1px solid red;
+	}
+	#gaeyo{
+		margin-left:20px;
+	}
+	#container{
+		display:flex;
+	}
+	#overview{
+		width:60vw;
+		padding:20px;
+	}
+	#imgcontainer{
+		width:40vw;
+		padding:20px;
+	}
+	img{
+		width:100%;
+	}
+</style>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -11,14 +33,39 @@
 </head>
 
 <body>
-	<div id="container">
+	<div>
 		<div id="cityname">
-			<h1> ${contentid}</h1>
+			<h1> ${civo.CITYNAME}</h1>
 		</div>
-		<div id="overview">
-			${vo.overview}
+		
+		<div id="gaeyo"><p> 개 요 </p></div>
+		
+		<div id="container">
+			<div id="overview">
+				${civo.CITYNAME}
+			</div>
+			<div>${civo.LONGITUDE}</div>
+			<div>${civo.LATITUDE}</div>
+			
+			<div id="imgcontainer"><img alt="picture" src="${civo.CITYNAME}"></div>
 		</div>
-		<div><img alt="picture" src="${vo.firstimage}"></div>
+		
+		<div id="gotoplan">
+			<button class=""> 여행계획 만들기 </button>
+		</div>
+		
+				
 	</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

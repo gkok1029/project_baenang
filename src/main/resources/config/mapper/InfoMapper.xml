@@ -5,11 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.bn.mapper.InfoMapper">
 
-	<select id="getCityData" parameterType="string" resultType="Content">
+	<select id="getTourData" parameterType="string" resultType="Content">
 		SELECT * FROM content WHERE contentid = #{contentid}
 	</select>
 	
-			
 	<update id="insertOverview" parameterType="Content">
 		UPDATE CONTENT
 		SET OVERVIEW = #{overview}
@@ -18,6 +17,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="existOverview" parameterType="string" resultType="string">
 		SELECT overview FROM content WHERE contentid = #{contentid}
+	</select>
+	
+	<select id="getCityData" parameterType="string" resultType="City">
+		SELECT * FROM city WHERE cityname = #{cityname} 
 	</select>
 	
 	<!-- 

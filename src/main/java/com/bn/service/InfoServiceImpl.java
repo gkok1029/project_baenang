@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bn.mapper.InfoMapper;
+import com.bn.model.CityVo;
 import com.bn.model.ContentVo;
 
 import lombok.extern.log4j.Log4j;
@@ -16,10 +17,9 @@ public class InfoServiceImpl implements InfoService {
 	private InfoMapper InfoMapper;
 	
 	@Override
-	public ContentVo getCityData(String contentid) {
-		
-		ContentVo result = InfoMapper.getCityData(contentid);
-		log.info("TSI result : "+result);
+	public ContentVo getTourData(String contentid) {
+		ContentVo result = InfoMapper.getTourData(contentid);
+		log.info("InfoServiceImpl gettour result : "+result);
 		return result;
 	}
 	
@@ -32,6 +32,14 @@ public class InfoServiceImpl implements InfoService {
 	public String existOverview(String title) {
 		
 		return InfoMapper.existOverview(title);
+	}
+	
+	@Override
+	public CityVo getCityData(String cityname) {
+		System.out.println("InfoServiceImpl getcity cityname : "+cityname);
+		CityVo result = InfoMapper.getCityData(cityname);
+		log.info("InfoServiceImpl getcity result : "+result);
+		return result;
 	}
 
 }

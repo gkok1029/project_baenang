@@ -24,6 +24,9 @@
 	img{
 		width:100%;
 	}
+	#closeContainer{
+		text-align: center;
+	}
 </style>
 <head>
 <meta charset="UTF-8">
@@ -33,22 +36,27 @@
 </head>
 
 <body>
+	<script>
+	  function closeWindow() {
+		    window.close();
+		  }
+	</script>
 	<div>
-		<div id="cityname">
-			<h1> ${vo.title}</h1>
+		<div id="tourname">
+			<h1> ${convo.title}</h1>
 		</div>
 		
 		<div id="gaeyo"><p> 개 요 </p></div>
 		
 		<div id="container">
 			<div id="overview">
-				${vo.overview}
+				${convo.overview}
 			</div>
-			<div id="imgcontainer"><img alt="picture" src="${vo.firstimage}"></div>
+			<div id="imgcontainer"><img alt="picture" src="${convo.firstimage}"></div>
 		</div>
 		
-		<div id="gotoplan">
-			<button class=""> 여행계획 만들기 </button>
+		<div id="closeContainer">
+			<button class="close" onclick="closeWindow()"> 닫기 </button>
 		</div>
 		
 				
