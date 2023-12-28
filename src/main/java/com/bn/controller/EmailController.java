@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bn.service.EmailService;
-import com.bn.service.LoginService;
+import com.bn.service.MemberService;
 import com.bn.service.PasswordEncoder;
 import com.bn.service.SignupService;
 
@@ -22,7 +22,7 @@ public class EmailController {
 	private SignupService signupService;
 	
 	@Autowired
-	private LoginService loginService;
+	private MemberService memberService;
 	
 	private final EmailService emailService;
 
@@ -67,7 +67,7 @@ public class EmailController {
         if (isVerified == true) {
         	String pass = emailService.generateVerificationCode();
         	String temppass = passwordEncoder.encrypt(userEmail, pass);
-        	loginService.tempPass(userEmail, temppass);
+        	memberService.tempPass(userEmail, temppass);
             return pass;
         } else {
             return "failed";
