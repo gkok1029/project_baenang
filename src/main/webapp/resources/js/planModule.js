@@ -68,8 +68,8 @@ let PlanModule = ( ()=>{
 	}
 
     function tour(lat, len) {
-		var x = lat;
-		var y = len;
+		let x = lat;
+		let y = len;
 
 		$.ajax({
 			type : 'get',
@@ -287,8 +287,7 @@ let PlanModule = ( ()=>{
 	}	
 	
 	function lodging(lat, len) {
-		let x = lat;
-		let y = len;
+		
 		var ctype="32";
 
 		$.ajax({
@@ -307,24 +306,7 @@ let PlanModule = ( ()=>{
 		})
 	}
 	function restaurant(){
-		var ctype="39";
-		$.ajax({
-			type : 'get',
-			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y + '&ctype=' +ctype,
-			cache : false,
-			processData : true,
-			success : function(res) {
-				PlanModule.displayTourInformation(res.contentList,x,y);
-
-			},
-			error : function(err) {
-				alert('error: ' + err.status);
-			}
-		})
-	}
-	function cafe(){
-		var cat="A05020900";
+		var cat="A05020100";
 		$.ajax({
 			type : 'get',
 			dataType : 'json',
@@ -339,13 +321,31 @@ let PlanModule = ( ()=>{
 				alert('error: ' + err.status);
 			}
 		})
+	}
+	function cafe(){
+		var cat="A05020900";
+		$.ajax({
+			type :'get',
+			dataType : 'json',
+			url : 'tour?x=' + x + '&y=' + y + '&cat='+cat,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				PlanModule.displayTourInformation(res.contentList,x,y);
+
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+		})
 		
 	}
 	function attraction(){
+		var ctype="12";
 		$.ajax({
 			type : 'get',
 			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y,
+			url : 'tour?x=' + x + '&y=' + y+'&ctype='+ctype,
 			cache : false,
 			processData : true,
 			success : function(res) {

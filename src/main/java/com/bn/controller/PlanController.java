@@ -103,6 +103,7 @@ public class PlanController {
 		cd.put("mapy",mapy);
 		cd.put("cat", cat);
 		cd.put("ctype", ctype);
+		System.out.println(cd.toString());
 		List<ContentVo>nd=dService.searchInRange(cd);
 		map.addAttribute("contentList",nd);
 		session.setAttribute("contentList",nd);
