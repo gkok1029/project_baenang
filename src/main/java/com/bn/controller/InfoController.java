@@ -13,8 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bn.model.CityVo;
 import com.bn.model.ContentVo;
-import com.bn.service.TourInfoService;
+import com.bn.service.InfoService;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -23,47 +24,57 @@ import lombok.extern.log4j.Log4j;
 
 @Log4j
 @Controller
-public class TourInfoController {
+public class InfoController {
 	
 	@Autowired
-	private TourInfoService ti;
+	private InfoService is;
 	
-	private ContentVo vo;
+	private ContentVo convo;
+	private CityVo civo;
 	
-	//plan에서 검색된 관광지 목록의 info버튼 클릭시 요청을 받도록 설계 
+	//------------------------ main.jsp 도시 목록의 info버튼 클릭시 요청을 받도록 설계 -----------------------------
+	@RequestMapping("/cityInfo")
+	public String cityInfo(@RequestParam String cityname, Model model) {
+		
+		civo=null;
+		civo=is.getCityData(cityname);
+		String cname=civo.getCITYNAME();
+		//select overview from content where contentid=${contentid} 의 반환값(요청된 contentid의 overview이 있는지 확인하는 함수)
+		if(cname==null) {
+			System.out.println("CITYNAME is empty!! Check your DB");
+		}else {
+			System.out.println("I'll show you CITYNAME");
+		}
+		model.addAttribute("civo",civo);
+		log.info("Last : "+civo);
+		
+		return "cityInfo";
+	}
+	//----------------------------------------------------------------------------------------------------
+	
+	//---------------------- plan에서 검색된 관광지 목록의 info버튼 클릭시 요청을 받도록 설계 -------------------------
 	@RequestMapping("/tourInfo")
 	public String tourInfo(@RequestParam String contentid, Model model) {
 		
-		vo=null;
-		vo=ti.getCityData(contentid);
+		convo=null;
+		convo=is.getTourData(contentid);
 		
 		//select overview from content where contentid=${contentid} 의 반환값(요청된 contentid의 overview이 있는지 확인하는 함수)
-		String exist = ti.existOverview(contentid);
+		String exist = is.existOverview(contentid);
 		if(exist==null) {
 			System.out.println("Overview is empty!! I'll bring it from API");
 			overviewfill(contentid);
 		}else {
 			System.out.println("Overview data is already exist!! I'll show you Tourinfo from DB");
 		}
-		model.addAttribute("vo",vo);
-		log.info("Last : "+vo);
+		model.addAttribute("convo",convo);
+		log.info("Last : "+convo);
 		
 		return "tourInfo";
 	}
-	/*
-	//TourInfo.jsp 페이지가 호출된 직후 실행되는 function(contentid)을 통해 /existOverview?contentid=#{contentid} 의 형식으로 파라미터를 받아
-	@ResponseBody
-	@RequestMapping("/existOverview")
-	private String existOverview(String contentid) {
-		String exist = ti.existOverview(contentid);
-		if(exist==null) {
-			overviewfill(contentid);
-		}
-		System.out.println("Overview data is already exist!! I'll show you Tourinfo");
-		return "";
-	}
-	*/
-
+	//-------------------------------------------------------------------------------------------------
+	
+	// --------------- db에서 overview컬럼의 데이터가 존재하지 않다면 api에서 데이터를 내려받는 기능을 실행 --------------
 	private String overviewfill(String contentid) {
 		
 		String result="";
@@ -100,14 +111,14 @@ public class TourInfoController {
 							JsonObject item = items.get(i).getAsJsonObject();
 							String overview = item.get("overview").getAsString();
 							
-							vo.setOverview(overview);
+							convo.setOverview(overview);
 							
-							log.info("vo.setOverview(overview) : "+vo);
+							log.info("vo.setOverview(overview) : "+convo);
 							
-							result = vo.toString();
+							result = convo.toString();
 							
 							if(overview!=null) {
-								int n= ti.insertOverview(vo);
+								int n= is.insertOverview(convo);
 								System.out.println("INSERT 성공:1, 실패:0 >> : "+n);
 							}else {
 								System.out.println("�����Ͱ� �����ϴ�.");
@@ -127,5 +138,20 @@ public class TourInfoController {
 		}
 	return result;
 	}
+	//-------------------------------------------------------------------------------------------------
+	
+	/*
+	//TourInfo.jsp 페이지가 호출된 직후 실행되는 function(contentid)을 통해 /existOverview?contentid=#{contentid} 의 형식으로 파라미터를 받아
+	@ResponseBody
+	@RequestMapping("/existOverview")
+	private String existOverview(String contentid) {
+		String exist = ti.existOverview(contentid);
+		if(exist==null) {
+			overviewfill(contentid);
+		}
+		System.out.println("Overview data is already exist!! I'll show you Tourinfo");
+		return "";
+	}
+	*/
 	
 }

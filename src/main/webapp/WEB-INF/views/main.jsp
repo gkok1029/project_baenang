@@ -8,7 +8,6 @@
 <%@ page import="java.util.*" %>
 
 
-
 <!DOCTYPE html>
 <html>
 
@@ -20,14 +19,15 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     
 <script>
-<%-- ------------------------관광도시 검색 자동완성기능 ------------------------- --%>
 
 function dummy(){
-	var contentid='126273';
+	var contentid='129854';
 	var url = "/tourInfo?contentid="+contentid;
 	// 새 창에서 tourInfo.jsp를 팝업으로 열기
     window.open(url, "TourInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
 }
+
+<%-- ------------------------관광도시 검색 자동완성기능 ------------------------- --%>
 
 // 검색 결과를 클릭했을 때 실행되는 함수
 function onSearchResultClick(cityName) {
@@ -77,7 +77,9 @@ function onKeywordInput() {
 
 <body>
 
-<%-- -------------------------------- 탑 네비게이션 -------------------------------- --%>
+<%-- <jsp:include page="/WEB-INF/views/top.jsp" />  --%>
+
+<%-- -------------------------------- 탑 네비게이션 ------------------------------ --%>
 	<%
 		// 세션을 가져옵니다
 		HttpSession currentSession = request.getSession();
@@ -92,7 +94,7 @@ function onKeywordInput() {
 		<button onclick="dummy()">call of dummy</button>
 		<a href="/main">홈</a>
 		<a href="/blog/bloghub">블로그</a><!-- 블로그페이지 허브로 이동 -->
-    <%-- 사용자가 로그인한 경우 적절한 링크를 보여줍니다 --%>
+     <%-- 사용자가 로그인한 경우 적절한 링크를 보여줍니다 --%>
     <% if (isLoggedIn) { %>
     	<a href="/user/mypage">마이페이지</a>
         <a href="/logout">로그아웃</a>
@@ -128,7 +130,9 @@ function onKeywordInput() {
         </div>
     </div>
 <%-- ----------------------------------------------------------------------------- --%>    
+
 <br><br>
+
 <%-- --------------- 블로그 썸네일을 가져와 보여주는 기능 ------------------- --%>
 <%
     // 이미지 파일이 있는 폴더 경로
@@ -184,6 +188,94 @@ function onKeywordInput() {
 
 <br><br>
 
+<!-- ---------------------- 블로그 포스팅 카드 리스팅 ------------------------ -->
+<section class="py-5">
+		<div class="container px-4 px-lg-5 mt-5">
+			<div
+				class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+				<c:forEach items="${posts}" var="post">
+					<div class="col mb-5">
+						<div class="card h-100">
+							<a href='/blog/get?p_id=<c:out value="${post.p_id}"/>' /> <img
+								class="card-img-top"
+								src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+							<div class="card-body p-4">
+								<div class="text-center">
+									<h5 class="fw-bolder">
+										<c:out value="${post.p_title}" />
+									</h5>
+									<c:out value="${post.m_id}" />
+								</div>
+							</div>
+							<!-- Product actions-->
+							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+								<div class="text-center">
+									<a class="btn btn-outline-dark mt-auto" href="#">View
+										options</a>
+								</div>
+							</div>
+							</a>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+		</div>
+	</section>
+
+<link href="/resources/css/styles.css" rel="stylesheet" />
+
+<!-- ---------------------------------------------------------------------- -->
+
+<script>
+	<%-- ------------------------------------- 스크롤 다운 기능 -------------------------------------- --%>
+    function scrollToTravelInfo() {
+        var travelInfoSection = document.getElementById('city');
+        travelInfoSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    <%-- --------------------------------------------------------------------------------------- --%>	
+
+	<%-- --------------------- 도시사진을 누르면 해당 도시의 정보팝업창을 띄워주는 기능 ---------------------- --%>	
+	function openPopup() {
+	    // 팝업으로 띄울 페이지의 URL
+        var popupUrl = "/cityInfo?cityname=" + cityname;
+
+	    // 팝업 창 열기
+	    window.open(popupUrl, "CityInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
+	}
+	
+	<%-- --------------------------------------------------------------------------------------- --%>	
+</script>
+	
+<%-- ---------------------------- 특정 도시에 대한 이미지를 출력 --------------------------------- --%>
+
+<!-- Add an anchor point for smooth scrolling -->
+<div id="city-anchor"></div>
+<div id="city">
+	<h2> 지역별 여행 정보 </h2>
+	<div>
+	    <a href="cityInfo?cityname=서울" id="Seoul" name="Seoul" class="city" onclick="openPopup('서울')">
+	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png" alt="Seoul Image">
+		</a>
+		<a href="#" id="Busan" name="Busan" class="city" onclick="openPopup('Busan')">
+	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Busan.png" alt="Seoul Image">
+		</a>
+		<a href="#" id="Daejeon" name="Daejeon" class="city" onclick="openPopup('Daejeon')">
+	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Daejeon.png" alt="Seoul Image">
+		</a>
+		<a href="#" id="Incheon" name="Incheon" class="city" onclick="openPopup('Incheon')">
+	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Incheon.png" alt="Seoul Image">
+		</a>
+		<a href="#" id="Gwangju" name="Gwangju" class="city" onclick="openPopup('Gwangju')">
+	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gwangju.png" alt="Seoul Image">
+		</a>
+		<a href="#" id="Gangwon" name="Gangwon" class="city" onclick="openPopup('Gangwon')">
+	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gangwon.png" alt="Seoul Image">
+		</a>
+	</div>
+</div>
+
+<%-- --------------------------------------------------------------------------------------- --%>
+
 	<%-- --------------------------- 페이지 로드 시 트렌드 관광지 출력기능 ------------------------------ 
 	
 	$(document).ready(function() {
@@ -220,55 +312,7 @@ function onKeywordInput() {
 	}
 	--------------------------------------------------------------------------------------- --%>	
 
+<jsp:include page="/WEB-INF/views/includes/footer.jsp" />
 
-	<%-- ------------------------------------- 스크롤 다운 기능 -------------------------------------- 
-    function scrollToTravelInfo() {
-        var travelInfoSection = document.getElementById('city');
-        travelInfoSection.scrollIntoView({ behavior: 'smooth' });
-    }
-    --------------------------------------------------------------------------------------- --%>	
-	
-	<%-- -------------------------- 도시사진을 누르면 해당 도시의 정보팝업창을 띄워주는 기능 -------------------------	
-	function openPopup(cityId) {
-	    // 팝업으로 띄울 페이지의 URL
-        var popupUrl = "/city?cityId=" + cityId;
-
-	    // 팝업 창 옵션 설정
-	    var popupOption = "width=800, height=600, resizable=no, scrollbars=no, status=no;";
-
-	    // 팝업 창 열기
-	    window.open(popupUrl, "CitySearchPopup", popupOption);
-	}
-	--------------------------------------------------------------------------------------- --%>	
-	
-<%-- --------------- 특정 도시에 대한 이미지를 출력 -------------------
-
-<!-- Add an anchor point for smooth scrolling -->
-<div id="city-anchor"></div>
-<div id="city">
-	<h2> 지역별 여행 정보 </h2>
-	<div>
-	    <a href="#" id="Seoul" name="Seoul" class="city" onclick="openPopup('Seoul')">
-	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png" alt="Seoul Image">
-		</a>
-		<a href="#" id="Busan" name="Busan" class="city" onclick="openPopup('Busan')">
-	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Busan.png" alt="Seoul Image">
-		</a>
-		<a href="#" id="Daejeon" name="Daejeon" class="city" onclick="openPopup('Daejeon')">
-	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Daejeon.png" alt="Seoul Image">
-		</a>
-		<a href="#" id="Incheon" name="Incheon" class="city" onclick="openPopup('Incheon')">
-	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Incheon.png" alt="Seoul Image">
-		</a>
-		<a href="#" id="Gwangju" name="Gwangju" class="city" onclick="openPopup('Gwangju')">
-	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gwangju.png" alt="Seoul Image">
-		</a>
-		<a href="#" id="Gangwon" name="Gangwon" class="city" onclick="openPopup('Gangwon')">
-	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gangwon.png" alt="Seoul Image">
-		</a>
-	</div>
-</div>
-
---------------------------------------------------------------------------------------- --%>
 </body>
 </html>
