@@ -39,7 +39,6 @@
     <main>
         <div id="wrap">
             <div id="innerwrap">
-                <div class="joinday">가입일 : ${user.getM_RDATE()}</div>
                 <div id="formContainer">
                     <form action="mypageinfosubmit" name="memberinfo" class="info" id="infoF" method="post">
 	                    <h3 class="pad">닉네임</h3>
