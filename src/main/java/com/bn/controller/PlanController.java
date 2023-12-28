@@ -1,6 +1,7 @@
 package com.bn.controller;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -148,16 +149,46 @@ public class PlanController {
     	
     	return n;
     }
-	
+
     @ResponseBody
     @GetMapping("/Csearch")
-    public String[] csearch(@RequestParam String keyword,HttpSession session){
-    	String[] x= {};
-    	List<ContentVo>vo=(List<ContentVo>) session.getAttribute("contentList");
-    	
-    	
-    	
-    	return x;
+    public String[] csearch(@RequestParam String keyword, HttpSession session) {
+        List<ContentVo> voList = (List<ContentVo>) session.getAttribute("contentList");
+
+        // 결과를 저장할 리스트
+        List<String> selectedContents = new ArrayList<>();
+
+        // 원하는 검색 결과 개수
+        int count = 0;
+
+        // voList를 순회하면서 검색 키워드와 일치하는 결과를 찾음
+        for (ContentVo content : voList) {
+            // 예시: content의 title이나 다른 필드에서 keyword와 비교하여 조건을 만족하는 경우 추가
+            if (content.getTitle().contains(keyword)) {
+                selectedContents.add(content.getTitle());
+                count++;
+                // 원하는 개수만큼 결과를 찾았으면 종료
+                if (count >= 5) {
+                    break;
+                }
+            }
+        }
+        String[] resultArray=null;
+        // List<String>을 String[]로 변환
+        try {
+        resultArray = selectedContents.toArray(new String[0]);
+        }catch(NullPointerException e) {
+        	
+        }
+        return resultArray;
     }
  
+
+    @GetMapping("/NewFile")
+    public String go() {
+    	
+    	
+    	return "NewFile";
+    }
+
 }
