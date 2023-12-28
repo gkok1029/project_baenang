@@ -41,7 +41,235 @@
 	.custom-dialog{
 		background-color: white;
 	}
+	body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding:0;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    margin:0;
+    padding:0;
+    width: 100%;
+    height: 100%;
+    max-width:2400px;        
+}
+.container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지 비율 유지 및 가득 채움 */
+}
+#sidebar {
+    flex : 1;
+    height: 100vh;
+    width: 100px;
+    background-color: white;
+    color: skyblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-right: 10px;
+}
+#btn-step1{
+    color: skyblue;
+    opacity: 1;
+    font-size: 16px;
+}
+.traveld{
+    width: 250px;
+    height: 100px;
+    display: flex;
+   
+}
+.travelimg{
+    margin-top: 8px;
+    margin-left: 12px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    width: 90px;
+    height: 90px;
+}
+.traveltext{
+    width: 88px;
+    height: 45px;
+}
+.linea{
+    width: 88px;
+    height: 20px;
+    font-size: 16px;
+    margin-top: 11px;
+}
+.lineb{
+    width: 88px;
+    height: 9px;
+    font-size: 8px;
+}
+.linec{
+    width: 88px;
+    height: 4px;
+    font-size: 4px;
+}
+.logo {
+    margin-bottom: 20px;
+    width: 150px; /* 濡쒓퀬 �겕湲� 議곗젅 */
+}
+
+.sidebar-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    color : gray;
+    font-weight:bold;
+    text-align: center;
+    text-decoration: none;    
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+.bottom-button {
+     margin-top: auto;
+     margin-bottom:10px;
+     width: 80%;
+     padding: 10px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     text-decoration: none;
+     border: none;
+     cursor: pointer;
+}
+#date{
+	display: flex;
+}
+
+.place-container {
+    display: flex;
+    justify-content: space-between; 
+   align-items: center; 
+   margin-bottom: 20px; 
+}
+#cat-buttons{
+    display:flex;
+}
+.place-img{
+    width: 60px;
+    height: 60px
+}
+.place-details {
+    flex: 1;
+    margin-left: 10px;        
+    flex-direction: column; 
+    font-size: 13px;
+}
+
+.place-details > div {
+    margin-bottom: 5px;
+}
+
+.place-info{
+    display:flex;	
+}
+
+.place-icons{
+    display: flex;
+    align-items: center;
+}
+
+.places {
+    width: 300px; 
+   height: 621px; 
+   overflow-y: auto; 
+   padding: 10px; 
+}
+
+.modal{
+    position:absolute;
+    width:100%; height:100%;
+    background: white;
+    top:0; left:0;
+    display:none;
+}
+
+#second-frame{
+    margin-right: 10px;
+    min-width: 300px;
+}
+#second-frame-container{
+    height: 100%;
+    width: 100%;    
+}
+#view{
+    width: 500px;
+    
+    
+}
+.basket-frame{
+    width: 400px;
+}
+
+#map{
+    flex:1;
+}
+
+/* #calender-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);        
+    background-color: white;
+    border: 1px solid #ccc;
+    
+}
+
+#calender-container {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+#calender-header {
+    font-size: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#calender-body {	
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.calender{
+	flex:1;
+	border: 1px solid #ccc;
+    height: 48%;
+    padding: 10px;
+}
+#calender-footer {
+    margin-top: 10px;
+    text-align: right;
+} */
+	
 </style>
+<script>
+	let x=126.5312;
+	let y=33.4996;
+	let trip = {
+		"title":"",
+		"days":{
+			
+		}
+	}	
+	
+</script>
 </head>
 <body>
 
@@ -68,7 +296,7 @@
 	</div>																<!-- Container -->
 
 	    <!-- calendarModal -->
-	<div id="calender-modal" >		
+	<div id="calender-modal" >
 		<div id="calender-container">
 			<div id="calender-header">날짜 선택</div>
 			<div id="calender-body">
@@ -86,8 +314,7 @@
 		MapModule.initializeMap();
 		ViewPageModule.viewPageLoding();		
 		DateModalModule.initializeDateModal();
-		
-		
+		ViewPageModule.showView(".view1","#btn-step1")
 		//프레임 감추기
 		$(".basket-frame").hide();
 		
@@ -137,87 +364,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>    
 
 </body>
-<script>
-let cityname='${cityvo.CITYNAME}';
-let y='${cityvo.LATITUDE}';
-let x='${cityvo.LONGITUDE}';
-PlanModule.tour(x,y);
-
-
-	
-	function lodging(lat, len) {
-		let x = lat;
-		let y = len;
-		var ctype="32";
-
-		$.ajax({
-			type : 'get',
-			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y + '&ctype=' +ctype,
-			cache : false,
-			processData : true,
-			success : function(res) {
-				PlanModule.displayLodgingInformation(res.contentList,x,y);
-
-			},
-			error : function(err) {
-				alert('error: ' + err.status);
-			}
-		})
-	}
-	function restaurant(){
-		var cat="A05020100";
-		
-		$.ajax({
-			type : 'get',
-			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y + '&cat=' +cat,
-			cache : false,
-			processData : true,
-			success : function(res) {
-				PlanModule.displayTourInformation(res.contentList,x,y);
-
-			},
-			error : function(err) {
-				alert('error: ' + err.status);
-			}
-		})
-	}
-	function cafe(){
-		var cat="A05020900";
-		$.ajax({
-			type : 'get',
-			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y + '&cat=' +cat,
-			cache : false,
-			processData : true,
-			success : function(res) {
-				PlanModule.displayTourInformation(res.contentList,x,y);
-
-			},
-			error : function(err) {
-				alert('error: ' + err.status);
-			}
-		})
-		
-	}
-	function attraction(){
-		var ctype="12";
-		$.ajax({
-			type : 'get',
-			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y+'&ctype'+ctype,
-			cache : false,
-			processData : true,
-			success : function(res) {
-				PlanModule.displayTourInformation(res.contentList,x,y);
-
-			},
-			error : function(err) {
-				alert('error: ' + err.status);
-			}
-		})
-		
-	}
-</script>
 </html>

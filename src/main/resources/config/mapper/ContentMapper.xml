@@ -26,4 +26,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</if>
 	order by count desc
 	</select>
+	
+	<update id="countup" parameterType="string">
+	update content
+	set count=count+1
+	where contentid=#{contentid}
+	</update>
+	
 </mapper>
