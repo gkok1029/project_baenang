@@ -79,7 +79,7 @@ let PlanModule = ( ()=>{
 			processData : true,
 			success : function(res) {
 			
-			displayTourInformation(res.contentList,x,y);	
+			displayTourInformation(res.contentList,x,y);
 			
 			},
 			error : function(err) {
@@ -95,7 +95,7 @@ let PlanModule = ( ()=>{
 		tcontainer.empty();
 		map=new naver.maps.Map('map',{
 		center:new naver.maps.LatLng(y,x),
-		zoom:15
+		zoom:8
 		});
 		// 최대 10개까지만 표시
 		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
@@ -121,7 +121,6 @@ let PlanModule = ( ()=>{
 			imgDiv.append(img);
 			textDiv.append(title, addr, heart);
 			newDiv.append(imgDiv, textDiv);
-			console.log(tcontainer);
 			tcontainer.append(newDiv);
 			 var marker = new naver.maps.Marker({
 		            position: new naver.maps.LatLng(content.mapy, content.mapx),
@@ -129,15 +128,15 @@ let PlanModule = ( ()=>{
 		        });
 			
 		        // 클로저를 사용하여 정보창 내용 설정
-		        (function (marker, title) {
+		        (function (marker, title,firstimage) {
 		            var infoWindow = new naver.maps.InfoWindow({
-		                content: '<div style="width:150px;text-align:center;padding:10px;"><b>"' + title + '"</b>.</div>'
+		              content: '<div style="width:150px; text-align:center; padding:10px;"><b>' + title + '</b>.<br><img src="' + firstimage + '"></div>'
 		            });
 
 		            naver.maps.Event.addListener(marker, 'click', function () {
-		                infoWindow.open(map, marker);
+		                infoWindow.open(map, marker,firstimage);
 		            });
-		        })(marker, content.title);
+		        })(marker, content.title,content.firstimage);
 
 		}
 	
@@ -247,7 +246,7 @@ let PlanModule = ( ()=>{
 		        // 클로저를 사용하여 정보창 내용 설정
 		        (function (marker, title) {
 		            var infoWindow = new naver.maps.InfoWindow({
-		                content: '<div style="width:150px;text-align:center;padding:10px;"><b>"' + title + '"</b>.</div>'
+		                content: '<div style="width:150px;text-align:center;padding:10px;"><b>"' + title + '"</b>.<br><img src="'+img+'" style="width:100px; text-align:center;"></div>'
 		            });
 
 		            naver.maps.Event.addListener(marker, 'click', function () {

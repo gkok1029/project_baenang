@@ -47,4 +47,15 @@ public class PlanServiceImpl implements PlanService {
 		return this.planmapper.cityloc(CITYNAME);
 	}
 
+	@Override
+	public int delplan(int p_id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String[] Csearch(String keyword) {
+		return this.planmapper.Csearch(keyword);
+	}
+
 }
