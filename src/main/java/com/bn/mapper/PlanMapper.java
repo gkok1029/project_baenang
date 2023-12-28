@@ -16,4 +16,8 @@ public interface PlanMapper {
 	public int insertDp(DtailPlanVo vo);
 	
 	public CityVo cityloc(String CITYNAME);
+	
+	public int delplan(int p_id);
+	
+	public String[] Csearch(String keyword);
 }
