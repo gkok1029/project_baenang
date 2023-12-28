@@ -61,14 +61,12 @@ public class PlanController {
 		model.addAttribute("NAVER_MAPS_SECRET_KEY", NAVER_MAPS_SECRET_KEY);
 		cityvo=pservice.cityloc(search);
 		model.addAttribute("cityvo",cityvo);
-		System.out.println(cityvo.getLATITUDE());
 		return "plan";
 	}
 	
 	@ResponseBody
 	@RequestMapping("/plan")
 	public String saveplan(@RequestBody PlanVo vo) {
-		System.out.println(vo);
 		int n=pservice.insert(vo);
 		String x="plan";
 	
@@ -78,7 +76,6 @@ public class PlanController {
 	@ResponseBody
 	@RequestMapping("/myplan")
 	public ModelMap myplan(@RequestParam("p_id") int p_id) {
-		System.out.println(p_id);
 		ModelMap map=new ModelMap();
 		pvo=pservice.selectPlan(p_id);
 		map.addAttribute("vo",pvo);
@@ -109,8 +106,6 @@ public class PlanController {
 		List<ContentVo>nd=dService.searchInRange(cd);
 		map.addAttribute("contentList",nd);
 		session.setAttribute("contentList",nd);
-		System.out.println("controller:" +nd.size());
-		System.out.println(nd.toString());
 		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
 		}catch (NumberFormatException e) {
 	        // �닽�옄 蹂��솚 以� �삁�쇅 諛쒖깮 �떆 泥섎━
@@ -149,46 +144,41 @@ public class PlanController {
     	
     	return n;
     }
+    
+    @GetMapping("/NewFile")
+    public String go() {
+    	
+    	return "NewFile";
+    }
 
     @ResponseBody
-    @GetMapping("/Csearch")
-    public String[] csearch(@RequestParam String keyword, HttpSession session) {
-        List<ContentVo> voList = (List<ContentVo>) session.getAttribute("contentList");
+    @PostMapping("/NewFile")
+    public List<ContentVo> out(@RequestParam(required = false) String keyword, HttpSession session) {
+        System.out.println(keyword);
 
-        // 결과를 저장할 리스트
-        List<String> selectedContents = new ArrayList<>();
+        List<ContentVo> contentList = (List<ContentVo>) session.getAttribute("contentList");
+        List<ContentVo> result = new ArrayList<>();
+        
+        if (contentList != null) {
+            
+            // contentList를 순회하면서 title을 추출하여 맵에 저장
+            for (int i = 0; i < contentList.size(); i++) {
+                ContentVo cvo = contentList.get(i);
+                String title = cvo.getTitle();
 
-        // 원하는 검색 결과 개수
-        int count = 0;
+                if (keyword != null && title.contains(keyword)) {
+                    result.add(cvo);
+                }
 
-        // voList를 순회하면서 검색 키워드와 일치하는 결과를 찾음
-        for (ContentVo content : voList) {
-            // 예시: content의 title이나 다른 필드에서 keyword와 비교하여 조건을 만족하는 경우 추가
-            if (content.getTitle().contains(keyword)) {
-                selectedContents.add(content.getTitle());
-                count++;
-                // 원하는 개수만큼 결과를 찾았으면 종료
-                if (count >= 5) {
+                if (result.size() >= 5) {
                     break;
                 }
             }
         }
-        String[] resultArray=null;
-        // List<String>을 String[]로 변환
-        try {
-        resultArray = selectedContents.toArray(new String[0]);
-        }catch(NullPointerException e) {
-        	
-        }
-        return resultArray;
+        
+        return result;
     }
- 
 
-    @GetMapping("/NewFile")
-    public String go() {
-    	
-    	
-    	return "NewFile";
-    }
+    
 
 }
