@@ -21,7 +21,7 @@
 <script>
 
 function dummy(){
-	var contentid='126273';
+	var contentid='129854';
 	var url = "/tourInfo?contentid="+contentid;
 	// 새 창에서 tourInfo.jsp를 팝업으로 열기
     window.open(url, "TourInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");

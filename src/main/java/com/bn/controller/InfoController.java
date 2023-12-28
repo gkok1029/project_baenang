@@ -67,7 +67,7 @@ public class InfoController {
 		}else {
 			System.out.println("Overview data is already exist!! I'll show you Tourinfo from DB");
 		}
-		model.addAttribute("vo",convo);
+		model.addAttribute("convo",convo);
 		log.info("Last : "+convo);
 		
 		return "tourInfo";
