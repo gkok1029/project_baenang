@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<select id="searchInRange" parameterType="map" resultType="Content">
-	SELECT * FROM content WHERE mapx BETWEEN #{mapx}-0.24 AND #{mapx}+0.24 AND mapy BETWEEN #{mapy}-0.18 AND #{mapy}+0.18
+	SELECT * FROM content WHERE mapx BETWEEN #{mapx}-0.48 AND #{mapx}+0.48 AND mapy BETWEEN #{mapy}-0.36 AND #{mapy}+0.36
 	<if test="cat !=null and cat=='A05020100'">
 	and code==#{cat:VARCHAR}
 	</if> 
