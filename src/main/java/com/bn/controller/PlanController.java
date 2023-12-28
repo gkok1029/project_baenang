@@ -1,11 +1,13 @@
 package com.bn.controller;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -47,7 +49,6 @@ public class PlanController {
 	@Inject
 	private DbService dService;
 	
-	
 	private PlanVo pvo;
 	
 	private ContentVo cvo;
@@ -60,14 +61,12 @@ public class PlanController {
 		model.addAttribute("NAVER_MAPS_SECRET_KEY", NAVER_MAPS_SECRET_KEY);
 		cityvo=pservice.cityloc(search);
 		model.addAttribute("cityvo",cityvo);
-		System.out.println(cityvo.getLATITUDE());
 		return "plan";
 	}
 	
 	@ResponseBody
 	@RequestMapping("/plan")
 	public String saveplan(@RequestBody PlanVo vo) {
-		System.out.println(vo);
 		int n=pservice.insert(vo);
 		String x="plan";
 	
@@ -77,7 +76,6 @@ public class PlanController {
 	@ResponseBody
 	@RequestMapping("/myplan")
 	public ModelMap myplan(@RequestParam("p_id") int p_id) {
-		System.out.println(p_id);
 		ModelMap map=new ModelMap();
 		pvo=pservice.selectPlan(p_id);
 		map.addAttribute("vo",pvo);
@@ -95,7 +93,7 @@ public class PlanController {
 
 	@ResponseBody
 	@RequestMapping("/tour")
-	public ModelMap showinfo (@RequestParam String x,@RequestParam String y, @RequestParam(required = false) String ctype,@RequestParam(required=false)String cat) {
+	public ModelMap showinfo (@RequestParam String x,@RequestParam String y,@RequestParam(required=false)String cat, @RequestParam(required=false)String ctype,HttpSession session) {
 		ModelMap map=new ModelMap();
 		try {
 		Map<String,Object> cd=new HashMap<>();
@@ -103,11 +101,11 @@ public class PlanController {
 		double mapy=Double.parseDouble(y);
 		cd.put("mapx",mapx);
 		cd.put("mapy",mapy);
-		cd.put("ctype", ctype);
 		cd.put("cat", cat);
+		cd.put("ctype", ctype);
 		List<ContentVo>nd=dService.searchInRange(cd);
 		map.addAttribute("contentList",nd);
-		System.out.println("controller:" +nd.size());
+		session.setAttribute("contentList",nd);
 		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
 		}catch (NumberFormatException e) {
 	        // �닽�옄 蹂��솚 以� �삁�쇅 諛쒖깮 �떆 泥섎━
@@ -146,4 +144,41 @@ public class PlanController {
     	
     	return n;
     }
+    
+    @GetMapping("/NewFile")
+    public String go() {
+    	
+    	return "NewFile";
+    }
+
+    @ResponseBody
+    @PostMapping("/NewFile")
+    public List<ContentVo> out(@RequestParam(required = false) String keyword, HttpSession session) {
+        System.out.println(keyword);
+
+        List<ContentVo> contentList = (List<ContentVo>) session.getAttribute("contentList");
+        List<ContentVo> result = new ArrayList<>();
+        
+        if (contentList != null) {
+            
+            // contentList를 순회하면서 title을 추출하여 맵에 저장
+            for (int i = 0; i < contentList.size(); i++) {
+                ContentVo cvo = contentList.get(i);
+                String title = cvo.getTitle();
+
+                if (keyword != null && title.contains(keyword)) {
+                    result.add(cvo);
+                }
+
+                if (result.size() >= 5) {
+                    break;
+                }
+            }
+        }
+        
+        return result;
+    }
+
+    
+
 }

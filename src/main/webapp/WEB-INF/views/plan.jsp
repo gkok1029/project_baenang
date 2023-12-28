@@ -42,6 +42,17 @@
 		background-color: white;
 	}
 </style>
+<script>
+	let x=126.5312;
+	let y=33.4996;
+	let trip = {
+		"title":"",
+		"days":{
+			
+		}
+	}	
+	
+</script>
 </head>
 <body>
 
@@ -137,87 +148,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>    
 
 </body>
-<script>
-let cityname='${cityvo.CITYNAME}';
-let y='${cityvo.LATITUDE}';
-let x='${cityvo.LONGITUDE}';
-
-		
-	PlanModule.tour(x,y);
-
-
-	
-	function lodging(lat, len) {
-		let x = lat;
-		let y = len;
-		var ctype="32";
-
-		$.ajax({
-			type : 'get',
-			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y + '&ctype=' +ctype,
-			cache : false,
-			processData : true,
-			success : function(res) {
-				PlanModule.displayLodgingInformation(res.contentList,x,y);
-
-			},
-			error : function(err) {
-				alert('error: ' + err.status);
-			}
-		})
-	}
-	function restaurant(){
-		var ctype="39";
-		$.ajax({
-			type : 'get',
-			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y + '&ctype=' +ctype,
-			cache : false,
-			processData : true,
-			success : function(res) {
-				PlanModule.displayTourInformation(res.contentList,x,y);
-
-			},
-			error : function(err) {
-				alert('error: ' + err.status);
-			}
-		})
-	}
-	function cafe(){
-		var cat="A05020900";
-		$.ajax({
-			type : 'get',
-			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y + '&cat=' +cat,
-			cache : false,
-			processData : true,
-			success : function(res) {
-				PlanModule.displayTourInformation(res.contentList,x,y);
-
-			},
-			error : function(err) {
-				alert('error: ' + err.status);
-			}
-		})
-		
-	}
-	function attraction(){
-		$.ajax({
-			type : 'get',
-			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y,
-			cache : false,
-			processData : true,
-			success : function(res) {
-				PlanModule.displayTourInformation(res.contentList,x,y);
-
-			},
-			error : function(err) {
-				alert('error: ' + err.status);
-			}
-		})
-		
-	}
-</script>
 </html>
