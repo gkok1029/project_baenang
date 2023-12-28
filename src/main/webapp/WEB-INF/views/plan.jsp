@@ -141,9 +141,7 @@
 let cityname='${cityvo.CITYNAME}';
 let y='${cityvo.LATITUDE}';
 let x='${cityvo.LONGITUDE}';
-
-		
-	PlanModule.tour(x,y);
+PlanModule.tour(x,y);
 
 
 	
@@ -168,11 +166,12 @@ let x='${cityvo.LONGITUDE}';
 		})
 	}
 	function restaurant(){
-		var ctype="39";
+		var cat="A05020100";
+		
 		$.ajax({
 			type : 'get',
 			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y + '&ctype=' +ctype,
+			url : 'tour?x=' + x + '&y=' + y + '&cat=' +cat,
 			cache : false,
 			processData : true,
 			success : function(res) {
@@ -203,10 +202,11 @@ let x='${cityvo.LONGITUDE}';
 		
 	}
 	function attraction(){
+		var ctype="12";
 		$.ajax({
 			type : 'get',
 			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y,
+			url : 'tour?x=' + x + '&y=' + y+'&ctype'+ctype,
 			cache : false,
 			processData : true,
 			success : function(res) {

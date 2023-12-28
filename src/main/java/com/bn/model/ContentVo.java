@@ -1,11 +1,11 @@
 package com.bn.model;
 
-import org.springframework.stereotype.Component;
+import java.io.Serializable;
 
 import lombok.Data;
 
 @Data
-public class ContentVo {
+public class ContentVo implements Serializable{
 	
 	public ContentVo() {
 		
