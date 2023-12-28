@@ -55,25 +55,22 @@ let ViewPageModule = (function () {
         let h2Element = $("<h2>").text(cityname);
         firstChildDiv.append(h2Element);
 
-        let dateDiv = $("<div>").attr("id", "date").text("2023.12.22(금) - 2023.12.29(금)");
+        let dateDiv = $("<div>").attr("id", "date").text("2023.12.22(금) - 2023.12.29(금)").append(
+            $("<div>").attr("id", "frame-calendar-button").append(
+                $("<button>").attr(
+                    {
+                        type: "button",
+                        class: "btn-calendar",
+                        "data-toggle": "modal",
+                        "data-target": "#calendarModal"
+                    }
+                ).append(
+                    $("<i>").addClass("far fa-calendar-days")
+                )
+            )
+        );
+        
         firstChildDiv.append(dateDiv);
-
-        // 달력 버튼 div
-        let frameCalendarButtonDiv = $("<div>").attr("id", "frame-calendar-button");
-
-        // 달력 버튼 생성
-        let calendarButton = $("<button>").attr({
-          type: "button",
-          class: "btn-calendar",
-          "data-toggle": "modal",
-          "data-target": "#calendarModal"
-        });
-
-        // 버튼 아이콘 생성
-        let iElement = $("<i>").addClass("far fa-calendar-days");
-        calendarButton.append(iElement);
-        frameCalendarButtonDiv.append(calendarButton);
-        firstChildDiv.append(frameCalendarButtonDiv);
 
         destinationInfoDiv.append(firstChildDiv);
 
@@ -187,7 +184,9 @@ let ViewPageModule = (function () {
                     "id": "searchBar",
                     "type": "text"
                 }).val("장소명을 입력하세요"),
-                $("<button>").addClass("search-button").attr("id","searchBtn").text("검색").on('click')
+                $("<button>").addClass("search-button").attr("id","searchBtn").text("검색").on('click',function(){
+                    
+                })
             ),
             //버튼들
             $("<div>").addClass("cat-buttons").attr("id","catButtons").append(                
@@ -355,6 +354,7 @@ let ViewPageModule = (function () {
         
         parentElement.append(viewContainerDiv);
     }
+
     function step5Loding(){
         viewExistedCheck();
 
@@ -383,7 +383,8 @@ let ViewPageModule = (function () {
 
         parentElement.append(viewContainerDiv);
         
-    }    
+    }
+
     function createDays(i){
         //n일차 일정
         let dayDiv = $("<div>").addClass("day"+i).append(
@@ -391,7 +392,7 @@ let ViewPageModule = (function () {
                 $("<div>").text("1일차"),
                 $("<div>").text("12.27(수)")
             ),
-            createDayPlace()            
+            createDayPlace()
         )
 
         return dayDiv;
