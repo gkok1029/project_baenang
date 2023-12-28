@@ -13,7 +13,7 @@ let ViewPageModule = (function () {
             console.log("class가 view인 엘리먼츠가 없다");
             return;
         };
-        console.log("viewId : "+viewId);
+        
         switch(viewId){
             case "view1" : step1Loding();
                 break;
@@ -348,7 +348,7 @@ let ViewPageModule = (function () {
                 ),
                 ...arrDiv,
                 $('<button>').text("일정생성").on('click', function() {
-                    $(".view").attr("id","view5");
+                    $(".view").attr("id","view5");                    
                     ViewPageModule.viewPageLoding();
                     SidebarModule.initialize();
                 })
@@ -359,6 +359,85 @@ let ViewPageModule = (function () {
     }
     function step5Loding(){
         viewExistedCheck();
+
+        let parentElement = $(".view").eq(0);
+
+        let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1").append(
+            $("<div>").addClass("step5-header").attr("id","step5Header").append(
+                $("<div>").append(
+                    $("<div>").text("도시명"),
+                    $("<div>").append("여행기간"),
+                    $("<div>").append(
+                        $("<button>").text("항공권")
+                    )
+                ),
+                $("<div>").text("아이콘자리")
+            ),
+            $("<div>").append(
+                $("<div>").append(
+                    //n일차
+                    createDays(1),
+                    createDays(2),
+                    createDays(3)
+                )
+            )
+        )
+
+        parentElement.append(viewContainerDiv);
+        
+    }    
+    function createDays(i){
+        //n일차 일정
+        let dayDiv = $("<div>").addClass("day"+i).append(
+            $("<div>").append(
+                $("<div>").text("1일차"),
+                $("<div>").text("12.27(수)")
+            ),
+            createDayPlace()            
+        )
+
+        return dayDiv;
+
+    }
+
+    function createDayPlace(){
+
+        //장소
+        let dayPlace = $("<div>").append(
+            //순차 및 시간, 장소정보
+            $("<div>").append(
+                //번호 시간
+                $("<div>").append(
+                    //번호
+                    $("<div>"),
+                    //시간
+                    $("<div>")
+                ),//정보 및 이미지
+                $("<div>").append(
+                    //정보 프레임
+                    $("<div>").append(
+                        $("<div>").append(
+                            //카테고리
+                            $("<div>"),
+                            //이름
+                            $("<div>"),
+                            //예약하기
+                            $("<div>").append(
+                                $("<a>")
+                            )
+                        )
+                    ),
+                    //이미지
+                    $("<div>")
+                )
+            ),
+            $("<div>").append(
+                //이동시간
+                $("<div>")
+            )
+        )
+
+        return dayPlace;
     }
 
     function showView(viewId, btnId) {

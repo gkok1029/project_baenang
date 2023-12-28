@@ -25,7 +25,7 @@ let SidebarModule = (function () {
 
         //현재 viewId 확인 default view1
         let viewId = document.getElementsByClassName("view")[0].id;
-        console.log("사이드바 viewId : " + viewId);
+        
         if(viewId==="view1"){
             //steps 버튼 생성
             
@@ -155,15 +155,16 @@ let SidebarModule = (function () {
             });
 
             let nextButton = $("<button>").addClass("bottom-button").html("저장").on('click', function(){
-                $(".view").attr("id","view4");
+                //view4
+                $(".view").attr("id","view4");                
                 ViewPageModule.viewPageLoding();
                 
                 initialize()
             });
 
             sidebarElement.append(step1Button, step2Button, step3Button, nextButton);
-        }else if(viewId="view5"){
-            console.log("view5 사이드바 생성");
+        }else if(viewId==="view5"){
+            
             let buttons = [];
             let totalDaysBtn = createSidebarButton("btn-totalDays","전체일정").on('click',function(){
                 console.log("전체일정")
@@ -186,11 +187,8 @@ let SidebarModule = (function () {
             
             sidebarElement.append(totalDaysBtn,...buttons,modifyBtn,savePlanBtn);
             
-        }else if(viewId="view4"){
-            console.log("view4일때 사이드비");
-            return;
         }
-        $(".view").attr("id","view1");
+        // $(".view").attr("id","view1");
         // 부모 엘리먼트
         
         let sidebarContainer = $("#sidebar-container");
