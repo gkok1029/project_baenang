@@ -23,6 +23,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mapper resource="config/mapper/PostMapper.xml"/>
 	<mapper resource="config/mapper/MypageMapper.xml"/>
 	<mapper resource="config/mapper/ReplyMapper.xml"/>
-	<mapper resource="config/mapper/TourInfoMapper.xml"/>
+	<mapper resource="config/mapper/InfoMapper.xml"/>
 </mappers>
 </configuration>

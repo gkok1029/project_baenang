@@ -1,10 +1,8 @@
-package com.bn.service;
-
-import java.util.List;
+package com.bn.mapper;
 
 import com.bn.model.ContentVo;
 
-public interface TourInfoService {
+public interface InfoMapper {
 	
 	public ContentVo getCityData(String contentid);
 	
