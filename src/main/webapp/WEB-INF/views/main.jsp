@@ -19,7 +19,6 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     
 <script>
-<%-- ------------------------관광도시 검색 자동완성기능 ------------------------- --%>
 
 function dummy(){
 	var contentid='126273';
@@ -27,6 +26,8 @@ function dummy(){
 	// 새 창에서 tourInfo.jsp를 팝업으로 열기
     window.open(url, "TourInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
 }
+
+<%-- ------------------------관광도시 검색 자동완성기능 ------------------------- --%>
 
 // 검색 결과를 클릭했을 때 실행되는 함수
 function onSearchResultClick(cityName) {
@@ -234,16 +235,14 @@ function onKeywordInput() {
     <%-- --------------------------------------------------------------------------------------- --%>	
 
 	<%-- --------------------- 도시사진을 누르면 해당 도시의 정보팝업창을 띄워주는 기능 ---------------------- --%>	
-	function openPopup(cityName) {
+	function openPopup() {
 	    // 팝업으로 띄울 페이지의 URL
-        var popupUrl = "/cityInfo?cityName=" + cityName;
-
-	    // 팝업 창 옵션 설정
-	    var popupOption = "width=800, height=600, resizable=no, scrollbars=no, status=no;";
+        var popupUrl = "/cityInfo?cityname=" + cityname;
 
 	    // 팝업 창 열기
-	    window.open(popupUrl, "CitySearchPopup", popupOption);
+	    window.open(popupUrl, "CityInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
 	}
+	
 	<%-- --------------------------------------------------------------------------------------- --%>	
 </script>
 	
@@ -254,7 +253,7 @@ function onKeywordInput() {
 <div id="city">
 	<h2> 지역별 여행 정보 </h2>
 	<div>
-	    <a href="#" id="Seoul" name="Seoul" class="city" onclick="openPopup('Seoul')">
+	    <a href="cityInfo?cityname=서울" id="Seoul" name="Seoul" class="city" onclick="openPopup('서울')">
 	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png" alt="Seoul Image">
 		</a>
 		<a href="#" id="Busan" name="Busan" class="city" onclick="openPopup('Busan')">
