@@ -13,7 +13,6 @@ public interface DbService {
 		
 	
 	public List<ContentVo>searchInRange(Map<String, Object> cd);
-
-
-
+	
+	public void countup(String contentid);
 }

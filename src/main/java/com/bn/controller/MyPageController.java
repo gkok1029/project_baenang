@@ -32,7 +32,7 @@ public class MyPageController {
 		String userName= (String)session.getAttribute("userName");
 		
 		if(userName==null) {
-			log.info("¿¡·¯¸Þ¼¼Áö:");
+			log.info("ï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½:");
 			return "error";
 		}
 		
@@ -53,7 +53,7 @@ public class MyPageController {
 		
 		File dir=new File(upDir);
 		if(!dir.exists()) {
-			dir.mkdirs();//¾÷·Îµå µð·ºÅä¸® »ý¼º
+			dir.mkdirs();//ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½
 		}
 		
 		
@@ -69,7 +69,7 @@ public class MyPageController {
 		String userName= (String)session.getAttribute("userName");
 		
 		if(userName==null) {
-			log.info("¿¡·¯¸Þ¼¼Áö: ");
+			log.info("ï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½: ");
 			return "error";
 		}
 		
@@ -85,41 +85,41 @@ public class MyPageController {
 		String userName= (String)session.getAttribute("userName");
 		
 		if(userName==null) {
-			log.info("¿¡·¯¸Þ¼¼Áö: ");
+			log.info("ï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½: ");
 			return "error";
 		}
 		
-		//1. ÆÄÀÏ ¾÷·Îµå Ã³¸®
-		//[1] ¾÷·ÎµåÇÒ Àý´ë°æ·Î ¾ò¾î¿À±â
+		//1. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ Ã³ï¿½ï¿½
+		//[1] ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		ServletContext app=session.getServletContext();
 		String upDir=app.getRealPath("/resources/profile");
 		log.info("upDir: "+upDir);
 		
 		File dir=new File(upDir);
 		if(!dir.exists()) {
-			dir.mkdirs();//¾÷·Îµå µð·ºÅä¸® »ý¼º
+			dir.mkdirs();//ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½
 		}
 		
-		//[2] ¾÷·ÎµåÇÑ ÆÄÀÏ¸í,ÆÄÀÏÅ©±â ¾Ë¾Æ³»±â
-		if(!mf.isEmpty()) {//Ã·ºÎÇß´Ù¸é
-			String fname=mf.getOriginalFilename();//¿øº»ÆÄÀÏ¸í
-			int fsize=(int)mf.getSize();//ÆÄÀÏÅ©±â
-			//ÆÄÀÏÄÁÅÙÆ®Å¸ÀÔ
+		//[2] ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½,ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Ë¾Æ³ï¿½ï¿½ï¿½
+		if(!mf.isEmpty()) {//Ã·ï¿½ï¿½ï¿½ß´Ù¸ï¿½
+			String fname=mf.getOriginalFilename();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½
+			int fsize=(int)mf.getSize();//ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®Å¸ï¿½ï¿½
 			//String ctype=mf.getContentType();
 			UUID uuid=UUID.randomUUID();
-			String filename=uuid.toString()+"_"+fname;//¹°¸®Àû ÆÄÀÏ¸í
+			String filename=uuid.toString()+"_"+fname;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½
 			log.info("fname: "+fname+", filename: "+filename);
 			
 			my.setFilename(filename);//uuid_filename
 			my.setOriginFilename(fname);//filename
 			my.setFilesize(fsize);
 		
-			//[3] ¾÷·Îµå Ã³¸®--transferTo()
+			//[3] ï¿½ï¿½ï¿½Îµï¿½ Ã³ï¿½ï¿½--transferTo()
 			try {
 				mf.transferTo(new File(upDir, filename));
 				
 			} catch (Exception e) {
-				log.error("ÆÄÀÏ ¾÷·Îµå ½ÇÆÐ: "+e);
+				log.error("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½: "+e);
 			}
 		}//if-------------------
 		
@@ -136,7 +136,7 @@ public class MyPageController {
 			return "redirect:/user/mypageinfo";
 			
 		}else {
-			m.addAttribute("msg","»çÁøÀ» ¼±ÅÃÇÏ½Ê½Ã¿À");
+			m.addAttribute("msg","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ê½Ã¿ï¿½");
 			m.addAttribute("loc","javascript:history.back()");
 			
 			return "message";
@@ -152,7 +152,7 @@ public class MyPageController {
 		String userName= (String)session.getAttribute("userName");
 		
 		if(userName==null) {
-			log.info("¿¡·¯¸Þ¼¼Áö: ");
+			log.info("ï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½: ");
 			return "error";
 		}
 		
@@ -180,7 +180,7 @@ public class MyPageController {
 	
 	@RequestMapping(value = "/pwdchange")
 	public String mypagepwdChangeProcess(Model m, String p1, String p2, HttpSession session) {
-		//p1: ¿¹Àü ºñ¹ø
+		//p1: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		
 		String userName= (String)session.getAttribute("userName");
 		
@@ -193,18 +193,18 @@ public class MyPageController {
 		int p= mypageService.passwordCheck(tmp);
 		
 		if(p>0) {
-			// ºñ¹ø ÀÏÄ¡=> »õ ºñ¹øÀ¸·Î ¼öÁ¤ Ã³¸®
+			// ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡=> ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 			user.setM_PWD(p2);
 			
 			int n= mypageService.updatePwd(user);
-			String msg=(n>0)?"ºñ¹Ð¹øÈ£ ¼öÁ¤ ¿Ï·á":"¼öÁ¤ ½ÇÆÐ";
+			String msg=(n>0)?"ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½":"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
 			m.addAttribute("msg",msg);
 			
 			
 			return "message2";
 		} else {
 			
-			m.addAttribute("msg","ºñ¹Ð¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù");
+			m.addAttribute("msg","ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½");
 			m.addAttribute("loc","javascript:history.back()");
 			
 			return "message";
@@ -230,14 +230,14 @@ public class MyPageController {
 		
 		if(n>0) {
 		 
-			String msg = "È¸¿ø Å»Åð ¿Ï·á";
+			String msg = "È¸ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½Ï·ï¿½";
 			m.addAttribute("result",msg);
 			m.addAttribute("loc","/login");
 		 
 			session.invalidate();
 			return "myPageOut";
 		} else {
-			String msg = "¿À·ù¹ß»ý<br>°í°´¼¾ÅÍ¿¡ ¹®ÀÇÇÏ¼¼¿ä";
+			String msg = "ï¿½ï¿½ï¿½ï¿½ï¿½ß»ï¿½<br>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½";
 		 	m.addAttribute("msg",msg);
 		 
 		 	return "message2";
@@ -267,7 +267,7 @@ public class MyPageController {
 	}
 	
 	
-	@RequestMapping(value = "/upplan", method=RequestMethod.GET)//p_idÆÄ¶ó¹ÌÅÍ °ªÀ» ³Ñ°ÜÁà¾ß ÇÑ´Ù
+	@RequestMapping(value = "/upplan", method=RequestMethod.GET)//p_idï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½
 	public String upPlan(Model m, HttpSession session, MypageVo my) {
 		String userName= (String)session.getAttribute("userName");
 		MemberVo user = mypageService.getProfile(userName);
