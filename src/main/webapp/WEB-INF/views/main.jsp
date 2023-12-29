@@ -257,6 +257,8 @@ function onKeywordInput() {
 <div id="city">
 	<h2> 지역별 여행 정보 </h2>
 	<div>
+		<!-- CITY 테이블의 image(파일경로), overview(개요) 컬럼이 추가된 뒤 <img src="{image}">로 수정
+		+ a태그의 id, name 수정하기 + 랜덤 and 갯수지정 후 출력하기 -->
 	    <a href="#" id="Seoul" name="Seoul" class="city" onclick="openPopup('서울')">
 	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png" alt="Seoul Image">
 		</a>
@@ -272,8 +274,8 @@ function onKeywordInput() {
 		<a href="#" id="Gwangju" name="Gwangju" class="city" onclick="openPopup('광주')">
 	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gwangju.png" alt="Seoul Image">
 		</a>
-		<a href="#" id="Gangwon" name="Gangwon" class="city" onclick="openPopup('강원')">
-	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gangwon.png" alt="Seoul Image">
+		<a href="#" id="Gangneung" name="Gangneung" class="city" onclick="openPopup('강릉')">
+	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gangneung.png" alt="Seoul Image">
 		</a>
 	</div>
 </div>

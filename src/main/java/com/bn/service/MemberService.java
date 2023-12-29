@@ -15,7 +15,6 @@ public interface MemberService {
 	public int memberOut(MemberVo userVo);
 	public int updateProfileImage(PageVo myVo);
 	public int deletePlan(PageVo myVo);
-	public int deleteDPlan(PageVo myVo);
 	
 	/*로그인페이지기능*/
 	public String loginCheck2(MemberVo member);
