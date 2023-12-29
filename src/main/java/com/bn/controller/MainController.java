@@ -30,7 +30,7 @@ public class MainController {
 	
 	@RequestMapping("/main")
 	public String onMain(Model model) {
-		model.addAttribute("posts", service.getList(0));
+		model.addAttribute("posts", service.getList());
 		return "main";
 	}
 	
