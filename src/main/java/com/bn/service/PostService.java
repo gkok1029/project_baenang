@@ -11,6 +11,6 @@ public interface PostService {
 	public PostVo get(int p_id);
 	public boolean modify(PostVo post);
 	public boolean remove(int p_id);
-	public List<PostVo> getList(int p_id);
+	public List<PostVo> getList();
 	
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import com.bn.model.Criteria;
 import com.bn.model.ReplyVo;
 import com.bn.service.ReplyService;
 
@@ -32,7 +33,7 @@ public class ReplyController {
 	
 	@PostMapping(value = "/new", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> create(@RequestBody ReplyVo vo) {
-		log.info("ReplyVO : " + vo);
+		log.info("ReplyVo : " + vo);
 		
 		int insertCount = service.register(vo);
 		
@@ -42,12 +43,15 @@ public class ReplyController {
 	}
 	
 	
-	@GetMapping(value = "/pages/{bno}/{page}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
+	@GetMapping(value = "/blog/get/comments/{page}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity<List<ReplyVo>> getList(@PathVariable("page") int page, @PathVariable("p_id") int p_id) {
 		log.info("getList.............");
-
 		
-		return new ResponseEntity<>(service.getList(p_id), HttpStatus.OK);
+		Criteria cri = new Criteria(page, 10);
+		
+		log.info(cri);
+		
+		return new ResponseEntity<>(service.getList(cri, p_id), HttpStatus.OK);
 	}
 	
 	
@@ -58,7 +62,7 @@ public class ReplyController {
 		return new ResponseEntity<>(service.get(r_id), HttpStatus.OK);
 	}
 	
-	@DeleteMapping(value = "/{rno}", produces = {MediaType.TEXT_PLAIN_VALUE})
+	@DeleteMapping(value = "/{r_id}", produces = {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> remove(@PathVariable("r_id") int r_id) {
 		log.info("remove: " + r_id);
 		
@@ -69,13 +73,13 @@ public class ReplyController {
 	
 	
 	@RequestMapping(method = {RequestMethod.PUT, RequestMethod.PATCH},
-			value = "/{rno}",
+			value = "/{r_id}",
 			consumes = "application/json",
 			produces = {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> modify(@RequestBody ReplyVo vo, @PathVariable("r_id") int r_id){
 		vo.setR_id(r_id);
 		
-		log.info("rno: " + r_id);
+		log.info("r_id: " + r_id);
 		
 		log.info("modify: " + vo);
 		
