@@ -13,7 +13,7 @@ let CalenderModule = ( ()=>{
                             $('<th>').text("수"),
                             $('<th>').text("목"),
                             $('<th>').text("금"),
-                            $('<th>').text("토"),
+                            $('<th>').text("토")
                         )
                     )
                 ),
