@@ -5,6 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <script type="text/javascript" src="/rsources/js/reply.js"></script>
 
 
@@ -50,7 +51,42 @@ $(document).ready(function(){
 <br><br><br><br><br><br><br><br><br>
 
 <br><br>
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">get post</h1>
+	</div>
+</div>
 
+<div style="background-color: #52DCD1" class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">get post</div>
+
+			<div class="panel-body">
+				<div class="form-group">
+					<label>게시물 번호</label> <input class="form-control" name='p_id' value='<c:out value="${post.p_id}"/>' readonly="readonly">
+				</div>
+
+				<div class="form-group">
+					<label>제목</label> <input class="form-control" name='p_title' value='<c:out value="${post.p_title}"/>' readonly="readonly">
+				</div>
+
+				<div class="form-group" >
+					<label></label> <textarea class="form-control" rows="20" name='p_content' readonly="readonly"><c:out value="${post.p_content}"/></textarea>
+				</div>
+
+
+
+				<button data-oper='modify' class="btn btn-default">이 게시물 수정하기</button>
+				<button data-oper='list' class="btn btn-info">List</button>
+
+
+			</div>
+
+		</div>
+
+	</div>
+</div>
 
 
 <br>
@@ -85,8 +121,7 @@ $(document).ready(function(){
 							<!-- Product actions-->
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 								<div class="text-center">
-									<a class="btn btn-outline-dark mt-auto" href="#">View
-										options</a>
+									
 								</div>
 							</div>
 							</a>

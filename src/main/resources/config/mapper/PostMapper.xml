@@ -11,8 +11,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="postInsert">
-		INSERT INTO post (p_id, m_id, p_title, p_content, p_views, p_credate, p_moddate, i_id, i_path, i_name)
-		VALUES (SEQUENCE_POST.nextval, #{m_id}, #{p_title}, #{p_content}, 0, sysdate, sysdate, #{i_id}, #{i_name})
+	INSERT INTO post (p_id, m_id, p_title, p_content, p_views, p_credate, p_moddate)
+	VALUES (SEQUENCE_POST.nextval, #{m_id}, #{p_title}, #{p_content}, 0, sysdate, sysdate)
+	
 	</insert>
 
 	<insert id="postInsertSK"> <selectKey keyProperty="p_id" order="BEFORE" 

@@ -46,7 +46,7 @@ public class PostController {
 		
 		rttr.addFlashAttribute("results", post.getP_id());
 		
-		return "redirect:/blog/posts";
+		return "redirect:/blog/bloghub";
 	}
 	
 	@GetMapping({"/get", "/modify"})

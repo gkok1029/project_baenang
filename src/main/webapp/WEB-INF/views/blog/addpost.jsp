@@ -67,7 +67,7 @@
  <script type="text/javascript">
  	$(document).ready(function (e) {
 		var formObj = $("form[role='form']");
-		$("button[type='submit']").on("click", funtion(e){
+		$("button[type='submit']").on("click", function(e){
 			e.preventDefault();
 		})
 	})

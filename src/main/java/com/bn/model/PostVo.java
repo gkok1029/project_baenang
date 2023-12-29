@@ -26,5 +26,14 @@ public class PostVo {
 	private Date r_credate;
 	private Date r_moddate;
 	private int r_status;
+	//이하 이미지
+	private int i_id;
+	private String i_path;
+	private String i_name;
+	private String i_name2;
+	private Date i_birth;
+	//이하 img_dir
+	private int dir_id;
+	private int dir_num;
 	
 }
