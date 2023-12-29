@@ -3,6 +3,8 @@ package com.bn.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
+import com.bn.model.AttachFileDto;
 import com.bn.model.PostVo;
 import com.bn.mapper.PostMapper;
 
@@ -52,5 +54,12 @@ public class PostServiceImple implements PostService {
 	public int searchPid(String userEmail) {
 		return mapper.searchPid(userEmail);
 	}
+
+	@Override
+	public int imgInsert(AttachFileDto dto) {
+		return mapper.imgInsert(dto); 
+	}
+	
+	
 
 }

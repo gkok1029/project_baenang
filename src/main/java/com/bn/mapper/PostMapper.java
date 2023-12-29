@@ -1,8 +1,8 @@
 package com.bn.mapper;
 
 import java.util.List;
-import org.apache.ibatis.annotations.Select;
 
+import com.bn.model.AttachFileDto;
 import com.bn.model.PostVo;
 
 public interface PostMapper {
@@ -23,5 +23,5 @@ public interface PostMapper {
 	
 	public int searchPid(String userEmail);
 	
-	
+	public int imgInsert(AttachFileDto dto);
 }

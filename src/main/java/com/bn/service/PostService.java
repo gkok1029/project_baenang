@@ -2,6 +2,7 @@ package com.bn.service;
 
 import java.util.List;
 
+import com.bn.model.AttachFileDto;
 import com.bn.model.PostVo;
 
 
@@ -13,5 +14,5 @@ public interface PostService {
 	public boolean remove(int p_id);
 	public List<PostVo> getList();
 	int searchPid(String userEmail);
-	
+	public int imgInsert(AttachFileDto dto);
 }
