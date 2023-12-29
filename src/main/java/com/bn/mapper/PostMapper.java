@@ -19,4 +19,6 @@ public interface PostMapper {
 	
 	public int modPost(PostVo post);
 	
+	int updateP_veiws(int num);
+	
 }
