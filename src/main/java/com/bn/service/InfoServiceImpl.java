@@ -1,5 +1,7 @@
 package com.bn.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +32,6 @@ public class InfoServiceImpl implements InfoService {
 	
 	@Override
 	public String existOverview(String title) {
-		
 		return InfoMapper.existOverview(title);
 	}
 	
@@ -40,6 +41,11 @@ public class InfoServiceImpl implements InfoService {
 		CityVo result = InfoMapper.getCityData(cityname);
 		log.info("InfoServiceImpl getcity result : "+result);
 		return result;
+	}
+	
+	@Override
+	public List<CityVo> getAllCityData(){
+		return InfoMapper.getAllCityData();	
 	}
 
 }
