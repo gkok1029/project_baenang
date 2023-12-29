@@ -82,10 +82,10 @@ function onKeywordInput() {
 <%-- -------------------------------- 탑 네비게이션 ------------------------------ --%>
 	<%
 		// 세션을 가져옵니다
-		HttpSession currentSession = request.getSession();
+		HttpSession ses = request.getSession();
 		
 		// 사용자가 로그인했는지 확인합니다
-		String userId = (String) currentSession.getAttribute("userName");
+		String userId = (String) ses.getAttribute("userName");
         System.out.println("'"+userId+"'님 반갑습니다~!");
     	boolean isLoggedIn = userId != null;
 	%>
@@ -94,6 +94,7 @@ function onKeywordInput() {
 		<button onclick="dummy()">call of dummy</button>
 		<a href="/main">홈</a>
 		<a href="/blog/bloghub">블로그</a><!-- 블로그페이지 허브로 이동 -->
+		<a href="#" onclick="scrollToTravelInfo()">여행지</a>
      <%-- 사용자가 로그인한 경우 적절한 링크를 보여줍니다 --%>
     <% if (isLoggedIn) { %>
     	<a href="/user/mypage">마이페이지</a>
@@ -236,11 +237,14 @@ function onKeywordInput() {
 
 	<%-- --------------------- 도시사진을 누르면 해당 도시의 정보팝업창을 띄워주는 기능 ---------------------- --%>	
 	function openPopup(cityname) {
-	    // 팝업으로 띄울 페이지의 URL
+	    // 팝업창이 뜨면서 기존페이지의 스크롤이 맨 위로 이동하는 현상을 방지 
+	    event.preventDefault();
+		
+		// 팝업으로 띄울 페이지의 URL
         var popupUrl = "/cityInfo?cityname=" + cityname;
 
 	    // 팝업 창 열기
-	    window.open(popupUrl, "CityInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
+	    window.open(popupUrl, "CityInfoPopup", "width=800, height=600, resizable=yes, scrollbars=no");
 	}
 	
 	<%-- --------------------------------------------------------------------------------------- --%>	
@@ -253,22 +257,22 @@ function onKeywordInput() {
 <div id="city">
 	<h2> 지역별 여행 정보 </h2>
 	<div>
-	    <a href="" id="Seoul" name="Seoul" class="city" onclick="openPopup('서울')">
+	    <a href="#" id="Seoul" name="Seoul" class="city" onclick="openPopup('서울')">
 	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png" alt="Seoul Image">
 		</a>
-		<a href="#" id="Busan" name="Busan" class="city" onclick="openPopup('Busan')">
+		<a href="#" id="Busan" name="Busan" class="city" onclick="openPopup('부산')">
 	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Busan.png" alt="Seoul Image">
 		</a>
-		<a href="#" id="Daejeon" name="Daejeon" class="city" onclick="openPopup('Daejeon')">
+		<a href="#" id="Daejeon" name="Daejeon" class="city" onclick="openPopup('대전')">
 	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Daejeon.png" alt="Seoul Image">
 		</a>
-		<a href="#" id="Incheon" name="Incheon" class="city" onclick="openPopup('Incheon')">
+		<a href="#" id="Incheon" name="Incheon" class="city" onclick="openPopup('인천')">
 	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Incheon.png" alt="Seoul Image">
 		</a>
-		<a href="#" id="Gwangju" name="Gwangju" class="city" onclick="openPopup('Gwangju')">
+		<a href="#" id="Gwangju" name="Gwangju" class="city" onclick="openPopup('광주')">
 	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gwangju.png" alt="Seoul Image">
 		</a>
-		<a href="#" id="Gangwon" name="Gangwon" class="city" onclick="openPopup('Gangwon')">
+		<a href="#" id="Gangwon" name="Gangwon" class="city" onclick="openPopup('강원')">
 	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Gangwon.png" alt="Seoul Image">
 		</a>
 	</div>
