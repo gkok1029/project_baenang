@@ -46,23 +46,21 @@ function closeAndPlanGo(cityName) {
 <body>
 	<div>
 		<div id="cityname">
-			<h1> ${civo.CITYNAME}</h1>
+			<h1> ${civo.cityname}</h1>
 		</div>
 		
 		<div id="gaeyo"><p> 개 요 </p></div>
 		
 		<div id="container">
 			<div id="overview">
-				${civo.CITYNAME}
+				${civo.c_overview}
 			</div>
-			<div>${civo.LONGITUDE}</div>
-			<div>${civo.LATITUDE}</div>
 			
-			<div id="imgcontainer"><img alt="picture" src="#"></div>
+			<div id="imgcontainer"><img alt="picture" src="${civo.c_image}"></div>
 		</div>
 		
 		<div id="gtplan">
-				<a href="#" onclick="closeAndPlanGo('${civo.CITYNAME}')">Plan으로 이동</a>
+				<a href="#" onclick="closeAndPlanGo('${civo.cityname}')">Plan으로 이동</a>
 		</div>
 	</div>
 </body>
