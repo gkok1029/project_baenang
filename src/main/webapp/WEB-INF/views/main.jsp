@@ -235,7 +235,7 @@ function onKeywordInput() {
     <%-- --------------------------------------------------------------------------------------- --%>	
 
 	<%-- --------------------- 도시사진을 누르면 해당 도시의 정보팝업창을 띄워주는 기능 ---------------------- --%>	
-	function openPopup() {
+	function openPopup(cityname) {
 	    // 팝업으로 띄울 페이지의 URL
         var popupUrl = "/cityInfo?cityname=" + cityname;
 
@@ -253,7 +253,7 @@ function onKeywordInput() {
 <div id="city">
 	<h2> 지역별 여행 정보 </h2>
 	<div>
-	    <a href="cityInfo?cityname=서울" id="Seoul" name="Seoul" class="city" onclick="openPopup('서울')">
+	    <a href="" id="Seoul" name="Seoul" class="city" onclick="openPopup('서울')">
 	    	<img class="citiesImg" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png" alt="Seoul Image">
 		</a>
 		<a href="#" id="Busan" name="Busan" class="city" onclick="openPopup('Busan')">
