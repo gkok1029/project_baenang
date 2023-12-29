@@ -34,7 +34,6 @@ public class MainController {
 	
 	@RequestMapping("/main")
 	public String onMain(Model model) {
-		model.addAttribute("posts", service.getList(0));
 		List<CityVo> cvo=isi.getAllCityData();
 		model.addAttribute("cvo",cvo);
 		return "main";
