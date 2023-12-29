@@ -127,7 +127,7 @@ let PlanModule = ( ()=>{
 		        // 클로저를 사용하여 정보창 내용 설정
 		        (function (marker, title,firstimage) {
 		            var infoWindow = new naver.maps.InfoWindow({
-		              content: '<div style="width:150px; text-align:center; padding:10px;"><b>' + title + '</b>.<br><img src="' + firstimage + '"></div>'
+		              content: '<div style="width:150px; text-align:center; padding:10px;"><b>' + title + '</b>.<br><img src="' + content.firstimage + '"></div>'
 		            });
 
 		            naver.maps.Event.addListener(marker, 'click', function () {
@@ -215,7 +215,7 @@ let PlanModule = ( ()=>{
 			var content = contentList[i];
 			var contentid=content.contentid;
 			var newDiv=createDiv(contentid);
-			// 새로운 div 동적으로 생성
+			// 새로운 div 동적으로 생성W
 			/* var newDiv = $('<div>').addClass('traveld').attr('id', 'content' + i).click(function() {
 	        copyDiv('content' + i);
 	    	}); */
@@ -240,7 +240,7 @@ let PlanModule = ( ()=>{
 		        // 클로저를 사용하여 정보창 내용 설정
 		        (function (marker, title) {
 		            var infoWindow = new naver.maps.InfoWindow({
-		                content: '<div style="width:150px;text-align:center;padding:10px;"><b>"' + title + '"</b>.<br><img src="'+img+'" style="width:100px; text-align:center;"></div>'
+		                content: '<div style="width:150px;text-align:center;padding:10px;"><b>"' + title + '"</b>.<br><img src="'+content.firstimage+'" style="width:100px; text-align:center;"></div>'
 		            });
 
 		            naver.maps.Event.addListener(marker, 'click', function () {

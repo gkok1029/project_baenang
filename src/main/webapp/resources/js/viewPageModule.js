@@ -42,7 +42,7 @@ let ViewPageModule = (function () {
         viewExistedCheck();
         
         // 부모 엘리먼트 선택
-        let parentElement = $(".view").eq(0);     
+        let parentElement = $(".view").eq(0);
 
         // div.view-container 엘리먼트 생성
         let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1");
@@ -61,11 +61,14 @@ let ViewPageModule = (function () {
                 $("<button>").attr(
                     {
                         type: "button",
-                        class: "btn-calendar",
+                        class: "btn btn-primary btn-calendar",
                         "data-toggle": "modal",
                         "data-target": "#calendarModal"
                     }
-                ).append(
+                ).on('click',function(){
+                    console.log('달력 클릭');
+                })
+                .append(
                     $("<i>").addClass("far fa-calendar-days")
                 )
             )
@@ -82,7 +85,7 @@ let ViewPageModule = (function () {
         let linkElement = $("<a>").attr("href", "https://www.skyscanner.co.kr/transport/flights/sela/cju/231218/231220/?adultsv2=1&cabinclass=economy&childrenv2=&inboundaltsenabled=false&outboundaltsenabled=false&preferdirects=false&ref=home&rtn=1");
 
         // 항공권 버튼
-        let buttonElement = $("<button>").text("항공권");
+        let buttonElement = $("<button>").attr("id","btn-skyscanner").text("항공권");
 
         // 링크 아래에 항공권 버튼 조립
         linkElement.append(buttonElement);
@@ -143,7 +146,13 @@ let ViewPageModule = (function () {
         fourthChildDiv.append(datesContainerDiv);
 
         let buttonDiv = $("<div>");
-        let timeSetButton = $("<button>").attr("id", "time-set-button").text("시간 설정 완료");
+        let timeSetButton = $("<button>").attr("id", "time-set-button").text("시간 설정 완료").on('click',()=>{
+            $(".view").attr("id","view2");
+            ViewPageModule.viewPageLoding();
+            PlanModule.tour(x,y);
+            SidebarModule.initialize()
+            ViewPageModule.showView('view2', '#btn-step2');
+        });
         buttonDiv.append(timeSetButton);
         fourthChildDiv.append(buttonDiv);
 
@@ -251,9 +260,7 @@ let ViewPageModule = (function () {
             
             $('<div>').addClass("place-add").attr("id","placeAdd").append(
                 //장소 추가 button
-                $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","placeAddButton").on('click',()=>{
-
-                })
+                $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","placeAddButton")
             )
         )                
     }
@@ -297,7 +304,7 @@ let ViewPageModule = (function () {
         parentElement.append(
             // div.view-container
             viewContainerDiv.append(
-                //
+                
                 firstChildDiv,
                 // 장소 리스트 테이블 div
                 placesContainerDiv
