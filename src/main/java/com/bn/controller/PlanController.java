@@ -103,7 +103,6 @@ public class PlanController {
 		cd.put("mapy",mapy);
 		cd.put("cat", cat);
 		cd.put("ctype", ctype);
-		System.out.println(cd.toString());
 		List<ContentVo>nd=dService.searchInRange(cd);
 		map.addAttribute("contentList",nd);
 		session.setAttribute("contentList",nd);
@@ -155,7 +154,6 @@ public class PlanController {
     @ResponseBody
     @PostMapping("/NewFile")
     public List<ContentVo> out(@RequestParam(required = false) String keyword, HttpSession session) {
-        System.out.println(keyword);
 
         List<ContentVo> contentList = (List<ContentVo>) session.getAttribute("contentList");
         List<ContentVo> result = new ArrayList<>();

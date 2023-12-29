@@ -29,8 +29,6 @@ let PlanModule = ( ()=>{
 			success : function(response) {
 				var lvo=response.lvo;
 				
-				console.log("플랜번호");
-				console.log(lvo[0].p_id);
 				
 			},
 			error : function(err) {
