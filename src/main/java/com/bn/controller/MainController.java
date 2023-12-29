@@ -36,6 +36,8 @@ public class MainController {
 	public String onMain(Model model) {
 		List<CityVo> cvo=isi.getAllCityData();
 		model.addAttribute("cvo",cvo);
+		model.addAttribute("posts", service.getList());
+
 		return "main";
 	}
 	
