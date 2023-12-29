@@ -15,7 +15,6 @@ public interface MemberMapper {
 	public int memberOut(MemberVo userVo) throws Exception;
 	public int updateProfileImage(PageVo myVo) throws Exception;
 	public int deletePlan(PageVo myVo) throws Exception;
-	public int deleteDPlan(PageVo myVo) throws Exception;
 
 	/*로그인 기능*/
 	public String loginCheck2(MemberVo member) throws Exception;

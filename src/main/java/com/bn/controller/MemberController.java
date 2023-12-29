@@ -69,8 +69,8 @@ public class MemberController {
 	
 	@RequestMapping("/logout")
     public String logout(HttpSession session) {
-        session.invalidate(); // ���� �ʱ�ȭ (�α׾ƿ�)
-        return "redirect:/login"; // �α׾ƿ� �� �α��� �������� �̵�
+        session.invalidate();
+        return "redirect:/login"; 
     }
 	
 	@RequestMapping("/login")
@@ -88,17 +88,19 @@ public class MemberController {
 	@RequestMapping(value = "/user/mypage")
 	public String mypage(Model m, HttpSession session, @RequestParam(defaultValue="recentday")String filter) {
 		String userName= (String)session.getAttribute("userName");
+		String userEmail= (String)session.getAttribute("userEmail");
 		
-		if(userName==null) {
+		if(userName==null || userEmail==null) {
 			return "error";
 		}
-		MemberVo un= memberService.getProfile(userName);
+		
+		MemberVo user= memberService.getProfile(userEmail);
 		PageVo page = new PageVo();
 		page.setM_nname(userName);
 		page.setFilter(filter);
-		page.setM_id(un.getM_ID());
+		page.setM_id(user.getM_ID());
 		
-		List<PageVo> pl= memberService.getPlanList(page);
+		List<PageVo> plan= memberService.getPlanList(page);
 		ServletContext app=session.getServletContext();
 		String upDir=app.getRealPath("/resources/profile");
 		log.info("upDir: "+upDir);
@@ -107,19 +109,19 @@ public class MemberController {
 		if(!dir.exists()) {
 			dir.mkdirs();
 		}
-		m.addAttribute("user", un);
-		m.addAttribute("plan", pl);
+		m.addAttribute("user", user);
+		m.addAttribute("plan", plan);
 		return "myPage";
 	}
 	
 	@RequestMapping(value = "/user/mypageinfo")
-	public String mypageInfo(Model m, HttpSession session, String nick) {
-		String userName= (String)session.getAttribute("userName");
+	public String mypageInfo(Model m, HttpSession session) {
+		String userEmail= (String)session.getAttribute("userEmail");
 		
-		if(userName==null) {
+		if(userEmail==null) {
 			return "error";
 		}
-		MemberVo user = memberService.getProfile(userName);
+		MemberVo user = memberService.getProfile(userEmail);
 		m.addAttribute("user", user);
 		return "myPageInfo";
 	}
@@ -128,9 +130,9 @@ public class MemberController {
 	public String mypageInfo(Model m, HttpSession session, 
 			@RequestParam("editmf") MultipartFile mf, PageVo page) {
 		log.info("editmf: "+mf);
-		String userName= (String)session.getAttribute("userName");
+		String userEmail= (String)session.getAttribute("userEmail");
 		
-		if(userName==null) {
+		if(userEmail==null) {
 			return "error";
 		}
 		ServletContext app=session.getServletContext();
@@ -157,7 +159,7 @@ public class MemberController {
 			} catch (Exception e) {
 			}
 		}//if-------------------
-		MemberVo user = memberService.getProfile(userName);
+		MemberVo user = memberService.getProfile(userEmail);
 		page.setM_id(user.getM_ID());
 		int n=memberService.updateProfileImage(page);
 		
@@ -172,13 +174,13 @@ public class MemberController {
 	
 	@RequestMapping(value = "/user/mypageinfosubmit")
 	public String mypageInfosubmit(Model m, HttpSession session, String nick) {
-		String userName= (String)session.getAttribute("userName");
+		String userEmail= (String)session.getAttribute("userEmail");
 		
-		if(userName==null) {
+		if(userEmail==null) {
 			return "error";
 		}
 		
-		MemberVo user = memberService.getProfile(userName);
+		MemberVo user = memberService.getProfile(userEmail);
 		MemberVo tmp = new MemberVo();
 		tmp.setM_NNAME(nick);
 		tmp.setM_ID(user.getM_ID());
@@ -192,14 +194,14 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/user/mypagepwdchange")
-	public String mypagepwdChange(Model m, HttpSession session) {
+	public String mypagepwdChange() {
 		return "myPagepwdChange";
 	}
 	
 	@RequestMapping(value = "/user/pwdchange")
 	public String mypagepwdChangeProcess(Model m, String p1, String p2, HttpSession session) {
-		String userName= (String)session.getAttribute("userName");
-		MemberVo user = memberService.getProfile(userName);
+		String userEmail= (String)session.getAttribute("userEmail");
+		MemberVo user = memberService.getProfile(userEmail);
 		MemberVo tmp = new MemberVo();
 		tmp.setM_PWD(p1);
 		tmp.setM_EMAIL(user.getM_EMAIL());
@@ -207,43 +209,39 @@ public class MemberController {
 		
 		if(p>0) {
 			user.setM_PWD(p2);
-			
 			int n= memberService.updatePwd(user);
-			String msg=(n>0)?"��й�ȣ ���� �Ϸ�":"���� ����";
+			String msg=(n>0)?"비밀번호가 변경되었습니다":"비밀번호 변경에 실패했습니다";
 			m.addAttribute("msg",msg);
-			
 			return "message2";
 		} else {
-			
-			m.addAttribute("msg","��й�ȣ�� ��ġ���� �ʽ��ϴ�");
+			m.addAttribute("msg","현재 비밀번호가 아닙니다.");
 			m.addAttribute("loc","javascript:history.back()");
 			return "message";
 		}
 	}
 	
 	@RequestMapping(value = "/user/mypageout")
-	public String mypageOut(Model m, HttpSession session) {
+	public String mypageOut() {
 		return "myPageOut";
 	}
 	
 	@RequestMapping(value = "/user/out")
 	public String mypageOutProcess(Model m, HttpSession session) {
-		String userName= (String)session.getAttribute("userName");
-		MemberVo user = memberService.getProfile(userName);
+		String userEmail= (String)session.getAttribute("userEmail");
+		MemberVo user = memberService.getProfile(userEmail);
 		MemberVo tmp = new MemberVo();
 		
 		tmp.setM_ID(user.getM_ID());
 		int n = memberService.memberOut(tmp);
 		
 		if(n>0) {
-		 
-			String msg = "ȸ�� Ż�� �Ϸ�";
+			String msg = "회원 탈퇴되었습니다.";
 			m.addAttribute("result",msg);
 			m.addAttribute("loc","/login");
 			session.invalidate();
 			return "myPageOut";
 		} else {
-			String msg = "�����߻�<br>�����Ϳ� �����ϼ���";
+			String msg = "회원탈퇴에 실패했습니다.";
 		 	m.addAttribute("msg",msg);
 		 	return "message2";
 		}
@@ -251,25 +249,22 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/user/delplan")
-	public String delPlan(Model m, HttpSession session, PageVo page) {
-		String userName= (String)session.getAttribute("userName");
-		MemberVo user = memberService.getProfile(userName);
-		page.setM_nname(userName);
-		int nn= memberService.deleteDPlan(page);
+	public String delPlan(HttpSession session, PageVo page) {
+		String userEmail= (String)session.getAttribute("userEmail");
+		MemberVo user = memberService.getProfile(userEmail);
 		int n= memberService.deletePlan(page);
 		
-		if(n>0 & nn>0) {
+		if(n>0) {
 			return "redirect:/user/mypage";
 		} else {
-			
 			return "redirect:/user/mypage";
 		}
 	}
 	
-	@RequestMapping(value = "/user/upplan", method=RequestMethod.GET)//p_id�Ķ���� ���� �Ѱ���� �Ѵ�
+	@RequestMapping(value = "/user/upplan", method=RequestMethod.GET) 
 	public String upPlan(Model m, HttpSession session, PageVo my) {
-		String userName= (String)session.getAttribute("userName");
-		MemberVo user = memberService.getProfile(userName);
+		String userEmail= (String)session.getAttribute("userEmail");
+		MemberVo user = memberService.getProfile(userEmail);
 		session.setAttribute("p_id",my.getP_id());
 		return "redirect:/plan";
 	}

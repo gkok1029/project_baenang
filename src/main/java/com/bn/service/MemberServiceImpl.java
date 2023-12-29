@@ -58,7 +58,7 @@ public class MemberServiceImpl implements MemberService{
 		
 		@Override
 		public int passwordCheck(MemberVo userVo) {
-			String encryptedPassword = passwordEncoder.encrypt(userVo.getM_EMAIL(),userVo.getM_PWD()); // ��й�ȣ�� �ؽ��մϴ�.
+			String encryptedPassword = passwordEncoder.encrypt(userVo.getM_EMAIL(),userVo.getM_PWD()); 
 	        userVo.setM_PWD(encryptedPassword);
 	        try {
 	        	String name = memberMapper.loginCheck2(userVo);
@@ -117,16 +117,6 @@ public class MemberServiceImpl implements MemberService{
 		    return deletedRows;
 		}
 		
-		@Override
-		public int deleteDPlan(PageVo myVo) {
-		    int deletedRows = 0;
-		    try {
-		        deletedRows = memberMapper.deleteDPlan(myVo);
-		    } catch (Exception e) {
-		        e.printStackTrace();
-		    }
-		    return deletedRows;
-		}
 
 		@Override
 		public String loginCheck2(MemberVo member) {
