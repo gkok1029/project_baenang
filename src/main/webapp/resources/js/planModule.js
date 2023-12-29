@@ -109,6 +109,7 @@ let PlanModule = ( ()=>{
 	    
 			let placeDiv = ViewPageModule.createPlaceDiv(url,content);
 			
+			console.log(placeDiv);
 			tcontainer.append(placeDiv);
 			
 			var marker = new naver.maps.Marker({
