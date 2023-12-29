@@ -69,7 +69,7 @@ public class MainController {
 		
 		 for (int i = 0; i < searchList.size(); i++) {
 			 CityVo content = searchList.get(i); 
-		     String cityName = content.getCITYNAME(); // Vo클래스의 getter 메서드를 사용하여 CITYNAME의 값만 추출 
+		     String cityName = content.getCityname(); // Vo클래스의 getter 메서드를 사용하여 CITYNAME의 값만 추출 
 		     cityNameList[i]=cityName;
 		     System.out.println("cityNameList["+i+"] : " + cityNameList[i]);
 		 }
