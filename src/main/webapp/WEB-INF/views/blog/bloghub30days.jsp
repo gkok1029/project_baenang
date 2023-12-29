@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Bloghub</title>
+<title>30days taends</title>
 <!-- Bootstrap icons-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
@@ -19,8 +19,9 @@
 <link href="/resources/css/styles.css" rel="stylesheet" />
 </head>
 <body>
+	<jsp:include page="../top.jsp" />
 	<!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container px-4 px-lg-5">
 			<a class="navbar-brand" href="/main">배낭</a>
 			<button class="navbar-toggler" type="button"
@@ -43,22 +44,37 @@
 				</form>
 			</div>
 		</div>
-	</nav>
+	</nav> -->
 	<!-- Header-->
+	<br><br><br><br>
 	<header style="background-color: #52DCD1" class="py-5">
 		<div class="container px-4 px-lg-5 my-5">
 			<div class="text-center text-white">
-				<h1 class="display-4 fw-bolder">여기에 검색창 넣기</h1>
-				<p class="lead fw-normal text-white-50 mb-0">designe your travel</p>
+				<div id="search_block">
+					<form action="/plan" method="GET">
+
+						<input type="text" id="search-box" name="search"
+							placeholder="포스트를 검색하세요" class="form-control dropdown-toggle"
+							data-toggle="dropdown" aria	-haspopup="true"
+							aria-expanded="false" oninput="onKeywordInput()">
+							
+					</form>
+				</div>
+				<p class="lead fw-normal text-white-50 mb-0">한달 간 트렌드</p>
+				
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
-					role="button" data-bs-toggle="dropdown" aria-expanded="false">기간별 트렌드</a>
+					role="button" data-bs-toggle="dropdown" aria-expanded="false">기간별
+						트렌드</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="#!">30일</a></li>
-						<li><a class="dropdown-item" href="#!">7일</a></li>
-						<li><a class="dropdown-item" href="#!">오늘</a></li>
+						<li><a class="dropdown-item" href="bloghub30days">30일</a></li>
+						<li><a class="dropdown-item" href="bloghub7days">7일</a></li>
+						<li><a class="dropdown-item" href="bloghub">오늘</a></li>
 					</ul>
 				</li>
+				<a href="mylikes"><button class="btn btn-info"></a> 좋아하는 포스트
+				<a href="userposts"><button class="btn btn-info"></a> 내 포스트
+				<a href="addpost"><button class="btn btn-info"></a> 포스트 작성
 			</div>
 		</div>
 	</header>
@@ -74,23 +90,24 @@
 							<a href='/blog/get?p_id=<c:out value="${post.p_id}"/>' /> <img
 								class="card-img-top"
 								src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-								
-								<div class="card-body p-4">
-									<div class="text-center">
-										
-										<h5 class="fw-bolder">
-											<c:out value="${post.p_title}" />
-										</h5>
-										
-										<c:out value="${post.p_id}" />
-									</div>
-								</div> <!-- Product actions-->
-								<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-									<div class="text-center">
-										<a class="btn btn-outline-dark mt-auto" href="#">View
-											options</a>
-									</div>
-								</div> 
+
+							<div class="card-body p-4">
+								<div class="text-center">
+
+									<h5 class="fw-bolder">
+										<c:out value="${post.p_title}" />
+									</h5>
+
+									<c:out value="${post.m_id}" />
+								</div>
+							</div>
+							<!-- Product actions-->
+							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+								<div class="text-center">
+									<a class="btn btn-outline-dark mt-auto" href="#">View
+										options</a>
+								</div>
+							</div>
 							</a>
 						</div>
 					</div>

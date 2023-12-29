@@ -37,6 +37,7 @@ public class MainController {
 		model.addAttribute("posts", service.getList(0));
 		List<CityVo> cvo=isi.getAllCityData();
 		model.addAttribute("cvo",cvo);
+		model.addAttribute("posts", service.getList());
 		return "main";
 	}
 	

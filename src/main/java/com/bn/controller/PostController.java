@@ -24,13 +24,13 @@ public class PostController {
 	@Autowired
 	private PostService service;
 	
-	@RequestMapping("/posts") 
+	@RequestMapping("/userposts") 
  	public String listingPosts(Model model) { 
 		
 		log.info("posts");
-		model.addAttribute("posts", service.getList(0));
+		model.addAttribute("posts", service.getList());
 		
-		return "/blog/posts";
+		return "/blog/userposts";
 	} 
 	
 	@GetMapping("/addpost")
@@ -53,25 +53,60 @@ public class PostController {
 	public void get(@RequestParam("p_id") int p_id, Model model) {
 		log.info("/get or /modi");
 		model.addAttribute("post", service.get(p_id));
+		model.addAttribute("posts", service.getList());
 	}
 	
 	@PostMapping("/modify")
-	public String modiPost(PostVo post, RedirectAttributes rttr) {
+	public String modify(PostVo post, RedirectAttributes rttr) {
 		log.info("modifying: " + post);
 		
 		if(service.modify(post)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/blog/posts";
+		return "redirect:/blog/bloghub";
 	}
-	
+	@PostMapping("/remove")
+	public String remove(@RequestParam("p_id") int p_id, RedirectAttributes rttr) {
+		
+		log.info("remove......." + p_id);
+		
+		if(service.remove(p_id)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		return "redirect:/blog/bloghub";	// getListLink() 메서드를 이용하면 위 코드를 이렇게 바꿀 수 있다
+	}
 	@RequestMapping("/bloghub") 
  	public String showBloghub(Model model) { 
 		
 		log.info("posts");
-		model.addAttribute("posts", service.getList(0));
+		model.addAttribute("posts", service.getList());
 		
 		return "/blog/bloghub";
 	}
 	
+	@RequestMapping("/bloghub7days") 
+ 	public String showBloghub7days(Model model) { 
+		
+		log.info("posts");
+		model.addAttribute("posts", service.getList());
+		
+		return "/blog/bloghub7days";
+	}
+	@RequestMapping("/bloghub30days") 
+ 	public String showBloghub30days(Model model) { 
+		
+		log.info("posts");
+		model.addAttribute("posts", service.getList());
+		
+		return "/blog/bloghub30days";
+	}
+	
+	@RequestMapping("/mylikes") 
+ 	public String showMyLikes(Model model) { 
+		
+		log.info("posts");
+		model.addAttribute("posts", service.getList());
+		
+		return "/blog/mylikes";
+	}
 }

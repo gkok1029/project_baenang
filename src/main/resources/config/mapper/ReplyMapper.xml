@@ -4,30 +4,37 @@
 <mapper namespace="com.bn.mapper.ReplyMapper">
 
 	<insert id="insert">
-		INSERT INTO reply (r_id, p_id, r_content, m_id, r_credate, r_moddate, r_status, m_nname)
-		SELECT (seq_reply.nextval, #{p_id}, #{r_content}, #{m_id}, sysdate, sysdate, #{r_status}, #{m_nname})
-		FROM reply
-		INNER JOIN member m ON r.m_id = m.m_id
-		WHERE r.r_id = #{r_id};
+		INSERT INTO reply (r_id, p_id, r_content, r_credate, r_moddate, r_status)
+		values (seq_reply.nextval, #{p_id}, #{r_content}, sysdate, sysdate, #{1})
 	</insert>
-	
+
 	<select id="read" resultType="Reply">
-		select * from reply where r_id = #{r_id}
+		SELECT reply.*
+		, member.m_image
+		, member.m_nname
+		FROM reply
+		FULL OUTER JOIN member
+		ON reply.m_id = member.m_id
+		WHERE reply.r_id = #{r_id}
 	</select>
-	
+
 	<delete id="delete">
-		delete from reply where r_id = #{r_id}
+		delete from reply
+		wherer_id = #{r_id}
 	</delete>
-	
+
 	<update id="update">
-		update reply set reply = #{r_content}, m_nname = #{m_nname}, r_moddate = sysdate where r_id = #{r_id}
+		update reply
+		set reply = #{r_content}
+		, r_moddate = sysdate 
+		where r_id = #{r_id}
 	</update>
 	
 	<select id="getListWithPaging" resultType="Reply">
-		select r_id, p_id, r_content, m_nname, r_credate, r_moddate
-		from reply 
+		select r_id, p_id, r_content, m_id, r_credate, r_moddate 
+		from tbl_reply 
 		where p_id = #{p_id} 
 		order by r_id asc
 	</select>
-
+	
 </mapper>
