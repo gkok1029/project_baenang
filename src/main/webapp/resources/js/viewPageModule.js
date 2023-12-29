@@ -168,7 +168,7 @@ let ViewPageModule = (function () {
         
         let firstChildDiv = $("<div>").append(
             $("<div>").append(
-                $("<div>").text("제주"),
+                $("<div>").text(cityname),
                 $("<div>").addClass("trip-date").attr("id","tripDate").text("2023.12.26(화) - 2023.12.28(목)")
             ),
             $("<div>").append(
