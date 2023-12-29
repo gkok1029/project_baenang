@@ -2,5 +2,5 @@
 
 
 <select id="findLike" resultType="int">
-		select count(*) from likey where board_no = #{board_no} and user_no = #{user_no}
+		select count(*) from likey where p_id = #{p_id} and m_id = #{m_id}
 </select>

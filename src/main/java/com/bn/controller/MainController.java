@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bn.model.CityVo;
+import com.bn.service.InfoServiceImpl;
 import com.bn.service.MainServiceImpl;
+import com.bn.service.PostService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -23,9 +26,18 @@ public class MainController {
 	@Inject
 	private MainServiceImpl msi;
 	
+	@Inject
+	private InfoServiceImpl isi;
+	
+	@Inject
+	private PostService service;
+	
 	@RequestMapping("/main")
-	public String onMain() {
-		
+	public String onMain(Model model) {
+		List<CityVo> cvo=isi.getAllCityData();
+		model.addAttribute("cvo",cvo);
+		model.addAttribute("posts", service.getList());
+
 		return "main";
 	}
 	
@@ -64,7 +76,7 @@ public class MainController {
 		
 		 for (int i = 0; i < searchList.size(); i++) {
 			 CityVo content = searchList.get(i); 
-		     String cityName = content.getCITYNAME(); // Vo클래스의 getter 메서드를 사용하여 CITYNAME의 값만 추출 
+		     String cityName = content.getCityname(); // Vo클래스의 getter 메서드를 사용하여 CITYNAME의 값만 추출 
 		     cityNameList[i]=cityName;
 		     System.out.println("cityNameList["+i+"] : " + cityNameList[i]);
 		 }

@@ -24,6 +24,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<if test="ctype !=null and ctype=='12'">
 	and contenttypeid in('12','14','15','25','28')
 	</if>
+	<if test="ctype !=null and ctype=='32'">
+	and contenttypeid=#{ctype}
+	</if>
 	order by count desc
 	</select>
 	

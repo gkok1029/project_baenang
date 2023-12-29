@@ -191,165 +191,909 @@ Insert into BN.CONTENTTYPE (CONTENTTYPEID,CT_NAME) values ('32','숙박');
 Insert into BN.CONTENTTYPE (CONTENTTYPEID,CT_NAME) values ('38','쇼핑');
 Insert into BN.CONTENTTYPE (CONTENTTYPEID,CT_NAME) values ('39','음식점');
 
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '서울', '37.5665', '126.978');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '부산', '35.1796', '129.0756');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '대구', '35.8714', '128.6014');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '인천', '37.4563', '126.7052');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '대전', '36.3504', '127.3845');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '울산', '35.5384', '129.3114');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '수원', '37.2636', '127.0286');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '성남', '37.4221', '127.1382');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '의정부', '37.7386', '127.0471');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '안양', '37.3943', '126.9568');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '부천', '37.5034', '126.7662');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '광명', '37.4785', '126.8666');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '평택', '36.994', '127.0977');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '동두천', '37.9019', '127.0604');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '안산', '37.3215', '126.8308');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '고양', '37.6584', '126.8327');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '과천', '37.4266', '126.9896');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '구리', '37.5948', '127.1293');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '남양주', '37.6369', '127.2152');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '오산', '37.1494', '127.0773');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '시흥', '37.3806', '126.8033');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '군포', '37.3624', '126.9358');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '의왕', '37.3444', '126.9678');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '하남', '37.5566', '127.2129');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '용인', '37.2411', '127.1775');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '파주', '37.7599', '126.685');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '이천', '37.2734', '127.4356');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '안성', '37.0107', '127.2706');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '김포', '37.6154', '126.7156');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '화성', '37.1995', '126.8312');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '양주', '37.7744', '127.0452');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '포천', '37.8943', '127.2007');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '여주', '37.2984', '127.6373');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '연천', '38.0971', '127.0674');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '가평', '37.8312', '127.5096');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '양평', '37.4915', '127.4871');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '춘천', '37.8815', '127.7295');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '원주', '37.3496', '127.9395');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '강릉', '37.751', '128.8761');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '동해', '37.5089', '129.1211');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '태백', '37.1611', '128.9874');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '속초', '38.2046', '128.5649');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '삼척', '37.4473', '129.1686');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '홍천', '37.6907', '127.897');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '횡성', '37.4881', '128.2027');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '영월', '37.1839', '128.4643');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '평창', '37.3705', '128.3954');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '정선', '37.3788', '128.6568');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '철원', '38.1469', '127.3036');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '화천', '38.105', '127.7064');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '양구', '38.1055', '127.9897');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '인제', '38.071', '128.1698');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '고성', '38.3876', '128.4678');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '양양', '38.0805', '128.623');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '청주', '36.6372', '127.4889');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '충주', '36.9704', '127.9286');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '제천', '37.1499', '128.2143');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '청원', '36.6385', '127.4471');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '보은', '36.4871', '127.7198');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '옥천', '36.3086', '127.5749');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '영동', '36.1751', '127.784');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '증평', '36.7963', '127.5867');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '진천', '36.8558', '127.4335');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '괴산', '36.8134', '127.7919');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '음성', '36.9401', '127.6885');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '단양', '36.9865', '128.3711');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '천안', '36.8065', '127.152');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '공주', '36.45', '127.1207');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '보령', '36.3489', '126.5921');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '아산', '36.7924', '127.0048');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '서산', '36.7769', '126.4504');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '논산', '36.1976', '127.0986');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '계룡', '36.2691', '127.2401');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '금산', '36.1053', '127.4793');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '연기', '36.9836', '127.0628');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '부여', '36.2726', '126.9105');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '서천', '36.076', '126.6846');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '청양', '36.4591', '126.7989');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '홍성', '36.6008', '126.6644');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '예산', '36.6881', '126.8414');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '태안', '36.7429', '126.2987');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '당진', '37.0553', '126.5078');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '전주', '35.8242', '127.1474');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '군산', '35.981', '126.7376');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '익산', '35.9409', '126.9543');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '정읍', '35.5695', '126.8513');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '남원', '35.4103', '127.3903');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '김제', '35.805', '126.8886');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '완주', '35.9218', '127.1775');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '진안', '35.791', '127.4363');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '무주', '36.0022', '127.6607');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '장수', '35.6469', '127.5168');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '임실', '35.6131', '127.287');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '순창', '35.3541', '127.1405');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '고창', '35.4311', '126.511');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '부안', '35.7304', '126.7348');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '목포', '34.8101', '126.3923');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '여수', '34.7604', '127.6622');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '순천', '34.948', '127.4875');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '나주', '35.0102', '126.7113');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '광양', '34.9401', '127.6954');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '담양', '35.3191', '127.3957');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '곡성', '35.2228', '127.2867');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '구례', '35.2083', '127.4593');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '고흥', '34.6115', '127.2752');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '보성', '34.7788', '127.0749');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '화순', '35.0615', '126.9906');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '장흥', '34.6874', '126.9027');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '강진', '34.6436', '126.7681');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '해남', '34.5706', '126.5837');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '영암', '34.8068', '126.6888');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '무안', '34.9923', '126.4782');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '함평', '35.5122', '126.5202');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '영광', '35.3656', '126.5052');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '장성', '35.2998', '126.7837');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '완도', '34.3129', '126.738');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '진도', '34.4838', '126.265');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '신안', '34.54', '126.3169');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '포항', '36.0188', '129.3529');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '경주', '35.8562', '129.2242');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '김천', '36.1459', '128.1098');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '안동', '36.5686', '128.725');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '구미', '36.1213', '128.3456');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '영주', '36.826', '128.6272');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '영천', '35.977', '128.9458');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '상주', '36.4087', '128.1543');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '문경', '36.5946', '128.1883');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '경산', '35.8561', '128.5911');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '군위', '36.2391', '128.5625');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '의성', '36.355', '128.6937');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '청송', '36.4354', '129.056');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '영양', '36.6613', '129.1209');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '영덕', '36.4154', '129.4094');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '청도', '35.6419', '128.7413');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '고령', '35.7175', '128.2467');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '성주', '35.918', '128.2857');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '칠곡', '36.0287', '128.3294');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '예천', '36.6473', '128.449');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '봉화', '36.8909', '128.7463');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '울진', '36.9912', '129.4122');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '울릉', '37.4851', '130.899');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '창원', '35.2272', '128.6811');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '진주', '35.1796', '128.1076');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '통영', '34.8544', '128.4262');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '사천', '35.0767', '128.0474');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '김해', '35.1798', '128.8567');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '밀양', '35.4923', '128.7474');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '거제', '34.8804', '128.6162');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '양산', '35.3272', '129.0081');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '의령', '35.3075', '128.2658');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '함안', '35.272', '128.4055');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '창녕', '35.5425', '128.4997');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '고성', '34.9754', '128.3174');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '남해', '34.8416', '127.8928');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '하동', '35.1284', '127.7587');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '산청', '35.4158', '127.8797');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '함양', '35.5218', '127.7416');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '거창', '35.686', '127.909');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '합천', '35.5667', '128.169');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '제주', '33.4996', '126.5312');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '서귀포', '33.2479', '126.5093');
-INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE) VALUES (CITYID_SEQ.NEXTVAL, '광주', '35.1595', '126.8526');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '서울', '37.5665', '126.978', '서울특별시는 대한민국의 수도,[18] 그리고 최대도시이다. 평양시, 경주시, 개성시와 함께 오랜 역사를 가진 한반도의 고도 중 하나다.
+
+법률상 대한민국 제1의 도시로 규정되어 있다.[19] 현재 한국에서 유일한 특별시고, 수장인 서울특별시장은 한국 광역자치단체장 중 유일하게 장관급 대우를 받으며 국무회의 참여권 및 발언권이 있다.[20][21] 서울특별시는 한국 제2의 도시인 부산광역시보다도 인구가 약 3배 더 많은 명실상부한 한국의 종주도시다.
+
+역사적으로도 백제, 조선, 대한제국의 수도이자 현재 대한민국의 수도로서 중요성이 높다. 기원전 18년 백제가 현 송파구·강동구 지역에 도읍을 정한 후 492년간 한성백제 시대가 이어졌다. 이후 475년 고구려가 한성을 함락했는데, 북쪽에 기반을 둔 국가인 고구려는 기존 백제의 한성에서 북쪽으로 한강을 건너 현 광진구·성동구·구리시 일대를 거점으로 삼아 고구려의 북한산군 남평양으로 지정했고, 이후 서울특별시는 강북 지역을 중심으로 발전했다.
+
+기원후 553년 신라가 서울 지역을 차지하고 신라의 한산주 한양군이 되었다. 이후 고려시대에는 약 250년간[22] 개경 이남의 남경이었다. 조선시대에는 510년 동안[23] 조선 및 대한제국의 수도 한성부였고, 이어 70여년간[24] 대한민국의 수도인 서울특별시로서 지위를 차지하는 도시로 한국사에서 도합 1,070여년간 수도로서 기능을 했고 부수도 기간까지 합치면 1,300년이 넘는 유구한 역사의 고도다.
+
+전통적으로 서울은 강북지역만으로 구성되어 있었으나, 1960년대 서울 대확장을 통해 한강 이남까지 관할구역이 확장되었다. 현재의 서울특별시 영역은 옛 한성부 영역에서 조선 후기의 양천현 전체와 시흥현, 과천현의 상당 지역, 광주유수부와, 양주목의 일부를 추가로 편입한 형태이다. 
+
+서울은 뉴욕이나 파리처럼 평지에 일목요연하게 계획 설립된 도시는 아니다. 산과 강 등 자연을 등지고 자연스레 형성된 도시 형태이며, 수백년의 역사를 가지고 있기에 독특한 특징도 여럿있다.', 'https://i.namu.wiki/i/-P1HUvaI0ReeKxqvXU48xyXFgMr3NtUIsQEAHTZtuUQbrI3iXA-7atXblk-pJi_1VNu4RN8Ru_qi9YLf8WUPTaLrSs6yBKMBMzVGT2f9wtZ-jzu5YSPVyOh4Y60W-X4k1IEOTBAqCZ3M1c4HBAmu_g.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '부산', '35.1796', '129.0756', '대한민국 동남쪽에 위치한 광역시. 북쪽으로는 경상남도 양산시와 울산광역시 울주군, 서쪽으로 경상남도 창원시, 김해시와 접하고 있다.
+
+대한민국에서 서울특별시 다음으로 큰 규모를 자랑하는 제 2의 도시이자 최초의 광역시(직할시)로, 6개의 광역시 중 가장 인구가 많으며, 경상남도와 더불어 300만대 인구를 보유한 둘 뿐인 지자체이기도 하다. 광역자치단체 전체로 범위를 넓히면 경기도, 서울특별시 다음으로 세번째로 인구가 많은 광역자치단체다.
+
+또한, 수도권 다음으로 큰 광역권인 부울경과 부산·울산권의 중추도시이기도 하며, 국내 최대 무역항이자 세계 5위권 규모의 환적량을 자랑하는 부산항을 보유하고 있어, 바로 옆에 존재하는 국내 최대 공업도시인 울산광역시와 함께 대한민국 수출입 경제에 중추적인 역할을 수행하는 도시이기도 하다.', 'https://i.namu.wiki/i/EfbdtbDNrlXyxgZtZ7UvkJeu2qCtHKOKQK8_LoTXnJPReI0Xp4hMll0WzEGfDJoUVb49P3naPsrZI4OpFXmSH4I_DJ7_0nn3R2Yrx7Zo8tx8TctNmSCPy8qyqW2i5tfVbtF4U00Y4EjyCReFUoiw-w.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '대구', '35.8714', '128.6014', '대한민국의 광역시. 경상도의 중심부에 있다. 인구가 밀집된 시가지는 산으로 둘러싸인 대구분지 안에 있다.
+
+동쪽으로는 경상북도 경산시, 영천시, 청송군, 서쪽으로는 구미시, 고령군, 성주군, 칠곡군, 북쪽으로는 의성군, 남쪽으로는 청도군, 경상남도 창녕군과 접한다.
+
+대구권과 대구·경북의 중추도시로, 단일도시로서의 인구규모는 대한민국 4위[12], 도시권 인구로는 수도권, 부산·울산권에 이어 대한민국 3위다.[13]', 'https://i.namu.wiki/i/Nmfc293ydrZwltj2K70PnTIrWV7EP3AErNe133A3rW2lP2vG8cWwsFsKftVhIXGr_Ak4-VkHw5su7jcWv4o8WfxRx06sL36AwC4wI5uNYaBiNUsCw7q1moYE55aed8fJAPjxdpk1RyVh20zCiZbHLw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '인천', '37.4563', '126.7052', '대한민국의 광역시. 수도 서울특별시의 외항이다.[15] 남한 북서부, 한반도 중서부에 위치하고 있다. 부산광역시에 이은 제2의 항구도시이며, 수도권 최대 해안도시이다.[16]
+
+인천국제공항과 인천항국제여객터미널이 있어서 대한민국을 찾는 외국인 여행객 대부분이 가장 먼저 발을 딛는 곳이다. 인천국제공항은 아시아, 미주, 유럽, 오세아니아, 아프리카 등 세계 주요 대륙의 국가들과 이어져 있고 인천항은 주로 중국과 이어져 있다.
+
+시목은 목백합, 시화는 장미, 시조는 두루미다. 두루미는 인천지역 내에 유독 학(鶴)이라는 지명을 가진 지역이[17] 많을 정도로 인천과 인연이 깊은 새로 알려져 있는데 K리그 인천 유나이티드의 마스코트인 유티의 모티브가 되기도 했다. 다만 인천시내의 도시 개발로 인한 생태계 파괴 여파로 인천 본토에서는 두루미가 자취를 감추었고 시내에서 멀리 떨어진 강화군에만 10기 가량이 매년 도래한다.', 'https://i.namu.wiki/i/gaiXgtIVhFdFfy9i1feV2YHleDroDSWG4SsG7JlFS20BanONgocHFJ0ByK3_1b2LamgGwmSIaDkwbAh3vqYmig8AqxV8IhH1FGyN4Prx-trl1oDxU8OwED_rE2uAfVeyDkvipv8cUMeilYAF0tvMaw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '대전', '36.3504', '127.3845', '대한민국의 광역시. 남한의 중앙에 위치해있다. 조선시대에는 회덕현, 진잠현의 두 소읍과 공주목의 일부로 구성된 지역이었으며, 1914년에 회덕군과 진잠군을 통합하고 공주군에서 일부 지역을 편입하여 현 대전광역시의 전신인 대전군이 지금과 같은 구획으로 신설되었다. 순우리말 이름은 비수리(계족산만 해당), 한밭, 큰밭이고 한밭이 대전과 같이 많이 사용되고 있다. 순우리말/지명 문서 참조.
+
+충청도 제1의 도시로 중부지방과 남부지방을 잇는 교통의 요지이자 대덕연구개발특구(대덕연구단지), 국제과학비즈니스벨트가 조성된 한국 최대이자 전 세계에서도 손꼽히는 과학·연구도시다.[14] 또한 4년제 대학만 13곳이 소재한 교육도시다.[15][16]
+
+그와 동시에 정부대전청사[17]와 다수의 국가기관 본사가 자리한 행정도시이며 3군 본부와 인접해 있고, 국군의 군사 교육 및 훈련 시설이 밀집한 자운대와 육군군수사령부, 국방과학연구소 등이 자리해 군사도시의 기능도 수행하고 있다.
+
+대한민국에서 철도로 가장 수혜를 많이 본 도시이다. 과장 좀 보태서, 철도 하나 덕분에 허허벌판에서 광역시까지 발전한 도시이다. 대전조차장역의 경부선과 호남선 철도 분기는 훗날 경제발전기에 경부고속도로와 호남고속도로의 분기로 이어졌고 남한의 중앙에 있는 교통의 요지로 각종 국가적 시혜[18]를 얻을 수 있었다. 또한 대전의 유명 관광 명소인 성심당도 대전역이 없었으면 존재하지 않았을 것이다.[19] 비록 고속철도 분기는 오송이 가져갔지만 아직도 서대전역 경유 호남선 KTX가 상당수 운영하고 있어 철도의 분기점이라는 위상은 여전히 남아있다. 또한, 한국철도공사와 국가철도공단과 그 외 자회사들의 본사가 대전에 있어서 관련 사진에 철도기관 공동사옥, KTX가 꼭 들어간다.
+
+대전권과 충청도의 중추도시다.[20] 대전권은 한국 도시권 중 권역 내 교류가 제일 활발한 편인데 한 달에 한 번 대전광역시장, 세종특별자치시장, 충청북도지사, 충청남도지사들이 모여 간담회를 진행할 정도고, 네 자치단체끼리 서로 엄청나게 밀어주고 끌어주고 있다. 특히 세종과의 관계가 밀접한 편으로 세종시 출범 이후 대전세종연구원을 설립하고 대전+세종 협력 시범사업까지 자주 이뤄지고 있다. 대전의 인구는 지속적으로 감소 중이지만 유출된 인구의 상당수는 세종이 흡수했기 때문에 대전권의 인구는 증가 추세에 있다.
+
+2019년 대한민국에서 살고 싶은 도시로 서울, 부산, 제주에 이어 4위를 차지하고# 2021년 전국 지방자치단체 평가에서 삶의 질, 보건, 환경, 교통, 행정역량지수에서 1등, 재정과 행정이 포함된 종합부문에선 서울에 이어 2등이라는 쾌거를 달성할 정도로 지역 이미지는 대체로 좋은 편이다. 다만 살기에는 좋아도 이렇다 할 지역 특색이 적은 탓에[21] 대표적인 노잼도시로 손꼽힌다는 게 아쉬운 점이다.
+
+지방자치 제도가 굉장히 잘 잡힌 도시기도 하다. 이를 계기로 2022년 10월 세계지방정부연합총회를 개최했다. 140개국, 1,000여개 지방정부와 지방정부 협의체들이 회원으로 참여했다.
+
+2026년, 한국 대전광역시에서 세계태양광총회 개최가 확정되었다. 전세계 환경 재생에너지 관련 최대 행사로, 대전광역시에서 최초 세계태양광총회를 유치하게 되었다.', 'https://i.namu.wiki/i/mGATNLSemXyH1Ck0w7R_uVbjq6mbfzYhoxC_PKv64vV5iFY193B5hlbKl-c8TQoKAtrNYV8lpfccuCcCJWEirtdM59_zoorvbIcwc178Osjyje3NmO9KQemYH0bRHiI0vNht7ClX1JUhaJPxgvmRJA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '울산', '35.5384', '129.3114', '대한민국의 광역시다. 부산광역시와 인천광역시에 이은 제3의 항구도시이자 대한민국 최대 공업도시다.
+
+광역시 중 유일하게 직할시를 거치지 않았다. 울산의 승격 시기는 1997년인데 그전인 1995년에 직할시의 명칭이 바뀌었기 때문이다. 전라북도 전주시, 경기도 수원시와 함께 광역시 승격을 추진했는데 최종적으로 울산만 광역시로 승격되었고 그 이후로는 지방자치제의 본격적인 시행으로 광역시 추가 승격 가능성이 매우 희박해진 상태이다.[17]', 'https://i.namu.wiki/i/ppkVRIZz4B2TRSKxzc-TluMWtNE_-dbdNFhS0PNHbwLDz3POGDpwJzpHV7_F6PtawKXqebG_PCB03IAWZ2nDU7lsc55jvaxuxb5J8M2BK0ZhKfM59-GqZ5Pe_rMqY8_MpDIIOF-wXjlUjs3-qXjaVA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '수원', '37.2636', '127.0286', '경기도 남부에 위치한 특례시. 대한민국 기초자치단체 중에서 가장 인구가 많은 도시.[9] 경기도청 소재지, 경기도 최대도시로 북으로 의왕시, 동으로 용인시, 남으로 화성시, 서로는 안산시와 접한다. 일반구는 장안구, 권선구, 팔달구, 영통구의 4개가 있으며, 특례시 중에서는 5개 구를 가진 창원시 다음으로 많은 일반구를 두고 있다.[10]
+
+대한민국의 수도권은 서울 - 인천 - 수원의 삼각 벨트를 중심으로 발전했는데, 그게 그대로 이어져 수도권의 한 축을 담당하고 있다. 1967년 서울 광화문에 있었던 경기도청사가 경기 수원시로 이전을 하였고, 경기 의정부시에 북부출장소가 설치되었다. 그러므로 수원은 다른 수도권의 도시들 고양시, 구리시, 과천시, 안양시, 성남시, 부천시 등이 서울의 위성도시적 성격이 강했던 것과 다르게[11] 이전부터 자족도시의 특성이 강했으며 지금도 수원시는 자족도시에 가까운 경기도 행정·경제의 중심지적인 위치를 점하고 있다. 이는 조선시대부터 경기 행정편제가 개편되면서 이때 광주와 수원의 관할인 군현을 두어 경기좌도라 하였고, 양주·부평·철원·연안의 관할인 군현을 경기우도했으며 1413년에 경기 영역을 다시 한 번 조정하여 좌·우도로 나누지 않고 경기로 확정하면서 감영을 수원에 설치해 도시의 자족기능이 형성된 것에 기인한다. 실제로 수원은 수원시 바깥 다른 지역들과는 생활권이 꽤 다르고, 문화도 미묘한 차이가 있다.[12][13]
+
+수원은 자립적인 경제권역을 형성하고 있으며, 그 상권도 규모가 큰 편이다. 자족기능이 많이 발달한 경기남부 도시 중에서도 수원의 서울 출퇴근자 비율은 9.5%로, 상당히 낮은 편이다.[14]', 'https://i.namu.wiki/i/gQ_WmTa9RG8dFl3tiBbr-lY9eLHR-DyR1F91OdN5o9Y5p9WKKvaLlY7SscSFCWTmYcYisuxmOsdp_cNNMp10__4MdF12-_Jz19N6Z8-mTD0djbQSn6spjAl8rwUnj697wd9oRTOA8e88nrQmqXKh9A.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '성남', '37.4221', '127.1382', '경기도 중남부에 위치한 시. 경기도에서 수원시, 고양시, 용인시, 화성시에 이은 인구 5위의 도시이며 경상남도 창원시를 포함해 전국에서 6번째로 인구가 많은 기초자치단체다. 남으로는 용인시, 서로는 청계산을 능선으로 과천시[6], 의왕시, 동으로는 광주시, 북으로는 서울특별시 서초구, 강남구, 송파구 및 하남시에 접하고 있다.
+
+수도권에서 제일 먼저 계획적으로 개발된 위성도시로[7] 여담이지만 시 승격 이전에는 면으로만 이루어진 곳이였다. 이와 같은 현상은 년도순으로 과천시, 안산시, 광양시, 화성시, 계룡시 순으로 발생했다.
+
+그러다 1990년대 이후 신도시 개발 열풍에 따라 중원구 남부지역에 분당신도시가 조성되어 분당구로 분구되었다. 이어서 2000~10년대에는 판교신도시와 판교테크노밸리가 조성되었다. 이로써 성남시는 서울시에 일방적으로 종속된 베드타운에서 벗어나서 자체적인 생활권을 이루기에 이른다.[8] 마지막으로 2020년대 현재까지도 위례신도시가 조성/분양되면서 꾸준히 세가 확장되었다. 즉, 사실상 성남시 전체를 신도시라고 볼 수 있는 것이다.[9]
+', 'https://i.namu.wiki/i/MHBQ0zzbp0iebXgawaFMhdxLXxUw-WoxuH1WSEfm2R2TX9ZoQAYap85dPp0TWmoa_9ZhSwF4snZ4bTTDFwu2WdPAopzBQHeMgEy8PbYKa7Cvb9NWXjLRWnqUnrtgIjl2gvajryby40EdzDQ3bqLOTg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '의정부', '37.7386', '127.0471', '경기도 북부에 위치한 자치시. 경기 북부의 행정, 지리적 중심도시. 남쪽으로는 노원구·도봉구와, 동남쪽으로는 남양주시와, 동북쪽으로는 포천시와, 북쪽과 서쪽으로는 양주시와 인접해 있다.
+
+이름의 유래는 조선시대 행정부의 명칭인 의정부(관청)이다. 각 관공서에 물자를 공급하도록 정해진 지방의 둔전(屯田)들 중 의정부의 예산을 담당하던 의정부둔(意情埠屯)이 지역의 명칭으로 정착되었다고 한다. 意情埠의정부는 대동여지도에서 議政府의정부와 구분하기 위해 음차된 표현이다.
+
+야사(野史)에서는 태종이 재위하던 1403년, 태상왕이 된 태조 이성계가 함흥차사의 이야기를 끝내고 한양으로 환궁하다가 지금의 호원동인 전좌(殿座)마을에 머물렀기 때문에 조정의 대신들이 이 곳으로 찾아와 국정을 논의했다는 고사에서 "대신들이 모이는 곳 = 의정부"라는 도식으로 이 지명이 유래했다고 한다. 구 중앙로를 보행자거리로 조성한 행복로 초입에 이성계의 동상이 세워진 이유도 이 때문이다.[8]', 'https://i.namu.wiki/i/B7I_p_B-AqY7-Yh639Lgj_IcsZwcmVybkVlYHHw_sc5VkGURpWEUQpMFp7qORo8O5BCS2Y6aRBDTUj21h3OgeAItSJ_DB-qxs3lpqVozQrSJv-TzlR0Yruvq73RRlttuK2-4UanX6cgxN-3ddSN49A.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '안양', '37.3943', '126.9568', '경기도 남부에 위치한 시. 서울특별시의 위성도시 중 하나로 안양권(안양시·군포시·의왕시·과천시)의 중심 도시다.[9] 과거에는 대표적인 공업도시였으나, 안양의 땅값이 큰폭으로 상승하면서 대다수의 공장들이 땅과 공장을 팔고 근처 시화,반월공단 또는 지방으로 대거 이동했다. 과거 공장부지에는 지식정보타운을 비롯한 업무시설 또는 상업시설로 채워졌으며 이에 대표적인 예가 평촌역 주변 스마트베이다.
+
+동쪽으로는 의왕시, 서쪽으로는 광명시[10], 시흥시, 안산시[11], 남쪽으로는 군포시, 북쪽으로 서울특별시 금천구와 관악구[12], 과천시와 접해있다.', 'https://i.namu.wiki/i/Li4kUbgsZf-UxbV0qNQ-qqYdYCsDkMRXSsVXOTf0rct_P_lR7B0qZTO6-_yGoV8_zUP1u3ijZxLCDhl2D8AmypMhlS7hGXKpL8LpsA9za-y4w_53Pyvg8jThDxraEnD1KLTx_dE1GxqZYECYrsXWEA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '부천', '37.5034', '126.7662', '경기도 서부에 위치한 시. 북쪽과 동쪽으로 서울특별시(구로구, 양천구, 강서구)[9], 서쪽으로는 인천광역시(계양구, 부평구, 남동구[10]), 남쪽으로 시흥시, 남동쪽으로는 광명시와 접하고 있다.
+
+송도신도시만한 면적에 인구는 유럽의 소국 산마리노보다 약 23배 많고, 남태평양의 섬나라인 피지와 비슷한 수준이다.[11] 1980년대 후반~1990년대 초반에는 짧은 기간이지만 경기도 인구 1위 도시였던 시절도 있었다.[12] 당시 수원시와 성남시의 인구가 각각 55만~60만 명 가량이었던 데 비해 부천시는 60만 명을 넘어선 상태였으며, 현재 특별시, 광역시로 승격된 도시를 제외한 일반시 중 1988년 1월 전국 최초로 구가 설치된 도시이기도 하다. 이는 수원시의 1988년 7월보다도 반 년 앞선 것이다. 그러다가 이후 수원시, 성남시에게 밀려 3위로 떨어지고, 2000년에는 고양시에게도 밀려 4위로 떨어져 한동안 이를 유지했으나, 2010년대 들어 광활한 면적의 효과로 신도시와 택지지구들이 지속해서 들어서고 있는 용인시와 화성시에 차례대로 밀려 경기도에서 6위로 내려갔다. 비수도권까지 포함하면 창원시와 청주시에도 밀렸다. 그래도 인구밀도는 전국 도시 중 서울특별시에 이어 2위를 차지하고 있다.[13]
+
+한강 이남으로 행정상으로는 경기남부에 속하지만 일반적인 경기남부지역과는 조금 다르다. 지역에 따라 서울 한강이북지역과도 위도가 비슷한 곳이 있으며 또한 한강이남 경기도 치고 휴전선이 매우 가까운 지역이기도 하다. 이는 한강이 용산구에서 V자 모양으로 꺾여 하류가 북서쪽으로 흘러가기 때문이다. 또한 경기북부와 맞닿아 있지는 않지만 직선거리나 지리적 거리상으로도 매우 인접해 있으며 특히 한강이북 경기도 중 인근 고양시[14]와의 경제적, 인적교류도 상당히 활발하다.
+
+특히 부천시내 군부대는 상비사단 관할로 다른 한강이남 경기도와는 달리 전방으로 분류된다. 휴전선과 최소거리도 직선거리상 26km 정도 밖에 안된다.[15]', 'https://i.namu.wiki/i/IsF8QwrPbWAZ26uu29e2dfXkCRYwQA-3irFKtAclFTFL7gMXcebthp3PKgEmenkvU4Iqdbnj-6ic-wIDZsZTx6qHUpbWsFUq_mpEczLvZlcRoyITHnuFc6iFYhDJD3ZlISvFLsQFoWey-fEQFPfzsA.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '광명', '37.4785', '126.8666', '북부와 동부는 각각 서울특별시 구로구와 금천구, 남동부는 안양시, 북서부는 부천시, 남서부는 시흥시와 접한다.
+
+도내에서는 부천시, 시흥시, 안산시와 같이 경기 서부[8]로 분류되나, 정작 생활권으로 보면 경기도보다는 서울, 특히 영등포권의 지역색이 더 강한 도시. 영등포권의 역사적 전신 중 하나인 조선 시대 시흥군 중 서울에 편입되지 않은 지역 대부분을 차지하고 있다.
+
+그러나 구 시흥군의 계승 의식은 없다시피한데, 현대에 서울 편입을 염두에 두고 개발(이른바 개봉 60만 단지)되어 도시 꼴을 갖추게 되었으며, 그 전에는 강 갈대밭 건너 바로 옆에 읍내, 그리고 그 읍내 너머에 시내[9]가 있는 작은 마을에 불과했기 때문이다. 광명 시가지가 처음 형성될 무렵 이 도시 사람들은 서울시민이 될 기대에 부풀어 있었다. 시 승격 전후의 신문기사, 1980년대 지리지, 인터넷 향토백과, 1991년판 광명시지, 광명동·철산동지(광명시청 편저) 등 각종 향토사료에서 알 수 있다. 그러나 위성도시 육성정책으로 인해 서울 편입이 좌절되고 1981년에 경기도 산하의 시로 승격했으며, 광명시 승격에 실망한 광명주민들이 서울 편입을 요구하는 시위를 벌였다. 경기도의 도시로 자리매김하는 과정에서도 딱히 광명시청에서 시흥군의 계승자로서의 성격을 강조하지도 않았다.
+
+안양천을 경계로 서울과 인접해 있는 곳에서는 하천 정비사업이 이루어지기 전 과거 뱀처럼 구불구불했던 강 모양을 따라 시도 경계가 나뉘어 있었다. 그러다가 안양천 이 직선으로 정비되면서 현재는 강 건너 광명시 안에 강 옆으로 자그마한 땅만 서울시로 되어 있다거나 반대로 서울시 안에 광명 땅 조각이 들어와 있는 재미있는 모습을 볼 수 있다. 물론 아파트 단지 중에서도 바로 옆에 붙어 있음에도 서울과 광명이 나뉘며 가격 차이도 크다.', 'https://i.namu.wiki/i/5CWolWjuyoOxPoBT8Y9aDTNkZA_K-NDOG0A5iO3bG4PbU_9nGUgTxdHgLhpMjEgd1Pe24SBOyWEmzbkbiWIW5Sb_aQbCqijsxDS0n64IWXhdLm8lQuXgqnaZn1YIu8J8PCJA-B7IkCnK1aZg-RcWgw.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '평택', '36.994', '127.0977', '경기도 서남부에 위치한 시. 동쪽으로 안성시, 동북방향으로 용인시, 서쪽으로 충청남도 당진시[8], 남쪽으로 충청남도 아산시, 천안시, 북쪽으로 화성시, 오산시와 접해있다.
+
+평평한 땅에 연못 밖에 없어 평택(平澤)[9]이란 지명을 갖게 되었다고 한다. 시 대부분의 지형이 평야와 수 십미터 정도의 낮은 구릉들 뿐이고 큰 산이 없다. 그나마 평택에서 가장 높은 산은 무봉산으로, 해발 208m다.
+
+해외 주둔 미군 기지 중 단일 기지로 세계 최대 규모인 USAG 험프리스(평택 미군기지)가 있다.', 'https://i.namu.wiki/i/a7yh8XSr2zyGfTDDwEoditiHXJpp5RE8GbN1frLZsRynjTBoRJkrn9XRP8GdaD5ha0Zr-6en24deqLqAs4H8ftw43Jt3xLgKcCcTalq9y1TthoLCyzjYHZj3pVIUrfF1PIptNC5Z54nqgUg-PvLwRA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '동두천', '37.9019', '127.0604', '경기도 북부에 위치한 시. 원래는 양주군 이담면, 은현면에 속한 지역이었으나 1980년대 동두천시로 분리 및 편입되었고, 양주군은 2003년 양주시로 승격하여 현재에 이른다. 도시 이름은 주한미군 동두천기지인 캠프 케이시(Camp Casey)와 턱거리 근처의 캠프 호비(Camp Hovey) 경내 일대를 흐르는 하천의 이름인 동두천에서 유래하였다.[6] 동쪽으로는 포천시, 서쪽과 남쪽으로는 양주시, 북쪽으로는 연천군에 접하고 있다. 전방에 속하는 지역으로 군사 시설이 많다.', 'https://i.namu.wiki/i/xX4d5n0kL1SQ35hVqJ_7i_QKdC5o2QbrM6D0APgE2Uh5StjFtks1rU1m-NcFsYbxQkwtyQvUzV-XuXQbAowHFw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '안산', '37.3215', '126.8308', '경기도 서남부에 위치한 시. 단원구와 상록구 두 개의 일반구가 있다.
+
+반월국가산업단지와 시화국가산업단지가 있는 공업도시다. 서쪽과 북쪽으로는 시흥시, 동쪽으로는 군포시, 의왕시[9], 수원시, 북동쪽으로는 안양시[10], 남쪽으로는 화성시, 서쪽으로는 인천광역시 옹진군[11]에 접한다.', 'https://i.namu.wiki/i/T8YR6fEIufjDfhXyylryh5fOfJbJhYM7Y5WxfKljWEAT2iAv0oFePfG4bn-zJqZuNiDyvM7m4O3XBfTY2B-2Dz35cj1AOkL6lnJ3hxSl-hGGEGOWJsCmyL6UMdraFaPNImFGHwmmnrYHkV8nBj7c2A.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '고양', '37.6584', '126.8327', '경기도 서북부에 위치한 특례시. 전국에서 두 번째로 인구가 많은 기초자치단체이며,[9] 수원시에 이어 경기도 내 두 번째로 인구 100만 명을 돌파한 도시다. 2014년 8월 1일 100만1명 당시 고양시청 페이스북 타임라인 사진.[10] 덕양구, 일산동구, 일산서구의 3개 일반구가 설치되어 있다.
+
+경기도를 남북으로 나눴을 때 한강 이북에 위치해 있어 경기북부로 분류되지만, 반대편 동부인 남양주시와 마찬가지로 일반적인 경기북부랑은 조금 다르다. 특히 지리적 측면에서 의정부시[11][12] 와 비교하면 서쪽이라는 느낌이 강해서 경기서부 라고 보는 편이 조금 더 맞다고 할 수 있다. 사실 고양시의 최남단인 덕양구 덕은동은 한강 이남 경기도 하남시 미시지구[13]와 서울특별시 강서구 및 강동구 북부와 위도가 거의 같다. 또한 덕양구의 대부분 중심지 및 핵심지역은 서울 강북지역인 은평구, 강북구, 노원구와 비슷한 위도이며, 일산신도시는 도봉구와 비슷한 위도다. 즉 행정구역상으로는 반대편 동쪽의 남양주시와 마찬가지로 경기북부이지만 실제로는 서울 강북지역과 비슷한 위도라고 할 수 있다.[14]
+
+다만, 고양시는 경기북부의 최대 도시인데다가 북한과 가장 가까운 곳의 거리는 고작 10km일 정도로 휴전선과도 가까운 편이다. 그리고 위에서 언급된 서울 노도강과 은평 등 지역들은 서울에서도 상당히 북쪽에 위치한 곳들이며,[15] 특히 일산신도시와 비슷한 위도라는 도봉구는 서울 최북단 지역이며 이마저도 구일산이나, 고양동 지역은 의정부와 같은 위도다. 게다가 경기남부 도시들에 비해서 생활권이 강남과 멀고 강북과의 교류가 압도적으로 많다.[16] 저 동네보다는 고위도에 있기도 하고. 그렇다고 해서 남양주시 다산과 구리시 중심부에 비하면 고양시 핵심지가 고위도에 있지만 그렇다고 남양주가 저위도는 절대 아니다. 또한 남양주시 조안면 일부와 와부읍 일부를 제외하하면 거의 비슷한 위도이며 거기다 남양주시 최북단 수동면과 진접읍은 고양시 최북단보다 더 위에 있다.
+
+동으로는 서울특별시 은평구, 마포구, 종로구, 성북구, 강북구, 양주시, 남과 서로는 한강을 경계로 서울특별시 강서구와 경기도 김포시, 북으로는 경기도 파주시와 접한다. 서울의 종로구, 성북구, 강북구, 도봉구와는 북한산을 끼고 접해 있다.[17]
+
+북한과 가까운 경기북부에 위치해 있다는 근본적인 원인 외에 중앙정부, 경기도와 같이 고양시를 둘러싸고 있는 6중규제가 개발을 못하게 하는 원인 중 하나다. 광역시가 아닌 고양시는 도시계획 등을 세울 때 고양시 독자적으로 처리할 수 없다. 그리고 고양시가 세운 계획을 경기도와 중앙정부의 승인을 받아야 한다. 만약 광역시라면 중앙정부의 승인만 받으면 된다. 그래서 대부분 고양시의 입장이 잘 반영이 안 되는 형국이다. 인구 100만 특례로 일부 권한이 도지사에서 시장에게 넘어오기는 했지만 여전히 대부분의 권한은 도지사가 쥐고 있는 현실이다. 규제를 풀면 되겠지만 다른 지역과의 형평성도 있고 근본적으로 수도권이기 때문에 안된다. 6중규제는 아래 항목 참조. 아무튼 고양군 시절부터 읍/면별로 따로따로 도시화가 된점 + 지형적 특성 + 일산신도시 개발 + 6중규제가 맞물려 다른 도시와 비교할 때 도시 구조가 기형적이다.[18]', 'https://i.namu.wiki/i/yzVtYxvz6mDJwheGKK25aNwktkKAlSkVxTx0LSCRPsaJOKVXhBfyR7DCZUhMY1N-EYtbEnbiJRDITuo-IBAIGv0oWkvc4imepMdNDSe1saseRCk0c5ykZb2XfQLkE1xsuN_cdR6O8zyy3NYu73MtUA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '과천', '37.4266', '126.9896', '경기도 중부에 위치한 시. 서울특별시에 집중되어 있는 정부 기능을 분담하기 위해 지어진 행정 도시이자 계획도시이고, 대표적인 전원도시이자 서울특별시의 위성도시다. 1986년 시흥군 과천면(경기도 과천 출장소)에서 시로 승격되었다. 
+
+전통적인 부촌이며, 북쪽으로는 서울특별시의 서초구와 관악구, 동쪽으로는 청계산 능선을 따라 경기도 성남시, 남쪽으로는 의왕시, 서쪽으로는 안양시와 접한다. 관할 행정동은 갈현동, 과천동, 문원동, 별양동, 부림동, 원문동, 중앙동으로 7개 동이다.[6] 중앙동 일부(법정동 중앙동)와 별양동, 부림동, 갈현동 일부(원문동), 과천동 일부(주암동)를 제외한 나머지 지역은 개발제한구역(그린벨트)이며, 2021년 기준 과천시의 행정구역 면적 대비 개발제한구역 비율은 83%이다.[7]#. 그린벨트가 너무 많아서 아예 시정 홍보지에 그린벨트에서 허가 없이도 가능한 행위들을 공지해 줄 정도이다. 게다가 과천시 전체 면적 가운데 중앙정부와 서울시가 각각 33%와 26%, 약 60%를 소유하며 대주주 역할을 맡고 있다. 반면 과천시가 소유한 지분은 겨우 6%에 불과해 자체 개발사업은 원천적으로 불가능한 구조를 가지고 있다.#
+
+면적은 35.9km²로, 전국의 시, 군 중에서 두 번째로 좁은 기초자치단체이다. 가장 좁은 지역은 같은 경기도면서 서울특별시 동북부에 위치한 구리시로 33.3㎢이다. 다만 인구는 구리시가 19만 여 명으로 3배 가까이 많다. 
+
+안양권과 고등학교 학군을 공유하지만 지역번호는 서울특별시(강남)와 같은 02-5XX국을 사용하고[8], 도시가스는 안양, 군포, 의왕이 삼천리그룹의 공급 권역인데 반해 과천은 코원에너지서비스의 공급 권역에 포함된다는 차이가 있다. 치안과 소방은 정부청사 근처에 과천경찰서와 과천소방서가 별도로 설치되어 맡고 있다.
+
+인구는 2023년 7월 기준 80,855명이며[9], 평균연령은 41.5세이다.[10] 과천시는 주변이 관악산, 청계산, 우면산, 양재천으로 둘러싸여 있어 쾌적한 환경을 자랑하는 도시이며, 다양한 동식물의 서식처이기도 하다. 1980년대 초반 도시가 형성되기 시작한 이후, 1990년대부터 전국에서 가장 살기 좋은 도시 1위에 선정되고 있다.(1991년 서울대, 1999년 총리실 산하 국토연구원, 2015년 대통령직속 지역발전위원회, 2015년 한국외대 국가브랜드연구센터, 2017년 한국외대 국가브랜드연구센터, 2022년 성신여대 데이터사이언스센터, 2023년 성신여대 데이터사이언스센터) 이러한 최상위 지표의 주요 요인은 쾌적한 거주 여건을 기반으로, 다양한 분야에 걸쳐 전국 최고 수준의 주민 복지 환경을 제공하고 있는 영향이 크다.#', 'https://i.namu.wiki/i/juGy0kHWtkLw1TpWrAEkrkWrI-93kqJbFFc6Q4MkJtP6v8zYsPoKkyd0gQeAoVjpqgb6pq8Oe5WFWCbSOL7_ur8W6h6teS5eWlDDWHa2On-Z8bJ_cAO9-MifuuGyNSKkDMNe1bz9TjjnJc2qVkGe2A.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '구리', '37.5948', '127.1293', '경기도 동북부에 위치한 시. 동쪽과 북쪽은 남양주시, 남서쪽은 한강을 끼고 서울특별시 강동구, 남동쪽은 경기도 하남시, 서쪽은 서울특별시 중랑구와 광진구 광장동, 노원구에 접한다.
+
+구리시의 면적은 33.33㎢로, 전국의 자치구를 제외한 기초자치단체(시/군) 중에서 면적이 가장 좁다.[6]', 'https://i.namu.wiki/i/wGMRfSv7fj01z23PgdZlQSt0Rbly52P4aX0T54Ww--MWdhob0_n8935tsGjrb1WMWIZ0Ww9TuGjFv48394g5Z8HEljjbrOKS28WAirtRPSbegRC4G2_fDIHKFO11jzdZakEGeOnyQbQ3e9wRTFv3bg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '남양주', '37.6369', '127.2152', '경기도 동북부의 시. 남양주는 1980년 양주군 남쪽 지역이었던 남양주가 양주군에서 분리되면서 붙여진 이름이다. 도농복합시로 미금시와 남양주군을 통합해 지금의 남양주시가 되었다. 동쪽은 가평군과 양평군, 서쪽은 서울특별시 노원구와 구리시, 남쪽은 광주시[10]와 하남시, 북쪽은 의정부시, 포천시와 접해있다.
+
+인구가 70만이 넘었지만 구는 아직 설치하지 않았다.[11] 일반구 설치를 못하고 있는 이유는 정부의 행정구역 단순화 방침으로 인해 승인이 어렵기 때문이다.[12] 시에서 3개구로 분구할 계획을 가지고 행정자치부에 승인을 요청했지만 3개구가 있는 시들의 인구가 모두 70만 이상이다라며 거절했다.[13] 결국 구 대신 2015년 정부의 가이드라인에 맞춰 책임읍면동제를 도입하기로 했는데,[14] 정부에서 다시 책임읍면동제를 폐지하고 말았다. 2018년 하반기에 행정구역 실무편람에서 일반구 설치 기준이 완화되면서 다시금 구 신설 가능성이 생긴 상황이지만 딱히 당장 진행할 의사는 없다.[15] 시는 왕숙신도시 개발이 진행되는 시점에 3-4개구 분할을 계획하고 있다.', 'https://i.namu.wiki/i/RdD6qQAzKnRFo0MWKO9BItF_Nqn54lJ3JsIRlBz2XxrBFnnkNuyAJ6-V3cwRz82aNzl1XpS9SwKiwzIXXpxL1WcUvuDVyUIs0jMS-uvEEiLOUNyw9DvYD7S5bT9TLhsGfOOIz_Kb6qFKvJ7N9Sdu-A.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '오산', '37.1494', '127.0773', '경기도 남부에 위치한 도시. 남쪽으로 평택시, 나머지 삼면으로 화성시와 접한다.', 'https://i.namu.wiki/i/JI7gYUiGuq7iZDf-_4rMl3QuMO81V_GOpYRqNnoprOTpWqv6CA4i38VwK-kmHbGx0EzU49ugxVne45jbOcPL_tflmIUdH1Suy2dIZzTYSkAwivayO5W5S3V8opq6Xu4vvtnuZKkkuXBVOpzeqxM0PA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '시흥', '37.3806', '126.8033', '경기도 서남부에 위치한 시. 서쪽으로는 인천광역시, 북쪽으로는 부천시, 동쪽으로는 광명시와 안양시, 남쪽으로는 안산시와 접하고 있다. 서울특별시, 인천광역시와 가까워 위성도시로 역할하고 있다. 또한 시화국가산업단지가 있어 수도권 공업의 중요한 축을 이루는 동시에 국가습지보호구역인 시흥갯골을 비롯한 5km² 규모의 호조벌 평야, 서해 바다 등 수도권에서 보기 힘든 자연환경을 가지고 있는 도시이다.
+
+서울 근교임에도 대규모 미개발지가 남아있어 낙후된 도시 이미지가 강하지만 여러 대도시와 접한 지리적 이점 덕분에 많은 택지와 서울대학교의 이원화 캠퍼스가 개발되고, 서울대학교병원과 서울대학교치과병원 유치를 확정 짓는 등 인구 증가 요인이 지속 발굴된 결과, 경기도 안에서 11번째, 전국에서 17번째로 대도시가 됐다.
+
+또한 시 동서남북을 통과하는 서해안고속도로, 영동고속도로, 수도권제1순환고속도로 등 6개 고속도로와 반경 50km 안에 위치한 인천항, 인천국제공항, 김포국제공항, 평택항 덕분에 국내 물류수송에 있어서 많은 이점을 확보하고 있다.
+
+서울 금천구 주변에서 시흥이라 하면 금천구의 시흥동을 먼저 떠올리는 경우가 많기 때문에 헷갈리지 않도록 조심하자.', 'https://i.namu.wiki/i/zW5h_hD635egEqZPpsFlJ33h8lYAK7g7tH6zXExIyxfoOdXM_VwlzpcyCFedPj95G1hftFotu0lpIh-pH8L_VLPGqP4RVj571iZp6HJlL8OiSFSNv-IPPjZNTYzlnlh0Gx2whFAOZYfF3GSdiLbFdA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '군포', '37.3624', '126.9358', '경기도 서남부에 위치한 시. 북쪽으로는 안양시, 서쪽과 남쪽으로는 안산시, 동쪽으로는 의왕시와 접한다. 서울특별시의 위성도시로, 의왕시 과천시와 함께 안양권에 속한다.', 'https://i.namu.wiki/i/KG0aQzWS0U4hQHIpL26CMCs2xRCo0J-2gUpk5Q9nKpu16xHC7FxmF-iwqMcrVpFoPnFBLx3vba3d1DU1rHghmtI9O5xMs5V8a-TXNSlUEEr04G5PJMCfocm4i3Ua3DlbOVRCFh2TwAmXQHfueqsYoQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '의왕', '37.3444', '126.9678', '경기도 남부에 위치한 시. 행정구역이 남북으로 길게 뻗어있는데, 개발제한구역(그린벨트)이 면적의 88.9%나 차지한다. 넓은 개발제한구역 덕분에 수도권이지만 자연환경이 뛰어나다. 북으로 과천시, 동으로는 청계산을 능선으로 성남시, 백운산을 능선으로 용인시[7], 남으로 수원시와 수리산을 능선으로 안산시[8], 서로 안양시와 군포시에 면한다. 또한 제2경인(안양-성남)고속도로가 연결되어 광명시, 서울특별시 금천구도 접한다.', 'https://i.namu.wiki/i/JvCdAUxnPAps8Jv1Kddoj7YZ_Z00rXQk5t3A0c4tuiaJSfkQb9l1rR3UR5A2mhGa_paSMG5g1HjPNFAbpCGeFinCzvTXmLeJ_tly9aH6aA52UDznKDFXFB2ynK9-QP5p2wuLsFwUDZICnmf-r1Aqjg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '하남', '37.5566', '127.2129', '경기도의 중동부에 위치한 시.
+
+시의 이름인 하남은 이름을 지을 당시 백제의 도성으로 알려졌던 하남위례성에서 따온 것이다.[6] 시로 승격하기 전의 지명이 동부읍과 서부면이라 이름으로 쓰기엔 부적절했기 때문이다.
+
+동쪽과 북쪽으로는 한강을 건너 남양주시, 서쪽으로는 서울특별시 강동구와 송파구, 남쪽으로는 성남시와 광주시와 접한다.
+
+경기도 남부와 북부의 교차점으로서 남부와 북부지역 모두 교류가 활발하며 남부와 북부를 이어주는 역할을 하고도 있다.[7]
+
+하남시 면적 93.04㎢ 중 그린벨트가 71.89㎢로 전체 면적의 77.26%에 달한다.
+
+2012년부터 이 지역의 징병검사를 서울지방병무청에서 담당하게 되어 신검 대상 하남시민들은 서울 동쪽에 있는 경기도 도시 중 유일하게 서울로 가야 한다.', 'https://i.namu.wiki/i/kxxKO9W4CcPmlAXLlLq01q9oqvC4PYRC-rdBNm_YNS2FZpWlMj2xedlqWQxDNRZrESfZFXtZOfVpeaLMTY-ObkDlj9OATZydMOurXQbGJIzMeUh7XwiUD65jo8RbC-cmUxofHbR2Co_nP2ZfAzCmBA.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '용인', '37.2411', '127.1775', '경기도 동남부에 위치한 시. 경기도에서 2번째, 전국에서는 9번째로 인구가 많은 도시이다.[7]
+
+동쪽으로는 이천시, 북쪽으로는 성남시와 광주시, 남쪽으로는 안성시와 평택시, 서쪽으로는 수원시, 화성시, 의왕시[8]와 접한다.
+
+21세기 대한민국에서 가장 급격하게 성장한 도시이자 급격하게 인구가 늘어난 도시다. 시로 승격되었던 1996년에는 인구 20만 명으로 도농복합시 승격 기준을 넘겼고, 2000년에는 용인시 인구가 38만 명 가량이었으니, 근 20년 사이에 3배가 불어난 셈이다. 그만큼 난개발과 그로 인한 부작용으로 몸살을 앓고 있다.
+
+용인시는 유명한 관광지가 많은 관광도시다. 에버랜드, 캐리비안 베이, 한국민속촌, 양지파인리조트, 용인자연휴양림 등 전국적으로 유명한 레저, 관광 시설들이 있다. 전국 지방자치단체 중에서도 관광객 1위를 기록했다. 하지만 에버랜드, 캐리비안 베이, 한국민속촌이 유명한 탓에 다른 지역에서는 에버랜드, 캐리비안 베이, 한국민속촌만 있는 동네로 아는 경우가 많다.', 'https://i.namu.wiki/i/6q-gS1hbZh9OEvTmUxnlW_7nnsIO_mOTr4aQhLisHcTt8jRbz-kZZGAg74tA_sTtPGAhugFgQYxG9D_TEqFFjVtWpGk84Zbr2fhYgHlb1nx0TO48tPbWVz9UnS4YFGqsuLYPaNKBQhmQ2oan0L0DQg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '파주', '37.7599', '126.685', '경기도 북서부에 위치한 시. 북쪽·서쪽으로는 북한의 장풍군·개성시, 남서쪽으로는 한강을 경계로 김포시, 동쪽으로 양주시와 연천군, 남쪽으로 고양시와 접하고 있다. 면적은 서울특별시보다 크고 경기도에서 6위며, 전국에서는 60위다. 2010년대부터 운정신도시가 개발되면서 인구가 많이 늘어나고 있다.
+
+북한과 접해있는 접경도시[7]이며 파주출판도시, 판문점, 임진각국민관광지, 경의선, 1번 국도, 헤이리 예술마을, 프로방스 마을, 오두산통일전망대 등 볼거리가 많다. 과거엔 농촌, 최전방 군사도시라는 이미지가 컸지만 2000년대 이후 헤이리 예술마을과 LG디스플레이 공장이 들어서면서 긍정적인 이미지도 생겼다.
+
+수도권임에도 최전방지역이라는 특성 탓에 대부분의 면적이 군사보호구역으로 묶여 있어 개발이 정체된 곳이었으나 2000년대 이후에야 산업단지와 신도시가 세워지면서 급성장한 도시이다. 다만 현재도 군사보호구역으로 묶인 곳이 많아 주민들의 재산권 행사에 제한이 많아서 이에 대한 불만이 많다.파주 면적 88%가 군사보호구역... 50년 발 묶인 재산권', 'https://i.namu.wiki/i/XE6FK59KY_qnfu1py8WsrpURN2-SeAnkHNb-gxcDxQr892ZFDTayuUGE2FSwkfkrKyhttsk4Qb4t-qU3VfyWEQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '이천', '37.2734', '127.4356', '경기도 남동부에 위치한 도시. 동쪽으로는 여주시, 서쪽으로는 용인시, 남서쪽으로는 안성시, 북쪽으로는 광주시, 남쪽으로는 충청북도 음성군과 인접해 있다. 중부고속도로와 영동고속도로가 만나고, 중부내륙고속도로도 지나가는 교통의 요지로 많은 제조업 공장과 물류창고들이 위치하고 있다.
+
+경기도에서 타 도와 맞닿아 있는 시군들 중 시내 기준으로 서울특별시와의 거리가 꽤나 가까운 편이다.[5] 잠실까지 45km 정도 나오고 강남역으로 진입하는데도 최단거리 기준으로 50km이면 충분할 정도로 서울하고 가까운 편에 속한다.[6] 시외버스로 동서울터미널이나 서울고속버스터미널에 가는데 1시간 정도면 충분하다. 특히 동서울터미널까지는 빠르면 40분 가량 걸린다. 그래서인지 대중교통으로 서울에 출퇴근하는 직장인이나 통학하는 학생들도 제법 있다. 광역 버스도 2020년 3월에 이천역~잠실역간 G2100번이 신설되어 운행 중이다.', 'https://i.namu.wiki/i/ikzVzlQu-PQm9c95dhxYuMQgnsR7APiPe1ZXOQuEhp6QKy8o7t9EOB0wPFbXKeVpZkhobraJDm9WOfdyB16ZjKKavof98tF-sYeEBXfa9igQsL0mg1aIJmeqepczGkMZiNc6GqMzHM9M33Wvw7GJSQ.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '안성', '37.0107', '127.2706', '경기도 남부의 시. 서쪽으로 평택시, 북쪽으로 용인시, 동쪽으로 이천시와 접하고, 남서쪽으로는 충청남도 천안시, 남동쪽으로 충청북도 진천군, 음성군에 접하는 곳이다. 경기도의 최남단에 위치해 평택시와 함께 충청도에 맞닿아있어 일종의 관문 역할을 수행한다. 그래서인지 과거에는 대구, 전주와 함께 3대 상업 도시로 손꼽히기도 했는데, 당시 안성은 대도시 부럽지 않은 번화한 도시로 특히 매월 2일과 7일 단위로 열리는 5일장은 조선 3대 시장에 속했을 정도였다.
+
+일제강점기 시절 일본이 처음 경부선 철도를 구상할 때부터 안성은 경유지에 없었다.[6] 안성 북쪽은 꽤 기복이 심한 산지라서 철도가 통과하기에는 부적합하고, 그렇다면 평택을 거쳐 서쪽에서 접근해 진천, 청주 방면으로 빠져야 하는데 안성과 진천 사이에는 차령산맥이 가로막고 있다. 이럴 바엔 평택에서 역시 대도시인 천안으로 빠지거나 광주, 양지 일대의 회랑을 타고 양지-죽산-진천 루트를 타는 게 여러모로 합리적이었다. 관련 게시물을 읽어보면 알 수 있듯이 일본은 양지-죽산-진천 루트만 두번이나 검토했었다.
+
+일제강점기에 경기 남부의 농산물을 서해안 항구로 반출하기 위해 부설한 안성선은 해방 후 안성 - 천안선만 운행되다 폐선되어 지금은 철로가 있던 자리만 남아있으며, 경기도가 경인선과 경부선이 통하고 경인고속도로와 경부고속도로[7]가 지나는 수도권 서남해안 일대를 발전시켰기 때문에, 당시 안성군은 수도권 외곽의 지자체들처럼 초라하기 짝이 없을 정도로 빈약해진 지역이 되었다. 향후 수도권 내륙선과 평택부발선 건설 계획에 두고 있는데 수도권내륙선에 경우 예비타당성 조사에 들어갔고, 화성시, 안성시, 청주시, 진천군이 하나로 손잡고 추진중인 사업으로 안성이 다시 주목받고 있고, 30여년 만에 다시 철도시대를 열 것으로 보고 있다.', 'https://i.namu.wiki/i/DViYmFap-rQRJRH-X4opgnh0X49gWV9AyxtvezZjAIj0UGUak_p3fEiOEXQ_nH8cgPEI9E_XtGSqRDEMRxSE_npJHW-bEF97n75hReB3Z7RjEnSvAA6Nqte5l5jACfPSrVgL8mc3quV5i9uYoshvnw.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '김포', '37.6154', '126.7156', '경기도 서북부에 위치한 시. 북쪽으로는 한강 건너편에 대한민국 입장에서는 미수복지역인 북한이 있으며, 동쪽으로는 한강 너머에 파주시와 고양시가 있고, 남동쪽으로는 서울특별시 강서구, 남쪽으로는 인천광역시 서구와 계양구, 서쪽으로는 인천광역시 강화군이 있다.', 'https://i.namu.wiki/i/HZewJySWlOr6E3VqldQ4tWjVHClcuaZ-2Ho0meY4y8J5_E31_VsLx9LfuhI-pszqB-uja7ycJuuDRUB-IWorl4Wa8hCKOr0d0kGUeDmtcNhqZU3Vq5fNeEO_KZhBNEMYEkhulRfn7WVrA-bCGrXekg.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '화성', '37.1995', '126.8312', '경기도 서남부에 위치한 시. 경기도에서 가장 빠르게 인구가 증가하는 지역이며, 꾸준한 인구증가로 2019년 9월에 인구 80만, 2022년 9월에 인구 90만을 돌파했다. 또한 인구가 90만이나 되는데도 구가 설치되지 않았다.[9] 북쪽으로는 수원시, 안산시, 동쪽으로는 용인시, 남쪽으로는 오산시와 평택시와 붙어있다.
+
+서울특별시의 약 1.4배에 달하는 면적과 동서로 긴 모양이다.[10] 또한 동서격차가 심해 서쪽의 읍면 지역과 동쪽의 동탄 지역이 서로 아주 다른 모습이다.
+
+서부 지역[11]은 대부분 한적한 농촌 지역의 모습을 볼 수 있고, 새솔동을 제외하면 행정구역이 모두 읍이나 면이다. 남양호 주변에서 생산되는 경기미가 유명하고, 송산면의 포도가 유명하다. 서해가 있어서 어업 또한 발달했으며, 제부도가 관광지로 유명하다. 남양읍과 향남읍, 봉담읍이 택지개발로 소생활권을 형성해나가고 있다. 2023년 8월 기준 인구는 346,225명, 면적은 615.82km2, 인구밀도는 562.21명/km2. 셋 다 분동 기준인 5만명보다 많고 특히 향남, 봉담은 8만명이 넘게 성장했다.
+
+동부 지역[12]에서는 대도시의 모습을 볼 수 있다. 병점역 서쪽에는 유네스코 세계유산인 융건릉이 있으며, 동탄신도시에는 경기도에서 가장 높은 건물인 메타폴리스가 있다. 2023년 8월 기준 인구는 588,062명, 면적은 84.81km2, 인구밀도는 6,933.87명/km2.
+
+재정자립도는 경기도에선 1위, 전국 4위, CNN 선정 앞으로 부유해질 도시에 아산시와 함께 4, 5위를 차지했다.', 'https://i.namu.wiki/i/239D1w3jidbNkKmSQoSBAKfcdufQTdJ4UBca08g-SDmRrtbaMkCOA2WWh0I4jCCMe9HH2z3Z-zSqWCt1YZOj8QVz0Ms5NWgSPRGWCqiB9f7axZac8JKoxtJtMFkmT0Xve_Wr-3MvgCH7lCZn-uL_vQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '양주', '37.7744', '127.0452', '경기도 북부에 위치한 시. 동으로는 포천시[5], 남으로는 의정부시[6] 및 서울특별시 강북구와 도봉구[7], 서로는 고양시[8]와 파주시[9], 북으로는 동두천시[10]와 연천군[11]에 접한다.
+
+본래 의정부시, 구리시, 남양주시, 동두천시, 서울 일부 지역 등과 한 지역이었기 때문에, 당시 양주에서 가장 큰 동네이자 현 구리, 남양주를 포함해 양주 전체의 가운데에 해당되는 의정부에 군청을 두었고 1963년 의정부시의 분리 이후에도 군청이 의정부 시내에 있다가[12], 2000년에 가서야 의정부 생활을 마감하고 양주목 관아 터 근처인 현재의 자리로 이전하였으며 2003년 양주시로 승격되면서 시청 타이틀을 달게 되었다.
+
+양주시는 군사 시설이 매우 광범위하게 많이 있으며, 8사단[13], 25사단, 72사단 등 주요 육군 사단과 국군양주병원이 위치해 있다.', 'https://i.namu.wiki/i/49GqKu-r4pwhPY_t6TeYapkOdQ9yPv3LLBZoC-y4yrZw2enWzI1S7nYtWPK-5838aHVxTq0nTjsWz_OhxPp_Yz8FL9k1lHj2_ByJaRLDq0yCquv3ikHCkg1l0rcNdoROWgW6oSpJ29eVC5X9gjUxEg.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '포천', '37.8943', '127.2007', '경기도 북부에 위치한 시. 경기도의 기초자치단체 중에서는 양평군, 가평군에 이어 면적이 세 번째로 넓으며, 경기도의 시 중에서는 가장 넓다. 다만 시 영역의 많은 곳이 산지로 구성돼 있어 동 지역과 소흘읍을 제외한 지역은 대부분 개발이 더디다. 남쪽으로 의정부시, 남양주시, 동쪽으로 가평군[6], 서쪽으로 양주시, 동두천시[7], 연천군, 북쪽으로 강원도 철원군, 화천군[8]과 맞닿아 있다.
+
+특이한 점이라면 동이 아니고 읍인 소흘읍 송우리 일대가 포천에서 가장 번화한 곳이고, 가장 집값이 비싸다는 것이다.', 'https://i.namu.wiki/i/nc-aRp_x7QZKuc_8c1-CUo9GfutqdCcLh-PIAn8-5-koFh7mQDPYITB6XHjPXFKa7-UZEuPwOjWANpr1TXZx_yOiDV9vuxKIJ3A4Dt6mt6Az2GWe1nZbmw5AyaL4OeMBf_dAo_EWdF-XmjeWQuLhgQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '여주', '37.2984', '127.6373', '경기도 동남부에 위치한 시. 동쪽으로는 강원특별자치도 원주시, 남서쪽으로는 이천시, 서쪽으로는 광주시, 북쪽으로는 양평군, 남쪽으로는 충청북도 충주시, 음성군과 접하고 있다.
+
+2013년 9월 23일, 여주군에서 여주시로 승격되었으며 현재 전국에서 가장 최근에 생긴 시이다. 인구 수를 비롯한 각종 분야 면에서 시로 승격되어도 문제될 건 크게 없으나, 토지의 대부분이 농지에다 여주가 상수원 보호구역이기 때문에 개발이 제한되어 있는 시점에서 시로 승격되어 유용히 받던 농어촌 혜택을 못 받게 되었다고 불만을 표시하는 주민도 일부 있다.[6]
+
+남한강이 지역의 정중앙을 관통한다. 다시 말해서 상수원보호구역이라는 것이며, 상류가 충주댐이므로 보호구역 지정에서 해제될 확률은 정말로 한없이 낮다. 거기다 별다른 (2차 이상의) 산업도 없다. 시내에서 20분 정도 차 타고 가다 보면 농경지가 엄청 많다. 도농복합시가 농경지가 많다고는 하지만 애초에 여주는 시가지라고 할 만한 곳도 상당히 좁다. 시내 초입이라 할 수 있는 여주종합터미널에서 여주시청까지는 걸어서 고작 10~15분이면 끝이다. 시청사는 다른 도시의 동 주민센터나 면사무소 규모이다.[7]', 'https://i.namu.wiki/i/ulrhpaUhhSYlG3xYvv1w9Q75E5bNy0t0L4Q8j9OVU6Z82SF4h2pgAowMg1l-zQfTkBkwGyQAkOlgbQsfI4UETA.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '연천', '38.0971', '127.0674', '경기도 북부에 위치한 군. 군사분계선 바로 아래에 위치한 최전방 지역이다.[5] 경기도에서 가장 인구가 적은 기초자치단체로, 1983년에 인구 8만 명을 찍은 이후로 2011년까지는 인구 감소세에 있었으나 각종 인구 유입 사업과 출산장려 정책[6], 관광지 홍보 등에 힘입어 2012년부터 소폭 증가세로 돌아섰다. 이것도 무려 30년 만에 증가한 것. 하지만 2016년 이후로는 다시 감소하고 있다.
+
+농산물 브랜드명은 남토북수(南土北水)이다. 남쪽의 비옥한 토지와 북쪽의 깨끗한 물을 의미한다고. 마스코트는 원시인 커플 고롱이 & 미롱이이다.[7]
+
+경기도에서는 유일한 분만 취약 지역이다.', 'https://i.namu.wiki/i/6x60dFFtQ2ep4SmNofjIufgSddt1jQKCFPgQid35Xh0mYnTLY2B7y0qwBaK0gvDWPM_4UQGfDzfp8iycmcGovSLZ5EBmuv3lG5aKvSII8F7aXAAoMoSJJhWRsXqgsj3nZ7h8TJ5r-RA6U3ujMjibZw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '가평', '37.8312', '127.5096', '경기도 동북부에 위치한 군. 동쪽은 강원도 춘천시와 홍천군, 서쪽은 남양주시와 포천시[6], 남쪽은 양평군, 북쪽은 강원도 화천군과 접한다.
+
+물론 대부분 지역이 북한강 이북 지역이긴 하지만, 가평군의 남부 지역인 북한강 이남 일대인 설악면과 청평면 삼회리는 과거 양평군 지역이며 이에 따라 한강 이남 지역도 같이 포함하고 있어서 일반적인 한강 이북 경기 북부와는 조금 다르다.
+
+또한 가평군의 광활한 면적 때문에 생활권도 각각 다르다. 청평면이나 설악면, 조종면 일대는 대체로 남양주시 생활권이라고 보면 되며, 가평읍이나 북면은 강원도 춘천시 생활권이다.
+
+면적은 서울특별시의 1.4배나 되지만 인구는 서울특별시의 0.6% 수준이다. 바로 옆 남양주시와 비교해도 1/12 수준(남양주는 73만 명). 하다못해 대성리 바로 옆에 붙어있는 화도읍(10만여 명)의 인구보다 적다.[7] 면적은 경기도에서 2번째로 넓고 인구는 3번째로 적으며 인구 밀도 또한 2번째로 낮다. 다만, 가평군이 첫 번째인 것도 있으니, 전국 기초자치단체명을 가나다순으로 나열하면 맨 처음에 오는 곳이다. 2번째는 강남구, 맨 마지막은 횡성군이다.
+
+간씨의 본관이 가평군이며 단본이다. 이외에 가평 이씨와 같은 가평군을 본관으로 삼는 성씨들이 더 있지만 인구 비중으로는 극소수인데다 집성촌도 가평군 관내가 아닌 다소 멀리 떨어진 지역들에만 존재한다고 한다.[8]', 'https://i.namu.wiki/i/hPy7LpoVwt0ubfZcSzGChrEYprMRPg6mHpzY5FYop-Q5UV6LlxeS8jKqVZAhqC0wHyKnQVVaeKFeqSQqBpmOOXDP4KGtr5DYvn84cxfBB7yYcBxUhNNbKcRCzAuhGiJ-XghA59K3HBYv7uQXvkaKkA.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '양평', '37.4915', '127.4871', '경기도 동부에 위치한 군. 경기도에 마지막으로 남아있는 3곳의 군[6] 중 하나로 경기도에서 가장 면적이 넓은 기초자치단체이다. 같은 경기도의 여주시, 동두천시, 과천시보다 인구가 많다. 또한 도 산하의 군 중에는 가장 인구가 많다.
+
+근처에 팔당댐[7]이 있어 상수원 보호구역, 자연보전권역 등 갖가지 개발제한 사항이 많은 지역이기도 하다. 서울시민들에게는 가평군, 여주시와 함께 대표적인 교외 휴양 지역으로 인식된다.
+
+군의 상징은 은행나무이며, 군 심볼도 은행잎 모양으로 되어 있다. 양평에서 유명한 산으로 용문산이 있는데, 여기에는 수령이 1,100년이 넘는 은행나무가 있기 때문이다. 마의태자가 꽂아놓은 지팡이가 은행나무로 자랐다는 전설이 있다.', 'https://i.namu.wiki/i/eyXHhBJVV9g6WdeZMLJ8BH8P2Co4l9Zau8Hg7-cnEDKzmXlEf0vStiSluHYtOU4qo4Q2Ueh8fG5u4uIZIi-IghtNncdZyZzt8uIEWKtXwswbl0x60-wudn4wY-2Z5DsRNTYZiGzhOlAbixg9q7hEUQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '춘천', '37.8815', '127.7295', '
+강원특별자치도의 시. 강원특별자치도청을 포함, 여러 관공서 및 공공기관의 지역 본부가 소재한 강원특별자치도의 수부도시이다.
+
+거점국립대학교인 강원대학교, 국립 교육대학인 춘천교육대학교 등이 소재한 중동부 지역 최대의 교육도시로서의 기능도 수행하고 있다.
+
+기원전 7세기부터 대규모 취락이 자리잡아 고대부터 맥국의 고도(古都)로 여겨져 온 강원특별자치도 최고(最古)의 도시이자, 수도 방위의 핵심 요충지에 설치된 조선의 다섯 유수부 중 하나이다. 또한 영서지방의 역사적, 문화적 중심지로 서쪽으로 접하는 경기도 가평군, 북쪽으로 접하는 화천군, 북동쪽으로 접하는 양구군과 인제군, 남쪽으로 접하는 홍천군을 포함한 영서 북부 지역의 거점도시로, 영서 남부 지역의 원주시, 영동 지역의 강릉시와 함께 강원도 3대 도시를 이룬다.
+
+소쿠리 모양의 침식분지를 바깥의 세 호수[10]가 둘러싸고 있으며 분지 한가운데에 솟은 진산(眞山) 봉의산을 중심으로 자리잡은 도시와 분지 중앙부를 가로지르는 의암호, 그 속에 자리잡은 중도가 어우러진 특유의 아름다운 경관을 연출하여 낭만, 청춘의 이미지를 가진 호반의 도시로 널리 알려져 있다.
+
+세 곳의 지협[11]을 제외하고 산으로 온전히 둘러싸여 방어자에 매우 유리한 특유의 지형 때문에 삼국시대부터 군사적 요충지로서 주목받았으며, 양 란 이후 이옥, 이익, 정약용 등의 학자들은 춘천은 전란 속에서 국운을 보존할 수 있는 국가보장지라며 춘천보장론을 주장했고, 고종은 춘천에서 친위대를 양성, 1888년에 춘천을 유수부로 승격하고 춘천이궁을 건립하였다. 결국 6.25 전쟁 개전 초 춘천지구 전투에서 인민군의 진격을 지연시켜 대한민국의 국운을 수호한 한반도의 핵심 요충지이다.
+
+1946년 6월 1일, 강원도에서 처음이자 대한민국(일제강점기 포함)에서 12번째로 시로 승격되었으며, 2023년 9월 현재의 총인구수는 290,929명으로 강원특별자치도 최초의 대도시 특례[12] 부여를 앞두고 있다.', 'https://i.namu.wiki/i/9nn7KG4z-fmm5HzycIwkxjkYrP0qIli2uUkg8eshX4kmJLbETa2zX2dfV8DIFkXJG7uVVQ8Wctb6cOh-Ds0u_Nl9iP-zrEDwmcmKIlZfv4r2U0uoBGNiJp-rf0Y_twhI4uFqbUY7pFsL8rkgrJ3VdA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '원주', '37.3496', '127.9395', '
+강원특별자치도의 시.
+
+강원특별자치도에서 가장 인구가 많은 최대 도시이며, 춘천시, 강릉시와 함께 강원특별자치도의 3대 도시 중 하나다.
+
+원주라는 이름은 사통팔달의 요충지[8]로써 "지역이 개활(開闊)되어 넓은 들판"이라 해서 원주(原州)라 한 것으로 추정된다.[출처]
+
+강원특별자치도에서 선거구가 단독으로 갑/을로 갈라지는 유일한 지역[10]이자 고을 주(州) 자가 들어가는 유일한 도시다.', 'https://i.namu.wiki/i/T36qhLg3CF3x5YEQGccBUj7TgCeEu7eOd3kYM7sPretXGMTCLOBz_WONtb2bZkVm-LGFVOVGPnR0vg-74ONiafsZQzqvR2qGaxk9lENIkCi0rqjfZNXaKSKhbMLLQLy4qLcyvMX9Z7bQh53oEICzOg.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '강릉', '37.751', '128.8761', '강원특별자치도의 시. 원주시, 춘천시와 함께 강원특별자치도 3대 도시 중 하나이며[5] 동해안에 접하는 영동 지방의 최대도시이다. 강원특별자치도청의 제2청사가 있기도 하다. 신라시대 때 이름은 명주(溟州). 1955년부터 1995년(도농통합 전)까지 강릉시와 명주군으로 나뉘어 있었다. 동으로는 동해, 남으로는 동해시와 정선군, 서로는 평창군과 홍천군, 북으로는 양양군에 접한다. 
+
+강릉은 도시 전체가 관광지 수준인 도시로, 강릉에는 여름 피서철에만 600만~800만 명이 찾아오며, 연간 방문객은 1,500만 명에서 1,800만 명선이다. 주요 관광 자원으로는 경포대[6], 신사임당과 이이의 오죽헌, 전주 이씨 효령대군 후손 이내번의 집인 강릉선교장, 경포해수욕장, 정동진역 등이 유명하다.[7] 이외에 안목해변과 주문진 커피거리도 2010년대 한국의 커피 유행과 더불어 유명해졌다. 
+
+강원 영동지방의 중심도시이지만 태백산맥이라는 거대한 장벽 때문에 수도권과는 동떨어져 있는데다, 1960~1990년대에는 경제 개발이 경부라인과 경인라인에 집중된 까닭으로 현대에는 그 영향력이 많이 축소되었고, 또 한국 내수시장이 협소한 관계로 관광산업 특성화만으로는 발전에 한계가 있다.[8] 과학산업단지가 개발이 완료됐지만, 입주율은 좋지 못한 편이다.[9]
+
+2018 평창 동계올림픽의 빙상 경기가 모두 이곳에서 이루어졌다. 특히 동계올림픽 최대 인기 종목인 아이스하키는 모두 강릉시에서 경기가 열렸다. 인구 21만명의 중소도시에 빙상장 5개가 웬 말이냐고 까이기도 하지만, 그래도 개회에 맞춰 개통할 경강선과 지역 개발을 위안으로 삼자. 시민 처지에서는 그런 거 다 모르겠고 일단 가서 스케이트 타고 놀기는 좋더라는 경험담도 들린다.[10] 그리고 2024 강원 동계청소년올림픽이 개최될 예정이다. 강릉 뿐 아니라 평창군, 정선군, 횡성군 등 4개 시군에서 개최되는데, 개회식이 2024년 1월 19일 강릉 스피드스케이팅장에서 열린다.
+
+2009년 녹색도시 시범도시로 선정되어 이와 관련된 사업 및 브랜드화가 한창이다. 일단 솔향강릉으로 시 브랜드를 지정해 시를 널리 알리고 있으며, 솔향강릉 슬로건은 2010년에 우리말 사랑꾼 구호 중 하나로 선정되기도 했다. 솔향강릉 브랜드 선정 이후 전 시내버스를 녹색(좌석버스는 보라색)으로 재도색을 했다.
+
+참고로 과거 인기리에 방영된 국내산 특촬물 지구용사 벡터맨의 주요 촬영지이기도 했다. 당시 강릉에 살던 지역 초등학생들은 벡터맨 촬영현장에 놀러가거나 지역 돌아다니다 우연히 그들과 마주친 추억을 간직하고 있는 이도 좀 있다.
+
+해안에 인접한 덕에 청동기 시대부터의 유물이 다양하게 출토된다. 해안에 인접한 초당, 강문에 한정하여 경주에 비할 것은 못 되겠으나 연식이 오래된 건물을 헐고 건물을 새로 짓기 위해 땅을 파면 어느 순간 문화재청장 명의의 현판이 내 시야를 가로막고, 교과서에서나 보던 유적지 발굴 현장이 내 눈앞에 펼쳐져 있다. 실제로 강릉고등학교 내에서 유물이 세 번이나 발견되어 모두 공사가 중단되고 근처 유치원생 및 관광객들의 볼거리가 되었던 적이 있다.', 'https://i.namu.wiki/i/7E9KDBLWEi19Y8MRZYreQP4ORP2gNFj3ClWXFV6QM7YPM-rNSBEtWn7_NHCF7v8TK4rHuTHhK9n1kb-lXe9166qUUHv49xa-5b1gin0DFLHyo1vXu8eLdOBh5dtYojCNTWyASe8bE7BTVQ7lrZ6ypw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '동해', '37.5089', '129.1211', '
+강원특별자치도 남동부에 위치한 시. 이름은 바로 옆 바다에서 따왔다.[7] 강원특별자치도에서 원주시, 춘천시, 강릉시에 이어 네 번째로 큰 도시다. 원래 이 타이틀은 태백시가 가졌다[8]가 태백시의 인구 감소로 동해시로 넘어갔다.
+', 'https://i.namu.wiki/i/bR3uyz_JhWNal2JruHyLPQz_UJfA6deXh4MIsFAYf-3hzpI0G5VAALMM4HBRwF0XiaMhpCHO5bLFo2L3s9sA1I1kgvnHIobw0WiBGPTv0y7Gwm2juogZuOnwJDYvoomwKxjNh_-zzOoyHGoqAC9vDQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '태백', '37.1611', '128.9874', '강원특별자치도의 시. 북과 동으로는 삼척시, 남으로는 경상북도 봉화군, 서로는 영월군과 정선군에 접한다. 관할 방송국은 강릉시[9]에 있지만, 송신소는 태백시의 해발 1,500미터가 넘는 고지대인 함백산에 있기 때문에 안테나를 높게 뽑아 보면 삼척 방송이 대구광역시에서도 들린다.
+
+태백산국립공원이 유명하며, 4대강 중 2개인 한강과 낙동강이 이곳에서 발원한다. 한강은 창죽동에 있는 검룡소, 낙동강은 태백 매봉산 천의봉에 있는 너덜샘.', 'https://i.namu.wiki/i/DtqWOmC-QvjOgrubgEZ9MI9ppLrv2qU6IbxrzOsScfgmK2qX3wvlWwssHqQlD0Gy9QYFNrp11gngUIK4fvYGMSu4AZ-YWYhhMmyTTqGyJyhHDtOPYD0VfJa0bJQUgLyiKkumu1-DLJgYvu8fc2VZMg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '속초', '38.2046', '128.5649', '강원특별자치도의 시. 동쪽은 동해에 접하고 서쪽은 설악산과 그 너머의 인제군 북면, 남쪽으로는 양양군 강현면, 북쪽으로는 고성군 토성면과 접한다.
+
+최북단의 위도는 북위 38° 13′50''(북위 38.23도)로, 대한민국 실효지배 지역 중 가장 최북단에 있는 시이며[5] 황해도 지방인 해주시 시가지보다 시가지가 위도가 더 높은 곳에 있다. 강릉시의 주문진과 더불어 동해안 주요 어업 전진기지 중 하나이며, 설악산국립공원이 시 면적의 절반 정도를 차지하고 있다.
+
+속초의 순우리말 이름은 풀묶음이고, 지금도 일부에서도 사용되고 있다. 속초를 풀묶음 이라고 부르는 것에는 설악산의 울산바위 전설과 연관이 있다. 자세한 것은 울산바위 문서를 확인하자.
+
+속초시는 대표적인 국내 여행지 중 한 곳으로, 관광산업이 발달하여 있다. 관광도시답게 음식점과 숙박시설이 많이 있으며 최근 동해고속도로, 서울양양고속도로가 개통되면서 관광객 수가 크게 증가하였다.
+
+그리고, 근처에 인제군이나 고성군 같은 동네가 있어서 (주로 휴가 나온) 군인들을 쉽게 볼 수 있는 도시 중 하나이다.', 'https://i.namu.wiki/i/mYHXY2iXa5HtZVQtYQxEwrslKSpwSpPx4wyvRNdWxSPrujkyOBQj2-rOZ8AeAmj_ETqU0WXCNO6HFIt2K7q_yOybHWCo_glogCEpTV7PLmdaCnJnscTe6na6qgf4ziJMwbd7JDS989pZz3CP3ugBGg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '삼척', '37.4473', '129.1686', '강원특별자치도의 시. 동으로 동해, 남으로 경상북도 울진군과 봉화군, 남서로 태백시, 서로 정선군, 북으로 동해시에 접한다.', 'https://i.namu.wiki/i/z-vR6ZsK5ExOqG9GMvu0hnwGeVwGwHZXcUyLia8vu0t0GcGBdpNbGzHLzsZbDiKJ1OlwMrzosZbZx8e0CYu3nw.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '홍천', '37.6907', '127.897', '강원특별자치도의 군. 면적은 1,820.58㎢로 대한민국의 기초자치단체 중 면적이 가장 넓다.[7] 이름에도 넓을 홍(洪) 자가 들어가 있다.
+
+인구는 약 68,000명 정도로 강원도의 군 지역 중에서는 가장 많다. 다만 면적이 상당히 넓어 인구 밀도는 희박한 편이다.[8] 다른 대도시에 홍천군의 인구 밀도(38명/㎢)를 대입해보면 서울 22,998명, 부산 29,260명 등 인구가 극강의 수준으로 떨어지는 것을 볼 수 있다.
+
+동쪽으로는 강릉시와 양양군, 서쪽으로는 경기도 양평군과 가평군, 남쪽으로는 횡성군과 평창군, 북쪽으로는 춘천시와 인제군과 접한다. 백두대간과 수도권에 모두 경계를 접하는 유일한 기초자치단체다. 이게 체감상으로 어느 정도냐면 홍천군의 최서단이라고 할 수 있는 보리산 정상 일대와 서울특별시의 최동단이라고 할 수 있는 강동구 상일동 상일IC와의 직선 거리가 겨우 32km에 불과하다. 앞서 말했듯, 양양, 강릉과도 접하고 있는 주제에 양평과 가평과도 접하고 있으면서 두 지역(가평, 남양주) 너머가 서울이라는 소리이고, 양양이나 강릉에서 세 지역 너머가 서울이라는 소리.
+
+심벌마크와 마스코트는 대한민국의 국화(國花)와 같은 무궁화이다.[9] 이는 일제강점기 때 무궁화 보급에 앞장섰던 한서 남궁억 선생이 홍천군 서면에 학교를 세우고 활동했기 때문이다. 군조(郡鳥)는 까치이며, 이를 활용한 새 마스코트 홍이와 청이(#)를 선보였다.', 'https://i.namu.wiki/i/sP4LHPJq6TPvelvQf79RcIr0NxRkSwbOz9Db4vJ-2zS5FMg7SYxz8M7CLcPObOVUxHxQEsbpe_p-ZwfWAguXjz70TZNhx21YSqDvEY2DhqBX8YiOEmM6pdfvJntbora-FbIWG7vSjFJfEck90g5_ig.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '횡성', '37.4881', '128.2027', '강원특별자치도 남서부에 위치한 군. 동쪽으로는 평창군, 서쪽으로는 경기도 양평군, 북쪽으로는 홍천군, 남쪽으로는 원주시와 영월군에 접한다.
+
+유명한 것으로는 전국 단위로 학생을 모집하는 자율형 사립고등학교인 민족사관고등학교와 특산물인 한우가 있다.
+
+전국 기초자치단체를 가나다순으로 나열했을 때 가장 마지막에 오는 곳이다.[6]
+
+충청남도 홍성군[7]과 이름이 비슷하여 혼동될 수 있다.', 'https://i.namu.wiki/i/DQVl4OkYC6TjR3C6lmrNFmkuakAG0iXqp1QSVup68oXQ7TslKNGHkDEh0BpoZLaRR3qht7wrEkNnHaic-kh5BZmAOqpn5Ksr7eo47n_efSESCnlfOGcnfFwHK6BnR6SjbjMGXHxhzKT4r6ivqPT7qg.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '영월', '37.1839', '128.4643', '강원특별자치도 남부에 위치한 군. 슬로건은 Young World(영 월드). 군정방침은 변화와 도약, 살기좋은 영월 이다.
+
+계유정난 이후 폐위된 단종의 유배지로 산 넘고 물 건너야 갈 수 있는 깊은 산골의 이미지가 강하였고[7], 실제로도 가장 가까운 제천에서도 느릅재와 소나기재를 넘어 힘겹게 가야만 하는 곳이었다. 그러나 2004년 말에 38번 국도가 4차선으로 확장되면서 접근성이 크게 개선되었으며 지붕 없는 박물관을 표방하며 관광 도시로 이름을 알리고 있다.
+
+한때는 제천시, 단양군과 더불어 전국 시멘트 생산량 절반을 상회하는 도시로 성장하며 전성기를 누렸으나, 시멘트 사양화로 인접도시와 함께 쇠퇴의 길을 걷고 있다. 인구는 1967년 12만 5천 명이 정점이었고, 옆 마을 제천과 비등하여 한때 시 승격까지 논의되었으나, 강원도가 산업단지 유치나 교통인프라 개선보다 주력산업인 광업에 의존한 까닭에, 석탄산업 합리화 정책 이후 급격히 감소하여 4만명 선마저 붕괴되었다. 행정구역이 넓어서 인구밀도는 영월읍을 제외하고는 매우 희박한 편.
+
+강원도 산하지만 제천시 생활권인 지역으로 두 지역 간 인적, 경제적, 문화적 교류가 활발하다. 원주보다도 거리가 가깝고 인적, 문화적 교류가 더욱 자주 이루어지기에 사실상 영월과 제천은 한 동네와 다름없는 곳이라고 보아도 무방하다. 특히 주천면, 무릉도원면(구 수주면), 한반도면(구 서면)의 경우에는 아예 영월읍보다 제천시내가 더 가깝다. 애초에 영월에서 원주로 가려면 제천을 거쳐가야 한다.[8]단, 제천에서도 더 좋은 인프라를 찾아 원주로 나가는 사람들이 많은 만큼 영월에서도 원주로 바로 나가는 경우도 많다. 단적인 예로 제천에 이마트가 생기기 전까지는 제천, 영월, 단양 사람들은 원주 이마트로 장을 보러 갔다.', 'https://i.namu.wiki/i/GaQA96GxElJwPpObBhlVVQbxeF63FtLGKR34gmIVMGNaA0XBdoz1YQkRW76qcdTJ5mkuot7dQUgrOvgjAP4-u9cKZqFjPYA-DNKYwv49YliP52nJaDhwIcgnmHpOpd_tqPChRyYfltP4s6VhjqP7pA.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '평창', '37.3705', '128.3954', '강원특별자치도의 군. 인구 약 4만 명. 동으로는 강릉시와 정선군, 서로는 횡성군, 북으로는 홍천군, 남으로는 영월군에 접한다. 용평 리조트, 휘닉스 파크, 대관령 삼양 목장 등으로 유명한 대표적인 여름·겨울 휴양 여행지이다.
+
+1999 강원 동계 아시안 게임과, 2013 평창 스페셜 올림픽, 2018 평창 동계올림픽, 2018 평창 동계패럴림픽이 개최되었던 지역이다.', 'https://i.namu.wiki/i/uUBGIunerqVUeFeGILaVjl8XvZIiBpsOjyKzgoXnvQpOIqiN6r2KwLfRz9OFUhfjkAU8hFEGgUynTWIcbLDTrrCzfAhj_kEA07K5Y0Meu7HR5A8voD3315oDWZCrJOL3XVih27WTmEx8mTSXQs9HIA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '정선', '37.3788', '128.6568', '강원특별자치도 남동부에 위치한 군. 지리적으로는 태백산맥 한가운데에 위치하고 있다.
+
+정선은 관광업을 주요 산업으로 하고 있으며 수려한 자연경관과 아리랑으로 대표되는 문화유산 그리고 유서 깊은 문화재들을 대표로 하여 관광객들을 유치하고 있다. 각종 영화와 드라마 그리고 1박2일 삼시세끼 등 예능과 방송등에서 빈번히 등장하는 곳으로 산이 많아 등산객들이 많이 찾는 대표적인 지역들 가운데 하나다. 희귀식물의 보고로 알려진 가리왕산과 억새풀 장관으로 유명한 민둥산 종합 레저 스포츠의 하이원 리조트로 유명한 백운산 연간 50만명 이상 찾는 함백산 등 명산들이 즐비하다. 지리적으로는 영서에 속하나 문화적으로는 영동에 속해 영동과 영서가 혼합된 문화적 특성을 보인다. 지형적으로 산들이 많은 관계로 특산물로는 나물이 많으며 설총과 율곡이이가 들어가 공부했다는 이성대와 국보 332호 등 역사적인 문화재들도 대표적이다. 특히 모든 아리랑의 기원으로 여겨지는 정선아리랑의 발상지라 아리랑의 고장이라 불린다.
+
+적은 인구 수에 비해 유난히 읍(邑)이 많은데, 과거에 인구가 굉장히 많았을 때 나뉜 것이다. 지금이야 강원도의 손꼽히는 농촌지역이지만, 리즈 시절에는 무려 13만의 인구를 자랑하는 강원도의 효자 지역이었다. 1960~70년대 경제개발 시기의 한국에서는 해외에서 수입해야 하는 석유보다 자급자족 가능한 석탄을 연료로 더 많이 썼고, 덩달아서 석탄이 많이 나는 정선이 굉장히 발달했었다. 그러다가 1980년대 후반부터 원가상승과 환경오염 문제로 인해 연탄 소비량이 급감하기 시작하고 1989년에 시행된 석탄산업 합리화 정책으로 인해 탄광업이 사양길로 접어들면서, 2021년 기준으로 보면 인구 약 3만 6천명으로 전성기 시절의 1/4 정도로 급격히 줄어버렸다.
+
+세계에서 유일하게 한국인이 합법적으로 카지노 게임을 할 수 있는 장소인 카지노 강원랜드가 사북읍에 있다. 탄광 산업이 쇠퇴한 이후로 침체된 정선 경제를 부흥시키기 위한 목적으로 2000년 10월 설립된 공기업으로 덕분에 지방세 수입은 꽤 늘어났지만 자체 산업으로 대표되는 관광업은 과거 광업과 비교해 부족한 수준이라 인구 감소를 막지는 못하고 있다.
+
+정선아리랑의 발상지로도 알려져있다. ', 'https://i.namu.wiki/i/FjnJYLu_p3H5LFEwxtkYZR6TM9gR3jjOuD6MuX1ViIrHhNgY4srQo6jIKdjamGAA0YTve9ZMpQQyDB9tJngy-RsZzfp_6aATuemBCu6tDqzhVcPCYWefeFXFoszumpgMKCYdftVIGWqGmVl1dSy9JA.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '철원', '38.1469', '127.3036', '강원특별자치도의 군. 강원특별자치도에서 가장 서쪽에 있고 군의 북부로 휴전선이 지나간다. 경원선 월정리역의 녹슨 철도와 기차(철마는 달리고 싶다)가 보여주듯 남북분단의 흔적을 간직하고 있는 군이며, 철원 노동당사, 제2땅굴 등의 국가안보 관광지로 손꼽히는 곳 중 하나다. 한반도의 정중앙에 위치해 있으며 경원선, 금강산선 부설 이후 강원도의 주요 교통 거점으로 강원도 제2의 도시였으나,[9] 남북분단과 6.25 전쟁으로 파괴되고 크게 쇠락했다.
+
+궁예가 태봉국 철원성을 세워 태봉의 수도를 천도한 곳이기도 하다. 실제로 철원(鐵原)을 우리말로 풀면 쇠벌이 되는데, 서울(동음이의어) 문서에서 알 수 있듯이 수도를 의미하는 서울이라는 말의 유래 중 하나라고 보기도 한다. 다만, 현지인들 사이에서는 쇠벌보다는 쇠둘레라는 말이 더 오랫동안 통용되었다.
+
+동쪽으로는 양구군[10] 및 화천군, 서쪽으로는 경기도 연천군, 남쪽으로는 경기도 포천시, 강원도 화천군과 접하며 북쪽으로는 휴전선을 경계로 북한과 접해있다.
+
+특히 북한령 철원군과 마주하고 있는데, 원래 한지역이었으나 6.25 전쟁 이후 휴전선에 의해 분리되면서 휴전선 이남에 속하게 된 지역이 남한령에 편입된 것이다. 이로 인해 원래 철원읍(구철원)이 경원선 철도를 중심으로 하는 철원의 중심지였으나, 민통선에 속함으로 인하여 낙후되었고 군청은 갈말읍(신철원)으로 이전하여 지금에 이르고 있다.', 'https://i.namu.wiki/i/ejN387ZWlxVl1sxQ70p6BgBGf-gcFq8eCNP-HOj-I2-e0OpGoQeCh14h2VAa_Xyyu8ub5Jli_xoN4Ho9b_NHwJbi_lGidCu0P0ztgLkeCrf01KUkF1FthjDN2uQkuamAhjSzVDpo36mKUooW00oBwg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '화천', '38.105', '127.7064', '강원특별자치도의 군으로, 북위 38도 이북에 위치하고 있어서 6.25 전쟁 이전까지는 북한 땅이었다가 휴전 이후 이남 지방이 된 곳이다. 인구는 2023년 1월 기준 23,323명이다.
+
+북동쪽 및 동쪽으로는 양구군, 남쪽으로는 춘천시, 서남쪽으로는 경기도 포천시와 가평군, 북쪽과 서쪽으로는 철원군[8]과 맞닿아 있다. 그래서 의외로 흔히들 북한과 맞닿은 접경지역이라고 생각되지만, 반은 맞고 반은 틀린 말이다.[9] 화천군은 철원, 양구, 인제, 고성과는 다르게 엄연히 미수복지역 없이 대한민국이 온전히 수복한 지역이다.
+
+워낙 군부대가 많은 지역이다 보니 인구의 성비가 남자 쪽이 월등히 많다. 통계청에서 실시한 2010년 인구 총조사 결과를 보면 화천군의 성비(여자 100명 당 남자 수)는 129.5에 해당한다.(#). 참고로 순위권에 있는 강원도의 다른 기초자치단체로 같은 최전방 지역인 인제군[10], 양구군[11] 등이 있다.
+
+2023년 기준으로 강원도 군 지역 중에서 재정자립도가 6%로 가장 낮은 편에 속해 상당히 열악하고 낙후된 지역임을 보여주고 있다.', 'https://i.namu.wiki/i/CiVparA2pumrnm088k8gfHepTArkRckcNlbLNF9LsgTSeJPn4zBxbslcY81DnqVRksXM0p-WfgqV2XxBu5_FocoM9lI5dUI3TfnkBaIg21rIZjB1jbwUYi3iYoHwM245LfZpF22aoRuQ5MOrldFvNQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '양구', '38.1055', '127.9897', '강원특별자치도의 군. 강원도 북부에 있는 군으로 동쪽으로 인제군, 서쪽으로는 화천군, 철원군[9], 남쪽으로는 춘천시, 북쪽으로는 GOP가 해안면(펀치볼) 분지 바로 위쪽으로 지나간다.[10][11] 어느 정도냐면 해안면 후리에 있는 을지전망대에서 시가지가 위치한 분지가 훤히 내려다 보일 정도. 옆 동네 화천군만 해도 시가지는 이로부터 한참 남쪽에 위치해 있어서 포격을 받는다 해도 어느 정도 안전을 보장받는데, 여기는 서해 5도 수준으로 가깝다.
+
+헌법상 대한민국 국토(한반도 및 그 부속도서)의 정중앙에 위치해 있기 때문에[12] 국토 정중앙이라는 슬로건을 많이 사용한다. 여기에서 착안해 정중앙이 별명인 정준하를 양구의 배꼽축제 홍보대사로 위촉하기도 했다. 국토가 분단된 현재는 최전방 지역으로 북쪽으로 휴전선이 지나가고 있는 곳이다.
+
+아무래도 강원도의 기초자치단체 중 인구도 가장 적고 인지도가 낮아서인지 타지 곳곳에 홍보판이 붙어있는데 용산역, 춘천역, 동서울시외버스터미널, 경춘선 LCD 등 양구의 관문역할을 하는 곳에서 홍보판을 볼 수 있다. 원주시에도 붙어있는데 교통편은 춘천시외버스터미널을 경유하여 원주로 갈 수 있다.
+
+특산물로는 곰취, 민들레, 멜론 등이 있지만 인지도는 저조하고, 시래기를 특산물로 지원하고부터는 많은 조명을 받고 있다. 재배한 무에서 시래기용 잎줄기만 잘라내고 나머지 부분은 버릴 정도.', 'https://i.namu.wiki/i/TbkXUabCp2N1IkNuIumCl8M_k7IMQ36_5BDPgflRL2L-LfF0GvhkxgbpVRMtpC8SN4VxdgPkZm9F22hVVCA6fjJX1MqjI3RKhUhjuBtO3imFBIJx8baruKe4HSbYE1hgq3eP_iIdFqGd-5pG5n7tBQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '인제', '38.071', '128.1698', '강원특별자치도의 군. 동쪽으로는 고성군, 속초시, 양양군 서쪽은 춘천시[6]와 양구군, 남쪽은 홍천군에 접해 있으며, 북쪽으로 휴전선이 있다.
+
+지리적 표시제에는 인제 콩, 곰취, 고로쇠수액이 등록되어 있다.', 'https://i.namu.wiki/i/Zlc4BjIHUZCuIGLGfD_7Qxl1SlnO9DAnY3UUUSUJ2_oSRmtxHMLynJz9NGY6bHymmP7WnQSLBIXfkiQhKASLGM2zzlq_M9RhdegX0w1fvOFyb8TH3ZgxA48HFQ8ES5GCNYdh2FN7tDwQ8b_o5geBfw.webp');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '고성', '38.3876', '128.4678', '강원특별자치도의 군. 대한민국의 실질적인 최북단에 위치한 기초자치단체이다.[6] 영동 북부 지방에 있으며 동쪽으로는 동해안과 접하고 남쪽으로는 속초시, 서남쪽으로는 미시령 사이로 인제군과 접하며 북쪽으로는 휴전선을 경계로 북한 고성군과 접한다.[7] 로고에는 금강산을 그려넣을 정도로 금강산의 분단 전 영역의 남부를 차지하고 있고, 금강산으로 북한과 연결된다고 설명되기도 한다.
+
+옹진군, 철원군과 함께 남한과 북한에 모두 존재하는 군이며, 남한이 대부분을 차지한 철원과 달리 고성은 남(664.55㎢)과 북(518.56㎢)의 면적 차가 크지 않아서 남북이 절반 정도를 각각 나눠 가졌다. 옛 간성군 전역[8]과 옛 고성군 고성읍 남부 4개리[9], 수동면 동부 8개리[10]를 남한이 차지했고, 나머지 지역[11]을 북한이 차지하고 있다. 면적으로만 보면 남쪽의 원래 고성군 영역이 더 넓지만, 고성읍과 장전읍 등 분단 이전 주요 행정, 경제 중심지는 북쪽에 있다. 6.25 전쟁 이후 군청 소재지였던 고성읍 일부가 남한으로 넘어갈 정도로 경계선이 북쪽으로 올라오자 북한은 군청을 최북단이었던 장전읍으로 옮기고 통천군 임남면 일대를 고성군에 편입하여 현재는 남한 고성군과 북한 고성군의 면적이 비슷한 편이다. 쉽게 생각해, 부군면 통폐합 이전의 간성군 영역은 남한이, 장전항 (금강산 관광지) 고성군 영역은 북한이 가져갔다고 보면 된다.[12]
+
+휴전선으로 인해 군역(郡域)이 분단된 상태이기 때문에, 현재 군청 소재지인 간성읍을 따라 흔히 간성이라고 부른다.[13] 따라서 만약 통일 후 남측 고성군과 북측 고성군이 통합되지 않고 각각 존속한다면 남측이 간성군으로 이름을 바꿀 가능성이 높다.[14]
+
+동명의 기초자치단체인 경상남도 고성군과 혼동하는 경우가 있다. 주로 자치단체가 쓰는 도메인(.go.kr)인 http://www.goseong.go.kr은 경남 고성군청이 차지하고 있고, 강원도 고성군은 비영리기관 도메인(.org)인 http://www.goseong.org를 쓰고 있었다. 현재는 주소가 https://www.gwgs.go.kr로 바뀌었다. 과거에는 네이버에서 고성군청을 검색하면 우측 바로가기 버튼에 경남 고성군청 주소가 떴다. 본 고성군의 군청 홈페이지에 접속하려면 엔터키를 쳐서 검색 결과가 뜬 다음에 경남 고성군청 아랫줄에 있는 사이트 주소를 클릭하거나, 바로가기를 원한다면 강원(도) 고성군청으로 타이핑해야 한다.[15] 또한 홈페이지 메인 배너도 강원 고성군으로 되어있다. 참고로 경상남도 고성군과는 우호교류 협정이 체결되어 있다.','https://i.namu.wiki/i/I3QLPU0VfLLhD3sD6zx1DTotKsacybABl7pWeregKgZQS3_9a23_P9F3fCgWPxfl0kiCCf6F7dlj8T1K0riJcW_P2ie-TR3DXIVRuL439NmQP9vL1x5lk_lllTOvMg6jdjlcTqhsCl2DD_39uYzgVQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '양양', '38.0805', '128.623', '강원특별자치도의 군. 북쪽으로는 속초시, 남쪽으로는 강릉시, 백두대간 너머로 홍천군, 인제군과 인접해 있다.
+
+속초시가 1963년 분리승격 전까지는 양양군 속초읍이었던 곳이라서 속초시의 영향을 많이 받는 지역이다. 양양소방서가 2016년 개서 전까지 속초소방서가 양양도 담당했고, 현재도 자체 경찰서와 교육지원청이 없고, 속초경찰서와 강원도속초양양교육지원청이 담당하고 있다.[6] 그나마 경찰서의 경우는 2023년 준공을 목표로 신설 사업이 잘 추진되고 있지만# 교육지원청의 경우 강원특별법에서 해당 특례가 빠진 상태라 추진에 난항을 겪고 있다. # 지금은 2015년에 개관한 속초양양교육지원청 산하 양양교육지원센터에 의존해야 하는 처지이다.
+
+전국의 지방자치단체 중 이름을 한글로 썼을 때 똑같은 글자만으로 이루어진 유일한 곳이다.', 'https://i.namu.wiki/i/K8QXJHFNdp6r4YVxFjFVwZwie8IWNxwhoEQv_nPgQax0YL9YI8yyUhel4AFQmc9UcZn3iNPb3yjMm7gRdIe6WDdqXABNZa_4P6dxKfPMmwTxmV2xby_1Lk4P2QyG0pmj2FuQjXBSBsdoAmpgomx98A.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '청주', '36.6372', '127.4889', '충청북도의 시. 충청북도청 소재지이자 충청북도 최대도시, 충청도 제2의 도시,[11] 교육의 도시이며 충청북도의 정치, 경제, 사회, 문화의 중심지이다. 대한민국에서 14번째로 인구가 많은 도시이며, 비수도권 일반시 중에서는 인구수가 가장 많은 대도시이다.[12] 또한 충청도의 청은 청주에서 따온 것이다.[17]
+
+청주시는 통일신라 시절 9주 5소경[18] 중 하나인 서원경으로, 작은 수도 역할을 했다.
+
+청주시 남쪽으로는 대전광역시[19]와 보은군이 접하며 서쪽으로는 세종특별자치시와 천안시, 북쪽으로는 진천군과 증평군, 동쪽으로는 괴산군이 접하고 있다.
+
+청주시의 경제 규모는 이미 광역시급 대도시가 되었다. 2018년 기준 청주시의 지역 내 총 생산(GRDP)은 34조를 돌파하여 약 37조인 광주광역시, 약 39조인 대전광역시와 비슷한 수준이다. 이는 인구 100만 명 이상 특례시인 용인과 고양보다 높으며, 1인당 GRDP는 4137만 원[20]으로 인근 대전이나 천안은 물론 웬만한 수도권 도시들보다도 높다. 여기에 2028년에 본격 가동되는 방사선가속기(약 6조원 규모의 경제효과)가 가동되기 시작하면 광역시보다 더 높은 경제 규모를 가진 도시가 된다.
+
+청주는 예로부터 교육도시로 알려졌는데 국립대학교만 무려 5개가 청주에 위치하고 있으며 과거에는 교육 관련 종사자와 학생이 전체 도시 인구의 40% 이상을 차지했다. 또한 전국에서 유일하게 교원 양성 목적으로 설립한 국립 한국교원대학교와 공군 장교 육성의 요람인 공군사관학교 또한 청주에 있다.
+
+경부고속도로와 중부고속도로, 전국 유일의 KTX경부호남선 분기역인 오송역과 충청도 유일의 국제공항인 청주국제공항 등이 위치하고 있는 교통의 중심지이다.[21]
+
+유네스코 세계기록유산으로 등재된 현존 세계최고의 금속활자본인 직지심체요절이 청주 흥덕사에서 발행됐다.', 'https://i.namu.wiki/i/MwpL9PmZzlFkjK-zIuuOGzfLSktZE8ZYQUz5YHqVgvbZG4aw355J8u06jI9PPSI7z6yGahvwtk78K-zrPbGrTyiBy-9xsgiqzvf51pNJp5-3Q3XkbNT_qm5kKAd0guo9_Y5Jd4TWFyRX1VLWNBT2hg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '충주', '36.9704', '127.9286', '충청북도의 시. 청주에 이은 충청북도 제2의 도시다. 충청도의 "충"이 바로 충주시에서 따왔다.[6]
+
+동쪽으로는 충청북도 제천시, 남쪽으로는 충청북도 괴산군, 경상북도 문경시,[7] 서로는 충청북도 음성군, 북쪽으로는 경기도 여주시[8]와 강원도 원주시(귀래면과 부론면)에 접한다.
+
+충청도 전체 기초자치단체 중 면적 1위[9]이며, 음성군과 진천군을 합친 것보다도 넓다.', 'https://i.namu.wiki/i/CSF8fDTdTjd9Ge2oqw4nBQ5vsSbwML2QB-6EZkYk_K_uDkWQ1KtjpoiNHQuaxiZVHeu3Je_jmN2Tbl4ZNLbgDyMZLIwn8wFCWLhHHq2EP7W-7tURdUhTi7-UteD-VIdW7vDAM61QdcttHRDzJC6yKQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '제천', '37.1499', '128.2143', '충청북도의 시. 청주시, 충주시에 이은 충청북도 제3의 도시로, 호서의 어원이라는 이야기가 있는 의림지가 위치해 있다. 인접지역인 단양군, 강원특별자치도 영월군과 더불어 전국 시멘트 생산량의 절반을 상회하는 명실상부 시멘트 공업도시로 성장했으나, 현재는 광공업이 쇠퇴하면서 산업구조가 서비스업 및 관광업 위주로 개편되고 있으며, 전국 3대 약령시 및 황기 생산 거점 도시 등을 근거로 자연치유도시 및 한방도시로 홍보하고 있다. 2022년 11월 기준 인구는 131,216명, 면적은 882.47㎢ 이며, 하위 행정구역은 1읍 7면 9행정동(28법정동)으로 나뉜다.
+
+충청북도에서 가장 북쪽에 있는 지역으로 시내 지역의 경우 경기도 오산시, 동탄신도시와 위도가 비슷하다.
+
+서쪽으로 충주시, 동쪽으로 단양군, 북서쪽으로 강원특별자치도 원주시, 북동쪽으로 영월군, 남동쪽으로 경상북도 문경시[7]와 접경하고 있다. 중앙선, 태백선, 충북선의 교차점으로 수도권, 강원도, 충청북도, 경상북도를 잇는 철도 교통의 요지다. 해방 후 태백선 개통 덕분에 영월군, 정선군, 태백시, 삼척시 등지에서의 광산 붐으로 생산된 광물들을 서울로 수송하는 중추적인 역할을 맡게 됨으로써 도시가 크게 발달하기 시작하였다. 도시의 발전 동기가 이렇다 보니 상대적으로 다른 도시에 비해서 이권을 둘러싼 다툼이 많았고 80년대 범죄와의 전쟁 선포 이전까지 치안 상태가 상당히 좋지 않은 편이었으나 90년대에 들어오면서 치안 상태가 예전보다는 좋아졌다.[8] 제천경찰서 측에서 범죄 예방 프로젝트를 진행하거나 제천 고교생 집단폭행·유사강간 사건 등 제천시에서 발생하는 청소년 강력 범죄가 사회적으로 이슈가 되자 이에 대한 대책을 발표하는 등 치안 개선을 위한 노력을 기울이고 있다. 그 외에도 제천시의 명소 의림지에서 극단적 선택을 하는 사고가 많이 발생하여 시의회와 경찰에서 예의주시하는 중이다.', 'https://i.namu.wiki/i/FEU7KapCia2XJBo4JoK3WIkxYb-3nGH2sGPN3SNzoZ7h6Ecj9mv8P0FZNRO9XaGcO0v81zyXGQQDRWKji0EmJN6xz7GlF0wq1HE_iVLiOB5w0B51rCXyXU0XZs5vBf-Yd8Bu1d1ltuJ3aJOxlSZ1Tw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '청원', '36.6385', '127.4471', '충청북도의 옛 기초자치단체(군). 청주시를 둘러싸고 있는 도넛 형태로, 군청은 청주시에 있었다.[6] 1895년 23부제 개편과 함께 청주군이라는 이름으로 설치되어 1946년 군정법령 제84호에 의해 청주군 청주읍이 청주부로 분리승격되었고, 잔여 지역은 청원군으로 개칭되었다.[7] 이렇게 분리된 청주부는 1949년 8월 15일 청주시로 개칭되었다.
+
+청주시와 통합되어 폐지되기 전 인구는 159,486명.[8] 당시에는 광역시 산하가 아닌 군 중에서는 가장 높은 수치였다.[9] 이 때문에 단독으로 국회의원 선거구를 하나 가지고 있었다. 2006년 초까지만 해도 제천시의 인구가 더 많았으나, 오창과학산업단지, 오송생명과학단지의 영향으로 인해 제천시를 제치고 충북 시군 인구 규모 3위가 되었다.
+
+청원군과 청주시의 통합은 1994년, 2005년, 2010년 3차례 시도되었으나 청원군의 극심한 반대로 번번히 무산되었다. 그러다 2012년 4차 시도에서 마침내 청원군 주민 대다수가 통합에 찬성하면서 2014년 7월 1일부로 통합하게 된다. 이로서 1946년 청주군이 청주부[10]와 청원군으로 분리된 이래, 68년 만에 다시 하나가 되었다. 그 전인 2012년 7월 세종특별자치시가 출범하면서 예하 행정구역이었던 부용면[11]이 편입되어, 1개 면이 감소하였다.
+
+청주시가 서쪽 지역 중심으로 발전된 것과 유사하게, 청원군 역시 북서쪽 중심으로 개발이 진행되었다. 청원군에서 가장 발전된 곳이었던 내수읍과 오창과학산업단지 개발로 성장한 오창읍은 북쪽에, 오송읍은 서쪽에 위치했다. 반면 남동쪽 지역들은 여전히 전형적인 시골의 모습을 유지하고 있다.
+
+특산물(?)은 초정리 탄산수로 만드는 일화의 천연사이다, 탄산수 및 맥콜.', 'https://i.namu.wiki/i/2bakx3-ag2hned3Zh30-1J2njZkWLElmAlSCJQaHlbB03cvSiaFhCuc7q7vHilVpIW46SNpg_KK9qpHeOSHuOe9YM6fU36jtacav82KSYBFZwuMOf9omX8ZW7LZLS9HV3POpXDgib_U8440CCOJ9jg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '보은', '36.4871', '127.7198', '충청북도의 군. 북쪽과 서쪽으로는 청주시, 남쪽으로는 옥천군, 그리고 동쪽으로는 경상북도 상주시와 경계를 접하고 있다. 서쪽에 대전광역시 동구, 북쪽에 괴산군과도 접경하는 부분은 있지만 대전의 경우 사이에 대청호가 있어 교통로가 원활하지 못해 옥천이나 문의를 거쳐서 가야 하며, 괴산과는 바로 통하는 도로가 비포장 임도 하나뿐이기 때문에 청주 미원을 거쳐 괴산으로 들어간다.
+
+충청북도 내에서는 보은, 옥천, 영동을 합하여 남부 3군으로 뭉뚱그려 표현할 때도 있다. 국회의원 선거구도 이 3개 군이 하나로 합쳐져 있었지만, 지속되는 인구 감소로 인해 20대 총선부터는 이 3군에 괴산군이 추가되었다.
+
+보은군은 조선시대까지만 해도 보은과 상주 사이에 있는 화령이 있어서 상주에서 청주로 갈 때 반드시 보은을 거쳐야 했기 때문에 충주-문경 사이에 있는 조령과 함께 경상도로 통하는 교통의 요충지였지만, 1905년 경부선 개통으로 인해 충청도와 경상도를 오가는 교통로가 추풍령으로 넘어가면서 화령과 조령을 통하는 교통로는 사장되었다.
+
+같은 남부3군으로 묶이는 옥천, 영동과 함께 한여름 열대야가 없는 지역이기도 한다.
+
+생활권 상으로는 청주와 대전 양 대도시의 영향권에 들긴 하지만, 대체적으로는 회남면 등 일부 서부지역을 제외하고는 같은 도에 소속된 청주 생활권에 가깝다. 물론 보은~옥천 간 37번 국도가 왕복 4차로로 잘 뚫려 있어 청주 가는 시간이나 대전 가는 시간이나 비슷하기 때문에 더 큰 도시인 대전광역시로 향햐는 사람도 적지 않은 편이다. 한편 상주시와 인접한 동부지역(산외면, 속리산면, 마로면 등)은 경상북도 쪽의 영향을 일부 받기도 한다.
+
+군 중심에 보은읍이 위치하고, 읍 주위를 나머지 면이 감싸고 있다. 대청호의 일부가 있기도 하고(대청댐 건설 당시 몇몇 지역이 수몰되기도 하였다), 중심 하천인 보청천은 옥천군 청산면을 거쳐 금강에 합류한다.', 'https://i.namu.wiki/i/mehA9v8lwx489QcuPjiNpsKXZG6S1buCyh38VEvhYnFZjQgvnKAXow9yV-Zu--Y93cdiWjNHJa41Ivmxgke_I-3wlrgjvDicCAHPxwKhQYi5GwaVcM82Izc2p5d0q7mhVt-7BV2xFBDaE7W2HgC0Ag.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '옥천', '36.3086', '127.5749', '충청북도의 군. 면적은 537.12㎢, 인구는 2023년 7월 기준 49,207명이다. 북쪽으로는 보은군과 남쪽은 영동군, 충청남도 금산군과 접하고 있다. 서쪽으로는 대전광역시 동구와 접하며, 동쪽으로는 소백산맥을 경계로 경상북도 상주시와 접한다.
+
+충청북도 산하이긴 하지만, 위치상 충북의 중심 도시인 청주시보다 대전광역시와 생활권이 밀접하다.[6][7]', 'https://i.namu.wiki/i/dfJwc0fKK3kQRAcG2pYcjB6avEDwqfkdNsg-fmRweIfAcIrn-a5uiDMJ00mrt_TMqjVIODlsyqZMAEn43VzbB0_SoMxMTXw1ViMqIbH0RD4LRxF3gS5QPaXEU5ERBPlIzuBAh7Ilh7ov16N0viBX7g.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '영동', '36.1751', '127.784', '충청북도의 군. 서쪽으로는 충청남도 금산군, 위로는 같은 충청북도의 옥천군, 남쪽으로는 전라북도의 무주군, 동쪽으로 경상북도의 상주시, 김천시와 이어져 있다.[5]
+
+3도(경상도, 전라도, 충청도)가 모두 접하는 위치인지라 상촌면에 삼도봉이라는 산이 있으며, 3도의 방언이 모두 존재하기 때문에 국어국문학과, 국어교육과 등에서 방언 연구를 하러 많이 찾는 곳이다. 이곳의 방언은 기본적으로 충청 방언으로 분류되지만 데우다-뎁히다, 피곤하다-대근하다 등의 미묘한 차이가 있으며, 경상북도와 가까운 황간면, 상촌면, 매곡면, 추풍령면 등 경부선 연선에 위치한 쪽은 아예 말이 경상도 사투리와 비슷하다. 마찬가지로 전라북도와 가까운 용화면과 학산면은 전라도 사투리와 비슷하다. 그리고 지리학과, 지리교육과 역시 문화 연구 차원에서 많이 찾는 곳이다.
+
+생활권은 충청북도청 소재지인 청주시가 아니라 대전광역시, 김천시와 가깝다. 특히 동부 지역인 상촌면, 황간면, 추풍령면, 매곡면은 김천 생활권에 가까운데, 이들 지역은 거리상으로 영동읍보다 김천 시내가 훨씬 가깝기 때문에 김천과 매우 밀접하며, 김천시 시내버스가 도 경계를 넘어 황간면, 상촌면, 매곡면, 추풍령면까지 온다. 심지어 영동군 농어촌버스가 상주시 서부 지역까지 운영하는 경우도 있고, 김천시 시내버스, 구미시 시내버스, 칠곡군 농어촌버스, 옥천군 농어촌버스를 이용하면 대구-칠곡-구미-김천-영동-옥천-대전을 시내버스만으로도 갈 수 있다. 영동읍 기준 동부 지역이 김천 생활권이라면, 서부 지역인 심천면, 양산면 등은 대전 생활권이다. 또 서남부 지역에서는 무주군으로 가는 110, 111, 112번 버스가 평균 1시간 간격으로 운행하며, 무주에서 기차 타러 영동에 오는 등 무주와도 밀접한 관계에 있다.[6]
+
+산과 물이 많아 자연 경관이 아름답고, 충청도 최대 도시인 대전이 가까워 살기 좋은 환경이다. 다만, 전투기 훈련이 많아 엄청나게 시끄러운 편이므로 조용한 곳을 원한다면 피해야할 고장이다.', 'https://i.namu.wiki/i/ICeby10xzFOdOjKspxlv2vpewBaiXuWEgWqwc8_nV_av3rp--l_kGzGvpFPxtXF0YYSk3Qttl710pnZ2G9x6ZN6eGa2jHwKfmBDwEat0_autOSq-19GaB0KpEPVe4vJ2mNWRXaaswHqveuUKBP7VuA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '증평', '36.7963', '127.5867','충청북도의 군. 2003년 8월 30일에 괴산군에서 분리되어 설치됐다.
+
+남쪽의 청주시로부터 반시계 방향으로 괴산군, 음성군, 진천군과 각각 접한다. 1읍 1면에 면적도 약 82㎢[6]로 대한민국 본토에서 가장 면적이 작은 군이다. 대략 서울특별시의 자치구 두 개 정도의 크기다. 대한민국에서 가장 땅이 좁은 군은 울릉군(72.56㎢)이지만 울릉군은 육지와 멀리 떨어진 섬이다.[7]
+
+충청북도에서 유일하게 타 시도와 접하지 않은 지자체라는 점이 특징이다. 또한 충청북도에서 유일하게 고속도로가 지나지 않으며 자체 시내버스회사가 없다. 슬로건으로는 증가포르(증평+싱가포르)를 밀고 있다.
+
+좁은 면적과 3-4만대의 인구, 도 직할 출장소였다가 뒤늦게 지자체로 독립했다는 역사, 그리고 옆 대도시의 영향을 매우 크게 받는다는 점 등에서 충청남도 계룡시와 비슷하다.[8]', 'https://i.namu.wiki/i/Y3RWcl4PKHB3Ir0DCet0q91vxVgarqXdAUOSoXp4xHOxD0BMXABcvYBrCmYmy3_6o-pecNyYPkcDPWXNbpORHuwbqlV2-jC5wZITy1W5OKX1lFQX-59eKNAFzVTyCi7Hw28-WK5FvV1f_hSq7ab48A.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '진천', '36.8558', '127.4335', '충청북도의 군. 면적은 407.24㎢. 서로는 충청남도 천안시, 남으로는 청주시, 동으로는 증평군과 음성군, 북으로는 경기도 안성시와 접해 있다.
+
+충청북도에서 청주시 다음으로 가파른 성장세를 보여주고 있다. 특히 시도 아니라 군인데도 주변 지역들보다 빠른 속도의 개발과 발전을 거듭하고 있고 인구도 계속 증가하고 있다.[5] 미래 전망도 낙관적이라 2025년 시 승격 목표를 꿈꾸고 있다. 하지만 남쪽에 청주시, 서쪽엔 천안시 등 대형 도시들이 있고, 청주 생활권으로 묶여있는 변수가 있다.
+
+진천의 다른 이름은 상산이다.[6] 예로부터 생거진천(生居鎭川, 살아서는 진천에 살다)으로 알려져 있다. 그만큼 살기 좋은 동네라는 명성이 과거에 있었다.[7] 이는 자연재해의 피해가 적고 진천평야의 곡창지대를 끼고 있는 데다 풍작인 경우가 많았기 때문이다.[8]
+
+현대에는 생거진천을 브랜드로 농산물 마케팅을 펼치고 있다.
+
+2017년 9월 27일에 국가대표 선수들의 종합 체육 훈련 시설인 진천선수촌이 개장했다.', 'https://i.namu.wiki/i/KGMAP5noDUjvfs5IoQLB1Jj-d_ed14Zoc1xNmZEgruA03cqMgEAqwLoi2w4G3UyHKYXgyyKMRX5pxU_fMP4r_qWpvvC8hfpWF-ZTngA6VIHw9mEkeE4MbDAgYqk8-OiebL21E4fX-bPLLkbzhxaVWA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '괴산', '36.8134', '127.7919', '충청북도 중부에 위치한 군.
+
+북쪽의 충주시로부터 반시계 방향으로 같은 도의 음성군, 증평군, 청주시, 보은군과 접하며, 남쪽과 남동 방향으로 각각 경상북도 상주시 및 문경시와 접한다.', 'https://i.namu.wiki/i/3x5IWWpYgfIFBJvaXqWdfJHjQkM2W_FV6BpOj_8xJMY6cUtVz4yfkV-EUjfcL1jaYpHNnD5-C97_zhKaFbir1kSseVVS3jC3J6SSxPldcFJh05Re5lU6xhbs10NQBj3-XO8U27lC4aGe4KuhFVg7sw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '음성', '36.9401', '127.6885','충청북도의 군. 동으로는 충주시, 남으로는 괴산군, 증평군과 접하며, 서로는 진천군, 북으로는 경기도 안성시, 이천시, 여주시와 접하는 충청북도의 북서쪽 끝에 위치한 지역이다.
+
+내륙 지방이라 기후가 추운 편이고, 예로부터 설성(雪城)이라 불릴 정도로 눈도 은근히 많이 온다.
+
+음성군 삼성면 최북단인 대사리에서 서울특별시 강동구 강일동까지의 거리가 약 70km이다. 교통여건에 따라 50분에서 1시간 30분 정도가 걸리는 거리로, 천안, 아산과 함께 수도권에서 가장 가까운 충청 지역들중 하나이다. 충청북도에서는 수도권과 제일 가까운 지역이다.
+
+이웃한 진천군과 공동으로 충북혁신도시를 유치했다.[7]
+
+여담으로 행정구역의 면적 형태가 북한과 비슷한 형태를 가지고 있다.', 'https://i.namu.wiki/i/K5yTtkD5v7ihfhNHa6UVYD1l44htDAJ0C5lWHlx8t0bWDuK2_jLWdYKzKj5xem4WDEhtMeBwGtlFLO4zogonYi1j3cExFoAK5YX9MzN0YbvngBuCCx2p-quM8vWvx9own3jbmnUImfPZvQvXj7vWVw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '단양', '36.9865', '128.3711', '충청북도의 군. 충청도에서는 가장 인구가 적으며 인구 밀도도 가장 낮고, 인구감소율 역시 가장 높은 지역이다. 총 면적은 780.16㎢이며, 군청 소재지는 단양읍 별곡리 300(단양군 단양읍 중앙1로 10)이다. 북서쪽으로 제천시, 남쪽으로 경상북도 예천군, 문경시, 남동쪽으로 경상북도 영주시, 북동쪽으로 강원도 영월군과 접한다. 영주시와 근접해 있고 중앙고속도로가 뚫려있지만, 월악산, 소백산 협곡으로 막혀있는 도시이기에 이 곳과는 접근성이 좋지 못하다.[6] 반대로 북서쪽의 제천시와는 지리적으로 특히 가까울 뿐더러 시멘트 산지를 공유하고 있기 때문에 사실상 한 동네와 다름 없는 곳이다. 실제로 단양군과 경계를 맞닿은 제천 시내와 단양 읍내는 상당히 가깝기 때문에 제천시 시내버스, 단양군 농어촌버스로 서로 연결되어 있다.
+', 'https://i.namu.wiki/i/No5LJD640qnv_YAhWA4lw_b_qvS6Q7_MoJaCVr2dg1GRE7DCZ0h6VzfP7LxVT-hMWS5_3XS7ipeDTrBEv-gSXWPjFJXJRcAs1YX62VIyWKOVz111K6ZpU9ADQt-z1TlEMcAUluQ-w9qItZFbxW62JA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '천안', '36.8065', '127.152', '충청남도의 시로, 충청남도의 최대도시이자 전국에서 17번째로 큰 도시, 전국의 일반시 중 열 번째로 큰 대도시이다. 대도시 특례를 받는 시로는 충청남도에서 천안이 유일하며, 비수도권 기초자치단체 중에서는 경상남도 창원시(101만), 충청북도 청주시(84만) 다음으로 인구가 많다. 동쪽으로 충청북도 진천군, 청주시, 서쪽으로 아산시, 남쪽으로 세종특별자치시, 공주시, 북쪽으로 경기도 평택시, 안성시와 접한다.
+충남에서 두번째로 큰 아산시와는 인구수로 두배 가까이 차이가 나며 아산의 아산신도시[5]생활권이 천안에 종속되어 실질적인 인구는 75만명을 넘는다.[6] 이런 압도적인 인구격차로 내포권을 통솔할 만한 시가지[7][8]를 형성한 천안이 내포지방[9]의 실질적 중심지 역할을 한다 보는 경우도 있어, 천안의 권역을 내포-천안권이라 칭하기도 한다.
+', 'https://i.namu.wiki/i/f7reQ-UI5MzV5Qwzpa9NsDh55_nsEeslZ9ezMCHGotaL0ncUV0ljpVogL2WFU1D5OIj04mmO7iBwwRGLMPAMDFtpzrcwNV6Ho_c2e8AcxIbGUUlka6tBbdTNEPZ_71O12Wk_rw8Ppibyzm3wxhCrlg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '공주', '36.45', '127.1207', '충청남도의 시. 동으로는 세종특별자치시, 동남으로는 대전광역시와 계룡시, 서로는 청양군, 남으로는 논산시와 부여군, 북으로는 천안시와 아산시, 예산군에 접한다.[8]
+
+면적이 충청남도에서 가장 넓다.', 'https://i.namu.wiki/i/A_15Ti78WFkzVDRg4comffD6rcY0O47sp7Bop7nS2VKFHmQooBJRV63jkK3VaBMs7tpFHXzwSw4Enxk-2TsxdNXAN6ZDuEgIUfREx61uN0BQNRxsy-o1b918vcEk6N-GXllsTt8JOgfrl4t0Et6usw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '보령', '36.3489', '126.5921', '충청남도의 시. 대천해수욕장, 무창포해수욕장으로 유명하다.', 'https://i.namu.wiki/i/BirILJGnBwTURUfJMFwxaqD69UPmCVNrm-xSJr3YN8VbOjmzMR8RekLUKCIgo6L6WwlwvaGVk8dNNwNJ5JBncXDKXhr0tZ2FHmS8MXBQ1y4z73xO4iHDjvBqJfQvjYJ-kvHC0gAocBtbRVc9Qxalww.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '아산', '36.7924', '127.0048', '충청남도의 자치시. 북쪽으로는 경기도 평택시, 동쪽으로는 천안시, 남쪽으로는 공주시, 남서쪽으로는 예산군, 서쪽으로는 당진시가 있다.
+
+충무공 이순신의 영정을 모신 현충사와, 조선시대 왕들이 애용했었고 1960년대까지도 인기 신혼여행지였던 온양온천과 삼성전자 나노시티 온양캠퍼스, 삼성디스플레이 아산캠퍼스[11], 현대자동차 아산공장, 코닝정밀소재 등이 있다.', 'https://i.namu.wiki/i/-lyRdbbXUFuxd3-P3BvPTAysLK7AWXuEuLc9jNVZvVURL6bU6waWLsd61X03uFN3CFs09wZfWWe_1uheoZUo4xoMa3KOE44lDxYhWe9gbWMpIgVBZmni6rpu8Wvb4S92X6XVaS5B6iIM0lfaerlhbA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '서산', '36.7769', '126.4504', '충청남도의 시. 북동으로는 당진시, 동으로는 예산군, 서로는 태안군, 남동으로는 홍성군에 접해있다. 한자는 상서로울 서(瑞) 자에 뫼 산(山)이다.
+
+외부와 교류하기 불리한 지리적 여건 때문에 조선시대부터 한 고집 한다는 사람들의 유배지로 이름 높았을 정도로 발전이 없었으나 2000년대 중후반부터 서산 테크노밸리와 여러 산업단지가 들어오면서 지속적으로 인구가 조금씩 느는 추세에 있다. 그에 따라 성연면과 서산시내 쪽에 아파트를 많이 짓고 있으며, 대산읍 쪽에는 HD현대오일뱅크, LG화학, 한화토탈에너지스, 롯데케미칼, KCC 같은 대기업들이 입지하고 있으며, 성연과 지곡에는 SK온, 현대트랜시스, 현대위아, 기아의 대표 경차 모닝과 레이를 생산하고 있는 동희오토가 있다.
+
+서산만의 독특한 사투리로는 시절 이 있다. 의미는 대략 바보, 한심한 놈. 용법은 다음과 같다. "얘이 시즐아, 늠들 다 허는걸 왜 모더는겨."[9] 충청도식 발음으로는(특히 서산에서는) 스산이라 발음하는 경우가 많으며,[10]그 외에도 서산에서만 사용되는 특이한 발음들이있다. 게를 그이, 개를 가이, [11] 대산읍 화곡리에 위치한 삼길포라는 어촌은 생길포또는 생기리, 게국지는 께꾹찌 등등이 대표적이다. 하지만 요즘은 사투리를 쓰는 사람이 적다. 변하는 세대에 의해 사투리를 쓰는 사람이 주는 것은 자연스러운 일이지만, 꾸준한 도시개발과 유입되는 인구로 청년층들이 예전보다 많아진 것도 하나의 이유다.', 'https://i.namu.wiki/i/D33yojbJLav_BCwjKRyscEQ6-UTA-oNGpjgnKGyt5KLXln-zVAyigHzcE0KFWVyuOsqA_Oy-Hd0iO9nW-aPsfL2uS2QwC0QM7jhEVe2IufwQe0dMm7MXlYTPVFXlmEStqI4kSateJdpG-JLfI-Sl1g.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '논산', '36.1976', '127.0986', '충청남도의 시. 충청남도 남부권의 거점도시 역할을 하고 있으며 동쪽으로 계룡시, 동북방향으로 대전광역시, 동남방향으로 금산군, 서쪽으로 부여군, 서남쪽으로 전라북도 익산시, 남쪽으로 전라북도 완주군, 북쪽으로 공주시에 접해 있다.
+
+역사적으로는 강경읍의 수운과 상업 번영이 유명한 곳. 강경 상인은 송도(개성시)의 송상과 맞짱을 뜰 정도였다고 한다. 현대에 가장 유명한 특산물인 딸기는 1967년부터로 역사가 짧은 편이다. 무엇보다 현대 한국 남성들은 모르는 사람이 없을 정도로 뜬금없이 인지도가 매우 높은 도시인데, 군사기관인 육군훈련소 때문이다.[2]
+', 'https://i.namu.wiki/i/vglfAyMywV6b-LWg4try2ZBxu2YoQge0Rbx79Zv1xxg-A-kxY8UThqHpOVhvN2Fn5of71kLSqU1jtPriNGAmc00Y9asDdjjy3QT-vpi7KpH27ifs0LGoPCNa_yHQfiCUGVT40uXFyvgjT5KzGZ2_fA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '계룡', '36.2691', '127.2401', '충청남도의 시. 시의 명칭은 계룡산과 계룡대에서 따왔다.[6] 원래 논산시 두마면이었는데, 2003년 9월 19일 논산시에서 분리되어 계룡시로 승격됐다. 1995년 도농통합시 제도가 도입된 이후 유일하게 시로 분리승격된 기초자치단체로, 도농통합시 제도 출범 이후 일부 읍이나 면만 다른 기초자치단체로 분리된 곳은 증평군과 계룡시, 단 두 곳뿐이다.
+
+계룡시 출범 이후를 기준으로 충청남도 시군 수가 1시 늘어났으나, 2012년 구 연기군이 세종특별자치시로 충남에서 분리독립하면서 1군이 줄어 다시 원점으로 돌아갔다. 동쪽으로 대전광역시 유성구와 서구, 서쪽으로 논산시 상월면, 연산면, 남쪽으로 논산시 벌곡면과 인접하고 북쪽으로는 공주시와 인접하고 있다.
+
+승격 당시나 지금이나 인구가 5만 미만으로 시 승격 조건에 미달하지만, 특례법에 따라서 시로 승격된 유일한 사례이다. 계룡대가 위치해있어 그 중요도를 인정 받았다고 볼 수 있다. 대전광역시의 좌측에 밀접해있어 대전 시내권과의 접근성이 편리하며, 대표적인 대전광역시의 위성도시로 인정받고 있다. 주요 인구층이 다른 지방에서 자주 이사 다니던 군인들이었고 현재도 다른 곳에서 유입되는 인구가 많은지라, 충청남도의 일부이지만 충청남도 다른 지역들과는 분위기가 다소 다른 동네다.
+', 'https://i.namu.wiki/i/b_da7KP0sjTr0BNi1hizfFB1iQm1LD4ulOa_14oyB4Af0PpFKn4FyD18waEf34Evh6k9vKplPsTTWoSuDRm2lYOBGfEh4S7_D93lAXBOHHqwB-OcWz8BYbu3-cBQiGa9u11a2hW00bLA46jVgBv3pA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '금산', '36.1053', '127.4793', '충청남도 남동부에 있는 군.
+
+주변이 모두 산으로 둘러쳐진 분지 고지대에 있으며, 북으로는 대전광역시 중구, 동구, 남으로는 전라북도 무주군, 진안군 동서로는 충청남도 논산시, 전라북도 완주군 및 충청북도 영동군, 옥천군과 인접해 있다. 충청남도의 남쪽, 동쪽 끝이다.', 'https://i.namu.wiki/i/kvpvJ-JREhesZvKJvcKbbRHYK55LtznbKtIPJcw3_i0p03RQRUJ5Ngb_BraUZkFlSa3Az3wh76irFpsUwfHvjVSJBhUorvEHTQAcuCopwhHW7I__F8ahaHNYiiWcQkDGMvwKS6EIFAt92x7R-4L2jQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '연기', '36.9836', '127.0628', '
+충청남도에 있었던 군으로 2012년 7월 1일부터 세종특별자치시가 출범하면서 폐지되었다.
+
+북으로는 천안시, 동으로는 충청북도 청원군[4], 서로는 공주시, 남으로는 대전광역시에 접해 있었던 군. 2010년 기준 인구는 8만 2천여 명. 하위 행정구역은 1읍[5] 7면[6]이다. 지역의 주요 산업은 농업으로, 매년 8월에는 연기군의 특산물인 복숭아를 주제로 한 조치원 복숭아 축제[7]가 열렸다.', 'https://i.namu.wiki/i/U8Oue3t0-lEuxmOZ2lNdEoFkf97cywCMlIKjinYo36DRj83de9rySjFvl-Rb8UBUr5joCYsyM8gt2JSKFG4vVNQCHfSe2_Pe45KBJgNaEHIE6Rdf96U_57mc3Rf-K6ExBpQXujAx1SYLumk98Z9RNQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '부여', '36.2726', '126.9105', '충청남도 남부에 있는 군. 동쪽으로 논산시, 서쪽으로 보령시와 서천군, 북쪽으로 공주시와 청양군, 남쪽으로 전라북도 익산시와 군산시와 접한다. 백제의 수도였던 사비여서 백제문화단지, 한국전통문화대학교가 이 지역에 있다.
+
+부여라는 이름은 통일신라 때부터 이어온 지명이며, 백제 시대에는 사비, 소부리 등으로 불렸다.[6] 부여는 만주 지방에 있던 고대 국가라 상관없을 거 같지만, 백제의 시조 온조왕이 부여 왕족이었고, 백제 왕들의 성씨도 부여씨였으며 백제 성왕이 국명을 남부여로 바꿨을 정도였다. 이 지역을 부여로 명명한 통일신라도 그 역사적 관련성을 인정한 것이다.
+
+공주시[7]와 함께 백제문화제를 개회식과 폐막식을 번갈아가면서 진행하고 있으며, 2010년[8]에는 세계대백제전을 개최했다.', 'https://i.namu.wiki/i/7V2MKasBWMYMjiyhSLkXvOqQcjayP9b7rm6tH0BXIDQXA9jTAm2yi5PUtsYPNVhYEmFQ-Lfe53nuJIYE2mHbLKXgsIBFQlPtpRlFu9ikpXLm6szze6eeAvDND9DEo_v58ufCHvvEbN2RDi0TgUEGog.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '서천', '36.076', '126.6846', '충청남도 서남부에 있는 군. 북쪽으로는 보령시, 동쪽으로는 부여군, 남쪽으로는 전라북도 군산시와 접하고 서쪽으로는 서해와 접한다. 금강 건너편의 익산시와도 접해있으나, 직접 연결된 다리가 없어서 군산시나 부여군을 거쳐가야 한다.
+
+충청남도에서 계룡시 다음으로 면적이 작다. 아울러 도내에서 가장 작은 군이다. 면적 1위 공주시(864.27㎢)와 비교하면 절반에도 못 미친다.[9]
+', 'https://i.namu.wiki/i/IgLmL9x-OHBJltP56d7czD5oI2bFpOZ0osRN6pW8UkfzKMh4uAls3WeV6PTd2XvzjoKN4c5akDzTQR2IGFv_i3Yq0jTspy0hVtF7euU7fZndYojPRvUECdHu3ALfxBvaiODmmekusl7wX6YHdN9OJw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '청양', '36.4591', '126.7989', '충청남도의 군. 북쪽으로 예산군, 서북쪽으로 홍성군, 서남쪽으로 보령시, 남쪽으로 부여군, 동쪽으로 공주시와 접하고 있다.
+
+지리상으로는 충청남도의 중앙부에 위치하지만 차령 산맥이 관통하는 산악 지형[3]이라는 한계로 개발이 어려운 곳이라는 점 때문에 도내 교통축선에서도 거의 빗겨나가는 신세를 면치 못하는지라 충남에서 가장 발전이 미비한 지역으로 손꼽힌다.
+
+외부에서는 청양고추로 어느 정도 인지도가 있지만, 청양고추의 원조는 청양군이 아니라 경상북도 청송군과 영양군이다. 물론 원조가 아니라고 해서 청양고추를 특산물로 삼으면 안 된다는 법은 없으며 청양에서도 고추를 많이 재배한다. 청양군의 문제는 청양고추를 특산물로 삼은 게 아니라 자기네가 원조라는 거짓말을 일삼고 있는 것이다.[4]', 'https://i.namu.wiki/i/Er0POAEiFLsOyGxPOsxMP13UorY_Bcoqw-KvQKKZj7P2r_J7oJL5r8LTvHNvPdFknTr4jE4efya5258_JjIFaLWQH-orbTw03s9P8W-LXGSvRSwrQkZl7QRnZh24HHk5_P-f51_KjJnFFK6jdrAsLg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '홍성', '36.6008', '126.6644', '충청남도의 군. 북동쪽으로는 예산군, 남동쪽으로는 청양군, 남서부쪽으로는 보령시, 북서쪽으로는 서산시와 접한다. 또한 충청남도청 소재지이기도 하다. 전라남도 무안군과 더불어 광역자치단체 청사를 보유한 단둘뿐인 군단위 기초자치단체이다.', 'https://i.namu.wiki/i/kh_G9hr-StO8NN2XSc2hoePr0gO5vlF_aTpoJgJhXwpslEwBiwem6qSnNVQWtp-sry_We8KfStJZTlfn5pqeXlFXa9QId2HjY7QkhL_pAUdxKC7-uW5dIIe9eS3895KLoHvk1qy6yDJ4Hlb_ckigKg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '예산', '36.6881', '126.8414', '충청남도의 군. 북동쪽은 아산시, 동쪽은 공주시, 남쪽은 청양군, 남서쪽은 홍성군[7] , 서쪽은 서산시. 북서쪽은 당진시와 접한다.
+
+대한민국의 대표적인 요리연구가인 백종원이 이 곳 출신이며, 2015년부터 현재까지 예산군 홍보대사를 맡고 있다. 그리고 수십억을 들여 예산 시장 활성화 하였고 성공했다.[8]', 'https://i.namu.wiki/i/fTq9mD1a9-Hq01YYUtIK3K7M0oRRWoL-hy_7TfrlrnLSvg3lnKP2OzVHG8qPSWmQpAO0WveN5APdXgMvK1n5y6XnOv9htma3ffLxRg2JYQF3e63e0JgccrmyubWBicV_TaMyFlrIJThjK1-pYnyEwQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '태안', '36.7429', '126.2987', '충청남도 서쪽 끝에 있는 군. 무안반도·해제반도 등과 더불어 서해안에 있는 대표적인 반도 지형인 태안반도에 위치해 있다.', 'https://i.namu.wiki/i/P6mvBkpMwZUudVvNUJS1vz3816-Ybwhy9QTTi4HdcNbKe5FeIJGvr29CK1TheRdfSMHQ7YB5f3fHTRMTOAz55QNS8Y1aTLEXK2kHnsOnulpyvy9m5RIkF3tDCT5jDnvQdpPLWR09dbg3nrn4ARxeyA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '당진', '37.0553', '126.5078', '충청남도의 시. 이름은 신라 시대에 당나라와 교역하는 항구라는 뜻에서 당진이라고 지어졌다.[9] 간척을 통해 면적이 계속 늘어나고 있다.[10] 동쪽으로 경기도 평택시[11], 동남방향으로 아산시, 서쪽으로 서산시, 남쪽으로 예산군과 접한다.', 'https://i.namu.wiki/i/DRs6cPSprF_LWP7UnsvvNRVOI9gbQD3kbV3eumPeVU8Oc1uginBae2PYnEMJSLoiCf9y2AdK9WxO5sp1AqqGUztK5mEwJXSqUvEO1G2BFyFns2ahFe5z9BUYcFeOXVEuFQPkRf3oLQPmZBE8GTXy1Q.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '전주', '35.8242', '127.1474', '전라북도의 시. 전라북도청 소재지이자 전라북도 최대 도시이다. 동북 방향에서부터 동쪽과 남쪽을 완주군이 전부 감싸고, 서쪽으로는 김제시, 완주군 이서면, 서북 방향으로 익산시가 접한다.
+
+전라북도 제1의 도시이자 전라도에서는 2번째로 큰 도시다. 고대 한국사의 뿌리가 되는 지역 중 하나이자 조선의 뿌리이기도 한 도시이기에 전통문화 측면에서 인지도가 높은 도시이다.[14]
+
+전주시의 중심가 중 한곳에 위치한 풍패지관(豊沛之館)은 외국 사신들이나 조선시대 관리들이 전주에 방문하면 머물던 전주 객사의 공식적인 명칭이다. 전주시로 들어오는 관문은 호남제일문[15]이라는 한옥문이 맞이하며, 전주역 또한 한옥의 모습이다. 또한 전북대학교에 가면 신정문과 일부 건물들이 한옥으로 되어있다. 전주시는 계속해서 이러한 전통과의 조화를 이룬 도시를 만드는 사업을 계속할 것이라고 한다. 광주광역시가 혁명, 저항, 민주 등 열정적인 이미지가 강하다면, 전주시는 한국적, 여유, 예술 등 부드러운 이미지가 있다.', 'https://i.namu.wiki/i/L1vHZr8oaMA1LU5S5Qf6abSyyee46WGHaiWST1WMKvJx5i3EH8Etl_G_VwEITejsfXVgFkfJrEXEFEPrA5dIEowOWk60_G5kgxdprBkxR7UmLwAIPVgRTXBbOKt5cESo4NwZhVOCdbMHU0PsHL8BUg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '군산', '35.981', '126.7376', '전라북도 북서부에 위치한 시이며, 인구가 전주시, 익산시 다음으로 많다. 북쪽으로 충청남도 서천군, 동쪽으로 익산시, 남쪽으로 김제시와 부안군이 접해있다. 서쪽으로는 서해가 접해있다. 교과서에도 등장하는 군산내항의 뜬다리 부두로 유명하다고 하지만, 지금은 연안·국제여객선 터미널과 산업항구 모두 소룡동과 오식도동에 새로 지어진 군산외항에 있다.
+
+군산시는 일제강점기 개항장으로 지정된 이후 대한민국 서해안 지역에서 가장 큰 공업도시[5]였고 21세기까지도 대한민국의 대표 공업도시 중 하나였다. 대한민국 한강의 기적 당시 서해안 지역은 남동임해공업지역 개발에서 소외됐지만 그래도 여수시와 더불어서 군산시만큼은 남동임해공업지역처럼 공업도시로 적극 육성하였다. 하지만 2018년 한국GM, 2019년 현대중공업[6]이 철수하면서 군산시 경제는 침체 상태에 빠지고 말았다.
+
+일제강점기 쌀 수출항으로 성장한 도시이며, 산업화 시기에는 쇠퇴했었지만 여러 공장들이 입주하면서 한때 전북 내에서 가장 주목받는 도시였다.
+', 'https://i.namu.wiki/i/3xMrH2B5o3dwTDQr5a_OmNyrwUztDQTtMsJLFxW8IVNuyGcY2LZb5Ae9O73Fst9ieU8IKlkMVLTF6gIzA1jV0ctR5EHLdOMJt9F1et0qycT-sdyIhXpMRg6PD90kmg6TyyEpFxlYu3Fw7msq6NXIkQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '익산', '35.9409', '126.9543', '전라북도 북부에 위치한 시. 호남에서 가장 북쪽에 있는 지역이다. 동쪽으로 완주군, 서쪽으로 군산시, 남쪽으로 김제시, 전주시, 북쪽으로 충청남도 논산시, 부여군, 서천군[7]이 접한다.
+
+인구 약 27만 명으로 호남 전체에서는 광주광역시, 전주시, 순천시, 여수시에 이어 5번째, 전북에서 2번째로 인구가 많은 도시이며 전북대학교 특성화캠퍼스, 원광대학교가 위치하고 있다. 호남의 관문이자 전라도와 충청도의 문화가 어우러진 도시이다.[8]
+
+익산시의 시가지 일대는 이리라고도 불린다. 본래 솜리, 솜니, 솝리 등으로 불렀는데 한자로 옮겨 쓰면서 이리(裡里)가 되었다. 널따란 만경평야에서 구릉이 져, 멀리서 보면 속(솝)으로 들어간 마을이라는 뜻. #[9] 이렇듯 솜리는 만경강을 낀 만경평야 내 작은 촌락을 가리키는 곳이었는데, 조선총독부가 만경 - 김제평야에서 수탈한 쌀의 수송을 위해 호남선을 부설하고 익산역(당시는 이리역)을 세우고 호남선(대전광역시 - 광주광역시)와 전라선이 교차하는 철도 교통의 중심으로 발전하기 시작하면서 급격한 도시화가 이루어졌다.
+
+현재는 저렴한 집값[10]과 수출자유지역(공단)을 무기로 전통적 고도인 전주시와 오래된 항구도시인 군산시와 함께 느슨한 농공도시로서 전북의 발전축을 형성하고 있다. 동학농민운동의 중간 기폭제가 된 삼례 집회(교조 신원 운동)가 열린 완주군 삼례읍과도 접하였고, 한국의 자생종교인 원불교(삼성가의 종교로 유명)의 발원지[11]라는 역사성을 배후로 최근 새만금 개발과 중국 경제의 발흥에서 발생하는 변화의 중심에 있기도 하다.', 'https://i.namu.wiki/i/nXbCJwgVr5nl9tI7I2D81uABJJ13pCTdBpdphiEwC8kVgu-dygpcv1_vHlbH_4UBS9z05JTDVBc2FcG47hkShAFBcRoWKlzUKNtSaSy3SBP4_CtmMhvT4F8SK-2-MQPnjZsKdG7-AI10J7nLN7EOVQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '정읍', '35.5695', '126.8513', '전라북도 서남부에 있는 시.
+
+도농복합시다. 북쪽으로 김제시와 완주군, 동쪽으로 임실군, 서쪽으로 부안군과 고창군, 남쪽으로 순창군과 전라남도 장성군과 접해 있다. 면적은 전라북도의 시군중에서 4위이며, 1998년 10월 31일의 행정구역 조정 이후 기준으로 1개의 읍, 14개의 면, 8개의 행정동으로 구성된다.
+
+인구는 1960년대 중반에 27만 명으로 정점을 찍은 이후 점차 인구가 줄어들었고, 2023년 4월에는 10만 명대까지 추락했다. 하지만 전라북도의 타 시군도 사정은 다르지 않아서 전주시, 익산시, 군산시에 이어 인구가 네번째로 많은 도시이다.', 'https://i.namu.wiki/i/xSiBmp3OO84_sGG770TQ_coC2nUis2ygFlvUIPrhA0_RGHkcP5jTxajsv6p3HTAjF3IXz3_riHKpx0gdgLQbdllO-x4n9Mb-d-lflcA7syRUy6jKZBbG2RJ2y4CJy9PP8O3aKAatp1RIk_h1Pl6qzA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '남원', '35.4103', '127.3903', '전라북도 동남부에 위치한 시. 도시 이름은 통일신라의 행정구역인 9주 5소경의 남원경에서 유래했다.
+
+남원경이 설치된 해는 685년(신문왕 5년)이다. 9주 5소경 중 5소경 도시는 현재 전부 다른 이름을 쓰고 있는데[5] 남원경만 현재까지 이름을 똑같이 쓰고 있다. 즉 통일신라 시대부터 이어져 온 지명이 1,300년 넘게 유지돼 21세기까지 이어지고 있는 것이다. 당장 신라의 천년수도 서라벌조차 현재 이름이 경주시니, 1,300년 넘게 유지하는 남원이라는 이름에 자부심을 가져도 된다. 2023년 기준 남원시의 이름이 결정된 지 1,338년됐다.
+
+캐치프레이즈는 "THE 사랑의 도시."
+
+시의 상징물은 흥부전에서 박을 물어다 준 제비와 바래봉 정상에 군락을 형성하고 있는 철쭉이지만 사실상 성춘향과 이몽룡을 상징으로 밀고 있다.[6] 이곳에서 개최하는 미스춘향 선발대회[7]도 전국에서 가장 오래되었고, 나름 영향력이 있는 대회다.
+
+경제 면에서는 농촌도시보다는 관광도시의 성격이 더 큰 도시로, 국내 단일 축제 중에 스케일로는 손에 꼽히는 춘향제가 유명하다.[8]
+
+전북의 다른 시들(전주시, 군산시, 익산시, 김제시, 정읍시)이 죄다 서부 평야지대에 몰빵돼 있는 반면, 남원시만 유일하게 동부 고원지대에 혼자 외따로 동떨어져 있다. 그래도 덕분에 고만고만한 군들이 대거 몰려 있는 지리산 주변(장수군 2만 1천, 임실군 2만 6천, 순창군 2만 6천, 곡성군 2만 7천, 구례군 2만 5천, 함양군 3만 8천)에서는 나름 중심지 역할을 한다. 지리산 주변의 지역들인 장수군 - 함양군 - 구례군 - 하동군 간의 연계와 교류도 밀접하고 잦다.', 'https://i.namu.wiki/i/cgeOMmOraTcORosww6hzSKEZFK0Qim8U71tOpcLliayVP2Gwj4myw7ujzeaJjPwoEP3ra4j4sBCzIZ7FWZC5sTh2HEXYcdwXx8VG3VwO_McOxk_iAdi2PQ3c-xrvOJJQzkG5jwNmzADHwQV52p4zbA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '김제', '35.805', '126.8886', '서기 3세기 중반에는 마한의 벽비리국(辟卑離國)이 위치했다. 고고학적으로는 삼국시대인 4세기 초반에 이미 백제의 영역에 편입되기 시작한 것으로 드러나며, 369년 3월 근초고왕이 김제 남쪽에 있는 침미다례를 격파하자 백제에 공식적으로 투항했다. 아무래도 해안으로 백제의 무력이 침투하기 더 유리했던 점이 원인이었던 것으로 짐작된다. 이후 백제 때에는 벽중(辟中) 또는 벽골현(辟/碧骨縣)으로 불렸는데, 유명한 벽골제의 이름도 당시의 지명에서 유래한 것이다.
+
+백제가 망한 직후 벌어진 백제부흥운동이 한창이던 662년 12월에는 백제부흥군의 임시 수도로 지정되기도 했다. 이때는 피성(避城)이라는 이름으로 불렸다.
+
+남북국시대 통일신라 경덕왕이 757년 12월 전국 지명 한화 정책을 추진하면서 현재까지 쓰이는 지명인 김제군(金堤郡)으로 개칭되었다. 4개의 속현이 있었는데 만경현(萬頃縣, 만경면), 평고현(平皐縣, 용지면), 이성현(利城縣, 청하면), 무읍현(武邑縣, 성덕면)이었다. 청해진의 장보고가 암살된 후에는 청해진이 있던 현 완도군 일대의 주민들이 조정에 의해 김제로 강제 이주되었다.[9]
+
+후삼국시대에는 후백제의 강역이었고, 후백제가 망한 후에는 고려에 편입되어 오늘날에 이른다.
+
+1914년 4월 1일 만경군, 금구군을 편입하여 통합했고 1931년 11월 1일 김제면이 김제읍으로 승격되었다. 곡창지대가 있었기에 아무래도 일본 자원의 침투가 많아, 나름대로 일본인 식민자들에게 많은 수탈을 당한 지역이기도 하다. 1949년 진봉면에서 광활면이 분리되었다.
+
+1989년 1월 1일에 김제읍과 월촌면이 김제시로 승격되었다.[10] 1994년 백구면 강흥리, 도덕리, 도도리, 남정리가 전주시에 편입되었다. 1995년 1월 김제군과 김제시가 김제시로 통합되었고 동년 3월 만경면이 만경읍으로 승격되었다.', 'https://i.namu.wiki/i/qLxYtaGRFD2rQYl82Tw__2Bat78peOBLpvcveVwMKRkanHGF7mVprd3cxSi3dN8hm0qwOgpe5bfWUPA66QfIxPH6HTm38qrPUCZzu8iKZGQW94VItnaqdDHrXhHAHL3zRXrR5Sgyxp8M1QXznTPJGQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '완주', '35.9218', '127.1775', '전라북도의 군.
+
+본 지역을 기준으로 동쪽으로 진안군, 동북 방향으로 충청남도 금산군, 서쪽으로 익산시, 전주시, 서남 방향으로 정읍시, 남쪽으로 임실군, 북쪽으로 충청남도 논산시와 접해 있으며, 월경지인 이서면을 기준으로는 동쪽으로 전주시, 서남북쪽으로 김제시와 접해 있다.
+
+전주시 대부분을 둘러싸고 있으며, 전주시를 제외하고 7개 시, 군과 인접해 있다. 주요 기관 대부분이 전주 시내에 소재한다. 완주군 관내에 소재한 공공기관은 봉동읍의 완주경찰서, 삼례읍의 완주소방서와 완주우체국, 용진읍의 완주군청 등이 있다. 우석대학교가 삼례읍에, 한일장신대학교가 상관면에 있다.
+
+전북의 시군들 가운데 면적이 가장 넓고, 전라남북도의 군 가운데 인구가 가장 많으며 전국 단위에서는 8위에 해당된다.[4][5] 관내에 3읍 10면을 두고 있다. 완주군 인구의 절반 가까이는 삼례읍과 봉동읍에 집중되어 있는데, 오랫동안 인구 수에서 삼례읍이 1위, 봉동읍은 만년 2위를 랭크했지만, 봉동읍에 전주 3공단이 조성되고 신시가지가 형성되면서 지금은 역전. 근래에 인구 2만 명을 넘어 고창읍, 부안읍과 맞먹는 규모로 증가했지만, 구 읍시가지와 신시가지가 상당히 떨어져 있어서 그다지 실감이 나지 않는다.
+
+현대자동차의 버스 및 대형 상용차량을 생산하는 공장, LS엠트론의 트랙터, 궤도 및 사출성형기를 생산하는 공장과 전북 현대 모터스 프로축구단의 클럽하우스가 봉동읍에 있다.', 'https://i.namu.wiki/i/nfPI8f3AUnJnuPi1mIjbL1GB3LT8l6EAu3aJYfYviRr5uoiLvPFof8DCPfGZ1Fv2O4mfbcRW6iT-c1yRYTNSuVx2J3_zM8LI4QwEwjYUdNJOUSRg1nmZyXUiC8hBQgrDz750wJgtSrLhqUkl3myqOQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '진안', '35.791', '127.4363', '전라북도의 군.
+
+면적은 789.09㎢로 전라북도에서 완주군 다음으로 넓다. 군 대부분이 산간 지역이지만 산지의 기복이 적어 주변에 있는 무주군, 장수군에 비해 지세가 그렇게 험준하지는 않아 진안고원이라고 불린다. 무주군, 장수군, 완주군, 임실군, 금산군과 경계를 맞대고 있는데, 완주 일부 지역과 임실군에서 진안으로 들어오려면 대부분 고갯길을 타고 올라오게 된다.
+
+1읍 10면을 관할하며, 군청은 진안읍 군상리에 소재한다.
+
+2001년 국내 5위 규모의 용담댐이 완공되어 전북 지역에 식수를 제공하고 있다. 덕분에 고질적인 물 부족[5]이 해결되었지만, 진안군은 이로 인해 6면과 진안읍 일부가 수몰되고[6], 군 인구의 40%에 해당하는 수몰 지역 주민들이 고향을 떠나 타지로 뿔뿔이 흩어지게 되었다.
+', 'https://i.namu.wiki/i/sQJMDX30d2hoNj-GpfvMbRhel5B2zTbvi2EW0nmPRDWYBfZ9yA5tAv_ox7n34BDHPoW-5D75hbIUGq1tHrPh7RPk0ISU062A7L_XM_V5kML24MkaIT_bcdKKHO4B6a7T4V8SWLurFN4ksrLEkQlkSA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '무주', '36.0022', '127.6607', '전라북도 동북부에 있는 군. 주 로 끝나는 이름이지만 茂州가 아니다. 이 이름은 1414년 무풍현과 주계현을 합치면서 두 지역의 앞 글자를 따서 지은 것이다.
+
+접한 도가 무려 4개나 된다.(충청남도, 충청북도, 경상북도, 경상남도) 무주군이 있는 전라북도까지 포함하면 5개 도의 접경지역인 셈. 남북도를 구별하지 않고 전통적인 지역 구분으로 보더라도 전라도, 충청도, 경상도가 모두 맞닿아 있다. 그러다 보니 3도의 방언이 혼재하기에 인접한 영동군, 김천시와 함께 국어 방언학을 연구하는 사람들이 많이 방문하는 곳이기도 하다. 그리고 전라북도에서 유일하게 경상북도, 충청북도와 인접해있다.
+
+덕유산 국립공원과 무주 덕유산 리조트[6] 등의 관광지로 유명하다. 태권도원이 이곳에 있어 태권도 수련생들이 많이 찾아오는 곳이기도 하다.', 'https://i.namu.wiki/i/rjQGB5udho1jsvrJmNS5tAB9nz4hc-i1dw_UmSeQxdOF2CGOlBtbuhW19Lqji5hAJqq0TjRjG1Pftee5cwp3QQ8HtaMk389oHX_gf3svT_9KzvQdIKItSGf1sdZAy2rNaakMa7UR0kt2FM6qqo-Opw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '장수', '35.6469', '127.5168', '전라북도의 군. 동쪽으로 경상남도 거창군, 함양군, 서쪽으로 임실군, 진안군, 남쪽으로 남원시, 북쪽으로 무주군과 접하고 있다. 장수(長水)라는 지명은 물이 길고 산이 높다는 수장산고(水長山高)에서 유래되었다고 하나 확실하지 않다. 그렇지만 그 말대로 산이 높고 물이 많은 고장임은 분명하다. 관할 1읍 6면 가운데 산서, 번암 두개 면을 제외한 나머지 5개 읍면의 명칭에는 수(水), 계(溪), 천(川) 등 물과 관련된 글자가 포함되어 있다. 그리고 제외된 두개 면에도 산과 관련된 산(山)과 암(岩)의 글자가 포함되어 있다.
+
+군 남부의 산서면, 번암면은 같은 군내의 장수읍보다 남원시와 교류가 더 많다. 지리적으로도 장수읍 이북은 금강 수계인 반면, 산서와 번암은 섬진강 수계이며, 두 면은 1906년까지 남원군이었다. 그래서 옛날에 이 지역 사람들이 읍내에 간다고 말하면 장수를 간다는 게 아니라 남원을 간다는 것을 의미했다. 산서면의 경우 장수읍과 고도 차이가 크며, 오히려 인접한 임실군 지사면이나 남원시 덕과면, 보절면과 고도가 비슷하다. 번암면에 남원 지역의 상수원인 동화댐이 있다. 한편, 번암면의 경우 인근 경상남도 함양군과의 교류도 밀접한 편이다.', 'https://i.namu.wiki/i/Tndbk2uzD4J3qXWirUyZey-4WdaJMTPPXbuIB6sSDi4tPqVKtBMIwf6PjLGhe-v8XVmSEgO7pQ4HC00z9tuWb_uShyjzpvI9bXUG8ASlHCsflJwTXcN0wzoB-oAYtKMoYIXmU79kK1BDVVFCSLkBVg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '임실', '35.6131', '127.287', '전라북도의 군.
+
+동쪽이 장수군과 남원시, 서쪽이 정읍시, 남쪽이 순창군, 북쪽이 완주군과 접해 있다. 전주시와 남원시 사이에 끼어있어서 두 도시의 생활권에 포함되어 있다. 낙농업이 발달한 지역으로, 외지인들이 임실군하면 대부분 치즈를 떠올린다. 요새는 옥정호와 임실 치즈를 활용한 관광 산업을 극도로 발전시키고 있어 "천만 관광"을 목전에 두고 있다.', 'https://i.namu.wiki/i/oaVcU0o3MBj5E4axK-algur-h9WBpkLSV3W4PGXv5RcQd-6kv-RvGzFYwp5_NeUoiUEIl8Z7cTSfFcwFDZZa9g4BzmVZCIfeLgRJ1AncAZe8CwYyfUGJUGenNWKbXYCt0jX8TRKqFuplTixyUuPaXw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '순창', '35.3541', '127.1405', '전라북도의 군. 면적 495.97㎢. 동쪽이 남원시, 서쪽이 정읍시, 서남쪽이 담양군, 남쪽이 곡성군, 북쪽이 임실군에 접한다.
+
+설공찬전의 무대이기도 하다.', 'https://i.namu.wiki/i/6Yac1SYLROWQXS_4vh6IO3zZkTFEFXfXvPSbKd_CaZQgyg5wRbxCS3FpWYNtAJDmPVA1XYKsnMdTPAHH52LiS5-pWd1Dw3FccqtPB3043j-sNI5BuT0VPfi1c36_52rtK5vuby39p1ieNbf29LIcBg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '고창', '35.4311', '126.511', '전라북도 서남부에 있는 군. 북쪽으로 부안군, 동쪽으로 정읍시, 남쪽으로 전라남도 영광군, 남동쪽으로 장성군과 접해 있다. 군청은 고창읍 교촌리에 있다.
+
+행정구역상 현재는 전라북도지만 전주시보다 광주광역시가 더 가까운 곳이며 광주광역시의 영향력이 더 강한 편이다. 이 때문에 광주권에 포함되기도 한다.
+', 'https://i.namu.wiki/i/1_9nAtZoyF7EdCLOaiRFev617hryxLKPOom9xBuFbgOvHFRH0PiZKaejW0UOLGrIXzNQpZ--CAPUKVAZSQRbLmc7IK2RQuNp73BR7S7OiVUlS4cT9zTA5d2rpizdHFyW-Poj39cKg6FHcgjeGZYy8g.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '부안', '35.7304', '126.7348', '전라북도 서부에 위치한 군이다.
+
+북쪽으로 군산시, 북동쪽으로 동진강의 경계로 김제시, 남동쪽으로 정읍시, 남쪽으로 곰소만 경계로 고창군이 접해있다.
+
+흔히 변산반도로 더 많이 알려진 지역으로, 관내에 변산반도 국립공원[4]이 있다. 새만금 방조제를 통해 군산시 고군산군도와 연결된다.
+
+산들바다의 고장 이라는 별명처럼 지역 안에 산과 들판과 바다와 섬이 다 있다. 군 서남부는 산지가 많고 군 동북부는 평야가 넓게 펼쳐져 있는데 이는 지질과 연관되어 있다. 전라북도에서 가장 긴 해안선을 가지고 있으며, 곰소항, 격포항 등의 어항들이 있고, 변산 해수욕장 등 여러 해수욕장이 여름마다 문을 연다. 위도를 포함한 여러 섬들도 관할하고 있다.
+', 'https://i.namu.wiki/i/ySRi_KVPqlKa2i0ZwTTX8PsfPpsrMVMlHIm7b91cAP8Mstxq_iC4oQ8AQ_zCfBGnSfM_woF6xzh7fZpUoNFNbRn1gmSzZ4ifqcfB4W0qtUm8CJuCfycQqGYgz2jzoxuWnvu-RhJiYnJzwVRxr4jSVA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '목포', '34.8101', '126.3923', '전라남도의 시. 광양시, 여수시와 함께 전라남도의 3대 항구 도시 중 하나로 개항하면서 부터 항구 도시로 발전해왔다. 호남선이 끝나고 서해안고속도로가 시작하는 곳으로 교통의 시발점 역할도 하고 있다.
+
+일제강점기인 1940년대만 해도 부산광역시, 인천광역시, 원산시와 함께 조선 4대 항구 도시 중 하나였고, 1950년대 10만을 훌쩍 넘는 인구 증가(11만)로 한때 남한 6대 도시였다. 하지만 목포항은 수심이 얕아 대규모 무역항으로 쓰기에 입지가 나빴고, 교통 인프라가 부실해서 목포항은 화물 운송량이 급속도로 줄게 되었다. 그래서 목포항에 의지하던 목포시의 경제는 큰 타격을 받았고 목포는 대도시로 성장하지 못했다.
+
+전라남도 서부의 중심도시다. 전라남도의 경제력은 동부(여수, 순천, 광양 등)이 압도적이며 목포는 공업이라고는 거의 찾아볼 수도 없는 순수 소비도시이니 자체 경제력은 떨어진다. 역내 총생산을 비교해보면 목포시는 45,305억 원이지만 여수 258,706억 원, 순천 61,250억 원, 광양 100,602억 원에 달하며, 2020년 기준 재산세는 목포시는 224억원으로 여수시 507억 원, 순천시 301억 원, 광양시 279억 원에 이어 4번째다. 목포와 가까운 영암군 삼호읍에 현대삼호중공업과 대불산단이 있고 영암군의 전남 내 수출액 비중은 10.4%다. 하지만 전남 동부의 수출비중은 80%를 넘기 때문에 어떤 식으로 따져보든 목포의 경제력은 도무지 동부권과 비교할 수 없는 차이를 보인다. 하지만 도청신도시가 서부에 올 수 있었던 게 상대적인 낙후지역이라는 점이 작용한 바가 크고, 소비도시 규모로서는 전남의 다른 도시들보다 더 크다고 볼 수 있다. 작은 도시면적과 그에 따른 높은 인구밀도을 바탕으로 도시 인프라의 구축은 여순광에 비해 훨씬 큰 도시로 보이게 만든다. 마천루[7], 대형마트와 아울렛, 영화관 등이 다른 도시에 비하면 많은 편이다.
+
+면적은 서울특별시 서초구나 수원시 권선구와 비슷하다. 비수도권에서 가장 면적이 작은 시고, 전국에서는 경기도 구리시, 과천시, 군포시, 광명시, 오산시에 이어서 6번째로 좁은 시다.
+
+목포는 일제강점기 부터 발전해온 도시라서 도시 구획이 잘 되어있다. 대성동과 유달산 아래쪽은 도시구획이 잘 안 돼있지만 일제가 도시구획을 잡고 개발한 목포역 남쪽과 동쪽은 도로들이 사각형 형태로 뻗어있다. 옛날엔 목포역 근처까지 바닷물이 들어왔는데 대부분 도시가 바다를 매립한 곳이다. 하당과 남악도 다 바다를 매립해서 만들어진 동네다.', 'https://i.namu.wiki/i/4A0nApwF5c4rcD4Xus4A7ht-nrARc-fhi1RTjxkFyP359BvmqmIo1DyADdvuX-zXqsLbTDZ1_hn8-O6F09jvuNGOw_WcpuMNKqKmlyvA3Cyuwv4oHKFUswDBmAVkw1Y5ys_OkTBclWHMU9JJReWnFg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '여수', '34.7604', '127.6622', '전라남도의 시.
+
+전라남도 2위인 272,826명의 인구와 전남 GDP의 50% 가량을 만들어내며 전라남도 수출액의 74.4%를 담당하고 1,316만 명의 관광객이 방문하는 등, 전남의 핵심적인 도시다. 한려해상, 다도해해상국립공원 두 국립공원 모두 여수시 지역을 포함하고 있으며, 이 중 한려해상의 려가 여수시를 의미한다.[6]
+
+여수시는 여수엑스포 직후인 2010년대부터 도시의 모습이나 위상이 급격하게 변화했다. 별 볼일없는 시골이었던 돌산이 최고급 펜션들로 가득차고 헤엄쳐도 갈 거리지만 다리가 없던 경도엔 2조원짜리 리조트가 들어왔으며 구도심이던 대교동 인근이 관광 지역으로 급부상했다. 특히 여수의 강남이라는 웅천지구의 변화는 그 축을 같이한다. 따라서 여수시에 대해 이해하고 싶은 사람은 2010년대를 기준으로 구분해서 찾아보는 것이 도움이 된다.', 'https://i.namu.wiki/i/X2hZFJ3zCU6w_1_aGWq4l_AAbN2WI4x0j2E-ZmDv9Chwtr6YBin3Pgcs5f6vUa0dft7eQyuq-kx9RInpc0T4hqtgpGXv6a6LgS2wApU1Ayj9OGfepLNbI9-BBAHhMYYmPM-D9VluzECn8VY6EHj4_Q.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '순천', '34.948', '127.4875','전라남도 동부에 위치한 시. 전라남도 동부청사 소재지 이자, 전라남도에서 가장 인구가 많은 도시다.1995년 순천시와 승주군이 통합하여 도농복합시가 되었다.[10][11] 전라도를 통틀어도 광주광역시, 전주시, 순천시 순으로 전라도 제3의 도시다. 현재 전라남도 동부 지역의 행정, 교육, 교통의 중심지 역할을 하고 있고, 행정기관 으로는 광주지방법원 순천지원, 한국철도공사 광주전남본부 등이 위치해있다. 철도로는 전라선과 경전선이 지나간다.
+
+전라남도 동부의 중심 도시이자 수부 도시, 소비 도시이자 교육 도시로서 주변의 여수시[12] 광양시, 고흥군, 구례군, 보성군 벌교읍, 경상남도 하동군의 주민들이 소비하는 돈에 의존하는 경향이 굉장히 크다. 사실상 순천시가 행정시설이 많은 것 또한 이러한 도시들 때문. 경상남도 서부의 중심이자 경남 서부청사[13]가 있는 진주시와 성격이 비슷하며 서로 거리도 가까운 편이고 자매도시이다.
+
+전라북도에 위치한 순창군과 발음이 거의 비슷하다.
+
+여러모로 여수시와의 경쟁의식이 강한데, 인구도 3천 명 차이고 각자가 경제, 관광/문화, 행정의 중심 도시라는 상징성이 강한 측면도 있다. 여수시의 경제력과 관광객 수는 순천시는 커녕 전라남도의 모든 시가 합쳐서 덤벼도 여수시가 많지만, 국립대학같은 문화교육시설은 순천시에 있다.
+
+동쪽에 광양시 남쪽에 여수시, 북쪽에 곡성군과 구례군 서쪽에 보성군이 있다. 그리고 서쪽 끝 지역인 주암면은 북쪽으로는 곡성군과, 북서쪽으로는 화순군과도 맞닿아 있다. 지리산과의 거리도 매우 가까운 편이다.
+
+바로 옆 동네 여수시, 광양시에 공업단지가 있기 때문에 일은 여수, 광양에서 하고 순천은 주거가 발달했기 때문에 거주는 순천에서 하는 경우가 많다. 때문에 세 지역 모두 외지인의 비율이 늘어나는 추세다.','https://i.namu.wiki/i/CZy8NdpuZ7ysK5rnLFGuRD7FAsokyP8iTx9F41dSxUX0NJ-D-yOJ1BOjdEUdOGdL1BU1JZZ8eHWoz4-ET3O-pKRgv-0ZA8IX2YW23Jt_GYzyjACcNN6z1GbD2eT1V_-8yorJQbnzRgAP7Wzh2NfCUA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '나주', '35.0102', '126.7113','전라남도의 시. 전라도에서 라에 해당하는 곳이다. 동쪽으로 화순군, 서쪽으로는 함평군, 무안군과 접하며, 남쪽으로는 영암군과 접하고 북쪽으로 광주광역시와 접한다. 광주광역시와 가까워서 광주광역시의 위성도시로도 인식된다.
+', 'https://i.namu.wiki/i/CxPR9kndhcHim4JlfxcwfUwSO-3c0toPozWzHUyETvhWIB7_YMes7hrCZbkaBRN7KIFRPzzpoISuAtbzLrrM516nE8CCTdH6HOW1MFaz6QD4OycTV50fa35ggqsoAtmUbbbo04aXDz-VZX2YNGHkyg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '광양', '34.9401', '127.6954', '전라남도의 시. 현재 인구는 152,168명. 순천시, 여수시, 목포시에 이은 전라남도 제4의 도시이다. 전라남도 내에서 1인당 소득 수준이 2위인 지역[6]이다.
+
+광양제철소가 생기기 전에는 김, 소금을 생산하는 쇠락하고 있는 낙후된 어촌지역이었다. 하지만 포항제철(현 포스코)의 제2제철소 위치를 광양으로 정하고, 1985년에 종합제철소 착공을 하며 전라남도의 대표적인 공업 도시로 자리매김하고 있다.
+
+일반화물 1위, 컨테이너 물동량 3위의 광양항이 이곳에 위치하고 있으며, 도로로는 남해고속도로, 철도로는 경전선과 화물철도 지선 3개가 통과하고 있다.
+
+동쪽으로는 경상남도 하동군, 서쪽으로는 순천시, 북쪽으로는 구례군, 남쪽으로는 여수시와 접한다.
+
+전라남도와 경상남도 사이에 있기 때문에 두 지역의 문화를 공유한다. 경상남도 서부 최대 도시 진주시까지의 거리는 약 47.9km, 도 최대 도시 창원시까지는 약 88.6km 정도 된다. 공업도시여서 타지역(수도권, 경상도 등등) 출신의 비율도 높은 편이다. 또한 순천시로 출퇴근을 하는 경우가 많다.','https://i.namu.wiki/i/qhpfxz2t0RdA1gTf5MvSNRCu8FHezH0zDw8Dbk9jQg3RSk3lfAUrZNb3PrQkpykmR7kR0K33GMQKlSPqnLmDeGCNX7jAEKMzuCTtaXqWoHlcvvpGUa_XlMQEEgi_j7Uf44kHniNu0tA8Y0d9vQSj2A.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '담양', '35.3191', '127.3957', '전라남도 북부에 위치한 군. 북쪽과 북동쪽으로 전라북도 순창군, 동쪽으로 곡성군, 서쪽으로 장성군, 광주광역시, 남쪽으로 화순군에 접해 있다.','https://i.namu.wiki/i/jzjAN6AdkceQmp88ElX8E8zN6dXr6cGOKy024GtGtaA-D5IlNtlNcKKS63mbzgqiaWfJeq6CWSvzbR07f3TFKaajiad2xMEQV4PGQq_YlhMVn463t_fffokgWB8gj-8Bku0PSrmmvI866JhnRvFfLg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '곡성', '35.2228', '127.2867', '곡성군 문서로. 음운 자체는 유지되나 한자만 바뀐 것이 큰 특징인데 본래 고려시대에는 2번 항목과 같은 哭聲이었다. 하지만 뜻이 좋지 않아 穀城으로 변경되었고, 이 마저도 곡식 곡(穀) 자를 보고 풍족한 동네로 착각해서 조세를 많이 부과한다고 하여 현재의 谷城으로 변경되었다. 동명의 영화로 많이 유명해졌다.', 'https://i.namu.wiki/i/HWsCSurk2AJoAIx9KPFS4FbBT1ZuXjZtE-0TNHMh1_eVW_Hu5Hb6vDeAbVXb87noVkDnY1H6sCvBPTpDIpGQtL39UgKuGh9vA2aG1M3dyAhoh6BLEZKnvTEInjM3vZJjCHm1tQTETnjhrXeGYTB1TA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '구례', '35.2083', '127.4593', '전라남도 북동부에 위치한 군. 지리산과 백운산 사이에 있어, 구례군은 인구가 2만 4천명 가량으로 전라남도에서 제일 적으며 그마저도 구례읍에 1만 명 내외의 인구가 집중되어 있다. 북쪽으로 전라북도 남원시, 남쪽으로 광양시, 순천시 서쪽으로 곡성군, 동쪽으로 경상남도 하동군과 접한다.', 'https://i.namu.wiki/i/QmPe2MxSKCCzUnPlHIfZ3m-wkJQHvvmp4LGn5KgLxFztDkHIjAvHKXUJnyLpaG6hhy733CC6cSQnXZrQw9AYGkD_1hrnOIqMIUC9cducSK4YbQg7mGlu7ync_SOpX0jG1AtWDD2uQSC2Bp_8j01lyQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '고흥', '34.6115', '127.2752', '전라남도의 군.','https://i.namu.wiki/i/j2iCzfHvPfz9gMEpoKEpuzWd-tzlT0fILe0Vxh6j0iUOUBMQs7kFT-_W7nb8DTeQa2yIwxQ6drX2f-uOr5GxpJfX6fQQL_ZyEfTs8NtSYw571Z9sniujQ7RE-8emLibFqWzswlBqjAc5A6LRz4vyOg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '보성', '34.7788', '127.0749', '전라남도의 군. 녹차로 가장 많이 알려져 있으며, 벌교 꼬막도 대표적인 특산물이다.', 'https://i.namu.wiki/i/o-KnYFWzXT9zg7Wf8BLNX0-L5wQA0eaIuPvwjSNTrmesM89BaaBUDIPFiO9rn3pZWqojW768tcSc7xAAqc7ajuo544OT_OuRXmoa0wn0sb8OtcYTAJgxxynbEGgDFlT_n0RQp7R1vZGWTgn5P4tmuA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '화순', '35.0615', '126.9906', '전라남도의 군.
+
+북쪽으로 광주광역시, 담양군, 동쪽으로 순천시, 곡성군, 서쪽으로 나주시, 남쪽으로 보성군, 장흥군, 영암군[6]이 접한다.', 'https://i.namu.wiki/i/Br-8p5IytEG52rn67zacIlWRmUH_rVexmc54m9H0yEPc-eBaqCjanUauTqb9_35KTSZquhKVo8pNklwX0YmpvjaDq3tZFS2--_W5rxHI82LzU_VY0BEJ6tjbtm3CHznWopwSavEo8K8H--z_8MM-Kg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '장흥', '34.6874', '126.9027', '전라남도 남부중 하나로 장흥반도 동부에 위치한 군. 북쪽으로 영암군, 화순군, 서쪽으로 강진군, 동쪽으로 보성군, 고흥군과 접한다.', 'https://i.namu.wiki/i/XVXYhzVzkjr0mKC2nCAcBa0CLFVKjZDsX75zbz5yG04mlwuyekY1oFxYD1cFN-sJR-ofhpO6L1wDBFsWs5TvA_R61uuvodVnrtFZFhTPhMvpwGM9cSfrgyfx2SiJwN6fkJ26rpNIBnQ8TcnAyCbZjg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '강진', '34.6436', '126.7681', '전라남도 서남부에 위치한 군. 군의 산업 비중은 1차 산업이 71%인 전형적인 농어촌 지역이다. 군 내의 섬은 총 8개인데, 사람이 사는 섬은 강진만에 있는 가우도 하나다. 서쪽으로는 해남군, 북쪽으로는 영암군, 동쪽으로는 장흥군과 접한다.
+
+지도에서 보면 장흥반도 서부와 해남반도 동부를 반반씩 차지하여 강진군의 형상이 지리적으로 강진만을 중심으로 좌우로 갈라져 있고 한가운데에 있는 가우도 출렁다리를 이으면 대문자 A 혹은 바지 그리고 이빨과 닮았다. 강진군 지자체 측에서도 이것을 이용해 강진군 홍보에 A를 밀고 있다. 2018년 강진 관광 홍보 슬로건을 A로의 초대라고 지은 이유도 같다.','https://i.namu.wiki/i/G70yZ7F4ICkbuAHzD1SCiqcvDlkTcbdADxQ-IBwR660hlb2j5ylY-HsIxHF0zlK0535mdyp9cIstgn5iympjinlwZ_wcUCNJFR34OIOlX_S9FCSKB8ep43BcJ3b-P8-W0M-pxDuNwC8nglaBZcwqCw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '해남', '34.5706', '126.5837', '전라남도 서남부에 위치한 군. 전라도에서 가장 넓은 기초자치단체로 강원특별자치도와 경상북도를 제외한 지역에서 유일하게 네자리수 면적을 가진 지역이다. 게다가 간척지도 넓게 조성되어 있어서 전국에서 경지 면적이 가장 넓다. 그래서 농업 종사자가 많고, 배추와 고구마로 유명하다. 지리적 표시제/대한민국에는 해남 겨울배추, 고구마, 김, 전복이 등록되어 있다.
+
+북쪽으로 영암군, 동쪽으로 강진군과 접해있으며, 섬을 제외한 한반도 본토에서 최남단에 위치해 있다.
+
+그 유명한 땅끝마을이 있는 군이다. 땅끝마을은 부속도서를 제외한 한반도의 최남단에 있는 마을이다.[6]','https://i.namu.wiki/i/CxxiY3vpeD9VFA32cCVrH0tNfbCvSCvUZvqc-CybOxVPM793Y_5yVlPD1nIm_cHlIFQYJnaqGYKmbWw2sk7krSl5w9Qdiagm926ijU_GjcseVp0n4se95zM3cbIUic2t_MfAhHjTdJxImzVhmmwi2A.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '영암', '34.8068', '126.6888','전라남도 서남부에 위치한 군. 군청소재지는 영암읍 동무리다. 별명은 기(氣)의 고장. 북쪽으로 나주시, 동쪽으로 화순군[5]과 장흥군, 남쪽으로 월출산과 가학산을 끼고있는 강진군과 해남군, 서쪽으로 영산강을 끼고 있는 무안군과 목포시를 맞대고 있다.','https://i.namu.wiki/i/uGEmveILnZdytPFtQf0srUihDO5z2ajTgn454Coi-bUacTlyVDDD5KDGPzZfc7ZVlpk62hhBPSn7DJcnHXTDX5rFlnDqH-S8-BJHCZeGC2cinvSBCqUOmg_Zh_jmFNMBidnpTKv3ggeNn4nj5s--0A.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '무안', '34.9923', '126.4782','전라남도의 군이자 전남도청의 소재지. 인구는 9만여 명으로, 전라남도에서 인구가 가장 많은 군이다. 서쪽으로 신안군, 남서쪽으로 목포시, 북쪽으로 함평군, 동쪽으로는 영산강 너머의 영암군, 나주시에 접한다.
+
+군 남부 삼향읍 남악신도시에 전라남도청이 있는데, 지역 주민들은 남악신도시를 사실상 목포시의 연장선으로 여기는 경향이 강하다. 특산품은 낙지와 양파[8]. 지리적 표시제/대한민국에는 무안 양파와 무안 백련차가 등록되어 있다.','https://i.namu.wiki/i/MqTxLbyPaPtqzVBeidEpMTpPH3bW8zhvRXa4Kzo5nw3xc0siuTro2iwkgrrfvg58wV17rTgpbkLgrRqa2e_wzbwJJUdWnZMzOZhEDdamp4_i4GcI8mUqBT0iXq9XubB3NG2aKPTpCKW44o8RdtOcSw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '함평', '35.5122', '126.5202','전라남도 서부에 위치한 군. 동쪽으로 광주광역시와 나주시에 인접해 있고, 서쪽으로 함평만에, 남쪽으로 무안군, 북쪽으로 영광군, 장성군과 접해 있다.
+
+한우와 함평나비축제로 유명하며, 전국 지방자치 특화 사례 중 가장 성공적인 것으로 정평이 나 있다. 나비 축제 기간만큼은 전국에서 사람이 몰려들어 평소엔 한산한 군내가 북적인다. 실제로 이 시기에는 관내 기차역인 함평역에 KTX가 정차한다.
+
+단가 호남가의 처음 부분인 "함평천지 늙은 몸이~~" 로 잘 알려져 있다.[5]', 'https://i.namu.wiki/i/MAabBFYdnl3VPJ6T9-EMAPuyfttR7E8FcVsQMA1rHtIEXrhsEYXK8aIxrCB9_pdV2pRKia78jQeLxGarkdxAWHrRgVahGnSwNiwZ5wUgeULOxuLcywBP-078n5kPjaw_PCtczGZ7vJjnMtsiKDC6zw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '영광', '35.3656', '126.5052', '전라남도 북서부에 위치한 군. 군청소재지는 영광읍 무령리. 전라남도에서 유일하게 노령산맥 이북에 있다. 북쪽이 전라북도 고창군, 부안군[7], 동쪽으로 장성군, 남쪽으로 무안군, 함평군과 접해 있는 지역이다. 한빛 원자력 본부가 있다. 굴비생산지로 유명하며(하도 굴비 가게가 많아 편의점에서 굴비를팔아도 위화감이 없을 정도.) 원자력 발전소가 들어서기 전만 해도 피서객이 많이 찾던 곳이었는데 들어선 이후 대폭 감소했다. 대신 원자력 발전소로 하여금 얻는 각종 지원과 자체인구 증가로 인해 오히려 군세 자체는 더 흥하는 것 같다.
+
+법령상의 광주권에 들어가지는 않지만, 전라남도 여러 광역생활권으로 보았을 때 영광군은 주로 광주권으로 들어간다. 실제 생활권역도 광주광역시로 진출하기가 더 편하며, 왕복 4차로로 잘 포장된 22번 국도를 타고 군 남동쪽의 밀재를 통과해 함평군 해보면, 월야면을 잠시 거치면 농촌 지역인 광산구 삼도동이긴 하지만 광주광역시계 안이며, 영광읍에서 동쪽의 구도심까지도 50km가 채 안 된다. 약 46km. 서해안고속도로로 인해 목포시 방향으로 접근성도 향상되었지만, 예전부터 22번 국도를 타고 광주광역시로 왕래해왔고 왕복 4차로에 입체화가 되어 고속도로나 다름이 없는데다 거리도 목포시보다 광주광역시가 더 가깝다.굳이 고속도로 통행료 내고 목포로 갈 필요가 없는 것. 법원이나 세무서 같은 공공기관도 광주광역시에 있는 기관의 관할이다.
+
+2002년 제정해 사용중이던 기존 CI가 욱일기와 비슷하다는 지적때문에 2021년 CI를 새로 제정함과 동시에 워드마크도 변경했다.', 'https://i.namu.wiki/i/iBepOxqdPdqzVUWpSNoTWX9Rt8o0pbgiia2GkIx0TRqAY7-xKl5Tc3TMZkccCl1w3liOqz1OB93xFItup2YbvW4PBhr-AuGUF0PIT_ZFuABpHof_pQnR1oz-oxhHCxihAhlxoik8C4w17EfQto8IsA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '장성', '35.2998', '126.7837','전라남도 북부에 위치한 군.
+
+북쪽으로는 전라북도 정읍시, 서쪽으로는 전라북도 고창군과 영광군, 함평군이 접하며, 남쪽으로는 광주광역시, 동쪽으로는 전라남도 담양군과 접한다. 호남고속도로나 철도로 호남선, 호남고속선을 이용할 경우 수도권, 천안, 대전, 전주, 익산 지역에서 광주로 향할 때 반드시 거치게 되는 일종의 전라남도의 입구 역할을 한다. 또한 광주권에 속하는 광주의 위성 도시이다.
+
+순우리말로 갈재(노령)라고 불리기도 한다.[7]','https://i.namu.wiki/i/vj_mnk-aqv72MurCo5iUli0J64fNvrZH3P0_d3rfRmmEewvmC7jwmRTzDryWVTAbwfo0QF0aDbQ9aRH35QtmGb8xPYUMke5IXv0i6bCcl79PnchnS_Vf7x4UDzJiPvn8-gRcZA4W7_goo7nIh6I4-Q.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '완도', '34.3129', '126.738','완도는 전라남도 완도군의 체도로, 대한민국에서 8번째로 넓은 섬이다. 면적은 90.1 km²이며, 해안선 길이는 약 105.9㎞이다. 연륙교[1]를 통해 해남군과 사이에 있는 달도를 징검다리 삼아 연결되어 있다. 완도대교를 건너서도 섬의 중심지인 완도읍까지의 길이는 20km나 더 들어가야 한다. 섬자체가 면적이 제법 되기 때문에 1읍 1면[2]으로 나누어져 있다.','https://i.namu.wiki/i/2BIvWymJo1thvu2lFTefqRBSl-rTtLc5zGrrBnLl-eHW4LEjxSIBfUt4QAgZr9slUzKX0Xe2GC1O4UbHUUVjV98-qNhis1a7mvMd8QjvdSOJAC7wT2TaWFqQFYS7OSMRsseINh_Gs3cwPkOSZ18sKg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '진도', '34.4838', '126.265','전라남도 서남부에 위치한 가장 큰 섬이자 군.[5]
+
+대표적인 특산종으로 진돗개가, 특산품으로는 홍주가 유명하다.','https://i.namu.wiki/i/82ap_NE9OZVR7N8MZOImEnGzUQp1zkkJPkJoMZI8_-ZjfOWwRe4ACAADS43RKt2teZaFk-nu9B1GRBrHOtxj_0WdvFg5_NhPUzELwL6CICHfXd92aQ4YrevL7Mdyr0R_RHeNnMC_OLcIDBpiaMXHgw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '신안', '34.54', '126.3169','전라남도 남서부에 위치한 서해안상 다도해로 이루어진 군. 서해안 다도해 섬 대부분이 신안군에 포함되는데, 완전히 섬으로만 이루어진 것은 아니다. 섬 육지간 연륙교 연결 및 간척사업으로 인해 사실상 육지화된 곳이 많기 때문. 대표적으로 지도읍이 있다.
+
+현대 사회에서 있어서는 안될 중범죄로 간주되는 염전노예과 같은 반인륜적인 사건이 지속적으로 발생하여 사회적으로 주목을 받기도 했다. 신안군이 작은 사회이다 보니 이러한 치안과 범죄 관련 문제들은 조직적인 은폐로 인해 별다른 진전 없이 여전히 현재진행형인 상태이다. 자세한 내용은 신안군/치안 문서 참조.
+','https://i.namu.wiki/i/MQKW9eYzQkd8kWGunqPNgzMfa9r5N-sFPtDjb7gJTws-NKTYy0sybm8vngY8eegHu22n3npgZr_IlLTM81H8BQrdhQCU-aRpESwM0Y1B_ghD0FHb8UE7vic6CR-Fy_61KbXTG4MrVeJLUyIMcjlFlg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '포항', '36.0188', '129.3529','경상북도의 시. 동쪽으로는 동해와 맞닿아 있고, 서쪽으로는 영천시, 남쪽으로는 경주시, 북쪽으로는 청송군, 영덕군과 접해있다. 경상북도 최대도시이며 경상북도 시군 중 일반구가 설치된 유일한 지역이다. 경상북도 동부[7]의 중심 도시이기도 하다.
+
+포스코의 본사가 있는 곳이며, 식료품·섬유·금속 공업 등이 발달했다. 포도, 감, 부추 등 농산물도 풍부하며, 수산업, 어업도 발달해 있기도 하다. 특산물로 과메기가 전국적으로 유명하다.
+
+대한민국 해병대의 고향이라 할 수 있다. 해병대 제1사단의 주둔지이며, 해병대교육훈련단이 위치하고 있어 해병대에 지원한 남자는 모두 한 번은 거치게 되는 곳이기도 하다. 관광객이 아닌 외지인의 포항 방문 목적은 십중팔구 포항스틸러스, 포항제철고, 포철공고, 포항공대, 포스코, 해병대 입소 중 하나라고 해도 과언이 아니다.
+
+신선한 해산물을 즉시 판매하는 죽도시장이 유명하며, 2004년 12월 7일 개통된 새만금포항고속도로를 이용하여 대구광역시 거주자들이 회를 먹기 위해 포항시를 많이 찾아온다. 이와 더불어 영일대해수욕장, 칠포해수욕장, 화진해수욕장, 월포해수욕장, 포항송도해수욕장 등이 있으며 포항시와 영덕군 사이에 내연산이 있다.','https://i.namu.wiki/i/FnbRTHTtre_NDZ-ew-CSuGT9YS40mxuWBTyJL7w_HLxhoEvN2CyYuY8NX1wqjE1iJ8Bm5mSUSAGDWPsi4QhHoslluCJ38rZbAMPCLSvjSk84MDjYfe9SS8kzoBekbIrLi3eMsD1U70Bauc8yLWZI3A.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '경주', '35.8562', '129.2242','경상북도의 시. 동쪽으로 동해, 서쪽으로 영천시 및 청도군, 남쪽으로 울산광역시, 북쪽으로 포항시와 접하고 있다.
+
+대한민국에서 가장 역사가 오래 된 도시 중 하나로, 약 천년 동안 신라의 수도였다.[6]
+
+《삼국사기》 및 《삼국유사》의 기록에 따르면 기원전 57년 6월 8일에 첫 성읍국가인 사로국이 경주 계림 일대에 세워졌는데, 비슷한 시기[7]에 고조선의 왕검성이 함락되었으니 경주시는 도시 전체가 고풍스럽고 역사적인 무대라 할 수 있다.
+
+경주시는 남북국시대에 이미 수십만 명의 인구가 산다는 기록이 있고[8], 고려시대에도 삼경(三京)의 하나로서 명성을 유지했으며, 고려 후기에 무신정권에 대항하는 반란이 일어나고 나서는 3경에서 제외되고 이어서 몽골의 침략으로 황폐화되었다. 그러나 다시 동경으로 복권이 되어 고려시대 내내 중요한 도시로서 기능했다.
+
+또한 조선시대에도 그 위상은 여전해서 경상도의 경 자가 경주에서 따왔고, 부(府)로 지정된 동시에 경주부의 수장인 부윤(府尹)은 종2품으로 관찰사와 동급이었던 것에서 보듯이 현대의 광역시급 지위는 되었을 정도로 경상도에서 가장 큰 도시였고, 동시에 이언적과 유네스코 세계문화유산 양동마을 및 옥산서원을 위시하여 안동시와 함께 영남 남인의 구심점이자 대표적인 양반 도시였다. 즉 신라 멸망 이후로도 주요도시라는 명성은 잃지 않고 지속적으로 이어져왔다는 얘기이고 이러한 경주의 위상과 규모는 경제개발기 이전까지 경상도 내에서 수위를 차지했다.
+
+그러나 문화유적이 많다는 특성[9] 때문에 시가지 개발과 (바다와 접하지만) 대규모 항만 조성이 어려워 발전이 미흡해지면서 오늘날에는 바로 이웃 도시인 포항시와 (옛 수도 시절 경주의 무역항 역할을 했던) 울산광역시가 대신 성장했고, 또한 인접해 있지는 않지만 그리 멀지 않은 곳에 부산광역시와 대구광역시가 있기에[10] 지금은 중소 도시가 되었다. 경상북도 내에서는 포항, 구미, 경산 다음가는 제4의 도시다.
+
+대한민국의 시 중 면적이 3번째, 기초자치단체 중에서는 5번째로 넓다. 수도권에서 서울특별시, 고양시, 부천시, 광명시를 통합한 면적과 비슷한 수준이다. 참고로 시 중 면적 1위가 안동시(기초자치단체 기준 3위), 2위가 대구광역시, 4위가 상주시(기초자치단체 기준 6위)인데 1, 3, 4위가 전부 경상북도 소속이며, 대구광역시도 경상북도에서 광역시로 분리된 도시다. 사실 경상북도가 산하 시군 중 무려 7개가 면적이 1,000㎢를 넘을 정도로 큼직큼직한 면적을 가진 지자체가 매우 많은 편이기는 하다.
+
+동해와 접한 도시이지만, 일반 대중들은 경주가 해안도시란 걸 잘 모른다. 그 이유로는 바다와 접해 있는 인근의 해안도시들(울산광역시, 포항시, 부산광역시)과 달리 경주는 시가지가 바다와 한참 떨어진 내륙에 있는 데다[11] 문화유적이 워낙 많아서 관광도시란 인상이 강하기 때문인 것으로 보인다. 하지만 알고 보면 해수욕장도 제법 많은데, 사실 문무대왕릉(대왕암)이 어디에 있는지를 생각하면 답이 나오며[12] 문무대왕릉과 접해있는 곳이 바로 봉길해수욕장이다. 그리고 그 옆에는 월성 원자력 발전소도 있다.','https://i.namu.wiki/i/qrMJeDyWWhlCHkAPUdy1PXumYlIytzUf66o1geDFDByXgdPXT7AOBghimqZTUh02k_ELEOJHEdYB_xLLcMxyV2eKL46IF-997mpwFhDclXHrqfaOzYY5tgEG5tef5GglOicoyqNnO0OXC-Tlan6lnA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '김천', '36.1459', '128.1098','경상북도의 시.
+
+김천시는 동쪽으로 경상북도 구미시, 칠곡군, 성주군과 접하며 서쪽으로 충청북도 영동군, 전라북도 무주군과 접하며, 남쪽으로 경상남도 거창군과 접하며 북쪽으로 경상북도 상주시와 접한다.
+
+시의 이름에는 하늘 천(天)이나 내 천(川)이 아닌 샘 천(泉)[8]을 쓴다. 물이 맛있어서 귀한 물이라는 뜻의 김천이라는 이름이 붙었다고 한다. 또한 지명에서 쇠 금(金)자를 쓰면서도 금 이 아닌 김 이라고 읽는 예외적인 사례 중 하나다.[9]
+
+현재의 인구나 도시 규모를 고려해 보면 생각보다 꽤 이른 시기(1949년 8월 14일)에 시로 승격된 도시이다.[10] 같은 도의 포항(인구 49만)은 물론, 전라남도의 순천(인구 28만)·여수(인구 28만), 게다가 무려 경기도의 수원(인구 120만)과 시 승격 동기이다. 당시에는 근처 지역(상주, 선산·구미, 영동)의 중심도시 역할을 했던 큰 도시였다. 지금보다 훨씬 전국 인구가 적었던 광복 후 김천시+금릉군의 최대 인구가 20만 명에 이르기도 했다. 그러나 옆 동네 구미에 국가산단이 조성된 이후 크게 발전하면서 김천은 구미에 밀려 도시 발달이 정체되었다. 구미시의 1/3이 김천시 사람들이라고도 어르신이나 김천 사람들이 얘기하기도 한다. 보통 김천시에서 구미시에 일자리를 보고 가는 사람들이 많지만, 혁신도시 조성 이후로는 반대로 구미에서 김천으로 출퇴근하는 사람들이 늘어났다.
+
+행정구역 면적이 1,000㎢를 넘는 지역으로 226개의 기초자치단체 중 16위, 경상북도 내 5위, 시급 도시들 중 8위를 차지한다.[11] 이웃인 성주군과 고령군을 합한 것보다도 근소하게 클 정도다. 하지만 소속 도인 경상북도가 원체 큼직큼직한 면적을 가진 지역이 많아서 와닿는 수준은 아니다. 김천보다 더 큰 경상북도 지자체는 안동시, 경주시, 상주시, 의성군이 있다.
+
+인구가 줄어들면서 국회의원 선거구가 개편된다는 이야기가 나돌았지만, 다행히 김천혁신도시 조성 이후로 단독 선거구를 유지할 만한 인구수는 유지하고 있다. 지방에 위치한 전형적인 도농복합도시로, 발전에서 소외되어 정체되어 있었지만 경북드림밸리 시즌2 사업와 남부내륙선, 중부내륙선 중부권 철도 연결, 대구권 광역철도 2단계 사업 등으로 앞으로의 발전이 기대되는 도시다.','https://i.namu.wiki/i/ZSp_zhIZdGVyZLeSt2X1xE7RCGoNY-OQje22Dv92SmB0DTg5Wtjvft25GvYC5jAfiy4Zmw2PlxXEQliQfIaaYgjx0dWRJFd8DaejDL1M1TmJLzy1VLl71vxnUIW4hVh2ZimI9reQyGLtAkaZT03DHA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '안동', '36.5686', '128.725','경상북도의 시. 경상북도청의 소재지다. 일제강점기 전국에서 가장 많은 독립운동가를 배출한 독립운동의 성지이다.[7] 옛 이름은 고타야(신라 시대), 고창(古昌, 신라 경덕왕 때 고타야에서 개칭), 영가(永嘉, 신라 후기~고려 초기), 길주(吉州, 고려 중기), 복주(福州, 고려 말) 등이 있다.
+
+북쪽의 영주시와 봉화군, 남쪽의 의성군, 동쪽의 영양군과 청송군, 서쪽의 예천군을 위시한 경상북도 북부 지역의 행정, 교육, 교통, 서비스업 중심지다. 분류 방식에 따라서 안동에서 멀지 않은 상주시, 문경시, 영덕군이 북부에 포함되기도 한다.
+
+면적(1,522.21km²)이 매우 넓은데, 전국의 시(특별시, 광역시, 특별자치시 포함) 가운데 가장 면적이 넓으며, 군까지 포함하면 전국 3위에 해당한다. 1위와 2위가 강원도 홍천군, 인제군이니 경북 내에선 면적 1위에 해당한다. 대전, 광주의 약 3배. 군위군 대구 편입 시행으로 가장 넓은 면적의 광역시가 된 대구(1,499.51km²)와 비슷하다.[8]
+
+전통 문화가 매우 번성했던 곳인 만큼, 오늘날에도 전통 문화의 향수와 영향이 많이 남아 있다. 조선시대에는 경주시와 함께 영남 남인의 구심 도시로 이름을 떨쳤다. 진성 이씨를 포함해 영남지방의 포(布)인 영포 가운데 으뜸이라는 안동포[9]부터 오늘날까지 명문 양반가들의 종가가 많이 있는 곳이기도 하다. 유교문화, 불교문화, 민속문화 모두 번성했던 도시이며 이런 도시 특성에 맞춰 도시 슬로건도 한국 정신문화의 수도 안동. 더러 타 지역의 영문 슬로건과 비교해서 이 슬로건을 촌스럽게 여기는 안동사람들도 있으며, 영문으로 바꾸어야 한다고 주장하는 사람도 있다. 하지만 2010년에 전국 지방자치단체 최고 국가브랜드 대상을 수상한 경력이 있다. 그리고 2011년부터 지방자치단체들도 한국어 브랜드를 다는 곳이 늘고 있다.[10]
+
+2021년 10월에 새로운 관광브랜드를 발표했다. "Smile Forever Andong"이라는 슬로건으로, 관광분야에서는 "한국정신문화의 수도 안동"을 대체해서 쓰일 것으로 보인다. 링크 현재는 관광분야 뿐 아니라 시정홍보 전반에서 "한국정신문화의 수도 안동"을 대체해서 쓰이는 실정이다.[11]','https://i.namu.wiki/i/IqN4TNz-vIIcGp6pejk9XKC7Z3mLd2GxApQn9aEGYmkHObNCH2cy_EPizCNZ3ZWuYxZeGNuZO8W54BURw8Lyrjay6EoZjS-ZraKSh3RfKxN0tj2XVBGpZKN9P9g5g7Qwma19AgzasB1zmvnKFezpSg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '구미', '36.1213', '128.3456','
+경상북도의 시.
+
+서로는 김천시, 남으로는 칠곡군, 북으로는 상주시와 의성군, 동으로는 대구광역시 군위군과 인접하고 있다.
+
+1969년 박정희 정부가 구미시와 칠곡군 일대에 구미국가산업단지를 조성해 전자반도체 산업을 중점 육성했다. 이에 따라 전자산업, 반도체산업 관련 기업들이 대거 입주해 인구가 급증하고 산업도시로 성장했다. 2010년대부터 기업 유치에 어려움을 겪고 있고 예전에 비해서 국가경제 전체에서 차지하는 구미시의 비중이 줄어들기는 했지만, 여전히 경상북도의 중요한 경제적인 축을 담당하고 있는 도시이다.
+','https://i.namu.wiki/i/XvuCBC2039iWbdnGKqy-wau9n_BHqxcJuEpUGJKSRmk8zHMoQF5PwHrHyYqhNFUTFRbpNi7YVCcpd2zoxP4d0CIYEO_OM27pYD2ZYEqq3MfD8EJjDMSz_6BZlyVMJqVv05fJhXxCxYz2BYAvK7C1Sw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '영주', '36.826', '128.6272','경상북도의 시. 시의 동부에는 봉화군, 남부에는 안동시, 서부에는 예천군이 있으며 북부는 죽령을 경계로 충청북도 단양군, 마구령을 경계로 강원특별자치도 영월군과 맞닿아 있다.[5]
+
+경북 북부 지역 철도교통의 중심지로서 시내에 있는 영주역에서 중앙선, 영동선, 경북선이 교차한다. 대한민국 철도청 시절에는 전국에 5개밖에 없었던 지방철도청이 자리잡기도 했다. 현재는 한국철도공사 대구경북본부라는 명칭으로 있다. 과거 철도로 번성한 도시였지만 경상북도가 경부선과 경부고속도로가 통하는 남부지역을 발달시키면서 영주시가 속한 경북 북부는 발달 동력이 없어지면서 낙후되기 시작했다. 현재는 도시가 많이 쇠퇴했으며 번성의 계기가 된 철도는 도심을 이리저리 관통하며 찢어놓아 도시 성장에 방해가 된다는 여론이 높아진 상태이다. 그러나 2021년 중앙선 KTX가 풍기역과 영주역에 정차하기 시작하면서 영주시를 전체적으로 재개발하게 만들고 있다.
+
+2017년 인구가 줄고 있는 전국 20개 중소도시 중 하나로 보도되었다. 국토연구원 발표에 따르면 2015년 인구 기준으로 정점 대비 인구 감소율 37.2%, 빈 집 비율은 9%라고 한다. 빈 집 비율은 전국 기준 빈 집 6.5%보다는 높지만, 다른 19개 도시가 모두 10%를 넘기는 데 비하면 낮다고 한다.
+
+또한 여느 경북 북부 지역처럼 이곳에서 대대로 살아온 토박이 비율이 전체 인구의 약 80% 이상을 차지할 정도로 토박이가 많은 지역이기도 하다.','https://i.namu.wiki/i/2gVBHDFGP1I5sFkTgS7QJxHSghi3h7FYGGkrt61joDVqrRWWVJBKdpwsv_jgn603injxyEVgmBb6E4WUzTXTXIzIRu4Cjk1Qz3G1o-N9mvuWsJuo5Cey4V043iGuQPJp9ayeWmeelwywYDtBzR-9Rg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '영천', '35.977', '128.9458','경상북도의 시.
+
+동쪽은 경주시와 포항시, 서쪽은 경산시와 대구광역시 동구, 군위군 산성면, 남쪽은 청도군, 북쪽은 청송군과 대구광역시 군위군 삼국유사면에 접하고 있다.
+
+경산과 같이 대구의 위성도시 역할을 수행하고 있기 때문에 대구권에 속하지만, 대구와 거리가 있어 경산처럼 중소 생활권까지 대구와 겹치는 것은 아니고 어느 정도 독자적인 모습을 보인다. 영천시 일부 지역은 경주와 포항의 영향을 받는다.
+
+시화는 장미, 시조는 비둘기, 시목은 은행나무다.
+
+도시 브랜드 슬로건으로 Star YeongCheon을 내세우고 있다. 보현산 천문대가 행정구역상으로 영천시에 속하기 때문이며, S-sound, T-Technology, A-art, R-river라는 뜻도 있다고 한다.
+','https://i.namu.wiki/i/zkjG-W9kEntJdLuFo-GWte2I55MsMVOOu0202tuBKQhFghl-QTPRU7bkhPKpN3w2dq_1soQDX1hoQG7g__YRUno1SnhidH8ddQRxlOef6mawDuYWLLTYToLEpWR5ia7wmJKsuuckbHJy79O1_-RaBQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '상주', '36.4087', '128.1543','경상북도의 시. 자전거와 곶감의 도시로 유명하다.
+
+면적이 매우 넓다. 전국 시군구 중 6위, 경상북도에서도 안동시, 경주시 다음으로 큰 3위다. 하지만 넓은 면적에 비해 인구수는 9만대에 불과할 정도로 적어 인구밀도는 상당히 낮다. 2021년 12월 기준 경상북도 시 중에서 인구밀도가 가장 낮다.
+
+알고 보면 경주시의 ‘경’과 함께 경상도란 이름의 어원이 된 유서 깊은 도시로 조선시대에는 임진왜란 때까지 오늘날의 도청에 해당되는 경상감영[7]이 있었던 경상도의 중심지였다. 과거에는 낙동강 수운의 종착점이자 환승역인 교통의 중심지였고, 경상도에서 손에 꼽을 정도로 농업 생산력이 좋아 상당히 많은 인구가 집중된 곳이었으며, 1970년대 말까지만 해도 인구가 27만 명이나 됐다. 그러나 경제성장기에 경상북도는 경부선과 경부고속도로가 통하는 남부가 집중적으로 개발되면서, 상주시가 속한 경북 북부의 인구가 경부축의 중심 도시인 대구, 구미나 수도권으로 빠져나가는 이촌현상이 일어나면서 크게 쇠퇴하게 되었다.[8]
+
+한때 한 끗발 날리던 지역이라서 자부심이 대단히 강한 편인데 이건 중부내륙고속도로가 뚫리기 전까지 교통망에서 소외되어 쇠퇴해온 지역민들의 자존심인 탓이 크다. 특히 구미시에 대해서는 박정희 전 대통령 고향만 아니었으면 크지도 못했을 선산군 촌동네라고 까는 등 구미시를 상대로 열등감을 가지신 어르신들이 꽤 있다. 이러한 열등감은 김천시에서도 볼 수 있다.[9]
+
+교통이 좋아서 대구광역시, 대전광역시, 청주시 모두 1시간이면 접근할 수 있기 때문에 문화생활을 누리기에 크게 불편하지 않다.
+
+대부분 낙동강 수계에 속하지만 화령 서쪽 지역[10]은 금강 수계다. 심지어 화북면 일부는 한강 수계로 들어간다. 그리고 산경표 상의 백두대간의 동과 서를 넘나드는 특이한 지역이다.[11]','https://i.namu.wiki/i/X5yvcy9nQ6AU6umOPmm3VhqFhYIw3v2jjorVgi2rpIn_3y6nYMtMDXU-yLoVVeGYqDFQB5vqYLsd2a-ZJXuSfLXtgMpICFzH6UYtGe_ckCbfeBDUHozyzVM3k-2moBE7EWYdarIUpLZL-wvEfOaahA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '문경', '36.5946', '128.1883','경상북도의 시. 동쪽에 예천군, 남쪽에 상주시[4], 서쪽에 충청북도 괴산군, 북쪽에 충청북도 충주시[5], 제천시, 단양군[6]이 있다. 시조는 매, 시목은 박달나무, 시화는 철쭉이다.
+
+수도권과 가장 가까운 경상도 지역이다. 이천시 율면의 맨 끝에서 문경시 가은읍 또는 문경읍의 극초입까지 최단 직선거리가 약 48km이다. 물론 실제 도로는 직선거리가 아니므로 실제 이동 시 거리는 약 75km이다.
+
+문경이라고 하면 자연스럽게 문경새재가 떠오르는데 이 관문은 조선시대에는 서울과 영남을 잇는 영남대로의 주요 관문이었고 그만큼 문경은 교통의 요지였다. 현대에 들어와서는 경부고속도로나 경부선 등 각종 도로, 철도망이 생기면서 이러한 교통 기능을 상실했지만 대신 영화와 사극 촬영지, 트레킹 코스 등으로 각광받고 있다.
+
+경제개발 시기에는 석탄개발이 활발한 곳이었으며 이때는 여느 광산도시와 마찬가지로 번성하던 곳이었으나 석탄사업의 몰락과 함께 크게 쇠락한 곳으로 경상북도 유일의 폐광지역진흥지구이다. 석탄이 많이 나던 곳답게 지질이 복잡하다.','https://i.namu.wiki/i/qFoP4EPwG7sdPXNPB1YsULd58vm2WzEUwjNUJ7dHP8Z6YX714hGmEQKuhdNSwP1TRL4uZyvC0Hzn_hhJKfN7BZItDDk00xPQN5Y1ciWvMCCXQyR7eA8Fm1uutSRYP9GWu0wCcYJNsUl3gXKYV4DoVw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '경산', '35.8561', '128.5911','경상북도의 시. 경산시청 소재지는 중방동.
+
+남쪽으로는 경상북도 청도군, 서쪽 방면으로는 대구광역시 동구와 수성구, 동쪽으로는 경상북도 영천시에 접한다. 시를 상징하는 꽃은 목련이며, 시목은 은행나무, 시조는 까치다.
+
+면적이 경상북도 시 중 가장 작으며, 시 승격 시기도 1989년으로 현재까지 경상북도에서 마지막으로 승격된 시다. 하지만 인구 수는 경상북도에서 포항시, 구미시에 이어 3위를 기록하고 있다.[7]
+
+대구광역시와 생활권을 공유하는 대구의 대표적인 위성도시이다. 대구 시내버스와 경산 시내버스는 같은 시내버스 요금제[8]를 공유하며 환승할인도 가능하다. 다만 택시는 아직까지 대구와 경산 사업권이 분리되어 있다. 시외전화 요금을 칼같이 받던 시절에도 대구 - 경산은 시내요금이었고 그때부터 지역번호가 053으로 동일했으며, 지금도 대구와 경산은 같은 지역번호를 쓴다. 상하수도 역시 마찬가지인데 경산시와 수성구, 동구는 같은 체계를 공유하며 대구와 경산의 공공도서관에서도 웬만하면 경산시민도 대구시민에 준한 지위를 부여하는 경우가 많다. 즉, 실질 생활권 면에선 대구광역시 경산구로 불러도 손색없을 수준으로 가깝다. 이런 점 때문에 경산시 대구 편입 논의가 나오기도 한다.
+
+또한 대구 뿐만 아니라 영천시와 청도군과도 인접한 곳이라서 두 지역들과도 일정 부분 생활권을 공유하고 있다. 하양, 진량, 와촌은 대구 - 영천을 연결하는 길목이고 자인, 용성면, 남천면은 대구 - 청도를 연결하는 길목이며, 청도에서 가장 가까운 시 지역이라 청도의 상위 중심지 기능을 맡고 있다.
+
+경산 도심 한가운데를 남천이 지나는데, 대구의 젖줄이 신천이면 경산의 젖줄은 남천이라고 할 만큼 크고 넓다. 남천 서쪽의 시가지는 경산역 주변을 제외하면 대부분 1990년대 이후 개발된 곳으로 대구 시지와 연담화되어 있고, 남천 동쪽의 시가지는 사동과 백천동을 제외하면 대부분 오래 전부터 존재했던 지역이다.','https://i.namu.wiki/i/gWpnbiZbiZ3SPeTTqFdAkh99G3KFPL-foorrBHHRM1P1h_P-bfFCzSuH8OWPdQ9crtnp0b1bgALxOACpsAoH9ziPPSPN3osCMYeMlgLm5_cS84HlKPx5Y_Sscd1i9KkOArOtad46ryx11tfTJu8A8w.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '군위', '36.2391', '128.5625','대구광역시의 군.','https://i.namu.wiki/i/WULBdcX2REyD_XJDjFjS_sZ6k4J8HG0x5TTYvchscgUHBF2_6vnW_nuIuI1sHa_lJtGC0Cc7ea-H5bHDITRt2QQYH7AIMDQbuIqmcHxyYDkz7Lpi5ZWsWgcAQJwu2Sp3NjxZXmbDiIeTWaH3U-9tXQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '의성', '36.355', '128.6937','경상북도의 군.
+
+북쪽에 안동시, 동쪽에 청송군, 남쪽에 대구광역시 군위군, 서쪽에 구미시, 상주시, 예천군이 있다.
+
+의성군의 서쪽으로 낙동강 본류가 흐르며, 낙동강의 주요 지류 중 하나인 위천이 의성 군내를 관통하며, 경작지가 넓고 평야지대가 비교적 많다. 특히 군 서부의 안계평야는 경주의 안강평야, 영천의 금호평야와 함께 경북에서 손꼽히게 넓은 평야다. 이 때문에 농업 인구가 대다수를 차지했던 1970년대 중반만 하더라도 인구가 20만을 넘을 정도로 제법 큰 군이었지만, 이후 농촌 인구가 꾸준히 감소하기 시작해 현재는 전성기보다 인구가 크게 감소했다.
+
+군 중심지인 의성읍이 비교적 군 동쪽에 치우쳐 있기 때문에 중부의 봉양면과 서부의 안계면이 각각의 소중심지 역할을 한다. 각각 안동/군위와 상주로 가는 시외버스도 따로 운행되고 있다.
+
+예천군과 서로 1~2위를 다투고 있을 정도로 남아선호사상이 가장 심한 지역 중 1곳이었다. 근처의 안동시가 있어서인지 유교 사상이 뿌리 깊게 박혀서인 듯. 하지만 최근에는 시대가 바뀌어 인식이 변했고, 인구 감소로 인해 남자, 여자 모두 귀한 대접을 받는다.','https://i.namu.wiki/i/LrnHzmlXBninbW92lpAoW6LREka38cMsiGCdh6wsbH-TUYaUsr7TG0nCDjyoonVcGwSTooPArnesJPZGYHbT2YmACzwttU18GvZJlZEtmkTSf5_LRhnDBfF8zeMYocF5Mig4RxKMwCcbbDmUxsa1vQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '청송', '36.4354', '129.056','경상북도의 군.
+
+동쪽은 영덕군과 포항시, 서쪽은 안동시와 의성군, 대구광역시 군위군, 남쪽은 영천시, 북쪽은 영양군과 접하고 있다.
+
+경상북도 지자체 중 가장 많은 7개 시군과 접하고 있지만 지형이 산으로 둘러싸인 분지인 탓에 교통 요지로 발전하지 못했었다. 그러다가 서산영덕고속도로 건설과 국도 개량, 특히 터널 건설 덕분에 교통 사정이 획기적으로 개선되었다. 청송군 출신 연예인인 심진화가 국내 3대 오지 중 1곳이라고 말할 정도. 이러한 지리적 특징을 기반으로 그 유명한 청송교도소가 진보면에 있다.
+
+전 지역이 산으로 둘러싸여 있으며 자연환경이 수려하다는 장점이 있다. 1976년 주왕산이 국립공원으로 지정되었고 2014년에는 주왕산 등 군내 주요 지질명소를 평가하여 환경부 국가지질공원으로 지정되었다. 2017년에는 UNESCO 집행이사회에서 지질학적 중요성 뿐만 아니라 생태학적, 고고학적, 문화적 가치를 평가하여 한국에서는 두번째 본토 기준으로는 최초로 군 전역이 청송 유네스코 세계지질공원(Cheongsong UNESCO Global Geopark)으로 지정되었다. 특히 광역권이 아닌 군단위 단독 지정으로는 한국에서 유일한 세계지질공원이다.#
+
+도시 브랜드는 산소카페 청송군인데 실제 전체 면적의 80% 이상이 산림지역이며 굴뚝에 연기나는 공장이 한 곳도 없는 청정지역이다. 환경관리청의 대기오염도 측정결과 전국에서 가장 맑은 공기를 가진 곳으로 조사됐다.# #
+
+경상북도 최북단에 있는 봉화군만큼은 아니지만 겨울에 꽤 추운 곳이다. 분지 지형이기 때문에 기온 역전 현상 등을 감안하면 겨울철에 사람이 느끼는 추위는 더 크게 느껴진다.','https://i.namu.wiki/i/L5vKLoHwH68FQhMXhPi_mdfX2HWxtrcgN48by1mbGmX-eKDdTV41yjsdE8bpPeMRcmPIYFv7mxrOhKRtjlDK0yiqRniYbqKuQUt8LYGRouHYizOAtonfMvtL-EWuQ8zf__Vvg7LpslzRVMLrM7aV2Q.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '영양', '36.6613', '129.1209','경상북도의 군. 서쪽은 안동시, 북쪽은 봉화군, 남쪽은 청송군, 동쪽은 영덕군, 울진군과 접하고 있다.
+
+전국에서 인구 밀도가 가장 낮은 기초자치단체[6]이자 육지에 있는 기초자치단체 중에서 가장 인구가 적은 동네로, 경북의 오지 3총사를 뜻하는 BYC의 Y를 맡고 있다.[7] 다리로 연결되지도 않은 섬들이 대부분인 인천광역시 옹진군, 태평양의 외딴 섬나라인 팔라우 인구보다도 적다. 영양군보다 인구가 적은 기초자치단체는 경상북도 울릉군 뿐인데, 울릉군의 인구밀도는 영양군의 6배 수준이다.','https://i.namu.wiki/i/jYpMkXsciChlxU46MkCicrI9iyw-oP05rpWcK4g7lpJuEEZProfJmKc72Yh0WVFbwDNVL55tmfgchTTooTwe815HFj3jaNe10DUaI8yRMe19dMEb4v1QXmInpdQfojRzHHgYUSYI5uf9fuuw_kMrBg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '영덕', '36.4154', '129.4094','고구려의 야시홀군(也尸忽郡)이었고 신라가 차지한 후 경덕왕 때 명주[7] 소속의 야성군(野城郡)으로 고쳤으며 휘하에 지금의 청송군인 적선현과 진안현을 야성군 휘하에 거느리고 있었다. 고려시대부터 경상도에 속했으며 지금의 이름인 영덕군으로 고쳤다.
+
+조선시대 때만 해도 영덕은 현재의 영덕군의 남쪽 절반이었고, 북쪽은 영해(寧海)라는 이름으로 불렸던 서로 다른 지역이었다. 일제강점기 때인 1914년 영해군을 흡수하면서 현재의 군역을 갖추게 되었고, 지역의 중심이 영덕읍 쪽으로 옮겨가면서 상대적으로 북쪽 영해 지역의 발전이 더디게 되었다. 그래도 여전히 영해면이 영덕군 북부지역의 중심지 역할을 하고 있다.','https://i.namu.wiki/i/OLtQpCFq-cNz05aR4fhwdZ1E7ipzZWo-1dF-GcmxuotTHlZ5UMyUM4fLMq2aiulufleeGf32RNkh9wVwukQN6_3Q9h48yeq4AGEN6k-4146N7IhnuJKaV6tBC4OimhGqi83gNkc_Ey3HksZ4B00s6g.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '청도', '35.6419', '128.7413','경상북도의 군. 인구는 약 4만 3천 명 정도. 인접한 자치단체로는 경상북도 경산시, 경주시, 영천시, 대구광역시 달성군, 울산광역시 울주군, 경상남도 밀양시, 창녕군이 있다.','https://i.namu.wiki/i/wwV2s5ObvF4xbW3uzjoFA0oD4idMBNUzxHFEVnPLDhIhCmK26_T1qA4FK8yUIOY_j8YW_jBmHSd8VZsAR4B5ZT4mhZqSF-YglkFqSDkSE17y5TMFv8hflwF1Q3uKShAoFxLcBjyDPDGm_d1NTdmbrg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '고령', '35.7175', '128.2467','경상북도의 군.
+
+가야연맹 시절에는 대가야의 중심지였다. 동쪽으로는 대구광역시 달성군, 달서구와 접해있고 서쪽으로는 경상남도 합천군, 남쪽으로는 경상남도 합천군, 창녕군과 접하며 북쪽으로 성주군과 접한다.
+
+고령군(高靈郡)이 도자기의 원료인 고령토(高嶺土)로 유명한 지역이긴 한데, 고령토의 이름과는 관계가 없다. 나이가 많다는 고령(高齡)과도 더욱 더 관계가 없다.
+','https://i.namu.wiki/i/RWGk1p3hheArHauv2NS-JL3z8B0xzW5bO4whQBJrHj_dFkR6iva2h5cSnQFje6puzPbkFTtuBREDR_E7dktFYdRVR4CIUYU1qDFxYSXlZjNvpqZ_RtFNN1yS9PtZ6ZELAchp6aOp1rucFZHlZG6QcA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '성주', '35.918', '128.2857','경상북도의 군. 인구는 2023년 7월 기준으로 약 4만 2천 명이다.
+
+동쪽은 대구광역시 달성군, 서쪽은 김천시[4]와 경상남도 거창군[5], 남쪽은 고령군과 경상남도 합천군, 북쪽은 김천시[6] 일부와 칠곡군과 맞닿아 있다.
+
+성주 이씨와 성산 이씨[7], 성주 배씨와 성주 도씨는 이 지역을 본관으로 하며, 집성촌도 있다. 정도전에 나오는 이인임이 바로 성주 이씨. 실제로 이 지역 출신이기도 하다. 또 성주를 본관으로 하는 이씨가 있는데, 벽진면을 본관으로 하는 벽진 이씨가 있다. 그 외에 조선 개국 공신 배극렴도 성주 배씨며, 역시 성주군 출신이다. 2015년 기준 근소한 차이(0.41%p)로 전국에서 유일하게 김씨(21.08%)보다 이씨(21.49%)가 더 많은 동네이다. #
+
+2016년, 주한미군의 미사일방공시스템인 사드가 성주읍에 위치한 성산포대에 배치된다고 발표되었다가 우여곡절 끝에 초전면 소성리 롯데 스카이힐 C.C 골프장으로 바뀌었다. 그 이후 롯데 스카이힐 C.C 골프장 및 진입로는 사드 운송차량이나 군인 등을 제외하고는 전면 출입이 금지되었다.[8][9]','https://i.namu.wiki/i/-02HKwekDBABB8WwYzDSB46UCwb6PzGKwyTpKNBAX8nWEB5Gmu6tH1nf9NoRWi1amLdpeFmtbEblXw0cZtob1syzrr1fdQ-acknQkivFCmiKDV8m_O5I2IrqQDdDOfZw6tF_WZhFqilvTQcNIwj5bA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '칠곡', '36.0287', '128.3294','경상북도의 군.
+
+대경권 주요 도시인 대구광역시와 구미시에 접해 있고 이 지역들의 배후지 성격을 띄고 있어 군 지역치고는 인구가 많은 편이다.[7] 그러나 한편으로는 두 도시의 영향으로 인해 지역 정체성이 옅다는 문제점도 갖고 있으며 대구 및 구미와의 편입·통합 논의가 끊이지 않는다.동명면의 대구 편입 요구 구미·칠곡 통합으로 경북 제1도시 비상해야
+
+일단 칠곡군 차원에서는 인접 도시로의 흡수를 막고자 시 승격을 적극 추진하고는 있지만, 현재 지방자치법 상으로는 중심지인 왜관읍의 인구가 시 승격 기준인 5만 명에 이르지 못해 시 승격이 불가능하다. 왜관읍과 석적읍을 통합하는 편법을 쓰거나 지방자치법 자체를 개정하려는 등 갖은 수단을 쓰고 있지만 여전히 답보 상태다. 자세한 내용은 아래 문단 참조.','https://i.namu.wiki/i/7WItGCa6uBi0-NnT_uUsA0wWjvk_dw6CZnmKljZQuh0rgJiKCU-Uc-0OkwT_lM2YNUeHRbSVPR7ukLcAR6SnPQpQDNVQgzaweyEE14FbXOiR891WF41gHtmg6VR8b-EGOjTf84VIm5tqfvKzGk_h8g.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '예천', '36.6473', '128.449','경상북도 북부에 위치한 군. 칠곡군에 이어 경북의 군 중 2번째로 인구가 많다.
+
+예천(醴泉)의 이름을 풀어보면 醴(단술 례)와 泉(샘 천)이다. 이설로는 크고 넓은 땅을 의미하는 고대 한국어인 단슬얼로 불렸던 이곳의 지명을 한자로 옮기는 과정에서 정착된 지명이라고도 한다. 관련 링크 간혹 醴川(내 천)이나 禮(예도 례)川으로 알고 있는 사람들도 있는데 주의하자.
+
+경북 북부 지역은 전통 유교문화의 영향이 강해 남아선호사상이 심한 지역으로 유명했는데 특히 예천은 1980년 이래 전국에서 남아 출생성비로 1위를 놓친 적이 거의 없던 시절이 있었다. 그러나 남아선호사상이 갈수록 약화되는 추세는 여기도 마찬가지라서 지금은 적정 수준의 출생성비를 유지하고 있다. #[6]','https://i.namu.wiki/i/0oGDrNcEFF-ZBo-nMI9PY0t8nUNkxS6FUXvaHwJTHK4yhkqQqmrMLLycAILE21C6L8YnDM7R9RdMjg6DyYGBPQAbIIZmkCIvZCfb7tY0tUbAOphYxJRhR7RJFwmFMrNsfY0kdisDIULT6blCMxuNdw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '봉화', '36.8909', '128.7463','경상북도의 군. 북쪽에 강원특별자치도 영월군, 태백시, 삼척시가 있으며 동쪽에 울진군, 남쪽에 안동시와 영양군, 서쪽에 영주시가 있다.
+
+경북 북부 중에서도 가장 낙후된 편으로, 2020~2021년 인구과소지역비율 전국 1위를 달성했는데, 관내 절반 정도가 인구과소지역에 해당되며 재정자립도 전국 하위 10%에 들어갈 정도로 지역경제 역시 상당히 취약하다. 2016년 및 2021년에는 전국 지자체 간 재정자립도에서 명실상부 꼴찌를 맡기까지 했다.','https://i.namu.wiki/i/ovIoVKYKzvonZWz9evV4hq99EXjvHxctJW7CbzlTRq5CvFuVFVdmyQ4ynlMQq0XP7zGlu-W_IsNaIOdJKAiQKYKpn_XdMrI-oD8gVVDCwX3SOPc35Q2TICmA0gaM8UvEbewlBZwOnaU9ab21g-JInQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '울진', '36.9912', '129.4122','경상북도의 군. 동쪽으로는 동해, 서쪽으로는 봉화군, 남쪽으로는 영덕군, 북쪽으로는 강원특별자치도 삼척시와 접한다.[5] 경상북도 내륙의 최북단이다.[6]
+
+대게와 온천(백암온천, 덕구), 불영사와 불영계곡, 성류굴, 원자력 발전소(한울) 등으로 유명하다.
+
+과거 강원도 관할이었다가 1962년 12월 12일 경상북도에 편입되었다.[7] 은비까비의 옛날 옛적에의 <울산바위> 편을 보면 울산에 있던 바위가 뒤늦게 금강산을 향해 가다가 강원도로 넘어가자 장승이 어서 오세요 여기는 강원도입니다하고 말하는 장면이 나오는데, 아마도 영덕에서 울진으로 넘어가는 장면일 듯.
+
+신라 시대에는 명주, 고려 시대에는 동계, 조선~대한민국 시대(1962년)까지 1000년이 넘도록 강원도 관할이었고, 현재 경상도(경상북도) 관할로는 60여년 안팎인터라 경상도 다른 지역보다 강원도 정서가 좀 더 강한 것은 당연하다. 애초에 도급 행정구역의 경계 지역은 완전히 그 도의 특징을 가지고 있지도 않다. 그렇지만 울진군이 어느 날 갑자기 이유없이 경상북도로 옮겨진 것은 아니다. 경북 편입 이전부터 지역 유지들이 울진군의 경북 편입을 요구해왔기 때문이다. 1961년에 나온 신문기사에 따르면 유지들이 경북 편입을 요구한 것은 경제활동을 대구와 포항에 의존하고 있었던 데다, 춘천에 있는 강원도청보다 대구에 있던 경북도청이 더 가깝다는 등의 이유에서였다.','https://i.namu.wiki/i/9OLWGkvwOWk8uDqncnRAO3R8CGyqtn8SZ5gpTPoL9sXilatnA7d9y-D5etsZM7gaq5dFp0_43ntGTOYY1cwG0QY0AYLx7zFuILIppezNtVns_i6qZHzi-V7gK32aQ8arEWjJ96COapMbp0soA09xfg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '울릉', '37.4851', '130.899','경상북도의 군. 대한민국에서 인구가 가장 적은 기초자치단체이며, 면적이 제일 작은 군이자 최동단(독도)이며, 경상북도에서 유일하게 섬으로만 이루어진 지자체이다. 경상북도의 최북단[5]이자 최동단이다.
+
+군 대부분의 면적은 울릉도가 차지하며 부속도서로 관음도, 죽도, 그리고 독도가 있다. 특산물로는 오징어, 호박엿, 울릉약소, 명이나물, 부지깽이, 엉겅퀴, 홍합, 따개비, 향나무, 섬백리 등이 유명하다.','https://i.namu.wiki/i/XgQcIwKFmJ8UvlPzQP8n9s4HZieOBFMQiuk2DkMOeYiyISEOwUHEzsJ-gbCHLty46Qel3ey7tw89iWpAKtNCXajugz2fIj_WBGThuX0i-ezheiozRjlC5XunAsVz5rFUefD6X1q-KDEf0qPYzfr3pw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '창원', '35.2272', '128.6811','경상남도의 시. 경상남도 최대도시로 경상남도청 소재지이자 비수도권에서 유일한 특례시다.[8][9] 한국의 기초자치단체 중에서는 가장 많은 5개의 일반구가 설치되어 있고[10], 시의원 선거구도 18개로 가장 많다.[11]
+
+창원시는 경상남도의 중심 도시로 경상남도의 정치, 경제, 사회, 문화의 중심지다. 경상남도청[12], 경상남도의회, 창원지방법원, 창원지방검찰청, 경남지방경찰청, 경상남도교육청, 정부경남지방합동청사, 그 외 정부 부처 및 관계 기관들의 경상남도 청사가 상당 부분 창원시에 몰려 있다.[13]
+
+현재의 창원시 영역은 일제강점기 이전의 창원부 영역과 거의 일치한다. 1989년 부산에 편입된 천가면(현 가덕도동)이 사라진 것을 제외하면 대부분 같다. 창원이란 명칭은 조선 태종 때 의창현과 회원현을 합쳐 부를 신설한 것에 기원하며 이후 조선시대까지는 줄곧 한동네였다. 이 두 지명은 현재도 일반구의 명칭인 의창구와 마산회원구로 남아 있다. 그러나 일제강점기를 거치며 1914년 마산부 분리[14], 1955년 진해시가 분리[15]된 이후 2010년 7월 1일 다시 통합하기 전까지는 근 100년 남짓한 기간 동안 여러 개의 지자체로 나뉘어 존재해 왔다. 그러나 이 지역은 통합 이전부터 서로 긴밀한 관계를 유지한 곳이다. 기존 마산시, 창원시, 진해시 3개 시는 시내버스를 통합해서 운영했고, 오늘날 창원시의 주요 관문인 동마산IC를 비롯한 고속도로 출입구, 시외버스터미널 노선 또한 공유하는 등 교통, 문화, 인프라 부분에서 뿌리 깊게 연계, 협력하였고 지금도 인프라 상당 부분을 변함없이 함께 공유하고 있다.
+
+경제 규모가 인구수 대비 상당히 큰 편이다. 2019년 기준 지역 내 총생산(GRDP)#이 약 39조 86백만으로 집계되었는데 이는 전국 기초자치단체 중 5위, 비수도권 기초자치단체 1위에 해당되며[16] 대전광역시(약 43조 9백만), 광주광역시(약 41조 51백만)와도 비견되는 수준이다. 그만큼 내로라하는 국내 대기업 공장들이 많이 상주해 있는 곳으로, 외국계 글로벌 기업 사업장도 다량 위치해 있다.','https://i.namu.wiki/i/cVvQh7RPMEQC3FCN-vpAerPZIKSI2i-riFaQrqJsLvcxImmr4NiYjJELthKs85-BqG9rFeWjqF6374Knri2p8M9-iQwwYd2Evfw3WEFZ81hiYk6TvZLkXgN1V1igs3E1bBg_3BMrkusPY0Yzn7C3Zw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '진주', '35.1796', '128.1076','경상남도의 자치시이며 인구의 대부분이 부산, 울산과 가까운 동부에 집중된 PK 지역에서 경남 서부(진주시, 사천시, 남해군, 고성군, 산청군, 함양군, 하동군)의 중심도시 역할을 하고 있는 도시다. 경남에서 울주[6]와 함께 고을 주(州) 자가 들어간 곳이다.
+
+약 34만 명의 인구를 보유하고 있는데 비수도권에서 비교적 인구가 많은 경남에 있어서 돋보이지 않을 뿐이지 비수도권 도시 중에서는 인구수가 꽤 상위권에 위치한 지역이다. 경남 내에서는 인구 순위가 4위에 불과하지만 경남에서 진주보다 인구가 많은 창원시, 김해시, 양산시는 전부 동부에 위치한 도시이므로 서부에서는 가장 인구가 많은 도시이며,[7] 경기도를 뺀 비수도권 도 중에서 진주보다 인구가 많은 도시는 포항시, 구미시, 천안시, 아산시, 청주시, 전주시, 원주시, 제주시뿐인데 이들은 구미시, 아산시를 제외하면 전부 소속 도에서 최대 도시에 해당되는 지역들이다. 실제로 호남 지방에서는 광주광역시와 전주시를 제외하면 진주보다 인구가 많은 도시가 하나도 없다. 인구가 330만에 달하는 경남이어서 잘 부각되지 않지만 다른 도에 있었으면 최소한 도내 제2의 도시는 노려볼 수 있는 인구라는 것.[8]','https://i.namu.wiki/i/4wXgIZRY-Mprp37QDJi76BzxrQnMMIvgBg_2IYhIVkTig4mhxfZsDzkVn1w9moA7ancVp3OfjdbnxBT-1qxZCg.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '통영', '34.8544', '128.4262','경상남도의 시.
+
+통영은 삼도수군통제영(三道水軍統制營)을 줄인 말로, 삼도수군통제영은 조선 시대 지금의 해군본부라고 볼 수 있으니 통영시는 당시의 군항 도시, 군사 도시였던 셈이다. 기록상으로는 선조 37년 (1604년) 삼도수군통제사 이경준이 통제영을 이곳으로 옮기면서 통영이란 명칭이 최초로 등장하였다.[6] 통제영이 자리잡기 전에는 두룡포라 불렸다고 한다. 통제영이 있을 당시에는 수도인 한양과의 인적, 물적 교류가 활발했다. 수도와의 활발한 교류와 삼면이 바다로 둘러싸인 해안도시의 장점이 결부되어 맛있는 먹거리가 가득하기로 유명하다.
+
+과거에 쓰이던 별명은 동양의 나폴리(또는 한국의 나폴리). 박경리의 『김약국의 딸들』에서 통영을 소개하는 부분에 쓰였을 정도로 꽤 오래된 표현이다. 다만 지금은 잘 사용하지 않는다.
+
+2010년대 들어선 바다의 땅 이라는 새로운 슬로건을 적극적으로 홍보하고 있다. 실제로 통영은 고성 반도 끝자락에 위치한 육지부와 바다 위에 떠있는 150여 개의 섬을 가지고 있다. 통영의 모습을 잘 반영한 슬로건인 셈이다.','https://i.namu.wiki/i/3aqR6Ew8QShhBKXb4pSVWEcfaYbbSmex6aZiW0rJ6d7oXAsr_mwbUlxBs_AlYuzOL1q0cR0LzB1OMjyzH7kpyD7hktIq8EP_KjQaeBSQ8reJpMwS85Feos-Fiq6LYdx145Y8vjbsL-SJkcTsCbIKGQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '사천', '35.0767', '128.0474','경상남도 서부에 위치한 시. 북쪽으로는 진주시, 서쪽으로는 하동군, 동쪽으로는 고성군과 접하고 있다.
+
+사천(泗川)이란 지명은 유래상 물과 관련이 깊은 고을로, 신라 경덕왕 때의 이름이 사수(泗水)였던 점이나 그 泗水가 노나라(魯) 때 공자가 제자를 가르쳤던 곳의 강 이름과 뜻의 인연이 있다고도 한다. 북한 장진군 사수역의 사수도 한자가 泗水이기 때문에 사천시 유래도 북한 사수역의 지명 유래와 비슷할 것으로 보인다.
+
+사천짜장, 사천탕수육 등의 요리로 한국인에게 친숙한 중국의 사천(四川) 지방과는 관련이 없다.[5] 그러나 인지도에서는 한국인들 사이에서도 중국의 사천이 더 높은 탓에 지명도에서 상당히 손해보는 도시다. 그나마 삼천포는 잘 알려져 있지만, 도시명으로가 아닌 다른 의미로 더 유명한 게 문제.[6]','https://i.namu.wiki/i/EI-Zm6jJlgPYcBISiUeKfuTTdr6RsIV2J9_dg7QBenfhvkqns2CtnSvYSSZAfTNbUlZxiU_UbSuKRCQq5ss9NrJLaXA7dWYw3rUEENeyGr6gY3jm7lS8YTs6yBVXRV4ioNcKGsEp_8S12VZk2-shsw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '김해', '35.1798', '128.8567','경상남도의 시. 가야의 시조 수로왕이 세운 금관가야의 수도였고 시에서도 500년 가야의 수도임을 강조한다.
+
+동쪽으로는 부산광역시, 서쪽으로는 창원, 북쪽으로는 밀양, 양산[11]과 접하고 있으나 주로 부산과 창원과의 교류가 활발한 편이다.
+
+김해(金海)의 한자에는 바다 해(海)가 들어있지만, 바다가 없는 내륙 지역이다. 과거엔 바다를 끼고 있었지만 바다와 만나는 지역들을 부산에 모두 뺏겨버렸다. 신라, 가야 시절에 쇠가 바다처럼 많이 난다고 하여 김해라고 이름 붙은 것이다. 부산의 위성도시 중 하나이지만 단순한 베드타운으로는 보기 힘든 면이 있는데 과거, 부산에 비해 싼 지가 때문에 김해로 이전한 많은 공장들 때문에 다른 위성도시와는 다르게 부산에서 김해로 출근하는 사람이 더 많아 아침에는 김해 방향, 저녁에는 부산 방향으로 정체가 극심하기 때문이다.[12] 이는 부산광역시가 베드타운 성격에 더 가깝다는 것인데 그만큼 부산광역시가 사람도 많고 일자리도 많았던 예전의 명성에 비해 많이 몰락하였다는 사실을 알 수 있다.
+
+단, 장유는 생활권이 창원에 더 가깝기 때문에 따로 창원시의 위성도시로 본다. 이곳도 출근 시간대는 창원 방향 창원터널 정체가 극심하며, 퇴근 시간대에는 장유 방향 창원터널 정체가 극심하다.','https://i.namu.wiki/i/BYSikc0SnsqihtAlXuSs96g91AJPzRpajil0l29NsUF8VGjJmQ1opOS-VVL29Y3V3qavuNimtd-Nqb4Uo-Znp57EJRzmgYUSHs-Irg9F82s31SEb9Tvov1Mcwu-Um6MYF1Gk_YohS6b_omVdiPkfdQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '밀양', '35.4923', '128.7474','경상남도의 시.
+
+동쪽으로는 경상남도 양산시[8]와 울산광역시 울주군, 서쪽으로는 경상남도 창녕군, 남쪽으로는 경상남도 김해시와 창원시 의창구, 북쪽으로는 경상북도 청도군에 접해있다.
+
+경부선 철도의 주요 연선 지역 중 하나로 부산광역시와 대구광역시 중간에 있고, 경상북도 청도군과 마주보고 있다. 울산광역시과 창원시도 인접해 있어서 경상도의 주요 대도시들 사이에 자리잡고 있는 도시이다. 대도시들 모두 밀양시에서 차로 1~2시간 만에 갈 수 있을 정도다. 그만큼 여러 대도시들의 영향을 골고루 받고 있는 도시이다. 밀양시청을 기준으로 밀양에서 창원까지는 31km, 부산까지는 47km, 대구까지는 43km, 울산까지는 51km이다.
+
+이런 위치적 특성 때문에 밀양은 권역별로 영향력이 다양한 편이다. 삼랑진읍과 상남면 일대는 부산의 영향력이 강하다고 볼 수 있고, 밀양 시내 북부의 부북면과 청도면, 상동면은 대구의 영향력이 더 강한 편이다. 그리고 산외면과 산내면, 단장면은 울산의 영향력이, 하남읍, 초동면, 무안면은 창원의 영향력이 크다. 밀양 시내는 독자 권역에 가깝다.','https://i.namu.wiki/i/u2v6PTPr9yYm3l0sLBOd9GRdcQ56rQ9pbIwF6stN6o1yKsYCdhKftt56mEAEru7z3AvDN7bdFOUSZG6t1r_-pJ-WlG9nWhqKo0vK91WdiZY0_NhnfnrtzchtBM3lYdBH6ALf83TIM2zlrPrCypwVSw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '거제', '34.8804', '128.6162','경상남도의 시. 시 면적의 대부분을 차지하는 섬 거제도는 대한민국에서 제주도 다음으로 큰 섬이며[7] 인구도 제주도 다음으로 많고 섬을 본토로 하는 기초자치단체 중에서 유일한 시이다.[8] 철도가 없는 기초자치단체 중 인구가 제일 많은 곳이기도 하다.
+
+※ 각종 거제시 관련 통계자료 제공: 거제시 데이터 포털#','https://i.namu.wiki/i/g-oDUjxW-SSwj2loe0V175b40SarVIOrqc88E0Pmk0xxn6u4ldrMdRxX9y6dQQFkOTUnbgKaZnXyeTobVfEQVb6UqdebaHktO6-Lzjmb5efAd22lMzMbH1HSVobZtMhIKEP5HD2fcty8SK8NusAMNA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '양산', '35.3272', '129.0081','경상남도 남동부에 있는 시. 경상남도 산하 행정구역 중 유일하게 지역 전체가 낙동강 동쪽에 위치한다.
+
+김해시와 함께 부산광역시 옆에 있는 위성도시다. 동쪽은 수영강 경계로 부산광역시, 기장군과 북쪽은 천성산과 영축산의 산악 지형으로 되어 있고, 서쪽은 낙동강을 경계로 김해시와 접하며, 남쪽은 금정산을 경계로 부산광역시 금정구 그리고 북구와 접하고, 북쪽은 울산광역시와 밀양시에 접하고 있다. 부산, 울산과의 기능분담으로 인해 연담도시권을 형성하고 있으나 현재 조성 중인 물금택지개발지구를 중심으로 교통, 교육, 문화 등 도시기반시설 및 편의 시설을 확충하면서 독립된 도시 형태를 갖추어 가고 있다.
+
+양산시민들의 생활권은 부산 쪽에 더 가깝지만, 울산광역시와도 가까워서 울산과도 자주 교류한다.[5]
+
+이 외에 인접한 도시로 낙동강을 끼고 바로 옆에 김해시가 있지만 고속도로가 아닌 일반 도로를 이용하여 김해시내로 가려면 부산을 거쳐 가야 하기 때문에[6] 별로 교류가 없다. 밀양시와도 인접해 있지만 낙동강과 산으로 막혀 있어 교류가 별로 없다.[7] 즉, 경상남도 산하임에도 경상남도의 다른 지역들과는 별로 교류가 없고 부산·울산과 노는 경향이 강하다. 부산권의 제53보병사단의 관할 위수지역에 해당되었고[8] KBS와 MBC의 지역방송도 경남지역 방송사들[9]이 아니라 부산지역 방송사들[10]이다. 지방법원/검찰청도 부산지방법원/부산지방검찰청이나 창원지방법원/창원지방검찰청이 아닌 울산지방법원/울산지방검찰청 관할이다. 이런 특성상 경상남도의 다른 지역들의 비해서 양산시의 인지도는 도시의 규모치고는 낮은 편이다.','https://i.namu.wiki/i/8OTo4xhcIxF2BWiGIo3ybF8A9lL0EsQkt0_mUjNkbvObjw7_t8Av1nQwelpLIrWBlTFaDU8s8_RTdFlZZRy73ZMT6cysS2roCWpR2Izu_fOMfN1DhVs53bjmYB4AQkAHber0SXl_65SIIdcdfqsitQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '의령', '35.3075', '128.2658','의령군청사 전경. 주소는 경상남도 의령군 의령읍 충익로 63 (중동리).
+
+경상남도 중앙부에 위치한 군. 경상남도 중앙 내륙에 위치해 있으며 동쪽으로 창녕군과 함안군, 서쪽으로 산청군과 합천군, 남쪽으로는 진주시, 북쪽은 합천군과 접해있으며 그 사이에 낙동강, 남강이 흐르고 있다. 전체적으로 동서가 남북보다 약간 긴 타원형으로 군의 연장거리는 동서 간 32㎞이고 남북 간 27㎞에 달한다.','https://i.namu.wiki/i/DMf0AkuqR4zUHXp__qT4PGBU9UMzKPpLqncNyWeMiqvmDcMiHis-a3CknmDMHoY_aXsoOc1NU3mzhS96YgdIQbBo8AZoBzQHScNnN9Wow6XLy2COz0q_xgb5-fRvOSNGXQxstgN2u0ocYbLTPya1PQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '함안', '35.272', '128.4055','경상남도의 군. 가야연맹 시절에는 안라국(아라가야)의 중심지였다. 그래서 가야 관련 유적지가 여럿 있으며 특히 함안군청 뒷산에는 가야지역 최대 규모의 고분군 말이산 고분군이 있어서 가끔 외국인 관광객을 태운 버스가 군청으로 오기도 한다. 공사 중에 유적이 나와서 공사가 지연되기도 한다.','https://i.namu.wiki/i/Ca2ct5K2U_lUFzmINiEj7ZHqi1ACWfufJo7tz1rij6Bc5XJbFaUu4OBT86v8jxxOabyAdGNiyQf7NRn0hPfavd2Qws1RNQqPtDfh2-74WTo-OUH53W62-AGtF8X4ozGrUQ1KkR3FvQX_DskXDPc7oQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '창녕', '35.5425', '128.4997','경상남도의 군.
+
+동쪽은 밀양시와 경상북도 청도군, 서쪽은 합천군·의령군, 남쪽은 함안군·창원시, 북쪽은 대구광역시 달성군과 경상북도 고령군에 접한다. 2읍 12면으로 이뤄져 있으며, 군청 소재지는 창녕군 창녕읍 교리 1. 군을 상징하는 꽃은 가시연꽃이고 나무는 은행나무, 새는 따오기이다.[12]
+
+寧은 녕이라고 읽고 쓴다.[13] 간혹 창령군 따위로 잘못 표기하는 경우가 있는데 옆에 있는 의령군이 같은 글자를 씀에도 활음조 현상으로 인해 령으로 소리나므로 령으로 적는 것과 혼동하는 것으로 보인다. 활음조 현상 참조.','https://i.namu.wiki/i/VB7Bc5lk0bXieaXc_O_Z-uCzg92Nc2xwxPFOycLMDxAWNdPzVAyt6_u7mEc9NYaQGTHRxXHG7AyWShtcEWNO4NysSU8CM7WmJA5TbBxbO1SX_Vuxa9NUIZE_yby5IXsri-d-a4tJ3mzQpL_h4ysyqA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '고성', '34.9754', '128.3174','경상남도 중남부에 위치한 군이다. 인접 지자체로 서쪽으로는 사천시, 남쪽으로는 통영시, 북동쪽으로는 창원시, 북서쪽으로는 진주시가 있다. 가장 교류가 많은 지역은 통영이며 국회의원 선거구 역시 통영과 묶여 있다.
+
+한자로는 다르지만 이름이 강원특별자치도 고성군과 같아서 헷갈리기 쉬운 곳이다.
+
+상징물은 은행나무와 까치, 국화이다. 과거 가야 연방의 일원 소가야가 있었던 지역이다.
+
+고성 이씨의 본관지가 이곳이다.','https://i.namu.wiki/i/FSIDfttsklaK3dkDDZS1OAUqn0iCTo5qgpZek9cMd7-prVTZ0lsxbdTgCg2yzL4nPAB5NrunycsEtAUEXJKdq7QNO4zn2CPVaYnJMTtE2ipRoohgVDmnfuQnHTRkka2kp86td2KTnfLTPLGozu1HrQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '남해', '34.8416', '127.8928','경상남도 남서부에 위치한 군. 행정구역은 모두 섬으로만 이루어져 있으며, 가장 주요한 섬은 남해도와 창선도 2개의 섬인데, 모두 사천시, 하동군을 통해 육지와 대교로 이어져 있다.
+
+1읍 9면으로 이루어졌으며 군청소재지는 남해읍 서변리이다.
+
+흔히 남해라고 하면 이 지역보다는 바다를 연상하기 때문에 출신이 남해라고 하면 잘 모르는 경우가 많다. 따라서 경상남도 남해군이라고 정확하게 말해야 한다. 비슷한 경우로 강원특별자치도 동해시가 있다. 다만 강원특별자치도 동해시가 1980년에 새로 만든 명칭인 것과 달리 남해군이라는 이름은 신라 경덕왕이 지어 이미 1,300여년이나 된 오래된 지명이다.
+
+유자와 마늘, 시금치, 죽방 멸치로 유명하다.','https://i.namu.wiki/i/2uP-3yad68z31ecllNJEaU1WERFnZCA3CqXoy4j3emJGRGoafmQTscT47avGpIW66_Wkz2dpaYPDOAjCZGWhlu5QMMSdI4BDS16mPYnrS_c612Mn8Uc6Di7l0oRbCJwHXxlwyXribW18VMTPsPnseQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '하동', '35.1284', '127.7587','경상남도 서남부에 위치한 군. 한자 그대로 섬진강(河)의 동쪽(東)에 자리잡은 동네이자 경상도의 본토 측 최서단 경계지역이다. 하동 서편의 섬진강을 경계로 전라남도 광양시와 구례군과 접해 있고, 북쪽으로는 경상남도 함양군, 산청군과 전라북도 남원시[5], 동쪽으로는 경상남도 진주시와 사천시, 남쪽으로는 남해대교를 건너 남해군이 있다.
+
+위치상 전라남도와 경상남도의 중간에 끼어 있어서 양쪽 문화를 공유한다. 전라남도 최대 도시인 순천시까지의 거리는 약 39km 정도 된다.','https://i.namu.wiki/i/ENLF7X9Yv3YxmpjNeGc1rm4GmVQ6SEu0dK2aEvJnK7Wr-fGLH7r3oGLeaJyBtVBVme3zsTvAX7WTEXfS2Obwx-Vt8MSDdXNr46A04trE82Dit5AyekTmqaJm2Kboh5X6XECVAti3PpH01MieeYa4tw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '산청', '35.4158', '127.8797','경상남도의 군. 인구는 약 3만 4천명이다. 군을 상징하는 꽃은 목화, 나무는 대나무, 새는 꾀꼬리이다. 동쪽은 합천군과 의령군, 서쪽은 함양군, 남쪽은 진주시와 하동군, 북쪽은 거창군과 접하고 있다.
+
+전국에서 군청 소재지의 인구가 3번째로 적은 군이다. 군청 소재지인 산청읍의 인구는 2023년 4월 주민등록인구 기준 6,762명. 참고로 2위는 전라남도 신안군(압해읍 5,968명) 1위는 경상북도의 청송군(청송읍 5,074명)이다.
+
+주된 산업으로는 농업(쌀, 딸기, 곶감), 약초 등이 있다.
+
+2023. 9. 15.~ 10. 19.까지 동의보감촌 일원에서 2023산청세계전통의약항노화엑스포가 개최되었다.','https://i.namu.wiki/i/1gffLdZ2j1M22yT066g71UJ3Andyk4W1XuNgmaEsnspQ7IPjSuQLBZQ0h0rK8PEj6ezcKNKURoXdXaY9ecJ-RlTfjxq-rWvWqN2CcRA4b_Z5uHwe2gnLNrGzmzCigTIMtpech5TIWDb6Mx8bXcZJeA.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '함양', '35.5218', '127.7416','경상남도 서북부에 위치한 군.
+
+거창군, 하동군, 산청군, 전라북도 남원시, 장수군[5]과 맞닿아 있다.','https://i.namu.wiki/i/VQu8jngSzaYqlyg1lg4OVsAgxJgwFO7jhQ9s3ynfu_dPFNS5LqCG6-vj7iG91F-Xmqy-kntQV7LH9u6hm7RHTjZpcIqDsYCXGIdOpcWn-FCGh3g0gaQoud6ipDuLFw6__S-OyuhCIQxeImoUMPVrxQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '거창', '35.686', '127.909','신라 때는 거열군(居烈郡)이라 불렀고, 거타, 거열 등의 이름이 음운상 유사성이 있어 자타국이라는 나라가 여기 있었다고 추정되기도 한다. 현재 사용하는 이름인 거창군은 통일신라 경덕왕이 전국 지명 한화정책을 시행할 때 지은 이름이다.
+
+이후 조선시대 때까지 명칭이 조금씩 여러 번 바뀌었다가 거창도호부가 되었다. 조선 초에는 거창현이었다가 연산군 조에 거창군으로 승격하였다. 이유는 연산군의 아내인 신씨의 고향이 거창이었기 때문. 이는 연산군이 특이해서 그런게 아니고, 본래 조선시대엔 왕비의 본관인 지역을 승격하는게 관례였다. 이후 중종 대에 다시 거창현으로 강등했다. 그리고 영조 대에 중종비 단경왕후을 복권하고 단경왕후[7]의 고향이라는 명목으로 거창부로 승격했다.
+1895년 5월 26일 진주부 거창군이었다. 그러다가 이듬해인 1896년 경상남도 거창군이 되었다. 1914년 3월 1일 안의군의 마리면, 위천면, 북상면과 삼가군(현 합천군 남부) 신원면을 편입하였다. 1937년 거창면이 읍으로 승격되었다. 1957년 월천면이 거창읍에 흡수되었다.
+6.25 전쟁 당시 민간인 학살인 거창 양민 학살사건이 일어났던 곳으로 알려져 있다. 이 때문에 거창군에는 거창사건추모공원이 존재한다. 추모공원 홈페이지
+','https://i.namu.wiki/i/1XUe-g1YYD7jwditPSbjrbjXeqORaoQOgmPgoH9A48xlC31qBmxN9wN4kQFQZfKT-rx_DUG91F6tMfYBm5_RiL0jVUw01TyQqPt3_sFHxaFAI5amcQACxSkQ1zGrJUh3qUgyaZOye-zvs3H4Scvo-w.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '합천', '35.5667', '128.169','경상남도 서북부에 있는 군. 해인사로 유명한 지역이다.
+
+한자로 땅이름 합(陜)은 좁을 협(狹)과 같은 글자지만 지명으로 읽을 때는 합이라고 읽는데 합천군은 표준국어대사전에 수록된 유일한 사례다.','https://i.namu.wiki/i/o2WwRVg3greasLh4lZ55gpZnC-Of8yMx5a8XoEgGm4_Toza-fxeSEoINAf7Ru8pt2Kq_tYO88y-ui7b4hizqNMbKiYGPuvTjxOR0IgL4989k4OPF43u5qb7UvTBpLeo4VZ0CLjnVHacUyIP8Og55ng.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '제주', '33.4996', '126.5312','제주특별자치도 북부에 위치한 행정시다. 제주특별자치도청이 있고 제주도의 최대 도시다.
+
+기초자치단체가 아니라 행정시다. 따라서 주소만 시일 뿐, 시장이 대한민국 지방선거에 의한 민선직이 아니라 제주특별자치도지사의 임명에 의한 관선직이다. 특별자치도로 승격하기 전에는 별도의 기초의회가 존재했지만, 현재는 특별자치도의회에서 안건을 해결한다. 또한 특정시 밑에 설치된 일반구와 마찬가지로 CI도 별도의 CI가 아닌 제주특별자치도의 휘장을 그대로 사용한다.
+
+인구는 외국인 포함 50만명을 넘은 상태로[3], 제주도 전체 인구의 70% 이상이 몰려있는 도내 핵심도시이다. 과거에는 북제주군과 제주시가 각각 존재했지만, 2006년 7월 1일 제주특별자치도 출범으로 북제주군과 제주시가 행정시 제주시로 통합되었다. 인구는 항상 서귀포시보다 제주시가 더 많고 따라서 인프라도 제주시에 집중되는 경향을 보이기에, 남북간 균형 발전을 이루는 것은 제주도 내 사회의 중요 화두 중 하나이다.
+
+한라산의 북쪽에 있어 흔히 산북(山北)이라 불린다. 주로 서귀포지역 사람들이 그렇게 인식하며 막상 제주시 지역 출신은 산북, 산남이란 인식 자체가 아예 없거나 희박하다. 사람들이 흔히 알고 있는 제주도는 제주시 위주의 인식이기도 하다.
+
+특별자치도 설치 이전에는 광역자치단체명과 기초자치단체명이 같은 유일한 지역이었다.[4]
+
+1997년 중국 광시 좡족 자치구의 구이린 시와 자매결연을 맺었다.
+
+특이하게 법정동에 숫자가 들어간 대표적인 동네로도 유명하다. 일도일동, 일도이동이 법정동이다. 심지어 오라동은 행정동은 하난데 법정동이 오라일동 오라이동 오라삼동으로 나뉘어 있다.[5]','https://i.namu.wiki/i/0knbE6lvRnHannDBVC2GVIa-GI9Vu43h84ESFqyzCaq1q_5YZiGpm6zg6CdXR2i9SKbzgJ69ixoh6yE5Fq1RxDy0SgNrIeFJeblxqQiio-PxaKzbPuXKexID8JAU3aG-sEUxGfFi_nLiVlE59WZlxw.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '서귀포', '33.2479', '126.5093','제주특별자치도 남부에 위치한 행정시로 대한민국에서 가장 남쪽에 있는 도시로도 유명하다. 한라산의 남쪽에 있어 산남(山南)이라고도 불린다. 동중국해[2]와 접하고 있는 지역이다. 북으로 제주시와 접하며, 제주시가 제주도의 행정 중심지라면 서귀포시는 제주도 관광의 메카라고 할 수 있을 정도로 관광지는 대부분 서귀포시 쪽에 몰려 있다.
+
+원래 남제주군과 서귀포시가 각각 존재하는 도농분리 지역이었지만, 특별자치도가 출범하면서 행정시 서귀포시로 통합되었다. 행정시이므로 주소만 자치시와 동일할 뿐, 시장은 관선이고 시의회도 없다. 행정시 전환 과정에서 기존 로고 역시 폐지되었으며 별도의 로고가 아닌 제주특별자치도의 로고를 그대로 따른다. 제주시와 마찬가지로 특별자치도 출범 이전에는 자치시로서 시장선거 역시 민선으로 치러졌었다.
+
+2000년대까지만 해도 몇몇 시내 동네를 빼면 일반적인 농어촌 지역 수준의 인구분포를 보였다. 하지만 2010년대 들어서면서 귀농·귀촌과 이민으로 특히 읍·면지역과 신시가지의 인구가 증가하고 있다. 제주도 인구증가를 이끌고 있는 제주시에 비하면 증가폭이 크지 않지만 꾸준히 인구가 증가하고 있기 때문에, 조만간 인구 20만 명을 돌파할 것으로 예상된다. 2010년대 중반 이후로 연간 1만 명에 달하는 육박하는 인구 증가를 보이고 있다.
+
+다수의 서귀포시 공무원이나 교사들은[3] 제주시에서 서귀포시로 출퇴근하면서 서귀포시를 위한 행정을 하고 있다는 아이러니가 있다. 사실 공기업이나 공단(제주지점, 제주지부)같은 것만 제주시 집중이 아니라 서귀포시에 균형배치하면 상황이 나아지는데, 공기업 직원이나 공무원들이 서귀포시 근무를 기피한다. 까놓고 말해서 자기 자식은 제주시 학교를 보내고, 본인도 문화생활은 제주시에서 하고 싶기 때문이다. 그래놓고 육지에 있던 중앙공기업은 서귀포로 유치했다는 아이러니.','https://i.namu.wiki/i/2RzfoR3Bf80ZyBEY5LvECWRGaIaFgCCcZtLJ4YvKlg1KvE3v6y2Z3YBBgEbBpPVvjT_glODTvhRRY5EDYD3x6DxggxOF1Q5vhu-CC5YdSwTWTp4_LzvoX-FRDCiRnMsOtHwwgxJFSaAydNeGp_VVdQ.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '광주', '35.1595', '126.8526','대한민국의 광역시. 전라남도에 둘러싸여 있다. 전라도의 최대도시이며 광주권의 수부도시다. 광주학생항일운동의 도화선이었고 4.19 혁명, 5.18 민주화운동, 6.10 민주 항쟁이 일어나는 등 한국 근현대사에 굵은 획을 남긴 도시다.[11]
+
+光州. 빛고을이라는 순우리말이 있기에 붙여서 빛고을 광주[13]라는 표현으로도 많이 쓰인다.
+
+전 세계에서 유일하게 100만 명 이상이 거주하는 도시의 행정구역에 도시의 평균 고도와 1,000m 이상 차이 나는 산이 있는 도시다. 이란 테헤란이나 멕시코의 멕시코 시티처럼 아예 도시 자체가 km급 고지대에 자리잡은 경우는 흔하지만 도시의 행정구역 내에서 이렇게까지 고도 차이가 큰 경우는 광주광역시가 유일하다. 지리학적으로 도시 안에 1,000m급 산이 있는 것은 도시가 성장하기에 매우 불리한 조건이기 때문이다. 하지만 광주광역시는 화산체의 분지평야지대에 위치한데, 이 평야 지형이 광활해서 가능한 것이다.
+
+전라남도에서 분리된 광역시로 전라남도에 둘러싸여 있고 현재도 공동혁신도시, 전남도발전연구원-광주시정연구원 통합 등 전라남도와 협력을 많이 하고있다. 광주 주변에선 나주시와 화순군, 담양군이 위성도시화 되어 밀접한 관계에 있으며[14] 그 외에 장성군, 함평군, 영광군, 곡성군까지 영향력을 미친다.
+
+광주권 출신이 광주광역시 인구의 과반수를 차지한다.','https://i.namu.wiki/i/W13sPidIxJdz-oDUro2yt0OcuEsMcvVoQ-aCJKTSFOVcyiCthlBj67oVjpktM_FHHRMkjCdd-Wue7Pctn9dQmnUTeoCy2fAlN0aIS_C4Oeua3s5ggwSCeVBuBizBI4yZLMMjok8TssReEyBv9QtC2Q.svg');
+INSERT INTO CITY (CITYID, CITYNAME, LATITUDE, LONGITUDE, C_OVERVIEW, C_IMAGE) VALUES (CITYID_SEQ.NEXTVAL, '세종', '36.3048', '127.2889','대한민국의 특별자치시. 세종특별자치시 설치 등에 관한 특별법에 따라 2012년 7월 1일에 설치됐다.[9] 정부부처 대부분이 입주한 정부세종청사가 있는 대한민국의 행정중심도시다.
+
+세종특별자치시청 공식사이트에 따르면 도시의 명칭은 세종대왕에서 따왔다고 한다.[10] 명칭이 정해진건 2006년 12월이다. 2006년 3월부터 12월까지 실시된 도시명칭 제정을 위한 국민공모에서 2,163:1의 경쟁을 뚫고 세종이 뽑혔으며, 행정중심복합도시건설추진위원회의 위원장 한명숙 당시 국무총리는 2006년 12월 21일 전체 회의를 개최해 행정중심복합도시의 도시명칭을 세종으로 확정했다고 밝혔다.#
+
+지역번호도 따로 부여됐다. 충청남도(041), 대전광역시는 042, 충청북도(043), 세종시는 044다. 영업용 차량 및 건설기계 번호판도 충북 xxY xxxx[A] 또는 충남 xxY xxxx[A]를 돌려쓰지 않고 세종 xxY xxxx로 따로 배정받고 여전히 지역명칭이 들어가는 오토바이 번호판도 세종만 붙는다.(건설기계번호판은 2022년 11월 26일부터 전국번호로 변경)
+
+세종특별자치시는 대표적인 행정도시로 2010년에 민간기관, 2012년부터 정부기관이 차례로 이전되어 2014년까지 이전이 완료됐다. 2018년에는 행정안전부 등의 추가이전이 추진되고 있다.
+
+2021년 기준 45개의 중앙행정기관과 소속기관들이 있으며 15개의 정부출연연구기관, 추가이전한 9개의 공공기관이 있다. 또한 국무총리 관저도 설치됐고 실제로 국무총리가 산다.[13] 그러나 아직 광화문 정부서울청사의 과거 집무실을 폐쇄하지는 않았다.
+
+시의 대부분은 과거에 충청남도였던 곳이다.[14] 세종특별자치시의 전신도 충청남도 연기군으로 간주하며 세종특별자치시교육청 분리 준비 절차도 충청남도교육청 소관이었다.[15] 그렇다 보니 충북보다는 대전 및 충남과 동질성이 크다. 세종시 출범 이후 가장 사용례가 많은 게 대전세종충남(대전충남세종)[16]이며 이외 대전세종[17], 세종충남[18]이 있다. 물론 세종충북(충북세종)[19]도 있기는 하다.[20]','https://i.namu.wiki/i/-ZGTksZl5LQ5_XAJI99AKA9VuxyKlHqTo-4MslsUHildemshT1z-zel98VR8ZnVVwnwhlApRwr77w97lGVIu4gZEb3ahuo_t8EGGhxU1nmD7iocibHCNPzNGnTQRkWLV3eay_GJ5Akzxs9_Gm6J_fw.svg');
+
+commit;

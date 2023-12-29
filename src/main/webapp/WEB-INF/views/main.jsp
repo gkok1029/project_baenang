@@ -1,6 +1,7 @@
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
 <%@ page import="java.io.File" %>
 <%@ page import="java.util.Arrays" %>
@@ -48,13 +49,16 @@ function onKeywordInput() {
         processData: true,
         success: function (cityNameList) {
             // 받은 결과를 dropdown에 표시
-            for (var i = 0; i < 5; i++) {
+            for (var i = 0; i < cityNameList.length; i++) {
                 // cityNameList[i]가 null이면 빈 문자열로 처리
                 var cityName = cityNameList[i] !== null ? cityNameList[i] : '';
-                
+
+                // 기존 a 태그의 onclick 속성 제거
+                $("#search_content" + (i + 1)).removeAttr('onclick');
+
                 // 동적으로 생성된 a 태그에 클릭 이벤트 추가
-                var dropdownItem = '<a class="dropdown-item" href="#" onclick="onSearchResultClick(\'' + cityName + '\')">' + cityName + '</a>';
-                
+                var dropdownItem = '<a class="dropdown-item" href="#" onclick="openPopup(\'' + cityName + '\')">' + cityName + '</a>';
+
                 // 해당 id의 엘리먼트를 찾아 내용을 변경
                 $("#search_content" + (i + 1)).empty().append(dropdownItem);
             }
@@ -120,11 +124,11 @@ function onKeywordInput() {
 			    <a href="/plan"><img src="${pageContext.request.contextPath}/resources/img/main/search.png" alt="search"></a>
 	            
 	           	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				    <a class="dropdown-item" id="search_content1" href="/plan?search=서울"><img alt="SeoulIMG" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png"> 서울 </a>
-				    <a class="dropdown-item" id="search_content2" href="/plan?search=대전"><img alt="DaejeonIMG" src="${pageContext.request.contextPath}/resources/img/cities/Daejeon.png"> 대전 </a>
-				    <a class="dropdown-item" id="search_content3" href="/plan?search=제주"><img alt="JejuIMG" src="${pageContext.request.contextPath}/resources/img/cities/Jeju.png"> 제주 </a>
-				    <a class="dropdown-item" id="search_content4" href="/plan?search=강릉"><img alt="GangneungIMG" src="${pageContext.request.contextPath}/resources/img/cities/Gangneung.png"> 강릉 </a>
-				    <a class="dropdown-item" id="search_content5" href="/plan?search=부산"><img alt="BusanIMG" src="${pageContext.request.contextPath}/resources/img/cities/Busan.png"> 부산 </a>
+				    <a class="dropdown-item" id="search_content1" onclick="openPopup('서울')"><img alt="SeoulIMG" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png"> 서울 </a>
+				    <a class="dropdown-item" id="search_content2" onclick="openPopup('대전')"><img alt="DaejeonIMG" src="${pageContext.request.contextPath}/resources/img/cities/Daejeon.png"> 대전 </a>
+				    <a class="dropdown-item" id="search_content3" onclick="openPopup('제주')"><img alt="JejuIMG" src="${pageContext.request.contextPath}/resources/img/cities/Jeju.png"> 제주 </a>
+				    <a class="dropdown-item" id="search_content4" onclick="openPopup('강릉')"><img alt="GangneungIMG" src="${pageContext.request.contextPath}/resources/img/cities/Gangneung.png"> 강릉 </a>
+				    <a class="dropdown-item" id="search_content5" onclick="openPopup('부산')"><img alt="BusanIMG" src="${pageContext.request.contextPath}/resources/img/cities/Busan.png"> 부산 </a>
 				</div>
 	            
 	        </form>
@@ -197,7 +201,7 @@ function onKeywordInput() {
 				<c:forEach items="${posts}" var="post">
 					<div class="col mb-5">
 						<div class="card h-100">
-							<a href='/blog/get?p_id=<c:out value="${post.p_id}"/>' /> <img
+							<a href='/blog/get?p_id=${post.p_id}' > <img
 								class="card-img-top"
 								src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
 							<div class="card-body p-4">
@@ -249,8 +253,28 @@ function onKeywordInput() {
 	
 	<%-- --------------------------------------------------------------------------------------- --%>	
 </script>
-	
+
 <%-- ---------------------------- 특정 도시에 대한 이미지를 출력 --------------------------------- --%>
+
+<!-- Add an anchor point for smooth scrolling -->
+<div id="city-anchor"></div>
+<div id="city">
+    <h2> 지역별 여행 정보 </h2>
+    <div>
+        <%-- Assuming you have a method to retrieve city data from Oracle DB --%>
+        <c:forEach var="city" items="${cvo}" varStatus="loop">
+            <c:if test="${loop.index < 30}">
+                <a href="#" id="${city.cityname}" name="${city.cityname}" class="city" onclick="openPopup('${city.cityname}')">
+                    <img class="citiesImg" src="${city.c_image}" alt="${city.cityname} Image">
+                </a>
+            </c:if>
+        </c:forEach>
+    </div>
+</div>
+
+<%-- --------------------------------------------------------------------------------------- --%>
+
+<%-- ---------------------------- 특정 도시에 대한 이미지를 출력 --------------------------------- 
 
 <!-- Add an anchor point for smooth scrolling -->
 <div id="city-anchor"></div>
@@ -280,7 +304,7 @@ function onKeywordInput() {
 	</div>
 </div>
 
-<%-- --------------------------------------------------------------------------------------- --%>
+ --------------------------------------------------------------------------------------- --%>
 
 	<%-- --------------------------- 페이지 로드 시 트렌드 관광지 출력기능 ------------------------------ 
 	

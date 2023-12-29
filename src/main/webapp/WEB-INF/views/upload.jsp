@@ -4,12 +4,41 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>upload files</title>
+    
+    <style type="text/css">
+    	.uploadResult{
+    		width: 60%
+    		background-color: gray;
+    	}
+    	
+    	.uploadResult ul{
+    		display: flex;
+    		flex-flow: row;
+    		justify-content: center;
+    		align-items: 10px;
+    	}
+    	
+    	.uploadResult ul li{
+    		list-style: none;
+    		padding: 10px;
+    	}
+    	
+    	.uploadResult ul li img{
+    		width: 20px;
+    	}
+    </style>
 </head>
 <body>
     <h1>upload</h1>
 
     <div class="uploadDiv">
         <input type="file" name="uploadFile" multiple>
+    </div>
+    
+    <div class="uploadResult">
+    	<ul>
+    	
+    	</ul>
     </div>
 
     <button id="uploadBtn">upload</button>
@@ -21,21 +50,36 @@
     <script>
         $(document).ready(function () {
         	
+        	var uploadResult = $(".uploadResult ul");
+        	
+        	function showUploadedFile(uploadResultArr){
+        		
+        		var str = "";
+        		
+        		$(uploadResultArr).each(
+        			function(i, obj){
+        			
+        			str += "<li>" + obj.fileName + "</li>";
+        		});
+        		uploadResult.append(str);
+        	}
+        	
         	var regex = new RegExp("(.*?)\.(exe|sh|zip|7z)$");
         	var maxSize = 52428880;
         	
         	function checkExtention(fileName, fileSize) {
-				if(fileSize >= maxSize){}
-				alert("5MB 이하의 사진만 업로드 가능합니다.")
-				return false;
-				
-				if(regex.test(fileName)){
-        		alert("해당 유형의 확장자는 업로드 할 수 없습니다.")
-        		return false;
-				}
-        		return true;
+        	    if (fileSize >= maxSize) {
+        	        alert("5MB 이하의 사진만 업로드 가능합니다.");
+        	        return false;
+        	    }
+        	    if (regex.test(fileName)) {
+        	        alert("해당 유형의 확장자는 업로드 할 수 없습니다.");
+        	        return false;
+        	    }
+        	    return true;
         	}
         	
+        	var cloneObj = $(".uploadDiv").clone();
         	
             $("#uploadBtn").on("click", function (e) {
                 var formData = new FormData();
@@ -52,8 +96,15 @@
                     contentType: false,
                     data: formData,
                     type: 'POST',
-                    success: function(data){
-                        alert("uploaded");
+                    dataType : 'json',
+                    success: function(result){
+
+                        console.log(result);
+                        
+                        showUploadedFile(result);
+                        
+                        $(".uploadDiv").html(cloneObj.html());
+    
                     }
                 });
             });
