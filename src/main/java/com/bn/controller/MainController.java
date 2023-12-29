@@ -23,11 +23,6 @@ public class MainController {
 	@Inject
 	private MainServiceImpl msi;
 	
-	@GetMapping("/sample")
-	public String sample() {
-		return "sample";
-	}
-	
 	@RequestMapping("/main")
 	public String onMain() {
 		
@@ -38,11 +33,6 @@ public class MainController {
 	public String goMain() {
 		
 		return "main";
-	}
-	
-	@RequestMapping(value = "/city")
-	public String city() {
-		return "city";
 	}
 	
 	@ResponseBody
