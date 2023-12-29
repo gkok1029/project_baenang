@@ -120,7 +120,7 @@ let PlanModule = ( ()=>{
 		        // 클로저를 사용하여 정보창 내용 설정
 		        (function (marker, title,firstimage) {
 		            var infoWindow = new naver.maps.InfoWindow({
-		              content: '<div style="width:150px; text-align:center; padding:10px;"><b>' + title + '</b>.<br><img src="' + firstimage + '"></div>'
+		              content: '<div style="width:150px; text-align:center; padding:10px;"><b>' + title + '</b>.<br><img src="' + content.firstimage + '"></div>'
 		            });
 
 		            naver.maps.Event.addListener(marker, 'click', function () {
