@@ -20,7 +20,7 @@
 </head>
 <body>
 
-	<form action="/blog/addpost" method="POST">
+	<form action="/blog/addpost" method="POST" id=postForm>
 		<!-- Add Title field -->
 		<div style="width: 50%; margin: 0 auto;">
 			<label>Title</label> <br> <input type="text" name="p_title">
@@ -33,7 +33,7 @@
 		<br>
 
 		<p style="width: 50%; margin: 0 auto;">
-			<input type="submit" value="전송">
+			<input type="submit" value="전송" id="uploadBtn">
 		</p>
 
 		<hr>
@@ -48,12 +48,13 @@
 
 	</form>
 
-	<!-- CKEditor scripts -->
-	<script
-		src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
-	<script
-		src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/translations/ko.js"></script>
-	<script>		
+</body>
+<!-- CKEditor scripts -->
+<script
+	src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+<script
+	src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/translations/ko.js"></script>
+<script>		
 	ClassicEditor
 	.create(document.querySelector('#editor'))
 	.then(editor => {
@@ -64,123 +65,72 @@
 		console.error(error);
 	});
  </script>
- <script type="text/javascript">
- 	$(document).ready(function (e) {
-		var formObj = $("form[role='form']");
-		$("button[type='submit']").on("click", funtion(e){
-			e.preventDefault();
-		})
-	})
- </script>
- <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
-        crossorigin="anonymous"></script>
-    
-    <script>
-        $(document).ready(function () {
-        	
-        	var uploadResult = $(".uploadResult ul");
-        	
-        	function showUploadedFile(uploadResultArr){
-        		
-        		var str = "";
-        		
-        		$(uploadResultArr).each(
-        			function(i, obj){
-        			
-        			str += "<li>" + obj.fileName + "</li>";
-        		});
-        		uploadResult.append(str);
-        	}
-        	
-        	var regex = new RegExp("(.*?)\.(exe|sh|zip|7z)$");
-        	var maxSize = 52428880;
-        	
-        	function checkExtention(fileName, fileSize) {
-        	    if (fileSize >= maxSize) {
-        	        alert("5MB 이하의 사진만 업로드 가능합니다.");
-        	        return false;
-        	    }
-        	    if (regex.test(fileName)) {
-        	        alert("해당 유형의 확장자는 업로드 할 수 없습니다.");
-        	        return false;
-        	    }
-        	    return true;
-        	}
-        	
-        	var cloneObj = $(".uploadDiv").clone();
-        	
-            $("#uploadBtn").on("click", function (e) {
-                var formData = new FormData();
-                var inputFile = $("input[name='uploadFile']");
-                var files = inputFile[0].files;
-                console.log(files);
 
-                for (var i = 0; i < files.length; i++) {
-                    formData.append("uploadFile", files[i]);
-                }
-                	$.ajax({
-                    url: '/uploadAction',
-                    processData: false,
-                    contentType: false,
-                    data: formData,
-                    type: 'POST',
-                    dataType : 'json',
-                    success: function(result){
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $('#postForm').submit(function (e) {
+            var title = $('input[name="p_title"]').val().trim();
+            var content = $('textarea[name="p_content"]').val().trim();
 
-                        console.log(result);
-                        
-                        showUploadedFile(result);
-                        
-                        $(".uploadDiv").html(cloneObj.html());
-    
-                    }
+            if (title === '' || content === '') {
+                e.preventDefault(); // 제출 방지
+                alert('제목과 내용을 입력해주세요.');
+                return;
+            }
+            
+            var uploadResult = $(".uploadResult ul");
+
+            function showUploadedFile(uploadResultArr) {
+                var str = "";
+                $(uploadResultArr).each(function (i, obj) {
+                    str += "<li>" + obj.fileName + "</li>";
                 });
+                uploadResult.append(str);
+            }
+
+            var regex = new RegExp("(.*?)\.(exe|sh|zip|7z)$");
+            var maxSize = 52428880;
+
+            function checkExtension(fileName, fileSize) {
+                if (fileSize >= maxSize) {
+                    alert("5MB 이하의 사진만 업로드 가능합니다.");
+                    return false;
+                }
+                if (regex.test(fileName)) {
+                    alert("해당 유형의 확장자는 업로드 할 수 없습니다.");
+                    return false;
+                }
+                return true;
+            }
+
+            var cloneObj = $(".uploadDiv").clone();
+
+            // 파일 업로드 코드를 제출 이벤트 핸들러 안에 넣습니다.
+            var formData = new FormData();
+            var inputFile = $("input[name='uploadFile']");
+            var files = inputFile[0].files;
+
+            for (var i = 0; i < files.length; i++) {
+                formData.append("uploadFile", files[i]);
+            }
+
+            $.ajax({
+                url: '/uploadAction',
+                processData: false,
+                contentType: false,
+                data: formData,
+                type: 'POST',
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result);
+                    showUploadedFile(result);
+                    $(".uploadDiv").html(cloneObj.html());
+                }
             });
         });
-    </script>
-</body>
+    });
+</script>
 </html>
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>posting</title>
-</head>
-<body>
-<div class="row">
-	<div class="col-lg-12">
-		<h1 class="page-header">Posting post</h1>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">Posting post</div>
-			
-			<div class="panel-body">
-				<form role="form" action="/blog/addpost" method="post">
-					<div class="form-group">
-						<label>Title</label>
-						<input class="form-control" name="p_title"></input>
-					</div>
-					<div class="form-group">
-						<label>Text area</label>
-						<textarea class="form-control" rows="3" name="p_content"></textarea>
-					</div>
-					<button type="submit" class="btn btn-default">Submit Button</button>
-					<button type="reset" class="btn btn-default">Reset Button</button>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-</body>
-</html> -->

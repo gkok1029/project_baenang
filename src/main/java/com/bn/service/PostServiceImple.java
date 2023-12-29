@@ -47,5 +47,10 @@ public class PostServiceImple implements PostService {
 		log.info("get list");
 		return mapper.getList();
 	}
+	
+	@Override
+	public int searchPid(String userEmail) {
+		return mapper.searchPid(userEmail);
+	}
 
 }

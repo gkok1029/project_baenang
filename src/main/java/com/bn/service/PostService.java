@@ -12,5 +12,6 @@ public interface PostService {
 	public boolean modify(PostVo post);
 	public boolean remove(int p_id);
 	public List<PostVo> getList();
+	int searchPid(String userEmail);
 	
 }

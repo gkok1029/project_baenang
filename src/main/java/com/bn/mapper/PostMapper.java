@@ -21,4 +21,7 @@ public interface PostMapper {
 	
 	int updateP_veiws(int num);
 	
+	public int searchPid(String userEmail);
+	
+	
 }

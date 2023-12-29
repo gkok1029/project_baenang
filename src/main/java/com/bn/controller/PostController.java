@@ -1,5 +1,7 @@
 package com.bn.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,13 +41,13 @@ public class PostController {
 	}
 	
 	@RequestMapping("/addpost")
-	public String addPost(PostVo post, RedirectAttributes rttr) {
-		log.info("posting: " + post);
-		
+	public String addPost(PostVo post, RedirectAttributes rttr, HttpSession session) {
+		String userEmail =  (String)session.getAttribute("userEmail");
+		int n = service.searchPid(userEmail);
+		post.setM_id(n);
 		service.register(post);
-		
 		rttr.addFlashAttribute("results", post.getP_id());
-		
+		log.info("posting: " + post);
 		return "redirect:/blog/posts";
 	}
 	
