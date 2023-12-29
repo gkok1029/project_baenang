@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.bn.mapper.MemberMapper">
 	<select id="getProfile" resultType="Member" parameterType="String">
 		select * from member
-		where M_NNAME = #{m_nname}
+		where M_EMAIL = #{userEmail}
 	</select>
 	
 	<select id="getPlanList" resultType="Page" parameterType="Page">
@@ -43,11 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateProfileImage" parameterType="Page">
 		update member set m_image=#{filename} where m_id=#{m_id}
 	</update>
-	
-	<delete id="deleteDPlan" parameterType="Page">
-		delete from detail_planner where p_id = #{p_id}
-	</delete>
-	
+		
 	<delete id="deletePlan" parameterType="Page">
 		delete from planner where p_id = #{p_id}
 	</delete>
