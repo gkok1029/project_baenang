@@ -23,6 +23,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM city WHERE cityname = #{cityname} 
 	</select>
 	
+	<select id="getAllCityData" parameterType="string" resultType="City">
+		SELECT * FROM city
+	</select>
+	
 	<!-- 
 	<select id="search" parameterType="string" resultType="City">
 	    <![CDATA[
