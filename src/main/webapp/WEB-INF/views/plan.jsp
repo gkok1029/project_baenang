@@ -260,9 +260,9 @@
 	
 </style>
 <script>
-	let y='${cityvo.LATITUDE}';
-	let x='${cityvo.LONGITUDE}';
-	let cityname='${cityvo.CITYNAME}';
+	let y='${cityvo.latitude}';
+	let x='${cityvo.longitude}';
+	let cityname='${cityvo.cityname}';
 	let trip = {
 		"title":"",
 		"days":{

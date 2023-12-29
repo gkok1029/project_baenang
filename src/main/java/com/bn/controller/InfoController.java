@@ -38,12 +38,12 @@ public class InfoController {
 		
 		civo=null;
 		civo=is.getCityData(cityname);
-		String cname=civo.getCITYNAME();
+		String cname=civo.getCityname();
 		//select overview from content where contentid=${contentid} 의 반환값(요청된 contentid의 overview이 있는지 확인하는 함수)
 		if(cname==null) {
 			System.out.println("CITYNAME is empty!! Check your DB");
 		}else {
-			System.out.println("I'll show you CITYNAME");
+			System.out.println("I'll show you CITYDATA");
 		}
 		model.addAttribute("civo",civo);
 		log.info("Last : "+civo);
