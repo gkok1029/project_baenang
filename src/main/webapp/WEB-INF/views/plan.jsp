@@ -9,6 +9,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/dateModalModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/sideBarModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/planModule.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/calendarModule.js"></script>
 <!-- 부트스트랩 JavaScript (Popper.js와 jQuery 포함) -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -144,6 +145,7 @@
      border: none;
      cursor: pointer;
 }
+
 #date{
 	display: flex;
 }
@@ -154,13 +156,16 @@
    align-items: center; 
    margin-bottom: 20px; 
 }
-#cat-buttons{
+
+#catButtons{
     display:flex;
 }
+
 .place-img{
     width: 60px;
     height: 60px
 }
+
 .place-details {
     flex: 1;
     margin-left: 10px;        
@@ -184,8 +189,8 @@
 .places {
     width: 300px; 
    height: 621px; 
-   overflow-y: auto; 
-   padding: 10px; 
+   overflow-y: auto;
+   padding: 10px;
 }
 
 .modal{
@@ -200,21 +205,28 @@
     margin-right: 10px;
     min-width: 300px;
 }
+
 #second-frame-container{
     height: 100%;
-    width: 100%;    
+    width: 100%;
 }
+
 #view{
     width: 500px;
     
     
 }
+
 .basket-frame{
     width: 400px;
 }
 
 #map{
     flex:1;
+}
+
+#btn-skyscanner{
+    width: 100%;
 }
 
 /* #calender-modal {
@@ -295,16 +307,10 @@
 		
 		
 	</div>																<!-- Container -->
-
+    
 	    <!-- calendarModal -->
-	<div id="calender-modal" >
-		<div id="calender-container">
-			<div id="calender-header">날짜 선택</div>
-			<div id="calender-body">
-				<div class="calender" id="calender1">달력1</div>
-				<div class="calender" id="claender2">달력2</div>
-			</div>						
-		</div>
+	<div id="calendar-modal" >
+		
 	</div>
 
 <script>
@@ -313,11 +319,13 @@
 		
 		SidebarModule.initialize();
 		MapModule.initializeMap();
-		ViewPageModule.viewPageLoding();		
+		ViewPageModule.viewPageLoding();		 
 		DateModalModule.initializeDateModal();
-		ViewPageModule.showView(".view1","#btn-step1")
+		ViewPageModule.showView(".view1","#btn-step1");
 		//프레임 감추기
-		$(".basket-frame").hide();
+        CalendarModule.createCalendar();
+		$("#calender-modal").modal('hide');
+        
 		
 	});
 	$('.btn btn-primary').click(function(){
