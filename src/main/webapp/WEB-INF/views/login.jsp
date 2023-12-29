@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="javax.servlet.http.HttpSession" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="javax.servlet.http.HttpSession"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -29,40 +29,48 @@
 <body>
 	<div class="login-wrap">
 		<div class="login-html">
+		 <div class="logo-container">
+		 	  <a href="/main"> 
+			  <img src="/resources/images/logo.png" alt="로고" class="logo">
+		      </a> 
+			  <p class="slogan">여행은 베낭 매고에서!</p>
+			 </div>
 			<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label
 				for="tab-1" class="tab">로그인</label> <input id="tab-2" type="radio"
 				name="tab" class="sign-up"><label for="tab-2" class="tab">회원가입</label>
 			<div class="login-form">
-			<c:if test="${empty sessionScope.userName}">
-			
-				<form id="login-form" action="/loginCheck" method="post">
-					<div class="sign-in-htm">
-						<div class="group">
-							<label for="login-user" class="label">이메일</label> <input
-								id="login-user" name="M_EMAIL" type="text" class="input">
+				<c:if test="${empty sessionScope.userName}">
+
+					<form id="login-form" action="/loginCheck" method="post">
+						<div class="sign-in-htm">
+							<div class="group">
+								<label for="login-user" class="label">이메일</label> <input
+									id="login-user" name="M_EMAIL" type="text" class="input">
+							</div>
+							<div class="group">
+								<label for="login-pass" class="label">비밀번호</label> <input
+									id="login-pass" name="M_PWD" type="password" class="input"
+									data-type="password">
+							</div>
+							<div class="group">
+								<input type="submit" class="button" value="로그인">
+							</div>
+							<div class="hr"></div>
+							<div class="foot-lnk">
+								<a href="/forgot">비밀번호를 잊으셨나요?</a>
+							</div>
 						</div>
-						<div class="group">
-							<label for="login-pass" class="label">비밀번호</label> <input
-								id="login-pass" name="M_PWD" type="password" class="input"
-								data-type="password">
-						</div>
-						<div class="group">
-							<input type="submit" class="button" value="로그인">
-						</div>
-						<div class="hr"></div>
-						<div class="foot-lnk">
-							<a href="/forgot">비밀번호를 잊으셨나요?</a>
-						</div>
-					</div>
-				</form>
-			
+					</form>
+
 				</c:if>
-				
+
 				<c:if test="${! empty sessionScope.userName}">
-				  <h1>${sessionScope.userName}님, 환영합니다!</h1>
-				  <p>저희 서비스는 <a href="/main">메인 바로가기 </a>를 통해 이용하실 수 있습니다. 감사합니다!</p>
+					<h1>${sessionScope.userName}님,환영합니다!</h1>
+					<p>
+						저희 서비스는 <a href="/main">메인 바로가기 </a>를 통해 이용하실 수 있습니다. 감사합니다!
+					</p>
 				</c:if>
-				
+
 				<form id="signup-form" action="/signup" method="post">
 					<div class="sign-up-htm">
 						<div class="group">
@@ -117,67 +125,70 @@
 	</div>
 </body>
 <script>
-/* ========================================회원 가입 관련 스크립트============================================== */
-isEmailVerified = false;
-function sendEmailVerification() {
-    var email = document.getElementById('signup-email').value;
+	/* ========================================회원 가입 관련 스크립트============================================== */
+	isEmailVerified = false;
+	function sendEmailVerification() {
+		var email = document.getElementById('signup-email').value;
 
-    function validateEmail(email) {
-        var re = /\S+@\S+\.\S+/;
-        return re.test(email);
-    }
+		function validateEmail(email) {
+			var re = /\S+@\S+\.\S+/;
+			return re.test(email);
+		}
 
-    if (validateEmail(email) && email.trim() !== '') {
-        $.ajax({
-            url: '/sendVerificationCode',
-            method: 'POST',
-            data: {
-                userEmail: email
-            },
-            success: function (response) {
-                if (response === 'success') {
-                    alert('이메일이 성공적으로 전송되었습니다.');
-                    // 성공적으로 이메일을 받았을 때 추가적인 동작을 수행할 수 있습니다.
-                    // 예를 들어, 이메일 전송 후 다음 단계로 넘어가는 등의 로직을 추가할 수 있습니다.
-                } else if (response === 'failed') {
-                    alert('중복된 이메일입니다.');
-                }
-            },
-            error: function (error) {
-                alert('서버 오류로 이메일 인증을 완료할 수 없습니다.');
-            }
-        });
-    } else {
-        alert('유효한 이메일 주소를 입력해주세요.');
-    }
-}
+		if (validateEmail(email) && email.trim() !== '') {
+			$.ajax({
+				url : '/sendVerificationCode',
+				method : 'POST',
+				data : {
+					userEmail : email
+				},
+				success : function(response) {
+					if (response === 'success') {
+						alert('이메일이 성공적으로 전송되었습니다.');
+						// 성공적으로 이메일을 받았을 때 추가적인 동작을 수행할 수 있습니다.
+						// 예를 들어, 이메일 전송 후 다음 단계로 넘어가는 등의 로직을 추가할 수 있습니다.
+					} else if (response === 'failed') {
+						alert('중복된 이메일입니다.');
+					}
+				},
+				error : function(error) {
+					alert('서버 오류로 이메일 인증을 완료할 수 없습니다.');
+				}
+			});
+		} else {
+			alert('유효한 이메일 주소를 입력해주세요.');
+		}
+	}
 
 	function verifyEmailCode() {
-        var enteredCode = document.getElementById('verification-code').value;
-        var userEmail = document.getElementById('signup-email').value;
-	
-        if (enteredCode.trim() === '' || userEmail.trim() === '') {
-            alert('이메일과 인증 코드를 입력해주세요.');
-            return;
-        }
+		var enteredCode = document.getElementById('verification-code').value;
+		var userEmail = document.getElementById('signup-email').value;
 
-        $.ajax({
-            url: '/verifyCode', // 서버의 코드 검증 엔드포인트
-            method: 'POST',
-            data: { userEmail: userEmail, code: enteredCode },
-            success: function(response) {
-                if (response === "verified") {
-                	isEmailVerified = true;
-                    alert('이메일 인증이 완료되었습니다.');
-                } else {
-                    alert('유효하지 않은 코드입니다.');
-                }
-            },
-            error: function(error) {
-                alert('서버 오류로 인증을 완료할 수 없습니다.');
-            }
-        });
-    }
+		if (enteredCode.trim() === '' || userEmail.trim() === '') {
+			alert('이메일과 인증 코드를 입력해주세요.');
+			return;
+		}
+
+		$.ajax({
+			url : '/verifyCode', // 서버의 코드 검증 엔드포인트
+			method : 'POST',
+			data : {
+				userEmail : userEmail,
+				code : enteredCode
+			},
+			success : function(response) {
+				if (response === "verified") {
+					isEmailVerified = true;
+					alert('이메일 인증이 완료되었습니다.');
+				} else {
+					alert('유효하지 않은 코드입니다.');
+				}
+			},
+			error : function(error) {
+				alert('서버 오류로 인증을 완료할 수 없습니다.');
+			}
+		});
+	}
 	function validateForm() {
 		var email = document.getElementById('signup-email').value;
 		var nickname = document.getElementById('signup-nickname').value;
@@ -201,74 +212,78 @@ function sendEmailVerification() {
 		return true; // 모든 필드가 채워지고 비밀번호 확인이 일치하면 폼 제출
 	}
 
-	document.getElementById('signup-form').addEventListener('submit', function(event) {
-	    event.preventDefault(); // 폼 전송 기본 동작 막음
-	    if (isEmailVerified === false) {
-	        alert('이메일 인증을 먼저 완료해주세요.');
-	    } else if (validateForm()) {
-	        // AJAX를 이용한 회원가입 요청
-	        var formData = $(this).serialize(); // 폼 데이터 직렬화
-	       
-	        $.ajax({
-	            url: '/signup', // 회원가입 처리 URL
-	            method: 'POST',
-	            data: formData,
-	            success: function(response) {
-	                if (response === 'success') {
-	                    // 성공적으로 회원가입 처리된 경우
-	                    alert('회원가입에 성공했습니다.');
-	                    window.location.href = '/login';
-	                    // 여기서 추가적인 작업을 할 수 있습니다.
-	                } else if (response ==='failed'){
-	                    alert('회원가입에 실패했습니다.');
-	                    window.location.href = '/login';
-	                }
-	            },
-	            error: function(error) {
-	                // 회원가입 처리 중 오류 발생한 경우
-	                alert('서버에 문제가있어 회원가입에 실패했습니다.');
-	            }
-	        });
-	    } else {
-	        alert('모든 필드를 올바르게 입력해주세요.');
-	    }
-	});
-/* ========================================회원 가입 관련 스크립트============================================== */
- 
-/* ========================================로그인 스크립트============================================== */
-document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // 기본 제출 동작 막기
+	document.getElementById('signup-form').addEventListener('submit',
+			function(event) {
+				event.preventDefault(); // 폼 전송 기본 동작 막음
+				if (isEmailVerified === false) {
+					alert('이메일 인증을 먼저 완료해주세요.');
+				} else if (validateForm()) {
+					// AJAX를 이용한 회원가입 요청
+					var formData = $(this).serialize(); // 폼 데이터 직렬화
 
-    var email = document.getElementById('login-user').value;
-    var password = document.getElementById('login-pass').value;
+					$.ajax({
+						url : '/signup', // 회원가입 처리 URL
+						method : 'POST',
+						data : formData,
+						success : function(response) {
+							if (response === 'success') {
+								// 성공적으로 회원가입 처리된 경우
+								alert('회원가입에 성공했습니다.');
+								window.location.href = '/login';
+								// 여기서 추가적인 작업을 할 수 있습니다.
+							} else if (response === 'failed') {
+								alert('회원가입에 실패했습니다.');
+								window.location.href = '/login';
+							}
+						},
+						error : function(error) {
+							// 회원가입 처리 중 오류 발생한 경우
+							alert('서버에 문제가있어 회원가입에 실패했습니다.');
+						}
+					});
+				} else {
+					alert('모든 필드를 올바르게 입력해주세요.');
+				}
+			});
+	/* ========================================회원 가입 관련 스크립트============================================== */
 
-    if (email.trim() === '' || password.trim() === '') {
-        alert('이메일과 비밀번호를 입력해주세요.');
-    } else { 
-        var formData = {
-            M_EMAIL: email,
-            M_PWD: password
-        };
+	/* ========================================로그인 스크립트============================================== */
+	document.getElementById('login-form').addEventListener('submit',
+			function(event) {
+				event.preventDefault(); // 기본 제출 동작 막기
 
-        $.ajax({
-            url: '/loginCheck2',
-            method: 'POST',
-            data: formData,
-            success: function(response) {
-                if (response === "success") {
-                    alert('로그인에 성공했습니다.');
-                    window.location.href = '/user/main';
-                } else if (response === "failed") {
-                    alert('이메일 또는 비밀번호가 올바르지 않습니다.');
-                }
-            },
-            error: function(error) {
-                alert('서버 오류로 로그인에 실패했습니다.');
-            }
-        });
-    }
-});
+				var email = document.getElementById('login-user').value;
+				var password = document.getElementById('login-pass').value;
 
- /* ========================================로그인 스크립트============================================== */
+				if (email.trim() === '' || password.trim() === '') {
+					alert('이메일과 비밀번호를 입력해주세요.');
+				} else {
+					var formData = {
+						M_EMAIL : email,
+						M_PWD : password
+					};
+
+					$.ajax({
+						url : '/loginCheck2',
+						method : 'POST',
+						data : formData,
+						success : function(response) {
+							if (response === "success") {
+								alert('로그인에 성공했습니다.');
+								window.location.href = '/main';
+							} else if (response === "failed") {
+								alert('이메일 또는 비밀번호가 올바르지 않습니다.');
+							} else if (response === "deleted"){
+								alert('탈퇴한 회원입니다.');
+							}
+						},
+						error : function(error) {
+							alert('서버 오류로 로그인에 실패했습니다.');
+						}
+					});
+				}
+			});
+
+	/* ========================================로그인 스크립트============================================== */
 </script>
 </html>

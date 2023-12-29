@@ -98,7 +98,6 @@ public class DbController {
 							
 							if(contentid!=null) {
 							int n= dService.insertdb(vo);
-							System.out.println(n);
 							}else {
 								System.out.println("�����Ͱ� �����ϴ�.");
 								
@@ -125,7 +124,5 @@ public class DbController {
 		
 		return "���¹ٺ���û�̾�";
 	}
-	
-	
 	
 }

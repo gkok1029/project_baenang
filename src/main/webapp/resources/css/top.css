@@ -1,0 +1,14 @@
+@charset "UTF-8";
+li{list-style: none;}
+#top{
+	display:flex; justify-content: space-between; align-items: center;
+	padding: 17px; position: fixed; z-index: 1000; width: 100%; background-color: #FFFFFF;
+	box-sizing: border-box;
+}
+#top a{text-decoration: none; display: inline-block; color: black;}
+#top a:visited{color: black;}
+#top div{font-size: 1.1em;}
+#topL img{width:80px;}
+#topR{display: flex; justify-content: flex-end;}
+#topR ul.nav{display: flex; justify-content: space-evenly; flex: 1; align-items: center;}
+#topR ul li{text-align: center; width: 100px; margin-right:12px; margin-left:12px;}

@@ -1,7 +1,5 @@
 package com.bn.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bn.model.PostVo;
@@ -24,13 +21,14 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class PostController { 
 	
+	@Autowired
 	private PostService service;
 	
 	@RequestMapping("/posts") 
  	public String listingPosts(Model model) { 
 		
 		log.info("posts");
-		model.addAttribute("posts", service.getList());
+		model.addAttribute("posts", service.getList(0));
 		
 		return "/blog/posts";
 	} 
@@ -51,9 +49,9 @@ public class PostController {
 		return "redirect:/blog/posts";
 	}
 	
-	@GetMapping("/get")
+	@GetMapping({"/get", "/modify"})
 	public void get(@RequestParam("p_id") int p_id, Model model) {
-		log.info("/get");
+		log.info("/get or /modi");
 		model.addAttribute("post", service.get(p_id));
 	}
 	
@@ -71,7 +69,7 @@ public class PostController {
  	public String showBloghub(Model model) { 
 		
 		log.info("posts");
-		model.addAttribute("posts", service.getList());
+		model.addAttribute("posts", service.getList(0));
 		
 		return "/blog/bloghub";
 	}

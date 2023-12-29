@@ -17,16 +17,21 @@
 <title>My Page Info</title>
 </head>
 <body>
+<jsp:include page="top.jsp"/>
+<div id=topbg></div>
 	<header>
-		<div id=top>
-			<div class=profile>Profile</div>
-		</div>
-		<div id=topbg>
-            
-        </div>
 		<div id="topcenprowrap">
             <div id=topcenpro>
-                <p class="profile_img"><span><img alt="${user.getM_NNAME()}" src="111.jpg"></span></p>
+                <!-- 파일 업로드를 위한 input 요소 -->
+            <form id="imgF" name="imgF" action="mypageinfopic" method="post" enctype="multipart/form-data">
+               	<input type="file" id="editmf" name="editmf" style="display: none" accept="image/*">
+            </form>
+                <p class="profile_img">
+                	<span class="cursor">
+	                	<img id="proimg" alt="${user.getM_NNAME()}" src="/resources/profile/${user.getM_IMAGE()}">
+	                	<img id="edit" alt="edit" src="../resources/img/profile/edit.png" name="edit" onclick="editPic()">
+                	</span>
+               	</p>
                 <p class="username"><span>${user.getM_NNAME()}</span></p>
             </div>
         </div>
@@ -34,43 +39,55 @@
     <main>
         <div id="wrap">
             <div id="innerwrap">
-                <div class="joinday">가입일 : 2000-00-00</div>
                 <div id="formContainer">
-                    <form action="" name="memberinfo" class="info" id="infoF" method="post">
-                        <table id="userTable">
-                            <tr>
-                                <th>닉네임</th>
-                                <td>
-                                    <input type="text" name="name" value="usernickname">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>비밀번호</th>
-                                <td class="pwdtd">
-                                    <input type="password" name="userpwd">
-                                    <button type="button" class="btn" onclick="openPwd()">수정</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>이메일</th>
-                                <td class="emailtd">
-                                    <input type="text" name="userid"  value="useremail" readonly>
-                                    <button type="button" class="btn" onclick="openEmail()">수정</button>
-                                </td>
-                            </tr>
-                        </table>
-    
+                    <form action="mypageinfosubmit" name="memberinfo" class="info" id="infoF" method="post">
+	                    <h3 class="pad">닉네임</h3>
+	                	<div id="inputContainer" class="pad"><input type="text" name="nick" value="${user.getM_NNAME()}"></div>
+	                    <h3 class="pad">이메일</h3>
+	                    <div id="inputContainer" class="pad"><input type="text" name="userid"  value="${user.getM_EMAIL()}" readonly></div>
                     </form>
+                    <p id="pwdch" class=cursor onclick="openPwd()">비밀번호를 변경하시겠습니까?</p>
                 </div>
                 <div id="bottomContainer">
                     <div id="formBottom">
-                        <button type="submit">수정완료</button>
+                        <button type="submit" onclick="infoChange()">수정완료</button>
                         <button type="button" onclick="openOut()">회원탈퇴</button>
                     </div>
                 </div>
-                
             </div>
         </div>
+        
+        <script type="text/javascript">
+        	function openPwd(){
+        		let url="../user/mypagepwdchange";
+        		win=open(url,"myPagepwdChange","width=800, height=300, left=250, top=250")
+        	}
+        	
+        	function openOut(){
+        		let url="../user/mypageout";
+        		win=open(url,"myPageOut","width=400, height=400, left=250, top=250")
+        	}
+        	
+        	function infoChange(){
+        		memberinfo.submit();
+        	}
+        	
+        	function editPic(){
+        		$('#editmf').click();
+        		$('#editmf').on('change',handlefileup);
+        	}
+        	function handlefileup(e){
+        		let fileInput=document.getElementById('editmf');
+        		if(!fileInput.files||!fileInput.files[0]){
+        			alert('변경할 이미지 파일을 선택하세요')
+        			return;
+        		}
+        		imgUrl=URL.createObjectURL(fileInput.files[0]);
+        		$('#proimg').attr('src',imgUrl);//이미지 미리보기
+        		
+        		$('#imgF').submit();
+        	}
+        </script>
     </main>
 </body>
 </html>

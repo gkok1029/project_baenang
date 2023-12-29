@@ -29,8 +29,6 @@ let PlanModule = ( ()=>{
 			success : function(response) {
 				var lvo=response.lvo;
 				
-				console.log("플랜번호");
-				console.log(lvo[0].p_id);
 				
 			},
 			error : function(err) {
@@ -68,8 +66,8 @@ let PlanModule = ( ()=>{
 	}
 
     function tour(lat, len) {
-		var x = lat;
-		var y = len;
+		let x = lat;
+		let y = len;
 
 		$.ajax({
 			type : 'get',
@@ -90,120 +88,163 @@ let PlanModule = ( ()=>{
 
     function displayTourInformation(contentList,x,y) {
 		var tcontainer = $('.places-container'); // 새로운 container 추가
+		
 		//var container = document.getElementById('travels-container');
 		// 기존 내용 비우기
 		tcontainer.empty();
 		map=new naver.maps.Map('map',{
 		center:new naver.maps.LatLng(y,x),
-		zoom:15
+		zoom:8
 		});
 		// 최대 10개까지만 표시
 		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
-
-			var content = contentList[i];
-			var contentid=content.contentid;
-			
+			let content = contentList[i];
+				
+			let contentid=content.contentid;
+			let url = "/tourInfo?contentid=" + contentid;
 			// 새로운 div 동적으로 생성
-			/* var newDiv = $('<div>').addClass('traveld').attr('id', 'content' + i).click(function() {
-	        copyDiv('content' + i);
-	    	}); */
+			// var newDiv = $('<div>').addClass('traveld').attr('id', 'content' + i).click(function() {
+	        // copyDiv('content' + i);
+	    	//}); 
 	    
-			var placeDiv = ViewPageModule.createPlaceDiv();
-			
-	    	$('.place-image').attr('id', 'img'+contentid);
-			$('.place-img').attr('src',content.firstimage || '/resources/images/noimage.PNG');
-
-	    	$('.place-details').attr('id', 'text' + contentid);
-			$('.place-title').text('Name: ' + content.title);
-			$('.place-cat').text("카테고리");
-			$('.place-addr').text('Location: ' + content.addr);
-			
+			let placeDiv = ViewPageModule.createPlaceDiv(url,content);
 			
 			tcontainer.append(placeDiv);
 			
-			 var marker = new naver.maps.Marker({
+			var marker = new naver.maps.Marker({
 		            position: new naver.maps.LatLng(content.mapy, content.mapx),
 		            map: map
 		        });
 			
 		        // 클로저를 사용하여 정보창 내용 설정
-		        (function (marker, title) {
+		        (function (marker, title,firstimage) {
 		            var infoWindow = new naver.maps.InfoWindow({
-		                content: '<div style="width:150px;text-align:center;padding:10px;"><b>"' + title + '"</b>.</div>'
+		              content: '<div style="width:150px; text-align:center; padding:10px;"><b>' + title + '</b>.<br><img src="' + firstimage + '"></div>'
 		            });
 
 		            naver.maps.Event.addListener(marker, 'click', function () {
-		                infoWindow.open(map, marker);
+		                infoWindow.open(map, marker,firstimage);
 		            });
-		        })(marker, content.title);
+		        })(marker, content.title,content.firstimage);
 
 		}
 	
 		// 추가로 필요한 정보는 여기에 계속 추가할 수 있습니다.
 	}
-	
-    function createDiv(contentid) {
-            var newDiv = $('<div>').addClass('traveld').attr('id', contentid).click(function() {
-                copyDiv(contentid);
-                
-            });
+			// 함수 외부에서 count 변수 선언
+			var countx = 0;
+			var count = document.createElement('div');
+			count.className = 'count';
+			
+			function copyPlaceDiv(sourceDivId) {
+			    var id = sourceDivId;
+			    // 클릭된 div의 내용을 가져오기
+			    var sourceDiv = document.getElementById(id);
+			    var divText = sourceDiv.innerHTML.trim();
+			
+			    // 내용이 있는 경우에만 실행
+			    if (divText !== "") {
+			        // selected-container가 없을 경우
+			        var targetDiv = document.getElementById('selected-container');
+			        countx++; // 함수가 실행되었기 때문에 1 증가
+			        count.innerHTML = countx;
+			        if (!targetDiv) {
+			            // 새로운 div 생성
+			            var newDiv = document.createElement('div');
+			            newDiv.id = 'selected-container';
+			
+			            var selectedDiv = document.createElement('div');
+			            selectedDiv.className = 'selected';
+			            selectedDiv.id = 'C' + sourceDivId;
+			            selectedDiv.innerHTML = divText;
+			
+			            var removebtn = document.createElement('button');
+			            removebtn.innerHTML = 'Remove Div';
+			            removebtn.addEventListener('click', removeDiv);
+			
+			            var resetbtn = document.createElement('button');
+			            resetbtn.innerHTML = 'Reset Div';
+			            resetbtn.addEventListener('click', resetDiv);
+			
+			           var removeCDivbtn = document.createElement('button');
+						   removeCDivbtn.innerHTML = 'Remove C Div';
+						   removeCDivbtn.addEventListener('click', function() {
+						   removeCDiv(selectedDiv.id);
+						   });
+			
+			            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
+			            var destinationContainer = document.getElementById("wrapcontainer");
+			            var mapw = document.getElementById("map");
+			            mapw.parentNode.insertBefore(newDiv, mapw);
+			
+			            newDiv.appendChild(count);
+			            newDiv.appendChild(removebtn); // 버튼을 count 다음으로 추가
+			            newDiv.appendChild(resetbtn); // 리셋 버튼을 removebtn 다음으로 추가
+			            newDiv.appendChild(selectedDiv);
+			            selectedDiv.appendChild(removeCDivbtn); // Remove C Div 버튼을 selectedDiv 다음으로 추가
+			        } else {
+			            // 이미 존재하는 selected-container에 내용 추가
+			            var selectedDiv = document.createElement('div');
+			            selectedDiv.className = 'selected';
+			            selectedDiv.id = 'C' + sourceDivId;
+			            selectedDiv.innerHTML = divText;
+			            var removeCDivbtn = document.createElement('button');
+						   removeCDivbtn.innerHTML = 'Remove C Div';
+						   removeCDivbtn.addEventListener('click', function() {
+						   removeCDiv(selectedDiv.id);
+						   });
+						selectedDiv.appendChild(removeCDivbtn);
+			            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
+			            targetDiv.appendChild(selectedDiv);
+			            selectedDiv.appendChild(removeCDivbtn);
+			        }
+			    }
+			}
+			
+			function removeDiv() {
+			    countx = 0; // countx 값을 0으로 초기화
+			    count.innerHTML = countx; // count도 초기화
+			
+			    var Div = document.getElementById("selected-container");
+			    var parent = Div.parentNode;
+			
+			    if (parent) {
+			        parent.removeChild(Div);
+			    }
+			}
+			
+			function resetDiv() {
+			    countx = 0; // countx 값을 0으로 초기화
+			    count.innerHTML = countx; // count도 초기화
+			
+			    var selectedDivs = document.getElementsByClassName("selected");
+			    var parent;
+			
+			    // NodeList를 배열로 변환하여 반복문을 사용
+			    Array.from(selectedDivs).forEach(function (selectedDiv) {
+			        parent = selectedDiv.parentNode;
+			        if (parent) {
+			            parent.removeChild(selectedDiv); // 부모 노드에서 제거
+			        }
+			    });
+			}
+			
+			function removeCDiv(selectedDiv) {
+			    countx--; // countx 값을 0으로 초기화
+			    count.innerHTML = countx; // count도 초기화
+			
+			    var Div = document.getElementById(selectedDiv);
+			    var parent = Div.parentNode;
+			
+			    if (parent) {
+			        parent.removeChild(Div);
+			    }
+			}
 
-
-            // 생성된 div들을 어딘가에 추가하거나 반환할 수 있음
-            return newDiv;
-    } 
-
-    function copyDiv(sourceDivId) {
-        var id=sourceDivId;
-        // 클릭된 div의 내용을 가져오기	    
-        var sourceDiv = document.getElementById(id);
-        var divText = sourceDiv.innerHTML.trim();
-        
-        // selected-container 요소 찾기
-        var targetDiv = document.getElementById('selected-container');
-        
-        // 내용이 있는 경우에만 실행
-        if (divText !== "") {
-            // selected-container가 없을 경우
-            if (!targetDiv) {
-                // 새로운 div 생성
-                var newDiv = document.createElement('div');
-                newDiv.id = 'selected-container';
-
-                var selectedDiv = document.createElement('div');
-                selectedDiv.className = 'selected';
-                selectedDiv.innerHTML = divText;
-
-                // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
-                var destinationContainer = document.getElementById("wrapcontainer");
-                var mapw=document.getElementById("map");
-                mapw.parentNode.insertBefore(newDiv, mapw);
-                //destinationContainer.appendChild(newDiv);
-                //container.append($(newDiv));
-                newDiv.appendChild(selectedDiv);
-            } else {
-                // 이미 존재하는 selected-container에 내용 추가
-                var selectedDiv = document.createElement('div');
-                selectedDiv.className = 'selected';
-                selectedDiv.innerHTML = divText;
-
-                // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
-                targetDiv.appendChild(selectedDiv);
-            }
-        }
-    }
-
-    function removeDiv() {
-        var Div=document.getElementById("selected-container");
-        var parent = Div.parentNode;
-        
-        if (parent) {
-            parent.removeChild(Div);
-        }
-    }
 	//호텔
     function displayLodgingInformation(contentList,x,y) {
 		var tcontainer = $('#hotels'); // 새로운 container 추가
+		console.log('씌부엉');
 		//var container = document.getElementById('travels-container');
 		// 기존 내용 비우기
 		tcontainer.empty();
@@ -216,33 +257,26 @@ let PlanModule = ( ()=>{
 
 			var content = contentList[i];
 			var contentid=content.contentid;
-			var newDiv=createDiv(contentid);
+			let url = "/tourInfo?contentid=" + contentid;
+			var newDiv=createDiv(contentid,url);
 			// 새로운 div 동적으로 생성
 			/* var newDiv = $('<div>').addClass('traveld').attr('id', 'content' + i).click(function() {
 	        copyDiv('content' + i);
 	    	}); */
 	    
-			var placeDiv = ViewPageModule.createPlaceDiv();
+			var placeDiv = ViewPageModule.createPlaceDiv(url,content);
 			
-	    	$('.place-image').attr('id', 'img'+contentid);
-			$('.place-img').attr('src',content.firstimage || '/resources/images/noimage.PNG');
-
-	    	$('.place-details').attr('id', 'text' + contentid);
-			$('.place-title').text('Name: ' + content.title);
-			$('.place-cat').text("카테고리");
-			$('.place-addr').text('Location: ' + content.addr);
-	    	
 			tcontainer.append(placeDiv);
 			
 			 var marker = new naver.maps.Marker({
 		            position: new naver.maps.LatLng(content.mapy, content.mapx),
 		            map: map,
-		            icon:{content: '<div style="background-color: red; width: 20px; height: 20px; border-radius: 50%;"></div>'}
+		            icon:{url:'/resources/img/marker/캡처.PNG'}
 		        });
 		        // 클로저를 사용하여 정보창 내용 설정
 		        (function (marker, title) {
 		            var infoWindow = new naver.maps.InfoWindow({
-		                content: '<div style="width:150px;text-align:center;padding:10px;"><b>"' + title + '"</b>.</div>'
+		                content: '<div style="width:150px;text-align:center;padding:10px;"><b>"' + title + '"</b>.<br><img src="'+img+'" style="width:100px; text-align:center;"></div>'
 		            });
 
 		            naver.maps.Event.addListener(marker, 'click', function () {
@@ -287,8 +321,7 @@ let PlanModule = ( ()=>{
 	}	
 	
 	function lodging(lat, len) {
-		let x = lat;
-		let y = len;
+		
 		var ctype="32";
 
 		$.ajax({
@@ -307,24 +340,7 @@ let PlanModule = ( ()=>{
 		})
 	}
 	function restaurant(){
-		var ctype="39";
-		$.ajax({
-			type : 'get',
-			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y + '&ctype=' +ctype,
-			cache : false,
-			processData : true,
-			success : function(res) {
-				PlanModule.displayTourInformation(res.contentList,x,y);
-
-			},
-			error : function(err) {
-				alert('error: ' + err.status);
-			}
-		})
-	}
-	function cafe(){
-		var cat="A05020900";
+		var cat="A05020100";
 		$.ajax({
 			type : 'get',
 			dataType : 'json',
@@ -339,13 +355,13 @@ let PlanModule = ( ()=>{
 				alert('error: ' + err.status);
 			}
 		})
-		
 	}
-	function attraction(){
+	function cafe(){
+		var cat="A05020900";
 		$.ajax({
-			type : 'get',
+			type :'get',
 			dataType : 'json',
-			url : 'tour?x=' + x + '&y=' + y,
+			url : 'tour?x=' + x + '&y=' + y + '&cat='+cat,
 			cache : false,
 			processData : true,
 			success : function(res) {
@@ -358,6 +374,49 @@ let PlanModule = ( ()=>{
 		})
 		
 	}
+	function attraction(){
+		var ctype="12";
+		$.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : 'tour?x=' + x + '&y=' + y+'&ctype='+ctype,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				PlanModule.displayTourInformation(res.contentList,x,y);
+
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+		})
+
+	}
+	
+	// 모달 열기 함수
+	function openModal(url) {
+    	var modal = $('<div>').addClass('modal');
+    	var modalContent = $('<div>').addClass('modal-content');
+    	var closeBtn = $('<span>').addClass('close').html('&times;').click(function() {
+        	modal.remove();
+   		 });
+
+    	var iframe = $('<iframe>').attr('src', url).attr('width', '100%').attr('height', '100%');
+
+    	modalContent.append(closeBtn);
+    	modalContent.append(iframe);
+    	modal.append(modalContent);
+
+    	$('body').append(modal);
+
+    	// 모달 외부 클릭 시 닫기
+    	modal.click(function(event) {
+        	if (event.target === modal[0]) {
+            	modal.remove();
+        	}
+    	});
+	}
+
 
     return {
         myplan : myplan,
@@ -365,13 +424,13 @@ let PlanModule = ( ()=>{
         saveP : saveP,
         tour : tour,
         displayTourInformation : displayTourInformation,
-        createDiv : createDiv,
-        copyDiv : copyDiv,
         removeDiv : removeDiv,
         displayLodgingInformation:displayLodgingInformation,
 		lodging : lodging,
 		restaurant : restaurant,
 		cafe : cafe,
-		attraction : attraction
+		attraction : attraction,
+		openModal:openModal,
+		copyPlaceDiv:copyPlaceDiv
     };
 })();

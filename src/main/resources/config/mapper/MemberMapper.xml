@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bn.mapper.MemberMapper">
+	<select id="getProfile" resultType="Member" parameterType="String">
+		select * from member
+		where M_EMAIL = #{userEmail}
+	</select>
+	
+	<select id="getPlanList" resultType="Page" parameterType="Page">
+		select * from (
+	    select pl.*, (select min(dp_start) from detail_planner where pl.p_id = p_id) dp_start,
+	    (select max(dp_end) from detail_planner where pl.p_id = p_id) dp_end
+	    from planner pl) where m_id = #{m_id}
+	    <if test="filter == 'recentday1'">
+    		order by p_moddate asc
+	    </if>
+	    <if test="filter == 'recentday2'">
+    		order by p_moddate desc
+	    </if>
+	    <if test="filter == 'travelday1'">
+    		order by dp_start asc
+	    </if>
+	    <if test="filter == 'travelday2'">
+    		order by dp_start desc
+	    </if>
+	</select>
+	
+	<update id="updatePwd" parameterType="Member">
+		update member set m_pwd=#{M_PWD} where m_id=#{M_ID}
+	</update>
+	
+	<update id="updateNickname" parameterType="Member">
+		update member set m_nname=#{M_NNAME} where m_id=#{M_ID}
+	</update>
+	
+	<update id="memberOut" parameterType="Member">
+		update member set m_status=-1 where m_id=#{M_ID}
+	</update>
+	
+	<update id="updateProfileImage" parameterType="Page">
+		update member set m_image=#{filename} where m_id=#{m_id}
+	</update>
+		
+	<delete id="deletePlan" parameterType="Page">
+		delete from planner where p_id = #{p_id}
+	</delete>
+	
+	<select id="loginCheck2" parameterType="Member" resultType="string">
+    SELECT M_NNAME FROM MEMBER
+    WHERE M_EMAIL = #{M_EMAIL} AND M_PWD = #{M_PWD}
+</select>
+
+<update id="tempPass" parameterType="Map">
+    UPDATE MEMBER
+    SET M_PWD = #{temppass}
+    WHERE M_EMAIL = #{userEmail} 
+</update>
+
+<select id="statusCheck" parameterType="String" resultType="int">
+    SELECT M_STATUS FROM MEMBER
+    WHERE M_EMAIL = #{M_EMAIL}
+</select>
+
+</mapper>

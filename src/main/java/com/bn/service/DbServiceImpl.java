@@ -28,6 +28,10 @@ public class DbServiceImpl implements DbService {
 		return this.contentMapper.searchInRange(cd);
 	}
 
-
+	@Override
+	public void countup(String contentid) {
+		
+	 this.contentMapper.countup(contentid);
+	}
 
 }

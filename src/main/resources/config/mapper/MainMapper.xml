@@ -7,4 +7,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="rec" parameterType="string" resultType="string">
 		SELECT title FROM content WHERE contentid = #{contentid}
 	</select>
+	
+	
+	<select id="search" parameterType="string" resultType="City">
+	    <![CDATA[
+	        SELECT * FROM city WHERE cityname LIKE '%' || #{title} || '%' AND ROWNUM <= 5
+	    ]]>
+	</select>
+	
+	<select id="rec_city" parameterType="string" resultType="string">
+		SELECT title FROM city WHERE title = #{title}
+	</select>
+	
+	<!-- 
+	<select id="search" parameterType="string" resultType="Content">
+	    <![CDATA[
+	        SELECT title,contentid,addr FROM content WHERE title LIKE '%' || #{title} || '%' AND ROWNUM <= 5
+	    ]]>
+	</select>
+	 -->
+
 </mapper>
+

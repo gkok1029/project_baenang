@@ -260,8 +260,9 @@
 	
 </style>
 <script>
-	let x=126.5312;
-	let y=33.4996;
+	let y='${cityvo.latitude}';
+	let x='${cityvo.longitude}';
+	let cityname='${cityvo.cityname}';
 	let trip = {
 		"title":"",
 		"days":{
@@ -307,7 +308,7 @@
 	</div>
 
 <script>
-	    
+
 	$(document).ready( function(){
 		
 		SidebarModule.initialize();

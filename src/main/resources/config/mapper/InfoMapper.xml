@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bn.mapper.InfoMapper">
+
+	<select id="getTourData" parameterType="string" resultType="Content">
+		SELECT * FROM content WHERE contentid = #{contentid}
+	</select>
+	
+	<update id="insertOverview" parameterType="Content">
+		UPDATE CONTENT
+		SET OVERVIEW = #{overview}
+		WHERE contentid = #{contentid}
+	</update>
+	
+	<select id="existOverview" parameterType="string" resultType="string">
+		SELECT overview FROM content WHERE contentid = #{contentid}
+	</select>
+	
+	<select id="getCityData" parameterType="string" resultType="City">
+		SELECT * FROM city WHERE cityname = #{cityname} 
+	</select>
+	
+	<!-- 
+	<select id="search" parameterType="string" resultType="City">
+	    <![CDATA[
+	        SELECT * FROM city WHERE cityname LIKE '%' || #{title} || '%' AND ROWNUM <= 5
+	    ]]>
+	</select>
+	 -->
+</mapper>

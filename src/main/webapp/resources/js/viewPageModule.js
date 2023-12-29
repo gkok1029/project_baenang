@@ -52,7 +52,7 @@ let ViewPageModule = (function () {
 
         // 첫 번째 하위 div 엘리먼트 생성
         let firstChildDiv = $("<div>");
-        let h2Element = $("<h2>").text("제주");
+        let h2Element = $("<h2>").text(cityname);
         firstChildDiv.append(h2Element);
 
         let dateDiv = $("<div>").attr("id", "date").text("2023.12.22(금) - 2023.12.29(금)").append(
@@ -168,7 +168,7 @@ let ViewPageModule = (function () {
         
         let firstChildDiv = $("<div>").append(
             $("<div>").append(
-                $("<div>").text("제주"),
+                $("<div>").text(cityname),
                 $("<div>").addClass("trip-date").attr("id","tripDate").text("2023.12.26(화) - 2023.12.28(목)")
             ),
             $("<div>").append(
@@ -225,36 +225,48 @@ let ViewPageModule = (function () {
         
     };
     //장소 div생성
-    function createPlaceDiv(){
+    function createPlaceDiv(url,content){
 
-                //장소 div
-        return $('<div>').addClass("place-container").attr("id","placeContainer").append(
+                //장소 div 수정:id에 contentid붙여서 각각의 개별성?부여
+        return $('<div>').addClass("place-container").attr("id","placeContainer"+content.contentid).append(
             //이미지 div
-            $('<div>').addClass("place-image").attr("id","placeImage").append(
+            $('<div>').addClass("place-image").attr("id","img"+content.contentid).append(
                 //이미지 태그
-                $('<img>').addClass("place-img")
-            ),
+                $('<img>').addClass("place-img").attr("id","pimg"+content.contentid)
+                		  .attr('src', content.firstimage || '/resources/images/noimage.PNG')
+            	),
             //장소 디테일 div
-            $('<div>').addClass("place-details").attr("id","placeDetails").append(
+            $('<div>').addClass("place-details").attr("id","pd"+content.contentid).append(
                 //장소 이름 div
-                $('<div>').addClass("place-title").attr("id","placeTitle").text("장소"),
+                $('<div>').addClass("place-title").attr("id","title"+content.contentid).text(content.title),
                 //장소 카테고리,주소 div
-                $('<div>').addClass("place-cat-and-addr").attr("id","placeCatAndAddr").append(
+                $('<div>').addClass("place-cat-and-addr").attr("id","CatAndAddr"+content.contentid).append(
                     //장소 카테고리 div
-                    $('<div>').addClass("place-cat").attr("id","placeCat").text("카테고리"),
+                    $('<div>').addClass("place-cat").attr("id","cat"+content.contentid).text(content.cat),
                     //장소 주소 div
-                    $('<div>').addClass("place-addr").attr("id","placeAddr").text("주소")
-                ),
-                $('<div>').addClass("place-summary").attr("id","placeSummary").text("설명")
+                    $('<div>').addClass("place-addr").attr("id","addr"+content.contentid).text(content.addr)
+                )
             ),
             
             $('<div>').addClass("place-add").attr("id","placeAdd").append(
                 //장소 추가 button
-                $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","placeAddButton")
+                $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","Button"+content.contentid)
+                .click(function() { PlanModule.copyPlaceDiv("placeContainer"+content.contentid);})
+                														
             )
-        )                
+        ).click(function() {
+                  window.open(url, "TourInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
+                // PlanModule.openModal(url);
+                });
+                            
     }
+	
+	
 
+				
+	
+	
+	
     function step3Loding(){
         // view-container이 이미 존재하는지 확인
         viewExistedCheck();
@@ -262,13 +274,12 @@ let ViewPageModule = (function () {
         //Step3 div 생성
         // 부모 엘리먼트 선택
         let parentElement = $(".view").eq(0);
-
         // div.view-container 엘리먼트 생성
         let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1");
         
         let firstChildDiv = $("<div>").append(
             $("<div>").append(
-                $("<div>").text("제주"),
+                $("<div>").text(cityname),
                 $("<div>").addClass("trip-date").attr("id","tripDate").text("2023.12.26(화) - 2023.12.28(목)")
             ),
             $("<div>").append(
@@ -311,7 +322,6 @@ let ViewPageModule = (function () {
 
         // 부모 엘리먼트 선택
         let parentElement = $(".view").eq(0);
-
         let arrDiv = [];
         for(let i=1;i<=4;i++){
             let div = $('<div>').html(i+"일차<br>").append(
@@ -462,7 +472,6 @@ let ViewPageModule = (function () {
     return {
         showView: showView,
         viewPageLoding : viewPageLoding,
-        createPlaceDiv : createPlaceDiv
-        
+        createPlaceDiv : createPlaceDiv,
     };
 })();
