@@ -13,8 +13,9 @@ let SidebarModule = (function () {
 
         let mainLogoButton = $("<button>")
             .attr("id", "main-logo")
-            .html('<img class="logo" src="" alt="Main Logo"/>');
-
+            .html('<img class="logo" src="/resources/img/mainlogo.png" alt="Main Logo"/>');
+		
+	
         //MainLogo 클릭이벤트 설정
         mainLogoButton.on('click', function () {
             window.location.href = '/main';

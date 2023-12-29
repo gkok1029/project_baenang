@@ -242,21 +242,31 @@ let ViewPageModule = (function () {
                 //장소 카테고리,주소 div
                 $('<div>').addClass("place-cat-and-addr").attr("id","CatAndAddr"+content.contentid).append(
                     //장소 카테고리 div
-                    $('<div>').addClass("place-cat").attr("id","cat"+content.contentid).text("카테고리"),
+                    $('<div>').addClass("place-cat").attr("id","cat"+content.contentid).text(content.cat),
                     //장소 주소 div
-                    $('<div>').addClass("place-addr").attr("id","addr"+content.contentid).text("주소")
+                    $('<div>').addClass("place-addr").attr("id","addr"+content.contentid).text(content.addr)
                 )
             ),
             
             $('<div>').addClass("place-add").attr("id","placeAdd").append(
                 //장소 추가 button
-                $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","Button"+content.contentid).append()
+                $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","Button"+content.contentid)
+                .click(function() { PlanModule.copyPlaceDiv("placeContainer"+content.contentid);})
+                														
             )
         ).click(function() {
-                 PlanModule.openModal(url);});
+                  window.open(url, "TourInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
+                // PlanModule.openModal(url);
+                });
                             
     }
+	
+	
 
+				
+	
+	
+	
     function step3Loding(){
         // view-container이 이미 존재하는지 확인
         viewExistedCheck();
@@ -269,7 +279,7 @@ let ViewPageModule = (function () {
         
         let firstChildDiv = $("<div>").append(
             $("<div>").append(
-                $("<div>").text("제주"),
+                $("<div>").text(cityname),
                 $("<div>").addClass("trip-date").attr("id","tripDate").text("2023.12.26(화) - 2023.12.28(목)")
             ),
             $("<div>").append(
@@ -462,7 +472,6 @@ let ViewPageModule = (function () {
     return {
         showView: showView,
         viewPageLoding : viewPageLoding,
-        createPlaceDiv : createPlaceDiv
-        
+        createPlaceDiv : createPlaceDiv,
     };
 })();
