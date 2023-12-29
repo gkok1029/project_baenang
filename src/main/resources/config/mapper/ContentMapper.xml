@@ -15,10 +15,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="searchInRange" parameterType="map" resultType="Content">
 	SELECT * FROM content WHERE mapx BETWEEN #{mapx}-0.48 AND #{mapx}+0.48 AND mapy BETWEEN #{mapy}-0.36 AND #{mapy}+0.36
-	<if test="cat !=null and cat=='A05020100'">
-	and code==#{cat:VARCHAR}
-	</if> 
 	<if test="cat !=null and cat=='A05020900'">
+	and code=#{cat:VARCHAR}
+	</if> 
+	<if test="cat !=null and cat=='A05020100'">
 	and code IN ('A05020100', 'A05020200', 'A05020300', 'A05020400', 'A05020700')
 	</if>
 	<if test="ctype !=null and ctype=='12'">
