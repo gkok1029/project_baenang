@@ -40,7 +40,7 @@ let ViewPageModule = (function () {
     function step1Loding(){
         // view-container이 이미 존재하는지 확인
         viewExistedCheck();
-
+        
         // 부모 엘리먼트 선택
         let parentElement = $(".view").eq(0);     
 
@@ -52,6 +52,7 @@ let ViewPageModule = (function () {
 
         // 첫 번째 하위 div 엘리먼트 생성
         let firstChildDiv = $("<div>");
+        
         let h2Element = $("<h2>").text(cityname);
         firstChildDiv.append(h2Element);
 
@@ -250,7 +251,9 @@ let ViewPageModule = (function () {
             
             $('<div>').addClass("place-add").attr("id","placeAdd").append(
                 //장소 추가 button
-                $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","placeAddButton")
+                $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","placeAddButton").on('click',()=>{
+
+                })
             )
         )                
     }
