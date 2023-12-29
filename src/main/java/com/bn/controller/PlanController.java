@@ -196,7 +196,12 @@ public class PlanController {
         
         return result;
     }
-
+    @ResponseBody
+    @RequestMapping("/countup")
+    public void countup(@RequestParam String contentid) {
+    	
+    	dService.countup(contentid);
+    }
     
 
 }

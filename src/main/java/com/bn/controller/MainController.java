@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bn.model.CityVo;
+import com.bn.service.InfoServiceImpl;
 import com.bn.service.MainServiceImpl;
 import com.bn.service.PostService;
 
@@ -26,11 +27,15 @@ public class MainController {
 	private MainServiceImpl msi;
 	
 	@Inject
+	private InfoServiceImpl isi;
+	
+	@Inject
 	private PostService service;
 	
 	@RequestMapping("/main")
 	public String onMain(Model model) {
-		model.addAttribute("posts", service.getList(0));
+		List<CityVo> cvo=isi.getAllCityData();
+		model.addAttribute("cvo",cvo);
 		return "main";
 	}
 	
