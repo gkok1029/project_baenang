@@ -13,6 +13,7 @@
   </style>
 </head>
 <body>
+
   <form action="/blog/addpost" method="POST">
     <!-- Add Title field -->
     <div style="width: 50%; margin: 0 auto;">
@@ -27,6 +28,11 @@
     <br>
 
     <p style="width: 50%; margin: 0 auto;" ><input type="submit" value="전송"></p>
+    
+    <hr>
+    
+    
+    
   </form>
 
   <!-- CKEditor scripts -->

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bn.mapper.ReplyMapper;
+import com.bn.model.Criteria;
 import com.bn.model.ReplyVo;
 
 import lombok.Setter;
@@ -46,12 +47,12 @@ public class ReplyServiceImple implements ReplyService {
 		return mapper.delete(r_id);
 	}
 
+
 	@Override
-	public List<ReplyVo> getList(int p_id) {
-		log.info("get Reply List of a Board " + p_id);
-
-		return mapper.getList(p_id);
-//		return List<ReplyVo>	
+	public List<ReplyVo> getList(Criteria cri, int p_id) {
+		
+		log.info("Reply List" + p_id);
+		
+		return mapper.getListWithPaging(cri, p_id);
 	}
-
 }
