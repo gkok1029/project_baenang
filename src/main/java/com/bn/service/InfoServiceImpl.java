@@ -19,7 +19,7 @@ public class InfoServiceImpl implements InfoService {
 	@Override
 	public ContentVo getTourData(String contentid) {
 		ContentVo result = InfoMapper.getTourData(contentid);
-		log.info("InfoServiceImpl gettour result : "+result);
+		//log.info("InfoServiceImpl gettour result : "+result);
 		return result;
 	}
 	
