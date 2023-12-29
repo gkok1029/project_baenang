@@ -225,34 +225,36 @@ let ViewPageModule = (function () {
         
     };
     //장소 div생성
-    function createPlaceDiv(){
+    function createPlaceDiv(url,content){
 
-                //장소 div
-        return $('<div>').addClass("place-container").attr("id","placeContainer").append(
+                //장소 div 수정:id에 contentid붙여서 각각의 개별성?부여
+        return $('<div>').addClass("place-container").attr("id","placeContainer"+content.contentid).append(
             //이미지 div
-            $('<div>').addClass("place-image").attr("id","placeImage").append(
+            $('<div>').addClass("place-image").attr("id","img"+content.contentid).append(
                 //이미지 태그
-                $('<img>').addClass("place-img")
-            ),
+                $('<img>').addClass("place-img").attr("id","pimg"+content.contentid)
+                		  .attr('src', content.firstimage || '/resources/images/noimage.PNG')
+            	),
             //장소 디테일 div
-            $('<div>').addClass("place-details").attr("id","placeDetails").append(
+            $('<div>').addClass("place-details").attr("id","pd"+content.contentid).append(
                 //장소 이름 div
-                $('<div>').addClass("place-title").attr("id","placeTitle").text("장소"),
+                $('<div>').addClass("place-title").attr("id","title"+content.contentid).text(content.title),
                 //장소 카테고리,주소 div
-                $('<div>').addClass("place-cat-and-addr").attr("id","placeCatAndAddr").append(
+                $('<div>').addClass("place-cat-and-addr").attr("id","CatAndAddr"+content.contentid).append(
                     //장소 카테고리 div
-                    $('<div>').addClass("place-cat").attr("id","placeCat").text("카테고리"),
+                    $('<div>').addClass("place-cat").attr("id","cat"+content.contentid).text("카테고리"),
                     //장소 주소 div
-                    $('<div>').addClass("place-addr").attr("id","placeAddr").text("주소")
-                ),
-                $('<div>').addClass("place-summary").attr("id","placeSummary").text("설명")
+                    $('<div>').addClass("place-addr").attr("id","addr"+content.contentid).text("주소")
+                )
             ),
             
             $('<div>').addClass("place-add").attr("id","placeAdd").append(
                 //장소 추가 button
-                $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","placeAddButton")
+                $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","Button"+content.contentid).append()
             )
-        )                
+        ).click(function() {
+                 PlanModule.openModal(url);});
+                            
     }
 
     function step3Loding(){
