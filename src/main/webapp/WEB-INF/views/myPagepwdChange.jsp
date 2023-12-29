@@ -51,9 +51,18 @@
 	    </div>
 	</div>
     <script type="text/javascript">
-    	function pwdClose(){
-    		pwdchange.submit();
-    	}
-    </script>
+    function pwdClose() {
+        var newPassword = document.forms["pwdchange"]["p2"].value;
+        var confirmPassword = document.forms["pwdchange"]["p3"].value;
+
+        if (newPassword !== confirmPassword) {
+            alert("새 비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+            return false; // 폼 제출을 막음
+        }
+
+        // 일치할 경우 폼 제출
+        pwdchange.submit();
+    }
+</script>
 </body>
 </html>
