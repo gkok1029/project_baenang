@@ -73,6 +73,25 @@ public class PlanController {
 		
 		return x;
 	}
+
+
+	@RequestMapping("/date")
+	public String saan() {
+		String x="date1";
+	
+		
+		return x;
+	}
+	
+	@PostMapping("/date2")
+	public void saa(@RequestBody Map<String,String> date) {
+		System.out.println(date);
+		
+		
+		
+	}
+	
+	
 	@ResponseBody
 	@RequestMapping("/myplan")
 	public ModelMap myplan(@RequestParam("p_id") int p_id) {

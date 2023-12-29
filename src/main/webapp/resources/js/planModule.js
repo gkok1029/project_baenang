@@ -88,6 +88,7 @@ let PlanModule = ( ()=>{
 
     function displayTourInformation(contentList,x,y) {
 		var tcontainer = $('.places-container'); // 새로운 container 추가
+		
 		//var container = document.getElementById('travels-container');
 		// 기존 내용 비우기
 		tcontainer.empty();
@@ -97,29 +98,26 @@ let PlanModule = ( ()=>{
 		});
 		// 최대 10개까지만 표시
 		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
-
-			var content = contentList[i];
-			var contentid=content.contentid;
-			
+			let content = contentList[i];
+			console.log(content);		
+			let contentid=content.contentid;
+			let url = "/tourInfo?contentid=" + contentid;
 			// 새로운 div 동적으로 생성
-			/* var newDiv = $('<div>').addClass('traveld').attr('id', 'content' + i).click(function() {
-	        copyDiv('content' + i);
-	    	}); */
+			// var newDiv = $('<div>').addClass('traveld').attr('id', 'content' + i).click(function() {
+	        // copyDiv('content' + i);
+	    	//}); 
 	    
-			var placeDiv = ViewPageModule.createPlaceDiv();
+			let placeDiv = ViewPageModule.createPlaceDiv(url,content,i);
 			
-	    	$('.place-image').attr('id', 'img'+contentid);
-			$('.place-img').attr('src',content.firstimage || '/resources/images/noimage.PNG');
-
-	    	$('.place-details').attr('id', 'text' + contentid);
-			$('.place-title').text('Name: ' + content.title);
-			$('.place-cat').text("카테고리");
-			$('.place-addr').text('Location: ' + content.addr);
+			//$('#pimg'+contentid).attr('src', contentid || '/resources/images/noimage.PNG');
+			//$('#title'+contentid).text('Name: ' + content.title);
+			//$('#cat'+contentid).text('카테고리:'+content.code);
+			//$('#addr'+contentid).text('Location: ' + content.addr);
 			
-			
+			console.log(placeDiv);
 			tcontainer.append(placeDiv);
 			
-			 var marker = new naver.maps.Marker({
+			var marker = new naver.maps.Marker({
 		            position: new naver.maps.LatLng(content.mapy, content.mapx),
 		            map: map
 		        });
@@ -141,9 +139,9 @@ let PlanModule = ( ()=>{
 	}
 	
     function createDiv(contentid) {
+    		var url = "/tourInfo?contentid=" + contentid;
             var newDiv = $('<div>').addClass('traveld').attr('id', contentid).click(function() {
-                copyDiv(contentid);
-                
+                 openModal(url);
             });
 
 
@@ -151,9 +149,9 @@ let PlanModule = ( ()=>{
             return newDiv;
     } 
 
-    function copyDiv(sourceDivId) {
+    function copyPlaceDiv(sourceDivId) {
         var id=sourceDivId;
-        // 클릭된 div의 내용을 가져오기	    
+        // 클릭된 div의 내용을 가져오기
         var sourceDiv = document.getElementById(id);
         var divText = sourceDiv.innerHTML.trim();
         
@@ -354,8 +352,33 @@ let PlanModule = ( ()=>{
 				alert('error: ' + err.status);
 			}
 		})
-		
+
 	}
+	
+	// 모달 열기 함수
+	function openModal(url) {
+    	var modal = $('<div>').addClass('modal');
+    	var modalContent = $('<div>').addClass('modal-content');
+    	var closeBtn = $('<span>').addClass('close').html('&times;').click(function() {
+        	modal.remove();
+   		 });
+
+    	var iframe = $('<iframe>').attr('src', url).attr('width', '100%').attr('height', '100%');
+
+    	modalContent.append(closeBtn);
+    	modalContent.append(iframe);
+    	modal.append(modalContent);
+
+    	$('body').append(modal);
+
+    	// 모달 외부 클릭 시 닫기
+    	modal.click(function(event) {
+        	if (event.target === modal[0]) {
+            	modal.remove();
+        	}
+    	});
+	}
+
 
     return {
         myplan : myplan,
@@ -364,12 +387,12 @@ let PlanModule = ( ()=>{
         tour : tour,
         displayTourInformation : displayTourInformation,
         createDiv : createDiv,
-        copyDiv : copyDiv,
         removeDiv : removeDiv,
         displayLodgingInformation:displayLodgingInformation,
 		lodging : lodging,
 		restaurant : restaurant,
 		cafe : cafe,
-		attraction : attraction
+		attraction : attraction,
+		openModal:openModal
     };
 })();
