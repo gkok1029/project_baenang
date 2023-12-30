@@ -6,6 +6,9 @@
 	  font: 600 16px/18px 'Open Sans', sans-serif;
 	  justify-content: center;
 	}
+	
+	li{list-style: none;}
+	
 	.navi {
 	    background-color: white;
 	    padding: 10px;
@@ -31,7 +34,7 @@
 	}
 	#search-container {
 		width:50%;
-		height:400px;
+		height:100px;
 		border: 1px solid white;
 		border-radius:20px;
 		background-color: white;
