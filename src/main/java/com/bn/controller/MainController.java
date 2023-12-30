@@ -87,7 +87,7 @@ public class MainController {
 	 }
 	
 	@ResponseBody
-	 @GetMapping("/csearch") 
+	 @GetMapping("*/csearch") 
 	 public List<CityVo> citySearch(@RequestParam String keyword) {
 		List<CityVo> result = null;
 		
