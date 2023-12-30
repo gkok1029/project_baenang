@@ -335,14 +335,16 @@ let ViewPageModule = (function () {
                     $("<a>").text("신규 숙소 등록")
                 )
             ),
-            $("<div>").addClass("search-bar-container").attr("id","searchBarContainer").append(
+             $("<div>").addClass("search-bar-container").attr("id","searchBarContainer").append(
                 $("<input>").addClass("search-bar").attr({
                     "id": "searchBar",
-                    "type": "text"
-                }).val("장소명을 입력하세요").on('focus',function(){
-                    this.textInput.val("");
+                    "type": "text",
+                    "placeholder": "장소명을 입력하세요"
+                }).keydown(function(event) {
+                 var keyword = $("#searchBar").val();
+                	sendAjaxRequest(keyword);
                 }),
-                $("<button>").addClass("search-button").attr("id","searchBtn").text("검색")
+          		$("<ul>").attr("id", "dropBox")
             )
             
             
@@ -370,6 +372,10 @@ let ViewPageModule = (function () {
                 //이미지 태그
                 $('<img>').addClass("hotel-img").attr("id","pimg"+content.contentid)
                 		  .attr('src', content.firstimage || '/resources/images/noimage.PNG')
+                		  .click(function() {
+                  window.open(url, "TourInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
+                // PlanModule.openModal(url);
+                })
             	),
             //장소 디테일 div
             $('<div>').addClass("hotel-details").attr("id","pd"+content.contentid).append(
@@ -390,10 +396,7 @@ let ViewPageModule = (function () {
                 .click(function() { PlanModule.copyHotelDiv("hotelContainer"+content.contentid);})
                 														
             )
-        ).click(function() {
-                  window.open(url, "TourInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
-                // PlanModule.openModal(url);
-                });
+        )
                             
     }
     
