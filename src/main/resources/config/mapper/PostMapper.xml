@@ -57,4 +57,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES (SEQUENCE_IMG.nextval, #{i_path}, sysdate, #{i_name}, #{i_name2})
 	</insert>
 
+	<insert id="imgDirInsert" parameterType="AttachFile">
+		INSERT INTO IMG_DIRETORY (DIR_ID, P_ID, I_ID, DIR_NUM)
+		VALUES (SEQUENCE_IMG_DIRETORY.nextval, SEQUENCE_POST.CURRVAL, SEQUENCE_IMG.CURRVAL, SEQUENCE_DIR_NUM.NEXTVAL)
+	</insert>
+
 </mapper>

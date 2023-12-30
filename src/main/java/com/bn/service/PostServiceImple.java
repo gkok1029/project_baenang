@@ -59,6 +59,11 @@ public class PostServiceImple implements PostService {
 	public int imgInsert(AttachFileDto dto) {
 		return mapper.imgInsert(dto); 
 	}
+
+	@Override
+	public int imgDirInsert(AttachFileDto dto) {
+		return mapper.imgDirInsert(dto);
+	}
 	
 	
 

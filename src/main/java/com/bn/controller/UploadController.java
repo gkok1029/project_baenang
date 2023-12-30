@@ -90,6 +90,8 @@ public class UploadController {
 			attachDTO.setI_name2(extension);
 			attachDTO.setI_path(uploadFolder+'\\'+uploadFolderPath);
 			postservice.imgInsert(attachDTO);
+			postservice.imgDirInsert(attachDTO);
+			
 			System.out.println(attachDTO);
 			try {
 				File saveFile = new File(uploadPath, uploadFileName);

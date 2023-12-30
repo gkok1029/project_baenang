@@ -15,4 +15,5 @@ public interface PostService {
 	public List<PostVo> getList();
 	int searchPid(String userEmail);
 	public int imgInsert(AttachFileDto dto);
+	public int imgDirInsert(AttachFileDto dto);
 }

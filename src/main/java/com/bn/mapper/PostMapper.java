@@ -24,4 +24,6 @@ public interface PostMapper {
 	public int searchPid(String userEmail);
 	
 	public int imgInsert(AttachFileDto dto);
+	
+	public int imgDirInsert(AttachFileDto dto);
 }
