@@ -24,6 +24,11 @@
 	img{
 		width:100%;
 	}
+	.gtplan{
+		display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
 </style>
 <head>
 <meta charset="UTF-8">
