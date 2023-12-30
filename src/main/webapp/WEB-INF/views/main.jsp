@@ -55,7 +55,9 @@
     <% } %>
 	</div>
 <%-- ----------------------------------------------------------------------------- --%>
-
+<div id="projTitle">
+	<h1> B A E N A N G </h1>
+</div>
 <%-- --------------- 블로그 썸네일을 가져와 보여주는 기능 ------------------- 
 <%
     // 이미지 파일이 있는 폴더 경로
@@ -110,8 +112,10 @@
  --------------------------------------------------------------- --%>
 
 <!-- ---------------------- 블로그 포스팅 카드 리스팅 ------------------------ -->
-<h2>추 천 블 로 그</h2>
-<section class="py-3">
+<div id="blogTitle">
+	<h2>추 천 블 로 그</h2>
+</div>
+<section class="py-1">
 		<div class="container px-4 px-lg-5 mt-5">
 			<div
 				class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -152,17 +156,15 @@
 <%-- ---------------------------- 검색 관련 뷰페이지 컨텐트 ---------------------------- --%>
 
     <div id="search-container" class="justify-content-center align-items-center">
-		<div>
-        	<h1>어디로 여행을 떠나시나요?</h1>
-		</div>
 		<div id="search_block">
-	        <form action="/plan" method="GET">
+	        <form action="#" method="GET">
 	        	
-        		<input type="text" id="search-box" name="search" placeholder="도시명을 검색해 주세요."
+        		<input type="text" id="search-box" name="search" placeholder="어디로 여행을 떠나시나요?"
 			       class="form-control dropdown-toggle" data-toggle="dropdown"
 			       aria	-haspopup="true" aria-expanded="false" oninput="onKeywordInput()">
+			       
 			    <a href="/plan"><img src="${pageContext.request.contextPath}/resources/img/main/search.png" alt="search"></a>
-	            
+	            <!-- 
 	           	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				    <a class="dropdown-item" id="search_content1" onclick="openPopup('서울')"><img alt="SeoulIMG" src="${pageContext.request.contextPath}/resources/img/cities/Seoul.png"> 서울 </a>
 				    <a class="dropdown-item" id="search_content2" onclick="openPopup('대전')"><img alt="DaejeonIMG" src="${pageContext.request.contextPath}/resources/img/cities/Daejeon.png"> 대전 </a>
@@ -170,7 +172,7 @@
 				    <a class="dropdown-item" id="search_content4" onclick="openPopup('강릉')"><img alt="GangneungIMG" src="${pageContext.request.contextPath}/resources/img/cities/Gangneung.png"> 강릉 </a>
 				    <a class="dropdown-item" id="search_content5" onclick="openPopup('부산')"><img alt="BusanIMG" src="${pageContext.request.contextPath}/resources/img/cities/Busan.png"> 부산 </a>
 				</div>
-	            
+	             -->
 	        </form>
         </div>
     </div>
@@ -261,7 +263,13 @@ function onKeywordInput() {
         processData: true,
         success: function (cityList) {
             console.log('검색 결과:', cityList);
-
+			
+         	// cityList가 null이거나 비어있을 경우 처리
+            if (!cityList || cityList.length === 0) {
+                console.log('검색 결과가 없습니다.');
+                return;
+            }
+            
             // 검색 결과를 받아왔을 때 기존 도시 정보를 지우기
             $('#city').empty();
 
@@ -317,7 +325,6 @@ function onKeywordInput() {
 <!-- Add an anchor point for smooth scrolling -->
 <div id="city-anchor"></div>
 <div id="city">
-    <h2> 지역별 여행 정보 </h2>
     <div>
         <%-- Assuming you have a method to retrieve city data from Oracle DB --%>
 	    <c:forEach var="city" items="${cvo}" varStatus="loop">

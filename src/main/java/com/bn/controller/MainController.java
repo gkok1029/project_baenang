@@ -44,9 +44,9 @@ public class MainController {
 	}
 	
 	@RequestMapping("/user/main")
-	public String goMain() {
+	public String goMain(Model model) {
 		
-		return "main";
+		return "forward:/main";
 	}
 	
 	@ResponseBody
