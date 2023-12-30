@@ -12,7 +12,7 @@ let CalendarModule = ( ()=>{
                 ),
                 $('<div>').addClass("calendar-body").append(
                     $('<div>').append(
-                        $('<button>').attr("type","button").on('click',changeMonth()).append(
+                        $('<button>').attr("type","button").on('click',changeMonth(1)).append(
                             $('<i>').addClass("fa fa-chevron-left")
                         ),
                         $('<input>',{
@@ -26,7 +26,7 @@ let CalendarModule = ( ()=>{
                             "id" : "month",
                             "class" : "form-control",
                             "style" : "width:80px;display:initial;"
-                        }).on('change',changeMonth()).append(
+                        }).on('change',changeMonth(1)).append(
                             $("<option>").attr("value","1").text("1월"),
                             $("<option>").attr("value","2").text("2월"),
                             $("<option>").attr("value","3").text("3월"),
@@ -134,24 +134,7 @@ let CalendarModule = ( ()=>{
             $('#tb_body').html(h.join(""));
         }
 
-        function changeMonth(diff){
-            if(diff === undefined){
-                current_month = parseInt($('#month').val());
-            }else{
-                current_month = current_month + diff;
-
-                if(current_month === 0){
-                    current_year = current_year - 1;
-                    current_month = 12;
-                }else if(current_month === 13){
-                    current_year = current_year +1;
-                    current_month = 1;
-                }
-            }
-            $('#year').val(current_year);
-            $('#month').val(current_month);
-            changeYearMonth(current_year,current_month);
-        }
+        
 
         loadCalendar();
 
@@ -167,8 +150,28 @@ let CalendarModule = ( ()=>{
 
         changeYearMonth(current_year,current_month);
     }
+    
+    function changeMonth(diff){
+        if(diff === undefined){
+            current_month = parseInt($('#month').val());
+        }else{
+            current_month = current_month + diff;
+
+            if(current_month === 0){
+                current_year = current_year - 1;
+                current_month = 12;
+            }else if(current_month === 13){
+                current_year = current_year +1;
+                current_month = 1;
+            }
+        }
+        $('#year').val(current_year);
+        $('#month').val(current_month);
+        changeYearMonth(current_year,current_month);
+    }
 
     return {
-        createCalendar : createCalendar
+        createCalendar : createCalendar,
+        
     };
 })();

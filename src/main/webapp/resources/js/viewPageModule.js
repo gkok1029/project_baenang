@@ -193,7 +193,9 @@ let ViewPageModule = (function () {
                 $("<input>").addClass("search-bar").attr({
                     "id": "searchBar",
                     "type": "text"
-                }).val("장소명을 입력하세요"),
+                }).val("장소명을 입력하세요").on('focus',function(){
+                    this.textInput.val("");
+                }),
                 $("<button>").addClass("search-button").attr("id","searchBtn").text("검색").on('click',function(){
                     
                 })
@@ -304,7 +306,9 @@ let ViewPageModule = (function () {
                 $("<input>").addClass("search-bar").attr({
                     "id": "searchBar",
                     "type": "text"
-                }).val("장소명을 입력하세요"),
+                }).val("장소명을 입력하세요").on('focus',function(){
+                    this.textInput.val("");
+                }),
                 $("<button>").addClass("search-button").attr("id","searchBtn").text("검색")
             )
             
