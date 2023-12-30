@@ -21,10 +21,12 @@
 	    color: #007bff;
 	}
 	#projTitle{
+		color:white;
 		margin: 30px;
 	}
 	
 	#blogTitle{
+		color:white;
 		text-align:center;
 		width:25% ;
 		margin: 0 auto;
