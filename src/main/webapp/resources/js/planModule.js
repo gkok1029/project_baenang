@@ -294,7 +294,7 @@ let PlanModule = ( ()=>{
 			var county = document.createElement('div');
 			county.className = 'count';
 	
-	function copyHodelDiv(sourceDivId) {
+	function copyHotelDiv(sourceDivId) {
 			    var id = sourceDivId;
 			    // 클릭된 div의 내용을 가져오기
 			    var sourceDiv = document.getElementById(id);
@@ -503,6 +503,7 @@ let PlanModule = ( ()=>{
 		cafe : cafe,
 		attraction : attraction,
 		openModal:openModal,
-		copyPlaceDiv:copyPlaceDiv
+		copyPlaceDiv:copyPlaceDiv,
+		copyHotelDiv:copyHotelDiv
     };
 })();
