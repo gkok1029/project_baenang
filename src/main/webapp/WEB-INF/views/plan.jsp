@@ -173,10 +173,25 @@
     font-size: 13px;
 }
 
+
+.place-image{
+    width: 60px;
+    height: 60px
+}
+
+.place-details{
+    flex: 1;
+    margin-left: 10px;        
+    flex-direction: column; 
+    font-size: 13px;
+}
 .place-details > div {
     margin-bottom: 5px;
 }
+#selected-container{
+	width:300px;
 
+}
 .place-info{
     display:flex;	
 }
@@ -301,7 +316,7 @@
 				</div>													<!-- view -->
 			</div>														<!-- second-frame-container -->
 		</div>															<!-- second-frame -->
-		<div>
+		<div id="map-container">
 			<div id="map" style="flex: 1;"></div>							<!--지도-->
 		</div>
 		

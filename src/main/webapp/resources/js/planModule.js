@@ -174,7 +174,7 @@ let PlanModule = ( ()=>{
 			
 			            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
 			            var destinationContainer = document.getElementById("wrapcontainer");
-			            var mapw = document.getElementById("map");
+			            var mapw = document.getElementById("map-container");
 			            mapw.parentNode.insertBefore(newDiv, mapw);
 			
 			            newDiv.appendChild(count);
