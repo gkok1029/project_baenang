@@ -158,10 +158,9 @@ public class PlanController {
     }
     @ResponseBody
     @PostMapping("/dpretrieve")
-    public int dtailplanretrieve(@RequestParam DtailPlanVo vo) {
-    	int n=pservice.insertDp(vo);
-    	
-    	return n;
+    public List<DtailPlanVo> dtailplanretrieve(@RequestParam String p_id) {
+    		List<DtailPlanVo>Lvo=pservice.dpretrieve(p_id);
+    	return Lvo;
     }
     
     @GetMapping("/NewFile")
