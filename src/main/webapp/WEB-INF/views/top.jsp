@@ -19,7 +19,7 @@
     
     <div id="topR">
 	    <ul class="nav">
-	    	<li><a href="/user/main">홈</a></li>
+	    	<li><a href="/main">홈</a></li>
 	    	<li><a href="/blog/bloghub">블로그</a></li>
 	    	<li><a href="#" onclick="scrollToTravelInfo()">여행지</a></li>
 	    	<% if (isLoggedIn) { %>
