@@ -5,29 +5,44 @@
 <html>
 <style>
 	div{
-		border:1px solid red;
+		padding:5px;
 	}
-	#gaeyo{
-		margin-left:20px;
+	#infoContainer{
+		width:760px;
+		height:540px;
+		margin:auto;
+	}
+	#cityname{
+		height:15%;
+		padding:10px;
+		margin-left:15px;
 	}
 	#container{
+		height:65%;
 		display:flex;
 	}
 	#overview{
 		width:60vw;
 		padding:20px;
+		overflow: auto; /* 스크롤을 만들어줌 */
 	}
 	#imgcontainer{
 		width:40vw;
 		padding:20px;
+		margin:auto;
 	}
 	img{
 		width:100%;
 	}
-	.gtplan{
+	#gtplan{
+		height:10%;
 		display: flex;
-	    justify-content: center;
-	    align-items: center;
+	}
+	#btgotoplan{
+		width:45%;
+	}
+	#btclose{
+		width:55%;
 	}
 </style>
 <head>
@@ -52,24 +67,25 @@ function closeWindow() {
 </head>
 
 <body>
-	<div>
+<br>
+	<div id="infoContainer">
 		<div id="cityname">
 			<h1> ${civo.cityname}</h1>
 		</div>
-		
-		<div id="gaeyo"><p> 개 요 </p></div>
 		
 		<div id="container">
 			<div id="overview">
 				${civo.c_overview}
 			</div>
 			
-			<div id="imgcontainer"><img alt="picture" src="${civo.c_image}"></div>
+			<div id="imgcontainer">
+				<div><img alt="picture" src="${civo.c_image}"></div>
+			</div>
 		</div>
-		
+		<hr color="gray">
 		<div id="gtplan">
-				<button class="btn btn-primary" onclick="closeAndPlanGo('${civo.cityname}')">Plan으로 이동</button>
-				<button class="btn btn-primary" onclick="closeWindow()"> 닫기 </button>
+				<div id="btgotoplan"><button class="btn btn-primary" onclick="closeAndPlanGo('${civo.cityname}')">Plan으로 이동</button></div>
+				<div id="btclose"><button class="btn btn-primary" onclick="closeWindow()"> 닫기 </button></div>
 		</div>
 	</div>
 </body>
