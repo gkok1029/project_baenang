@@ -240,7 +240,6 @@ let ViewPageModule = (function () {
 	        
 	    };
 	     function sendAjaxRequest(keyword) {
-	          	console.log(keyword);
 	            $.ajax({
 	                type: "POST",
 	                url: "/NewFile",
