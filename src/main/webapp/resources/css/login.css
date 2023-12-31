@@ -18,7 +18,7 @@ a{color:inherit;text-decoration:none}
   font-size: 14px; /* 텍스트 크기 조절 */
   margin-top: -30px; /* 로고와의 간격 조절 */
   margin-bottom: 30px;
-  color: #00ffff; /* 텍스트 색상 */
+  color: #ffffff; /* 텍스트 색상 */
 }
 
 .logo {
@@ -114,7 +114,7 @@ a{color:inherit;text-decoration:none}
   font-size:12px;
 }
 .login-form .group .button{
-  background:#52DCD1;
+  background:#0f46a4;
 }
 .login-form .group label .icon{
   width:15px;

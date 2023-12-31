@@ -262,10 +262,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/user/upplan", method=RequestMethod.GET) 
-	public String upPlan(Model m, HttpSession session, PageVo my) {
+	public String upPlan(HttpSession session, PageVo my) {
 		String userEmail= (String)session.getAttribute("userEmail");
 		MemberVo user = memberService.getProfile(userEmail);
 		session.setAttribute("p_id",my.getP_id());
-		return "redirect:/plan";
+		return "redirect:/updateplan";
 	}
 }

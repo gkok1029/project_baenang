@@ -3,6 +3,7 @@ package com.bn.controller;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,9 +16,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.bn.model.Criteria;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+
 import com.bn.model.ReplyVo;
+import com.bn.service.MemberService;
+import com.bn.service.PostService;
 import com.bn.service.ReplyService;
 
 import lombok.Setter;
@@ -28,65 +34,33 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class ReplyController {
 	
-	@Setter(onMethod_ = @Autowired)
-	private ReplyService service;
+	@Autowired
+	private ReplyService replyservice;
 	
-	@PostMapping(value = "/new", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
-	public ResponseEntity<String> create(@RequestBody ReplyVo vo) {
-		log.info("ReplyVo : " + vo);
+	@Autowired
+	private PostService service;
+	
+	
+	@RequestMapping(value = "/write", method = RequestMethod.POST)
+	public String posttWirte(ReplyVo vo, RedirectAttributes rttr, HttpSession session) throws Exception {
+		replyservice.register(vo);
+		String userEmail =  (String)session.getAttribute("userEmail");
+		int n = replyservice.searchPid(userEmail);
+		vo.setM_id(n);
+		rttr.addFlashAttribute("results", vo.getP_id());
 		
-		int insertCount = service.register(vo);
-		
-		log.info("Reply INSERT COUNT : " + insertCount);
-		
-		return insertCount == 1 ? new ResponseEntity<>("success", HttpStatus.OK) : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		return "redirect:/blog/get?p_id=" + vo.getP_id();
 	}
 	
-	
-	@GetMapping(value = "/blog/get/comments/{page}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<List<ReplyVo>> getList(@PathVariable("page") int page, @PathVariable("p_id") int p_id) {
-		log.info("getList.............");
+	@PostMapping("/remove")
+	public String remove(ReplyVo vo, @RequestParam("r_id") int r_id, RedirectAttributes rttr) {
 		
-		Criteria cri = new Criteria(page, 10);
+		log.info("remove......." + r_id);
 		
-		log.info(cri);
-		
-		return new ResponseEntity<>(service.getList(cri, p_id), HttpStatus.OK);
+		if(service.remove(r_id)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		return "redirect:/blog/get?p_id=" + vo.getP_id();
 	}
 	
-	
-	@GetMapping(value = "/{r_id}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<ReplyVo> get(@PathVariable("r_id") int r_id) {
-		log.info("get : " + r_id);
-		
-		return new ResponseEntity<>(service.get(r_id), HttpStatus.OK);
-	}
-	
-	@DeleteMapping(value = "/{r_id}", produces = {MediaType.TEXT_PLAIN_VALUE})
-	public ResponseEntity<String> remove(@PathVariable("r_id") int r_id) {
-		log.info("remove: " + r_id);
-		
-		return service.remove(r_id) == 1 
-				? new ResponseEntity<>("success", HttpStatus.OK) 
-				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR); 
-	}
-	
-	
-	@RequestMapping(method = {RequestMethod.PUT, RequestMethod.PATCH},
-			value = "/{r_id}",
-			consumes = "application/json",
-			produces = {MediaType.TEXT_PLAIN_VALUE})
-	public ResponseEntity<String> modify(@RequestBody ReplyVo vo, @PathVariable("r_id") int r_id){
-		vo.setR_id(r_id);
-		
-		log.info("r_id: " + r_id);
-		
-		log.info("modify: " + vo);
-		
-		return service.modify(vo) == 1 
-				? new ResponseEntity<>("success", HttpStatus.OK)
-				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-	
-
 }
