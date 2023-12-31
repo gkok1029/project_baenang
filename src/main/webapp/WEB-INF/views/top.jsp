@@ -8,7 +8,6 @@
 	</div>
 	<%-- -------------------------------- 탑 네비게이션 -------------------------------- --%>
 	<%
-
 		// 세션을 가져옵니다
 		HttpSession currentSession = request.getSession();
 		
@@ -22,6 +21,7 @@
 	    <ul class="nav">
 	    	<li><a href="/user/main">홈</a></li>
 	    	<li><a href="/blog/bloghub">블로그</a></li>
+	    	<li><a href="#" onclick="scrollToTravelInfo()">여행지</a></li>
 	    	<% if (isLoggedIn) { %>
 	    	<li><a href="/user/mypage">마이페이지</a></li>
 	    	<li><a href="/logout">로그아웃</a></li>
