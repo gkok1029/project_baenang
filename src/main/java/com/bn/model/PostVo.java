@@ -1,9 +1,12 @@
 package com.bn.model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import java.sql.Date;
-
 import lombok.Data;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class PostVo {
 	//이하 포스트

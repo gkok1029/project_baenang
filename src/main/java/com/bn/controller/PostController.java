@@ -1,5 +1,9 @@
 package com.bn.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bn.model.PostVo;
+import com.bn.model.ReplyVo;
+import com.bn.service.MemberService;
 import com.bn.service.PostService;
+import com.bn.service.ReplyService;
+import com.bn.service.SignupService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -24,12 +32,18 @@ public class PostController {
 	@Autowired
 	private PostService service;
 	
+	@Autowired
+	private MemberService memberService;
+	
+	@Autowired
+	private ReplyService replyservice;
+	
 	@RequestMapping("/userposts") 
- 	public String listingPosts(Model model) { 
+ 	public String listingPosts(Model model, String m_nname) { 
 		
-		log.info("posts");
 		model.addAttribute("posts", service.getList());
-		
+		model.addAttribute("users", memberService.getProfile(m_nname));
+		log.info("posts");
 		return "/blog/userposts";
 	} 
 	
@@ -39,21 +53,25 @@ public class PostController {
 	}
 	
 	@RequestMapping("/addpost")
-	public String addPost(PostVo post, RedirectAttributes rttr) {
-		log.info("posting: " + post);
-		
+	public String addPost(PostVo post, RedirectAttributes rttr, HttpSession session) {
+		String userEmail =  (String)session.getAttribute("userEmail");
+		int n = service.searchPid(userEmail);
+		post.setM_id(n);
 		service.register(post);
-		
 		rttr.addFlashAttribute("results", post.getP_id());
-		
+		log.info("posting: " + post);
 		return "redirect:/blog/bloghub";
 	}
 	
 	@GetMapping({"/get", "/modify"})
 	public void get(@RequestParam("p_id") int p_id, Model model) {
-		log.info("/get or /modi");
 		model.addAttribute("post", service.get(p_id));
 		model.addAttribute("posts", service.getList());
+
+		List<ReplyVo> reply = null;
+		reply = replyservice.getList(p_id);
+		model.addAttribute("reply", reply);
+		log.info("/get or /modi");
 	}
 	
 	@PostMapping("/modify")

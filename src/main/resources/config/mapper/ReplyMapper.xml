@@ -4,8 +4,8 @@
 <mapper namespace="com.bn.mapper.ReplyMapper">
 
 	<insert id="insert">
-		INSERT INTO reply (r_id, p_id, r_content, r_credate, r_moddate, r_status)
-		values (seq_reply.nextval, #{p_id}, #{r_content}, sysdate, sysdate, #{1})
+		INSERT INTO reply (r_id, p_id, r_content, r_credate, r_moddate, r_status) <!-- m_id 추가하기 -->
+		values (SEQUENCE_REPLY.nextval, #{p_id}, #{r_content}, sysdate, sysdate, 1)
 	</insert>
 
 	<select id="read" resultType="Reply">
@@ -30,11 +30,16 @@
 		where r_id = #{r_id}
 	</update>
 	
-	<select id="getListWithPaging" resultType="Reply">
+	<select id="getList" resultType="Reply">
 		select r_id, p_id, r_content, m_id, r_credate, r_moddate 
-		from tbl_reply 
+		from reply 
 		where p_id = #{p_id} 
 		order by r_id asc
+	</select>
+	
+	<select id="searchPid" parameterType="String" resultType="_int">
+		SELECT M_ID from MEMBER 
+		WHERE M_EMAIL = #{userEmail}
 	</select>
 	
 </mapper>

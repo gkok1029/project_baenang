@@ -19,7 +19,6 @@ public interface ReplyMapper {
 
 	public List<ReplyVo> getList(int p_id);
 
-	public List<ReplyVo> getListWithPaging(Criteria cri, int p_id);
-	
-	
+	public int searchPid(String userEmail);
+
 }

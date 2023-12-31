@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.bn.model.AttachFileDto;
+import com.bn.service.PostService;
 
 import lombok.extern.log4j.Log4j;
 import net.coobird.thumbnailator.Thumbnailator;
@@ -31,6 +33,9 @@ import net.coobird.thumbnailator.Thumbnailator;
 @Controller
 @Log4j
 public class UploadController {
+	
+	@Autowired
+	private PostService postservice;
 	
 	@GetMapping("/upload")
 	public void upload() {
@@ -56,29 +61,7 @@ public class UploadController {
 	    return str.replace("-", File.separator);
 	}
 	
-//	@GetMapping("/display")
-//	@ResponseBody
-//	public ResponseEntity<byte[]> getFile(String fileName) {
-//	    
-//	    log.info("filename: " + fileName);
-//	    
-//	    File file = new File("C:\\upload\\" + fileName);
-//	    
-//	    log.info("file: " + file);
-//	    
-//	    ResponseEntity<byte[]> result = null;
-//	    
-//	    try {
-//	        HttpHeaders header = new HttpHeaders();
-//	        
-//	        header.add("Content-Type", Files.probeContentType(file.toPath()));
-//	        result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);
-//	    } catch (IOException e) {
-//	        e.printStackTrace();
-//	    }
-//	    return result;
-//	}
-	
+
 	@PostMapping(value = "/uploadAction", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<List<AttachFileDto>> uploadPost(MultipartFile[] uploadFile) {
@@ -99,18 +82,17 @@ public class UploadController {
 		for (MultipartFile multipartFile : uploadFile) {
 			
 			AttachFileDto attachDTO = new AttachFileDto();
-			
 			String uploadFileName = multipartFile.getOriginalFilename();
-			
-			//IE case
-			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\") + 1);
-			
+			String extension = uploadFileName.substring(uploadFileName.lastIndexOf(".") + 1);
 			attachDTO.setI_name(uploadFileName);
-			
 			UUID uuid = UUID.randomUUID();
-			
 			uploadFileName = uuid.toString() + "_" + uploadFileName;
+			attachDTO.setI_name2(extension);
+			attachDTO.setI_path(uploadFolder+'\\'+uploadFolderPath);
+			postservice.imgInsert(attachDTO);
+			postservice.imgDirInsert(attachDTO);
 			
+			System.out.println(attachDTO);
 			try {
 				File saveFile = new File(uploadPath, uploadFileName);
 				multipartFile.transferTo(saveFile);
@@ -118,13 +100,14 @@ public class UploadController {
 				attachDTO.setI_name(uuid.toString());
 				attachDTO.setI_path(uploadFolderPath);
 				
-				if(checkImageType(saveFile)) {
-					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_" + uploadFileName));
-					
-					Thumbnailator.createThumbnail(multipartFile.getInputStream(), thumbnail, 100, 100);
-					
-					thumbnail.close();
-				}
+				
+//				if(checkImageType(saveFile)) {
+//					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_" + uploadFileName));
+//					
+//					Thumbnailator.createThumbnail(multipartFile.getInputStream(), thumbnail, 100, 100);
+//					
+//					thumbnail.close();
+//				}
 				list.add(attachDTO);
 				}catch (Exception e) {
 				log.error(e.getMessage());

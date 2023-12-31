@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAlias type="com.bn.model.PostVo" alias="Post"/>
 	<typeAlias type="com.bn.model.PageVo" alias="Page"/>
 	<typeAlias type="com.bn.model.ReplyVo" alias="Reply"/>
+	<typeAlias type="com.bn.model.AttachFileDto" alias="AttachFile"/>
 </typeAliases>
 
 <mappers>
