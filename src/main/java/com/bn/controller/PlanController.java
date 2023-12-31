@@ -79,10 +79,10 @@ public class PlanController {
 
 	@RequestMapping("/date")
 	public String saan() {
-		String x="date1";
+		
 	
 		
-		return x;
+		return "drag";
 	}
 	
 	@PostMapping("/date2")
@@ -167,8 +167,8 @@ public class PlanController {
     
     @ResponseBody
     @PostMapping("/dpretrieve")
-    public List<DtailPlanVo> dtailplanretrieve(@RequestBody List<DtailPlanVo> Lvo) {
-    	
+    public List<DtailPlanVo> dtailplanretrieve(@RequestParam String p_id) {
+    		List<DtailPlanVo>Lvo=pservice.dpretrieve(p_id);
     	
     	
     	return Lvo;
