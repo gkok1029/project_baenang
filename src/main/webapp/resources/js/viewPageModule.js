@@ -192,13 +192,13 @@ let ViewPageModule = (function () {
             $("<div>").addClass("search-bar-container").attr("id","searchBarContainer").append(
                 $("<input>").addClass("search-bar").attr({
                     "id": "searchBar",
-                    "type": "text"
-                }).val("장소명을 입력하세요").on('focus',function(){
-                    this.textInput.val("");
+                    "type": "text",
+                    "placeholder": "장소명을 입력하세요"
+                }).keydown(function(event) {
+                 var keyword = $("#searchBar").val();
+                	sendAjaxRequest(keyword);
                 }),
-                $("<button>").addClass("search-button").attr("id","searchBtn").text("검색").on('click',function(){
-                    
-                })
+          		$("<ul>").attr("id", "dropBox")
             ),
             //버튼들
             $("<div>").addClass("cat-buttons").attr("id","catButtons").append(                
@@ -220,25 +220,57 @@ let ViewPageModule = (function () {
             )
         );
         
-        // 장소 리스트 생성 테이블 div
-        let placesContainerDiv = $('<div>').addClass('places-container').attr("id","placesContainer");
-        
-
-        //부모 엘리먼트 view
-        parentElement.append(
-            // div.view-container
-            viewContainerDiv.append(
-                //
-                firstChildDiv,
-                // 장소 리스트 테이블 div
-                placesContainerDiv
-            )
-        );
-        
-    };
+       
+            
+            
+	        // 장소 리스트 생성 테이블 div
+	        let placesContainerDiv = $('<div>').addClass('places-container').attr("id","placesContainer");
+	        
+	
+	        //부모 엘리먼트 view
+	        parentElement.append(
+	            // div.view-container
+	            viewContainerDiv.append(
+	                //
+	                firstChildDiv,
+	                // 장소 리스트 테이블 div
+	                placesContainerDiv
+	            )
+	        );
+	        
+	    };
+	     function sendAjaxRequest(keyword) {
+	          	console.log(keyword);
+	            $.ajax({
+	                type: "POST",
+	                url: "/NewFile",
+	                data: { keyword: keyword },
+	                dataType: 'json',
+	                success: function (res) {
+	                	updateDropDown(res);
+	                },
+	                error: function (error) {
+	                    console.error("Ajax request failed: " + error);
+	                }
+	            });
+	            }
+         function updateDropDown(data) {
+			        // drop-down 박스를 비우고 결과값으로 채움
+			        $('#dropBox').empty();
+			        for (let i = 0; i <Math.min(data.length, 5); i++) {
+			            let item = data[i];
+			            let listItem = $('<li>').text(item.title);
+			            let url="/tourInfo?contentid=" + item.contentid;
+			            listItem.on('click', function() {
+			            	$('#placesContainer').empty();
+			                PlanModule.displayTourInformation(data,x,y);
+			                $('#dropBox').empty(); // 결과를 클릭하면 drop-down 박스를 비움
+			            });
+			            $('#dropBox').append(listItem);
+			        }
+			    }
     //장소 div생성
     function createPlaceDiv(url,content){
-
                 //장소 div 수정:id에 contentid붙여서 각각의 개별성?부여
         return $('<div>').addClass("place-container").attr("id","placeContainer"+content.contentid).append(
             //이미지 div
@@ -246,6 +278,10 @@ let ViewPageModule = (function () {
                 //이미지 태그
                 $('<img>').addClass("place-img").attr("id","pimg"+content.contentid)
                 		  .attr('src', content.firstimage || '/resources/images/noimage.PNG')
+                		  .click(function() {
+                  window.open(url, "TourInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
+                // PlanModule.openModal(url);
+                })
             	),
             //장소 디테일 div
             $('<div>').addClass("place-details").attr("id","pd"+content.contentid).append(
@@ -266,10 +302,7 @@ let ViewPageModule = (function () {
                 .click(function() { PlanModule.copyPlaceDiv("placeContainer"+content.contentid);})
                 														
             )
-        ).click(function() {
-                  window.open(url, "TourInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
-                // PlanModule.openModal(url);
-                });
+        )
                             
     }
 	
@@ -542,6 +575,8 @@ let ViewPageModule = (function () {
         showView: showView,
         viewPageLoding : viewPageLoding,
         createPlaceDiv : createPlaceDiv,
-        createHotelDiv : createHotelDiv
+        createHotelDiv : createHotelDiv,
+        sendAjaxRequest : sendAjaxRequest
+        
     };
 })();

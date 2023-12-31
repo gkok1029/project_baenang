@@ -24,6 +24,11 @@
 	img{
 		width:100%;
 	}
+	.gtplan{
+		display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
 </style>
 <head>
 <meta charset="UTF-8">
@@ -40,6 +45,9 @@ function closeAndPlanGo(cityName) {
 	// 부모 창(main.jsp)의 Plan 페이지로 이동
 	window.opener.location.href = "/plan?search="+cityName;
 }
+function closeWindow() {
+    window.close();
+  }
 </script>
 </head>
 
@@ -60,7 +68,8 @@ function closeAndPlanGo(cityName) {
 		</div>
 		
 		<div id="gtplan">
-				<a href="#" onclick="closeAndPlanGo('${civo.cityname}')">Plan으로 이동</a>
+				<button class="btn btn-primary" onclick="closeAndPlanGo('${civo.cityname}')">Plan으로 이동</button>
+				<button class="btn btn-primary" onclick="closeWindow()"> 닫기 </button>
 		</div>
 	</div>
 </body>

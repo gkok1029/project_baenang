@@ -173,7 +173,6 @@ public class PlanController {
     @ResponseBody
     @PostMapping("/NewFile")
     public List<ContentVo> out(@RequestParam(required = false) String keyword, HttpSession session) {
-
         List<ContentVo> contentList = (List<ContentVo>) session.getAttribute("contentList");
         List<ContentVo> result = new ArrayList<>();
         
@@ -193,7 +192,6 @@ public class PlanController {
                 }
             }
         }
-        
         return result;
     }
     @ResponseBody

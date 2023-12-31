@@ -56,10 +56,8 @@
 		</div>
 		
 		<div id="closeContainer">
-			<button class="close" onclick="closeWindow()"> 닫기 </button>
+			<button class="btn btn-primary" onclick="closeWindow()"> 닫기 </button>
 		</div>
-		
-				
 	</div>
 </body>
 </html>
