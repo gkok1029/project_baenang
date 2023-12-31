@@ -16,10 +16,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	</insert>
 
-	<insert id="postInsertSK"> <selectKey keyProperty="p_id" order="BEFORE" 
+	<!-- <insert id="postInsertSK"> <selectKey keyProperty="p_id" order="BEFORE" 
 		resultType="_int"> select SEQUENCE_POST.nextval from dual </selectKey>
-		INSERT INTO post (p_id, m_id, p_title, p_content, p_views, p_credate, p_moddate, i_id) 
-		VALUES (#{p_id}, #{p_title}, #{p_content}, 0, sysdate, sysdate) </insert>
+		INSERT INTO post (p_id, m_id, p_title, p_content, p_views, p_credate, p_moddate) 
+		VALUES (#{p_id}, #{p_title}, #{p_content}, 0, sysdate, sysdate) </insert> -->
 
 	<select id="postRead" resultType="Post">
 		SELECT post.*
