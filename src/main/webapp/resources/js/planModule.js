@@ -145,11 +145,15 @@ let PlanModule = ( ()=>{
 			    // 내용이 있는 경우에만 실행
 			    if (divText !== "") {
 			        // selected-container가 없을 경우
+			        
 			        var targetDiv = document.getElementById('selected-container');
-			        countx++; // 함수가 실행되었기 때문에 1 증가
-			        count.innerHTML = countx;
+			        
 			        if (!targetDiv) {
 			            // 새로운 div 생성
+			            if (document.getElementById('selected-container') || document.getElementById('hselected-container')) {
+    				removeDiv();}
+    					countx++; // 함수가 실행되었기 때문에 1 증가
+			        	count.innerHTML = countx;
 			            var newDiv = document.createElement('div');
 			            newDiv.id = 'selected-container';
 			
@@ -169,7 +173,7 @@ let PlanModule = ( ()=>{
 			           var removeCDivbtn = document.createElement('button');
 						   removeCDivbtn.innerHTML = 'Remove C Div';
 						   removeCDivbtn.addEventListener('click', function() {
-						   removeCDiv(selectedDiv.id);
+						   removeCDiv(selectedDiv.id,countx);
 						   });
 			
 			            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
@@ -183,6 +187,8 @@ let PlanModule = ( ()=>{
 			            newDiv.appendChild(selectedDiv);
 			            selectedDiv.appendChild(removeCDivbtn); // Remove C Div 버튼을 selectedDiv 다음으로 추가
 			        } else {
+			        	countx++; // 함수가 실행되었기 때문에 1 증가
+			        	count.innerHTML = countx;
 			            // 이미 존재하는 selected-container에 내용 추가
 			            var selectedDiv = document.createElement('div');
 			            selectedDiv.className = 'selected';
@@ -191,7 +197,7 @@ let PlanModule = ( ()=>{
 			            var removeCDivbtn = document.createElement('button');
 						   removeCDivbtn.innerHTML = 'Remove C Div';
 						   removeCDivbtn.addEventListener('click', function() {
-						   removeCDiv(selectedDiv.id);
+						   removeCDiv(selectedDiv.id,countx);
 						   });
 						selectedDiv.appendChild(removeCDivbtn);
 			            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
@@ -206,12 +212,21 @@ let PlanModule = ( ()=>{
 			    count.innerHTML = countx; // count도 초기화
 			
 			    var Div = document.getElementById("selected-container");
+			    if(Div){
 			    var parent = Div.parentNode;
-			
-			    if (parent) {
+			     if (parent) {
 			        parent.removeChild(Div);
+			    }}
+			    
+			    var HDiv = document.getElementById("hselected-container");
+			    if(HDiv){
+			    
+			    var Hparent = HDiv.parentNode;
+					
+			    if (Hparent) {
+			        Hparent.removeChild(HDiv);
 			    }
-			}
+			}}
 			
 			function resetDiv() {
 			    countx = 0; // countx 값을 0으로 초기화
@@ -238,7 +253,9 @@ let PlanModule = ( ()=>{
 			
 			    if (parent) {
 			        parent.removeChild(Div);
+			   		
 			    }
+			    
 			}
 
 
@@ -257,7 +274,6 @@ let PlanModule = ( ()=>{
 		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
 
 			var content = contentList[i];
-			console.log(content.title);
 			var contentid=content.contentid;
 			let url = "/tourInfo?contentid=" + contentid;
 			// 새로운 div 동적으로 생성
@@ -290,9 +306,7 @@ let PlanModule = ( ()=>{
 
 		// 추가로 필요한 정보는 여기에 계속 추가할 수 있습니다.
 	}
-			var county = 0;
-			var county = document.createElement('div');
-			county.className = 'count';
+			
 	
 	function copyHotelDiv(sourceDivId) {
 			    var id = sourceDivId;
@@ -303,13 +317,16 @@ let PlanModule = ( ()=>{
 			    // 내용이 있는 경우에만 실행
 			    if (divText !== "") {
 			        // selected-container가 없을 경우
-			        var targetDiv = document.getElementById('selected-container');
-			        county++; // 함수가 실행되었기 때문에 1 증가
-			        count.innerHTML = county;
+			        var targetDiv = document.getElementById('hselected-container');
+			        
 			        if (!targetDiv) {
+			        if (document.getElementById('selected-container') || document.getElementById('hselected-container')) {
+    				removeDiv();}
+    				countx++; // 함수가 실행되었기 때문에 1 증가
+			        count.innerHTML = countx;
 			            // 새로운 div 생성
 			            var newDiv = document.createElement('div');
-			            newDiv.id = 'selected-container';
+			            newDiv.id = 'hselected-container';
 			
 			            var selectedDiv = document.createElement('div');
 			            selectedDiv.className = 'selected';
@@ -341,6 +358,8 @@ let PlanModule = ( ()=>{
 			            newDiv.appendChild(selectedDiv);
 			            selectedDiv.appendChild(removeCDivbtn); // Remove C Div 버튼을 selectedDiv 다음으로 추가
 			        } else {
+			        countx++; // 함수가 실행되었기 때문에 1 증가
+			        count.innerHTML = countx;
 			            // 이미 존재하는 selected-container에 내용 추가
 			            var selectedDiv = document.createElement('div');
 			            selectedDiv.className = 'selected';
