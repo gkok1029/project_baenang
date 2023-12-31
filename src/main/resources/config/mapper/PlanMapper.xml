@@ -18,11 +18,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="insertDp" parameterType="Dplan">
-	insert into dtail_planner values(#{dp_id},#{p_id},#{contentid},#{dp_day},#{dp_start},#{dp_end},#{dp_num})
+	insert into detail_planner values(#{dp_id},#{p_id},#{contentid},#{dp_day},#{dp_start},#{dp_end},#{dp_num})
 	</insert>
 	
 	<select id="dpretrieve" resultType="Dplan">
-	select *from dtail_planner where p_id=#{p_id}
+	select * from detail_planner where p_id=#{p_id}
 	</select>
 	<delete id="deleteByCondition" parameterType="_int">
     DELETE FROM Planner

@@ -173,10 +173,18 @@
 .place-details > div {
     margin-bottom: 5px;
 }
-#selected-container{
-	width:300px;
-
+.view-container {
+    border: 1px solid black;
+    margin-right: 0;
 }
+
+#selected-container,#hselected-container {
+    min-width: 300px;
+    width: 300px;
+    height:100%;
+    border: 1px solid rgb(89,220,209);
+}
+
 .place-info{
     display:flex;	
 }

@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bn.model.CityVo;
 import com.bn.model.ContentVo;
 import com.bn.model.DtailPlanVo;
+import com.bn.model.PlaceDTO;
 import com.bn.model.PlanVo;
 import com.bn.service.DbService;
 import com.bn.service.PlanService;
@@ -66,14 +67,11 @@ public class PlanController {
 		return "plan";
 	}
 	
-	@ResponseBody
-	@RequestMapping("/plan")
+	@PostMapping("/plan")
 	public String saveplan(@RequestBody PlanVo vo) {
 		int n=pservice.insert(vo);
-		String x="plan";
 	
-		
-		return x;
+		return "/dpsave";
 	}
 
 
@@ -153,16 +151,16 @@ public class PlanController {
     }
     
     
-    @ResponseBody
+    
     @PostMapping("/dpsave")
-    public int dtailplan(@RequestBody List<DtailPlanVo> Lvo) {
+    public String dtailplan(@RequestBody List<DtailPlanVo> Lvo) {
     	int n =0;
     	for(int i=0;i<Lvo.size();i++) {
     		dvo=Lvo.get(i);
     		
     		n=pservice.insertDp(dvo);
     	}
-    	return n;
+    	return "";
     }
     
     @ResponseBody
@@ -181,29 +179,12 @@ public class PlanController {
     	return "NewFile";
     }
 
-    @ResponseBody
+    
     @PostMapping("/NewFile")
-    public List<ContentVo> out(@RequestParam(required = false) String keyword, HttpSession session) {
-        List<ContentVo> contentList = (List<ContentVo>) session.getAttribute("contentList");
-        List<ContentVo> result = new ArrayList<>();
+    public String view4(@RequestBody PlaceDTO mydata,Model model, HttpSession session) {
+       model.addAttribute("mydata",mydata);
         
-        if (contentList != null) {
-            
-            // contentList를 순회하면서 title을 추출하여 맵에 저장
-            for (int i = 0; i < contentList.size(); i++) {
-                ContentVo cvo = contentList.get(i);
-                String title = cvo.getTitle();
-
-                if (keyword != null && title.contains(keyword)) {
-                    result.add(cvo);
-                }
-
-                if (result.size() >= 5) {
-                    break;
-                }
-            }
-        }
-        return result;
+        return "/NewFile";
     }
     @ResponseBody
     @RequestMapping("/countup")
