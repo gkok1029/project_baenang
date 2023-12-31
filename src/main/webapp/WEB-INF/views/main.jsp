@@ -151,7 +151,6 @@
 
 <!-- ---------------------------------------------------------------------- -->
 
-
 <%-- ---------------------------- 검색 관련 뷰페이지 컨텐트 ---------------------------- --%>
 
     <div id="search-container" class="justify-content-center align-items-center">
@@ -181,7 +180,7 @@
 <script>
 	<%-- ------------------------------------- 스크롤 다운 기능 -------------------------------------- --%>
     function scrollToTravelInfo() {
-        var travelInfoSection = document.getElementById('city');
+        var travelInfoSection = document.getElementById('search-container');
         travelInfoSection.scrollIntoView({ behavior: 'smooth' });
     }
     <%-- --------------------------------------------------------------------------------------- --%>	
@@ -245,7 +244,6 @@ function onKeywordInput() {
 }
 
 --------------------------------------------------------- --%>
-
 
 <%-- ------------------------관광도시 검색기능 ------------------------- --%>
 <script>
@@ -321,8 +319,6 @@ function onKeywordInput() {
 
 <%-- ---------------------------- 특정 도시에 대한 이미지를 출력 --------------------------------- --%>
 
-<!-- Add an anchor point for smooth scrolling -->
-<div id="city-anchor"></div>
 <div id="city">
     <div>
         <%-- Assuming you have a method to retrieve city data from Oracle DB --%>
