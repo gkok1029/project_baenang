@@ -11,8 +11,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="postInsert">
-		INSERT INTO post (p_id, m_id, p_title, p_content, p_views, p_credate, p_moddate, i_id, i_path, i_name)
-		VALUES (SEQUENCE_POST.nextval, #{m_id}, #{p_title}, #{p_content}, 0, sysdate, sysdate, #{i_id}, #{i_name})
+	INSERT INTO post (p_id, m_id, p_title, p_content, p_views, p_credate, p_moddate)
+	VALUES (SEQUENCE_POST.nextval, #{m_id}, #{p_title}, #{p_content}, 0, sysdate, sysdate)
+	
 	</insert>
 
 	<insert id="postInsertSK"> <selectKey keyProperty="p_id" order="BEFORE" 
@@ -46,5 +47,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateP_views" parameterType="_int">
 		update post set p_views = p_views + 1 where num = #{value}	
 	</update>
+
+	<select id="searchPid" parameterType="String" resultType="_int">
+		SELECT M_ID from MEMBER 
+		WHERE M_EMAIL = #{userEmail}
+	</select>
+
+   <insert id="imgInsert" parameterType="AttachFile">
+		INSERT INTO IMG (I_ID, I_PATH, I_BIRTH, I_NAME, I_NAME2)
+		VALUES (SEQUENCE_IMG.nextval, #{i_path}, sysdate, #{i_name}, #{i_name2})
+	</insert>
+
+	<insert id="imgDirInsert" parameterType="AttachFile">
+		INSERT INTO IMG_DIRETORY (DIR_ID, P_ID, I_ID, DIR_NUM)
+		VALUES (SEQUENCE_IMG_DIRETORY.nextval, SEQUENCE_POST.CURRVAL, SEQUENCE_IMG.CURRVAL, SEQUENCE_DIR_NUM.NEXTVAL)
+	</insert>
 
 </mapper>

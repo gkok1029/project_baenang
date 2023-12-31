@@ -1,9 +1,12 @@
 package com.bn.model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import java.sql.Date;
-
 import lombok.Data;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class PostVo {
 	//이하 포스트
@@ -26,5 +29,14 @@ public class PostVo {
 	private Date r_credate;
 	private Date r_moddate;
 	private int r_status;
+	//이하 이미지
+	private int i_id;
+	private String i_path;
+	private String i_name;
+	private String i_name2;
+	private Date i_birth;
+	//이하 img_dir
+	private int dir_id;
+	private int dir_num;
 	
 }
