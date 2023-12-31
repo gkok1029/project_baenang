@@ -85,6 +85,7 @@
 						value='<c:out value="${post.p_title}"/>' readonly="readonly">
 				</div>
 
+<div style="background-color: #0F46A4" class="row">
 <div style="background-color: #52DCD1" class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
@@ -107,6 +108,7 @@
 
 				<div class="content">
 					<div class="readonly-text">${post.p_content}</div>
+<%-- 
 
 					<c:if test="${not empty post.uploadedImages}">
 						<div>
@@ -117,6 +119,7 @@
 							</c:forEach>
 						</div>
 					</c:if>
+					 --%>
 				</div>
 
 				<br>
@@ -207,6 +210,7 @@
 					<div class="col mb-5">
 						<div class="card h-100">
 							<a href='/blog/get?p_id=<c:out value="${post.p_id}"/>'> <img
+								class="card-img-top" src="" alt="..." />
 								class="card-img-top"
 								src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
 
@@ -227,4 +231,7 @@
 			</div>
 		</div>
 	</section>
+</div>
+
+<div>
 </div>

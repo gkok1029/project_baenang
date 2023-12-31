@@ -79,6 +79,8 @@ public class UploadController {
 			uploadPath.mkdirs();
 		}//날짜별 폴더 생성
 		
+		
+		
 		for (MultipartFile multipartFile : uploadFile) {
 			
 			AttachFileDto attachDTO = new AttachFileDto();
