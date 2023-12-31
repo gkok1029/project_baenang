@@ -53,6 +53,8 @@ public class PlanController {
 	
 	private ContentVo cvo;
 	
+	private DtailPlanVo dvo;
+	
 	private CityVo cityvo;
 
 	@GetMapping("/plan")
@@ -77,10 +79,10 @@ public class PlanController {
 
 	@RequestMapping("/date")
 	public String saan() {
-		String x="date1";
+		
 	
 		
-		return x;
+		return "drag";
 	}
 	
 	@PostMapping("/date2")
@@ -149,20 +151,29 @@ public class PlanController {
     	
     	return n;
     }
+    
+    
     @ResponseBody
     @PostMapping("/dpsave")
-    public int dtailplan(@RequestParam DtailPlanVo vo) {
-    	int n=pservice.insertDp(vo);
-    	
+    public int dtailplan(@RequestBody List<DtailPlanVo> Lvo) {
+    	int n =0;
+    	for(int i=0;i<Lvo.size();i++) {
+    		dvo=Lvo.get(i);
+    		
+    		n=pservice.insertDp(dvo);
+    	}
     	return n;
     }
+    
     @ResponseBody
     @PostMapping("/dpretrieve")
-    public int dtailplanretrieve(@RequestParam DtailPlanVo vo) {
-    	int n=pservice.insertDp(vo);
+    public List<DtailPlanVo> dtailplanretrieve(@RequestParam String p_id) {
+    		List<DtailPlanVo>Lvo=pservice.dpretrieve(p_id);
     	
-    	return n;
+    	
+    	return Lvo;
     }
+    	
     
     @GetMapping("/NewFile")
     public String go() {

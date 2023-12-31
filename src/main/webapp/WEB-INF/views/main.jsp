@@ -138,7 +138,7 @@ function onKeywordInput() {
 
 <br><br>
 
-<%-- --------------- 블로그 썸네일을 가져와 보여주는 기능 ------------------- --%>
+<%-- --------------- 블로그 썸네일을 가져와 보여주는 기능 ------------------- 
 <%
     // 이미지 파일이 있는 폴더 경로
     String imgFolderPath = getServletContext().getRealPath("/resources/img/blog");
@@ -189,11 +189,12 @@ function onKeywordInput() {
 	</div>
 </div>
 
-<%-- --------------------------------------------------------------- --%>
+ --------------------------------------------------------------- --%>
 
 <br><br>
 
 <!-- ---------------------- 블로그 포스팅 카드 리스팅 ------------------------ -->
+<h2>추 천 블 로 그</h2>
 <section class="py-5">
 		<div class="container px-4 px-lg-5 mt-5">
 			<div
@@ -262,13 +263,24 @@ function onKeywordInput() {
     <h2> 지역별 여행 정보 </h2>
     <div>
         <%-- Assuming you have a method to retrieve city data from Oracle DB --%>
-        <c:forEach var="city" items="${cvo}" varStatus="loop">
-            <c:if test="${loop.index < 30}">
-                <a href="#" id="${city.cityname}" name="${city.cityname}" class="city" onclick="openPopup('${city.cityname}')">
-                    <img class="citiesImg" src="${city.c_image}" alt="${city.cityname} Image">
-                </a>
-            </c:if>
-        </c:forEach>
+	    <c:forEach var="city" items="${cvo}" varStatus="loop">
+	        <c:if test="${loop.index % 4 eq 0}">
+	            <div class="city-row">
+	        </c:if>
+	        <div>
+	        	<div class=cityimg>
+			        <a href="#" id="${city.cityname}" name="${city.cityname}" class="city" onclick="openPopup('${city.cityname}')">
+			            <img class="citiesImg" src="${city.c_image}" alt="${city.cityname} Image">
+			        </a>
+		        </div>
+		        <div class=cityname>
+		        	<p>${city.cityname}</p>
+		        </div>
+	        </div>
+	        <c:if test="${loop.index % 4 eq 3 or loop.last}">
+	            </div>
+	        </c:if>
+	    </c:forEach>
     </div>
 </div>
 

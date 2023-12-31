@@ -20,5 +20,6 @@ public interface PlanService {
 	public int delplan(int p_id);
 	
 	public String[]Csearch(String keyword);
-
+	
+	public List<DtailPlanVo> dpretrieve(String p_id);
 }
