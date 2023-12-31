@@ -66,7 +66,7 @@ let ViewPageModule = (function () {
                         "data-target": "#calendarModal"
                     }
                 ).on('click',function(){
-                    console.log('달력 클릭');
+                    $('#calendar-modal').fadeIn();
                 })
                 .append(
                     $("<i>").addClass("far fa-calendar-days")
@@ -518,6 +518,25 @@ let ViewPageModule = (function () {
         });
         $('.view').attr("id","viewId");
     };
+
+    function getMyPlans(contentId){
+        $.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : '?contentId=' + contentId,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				PlanModule.tour(res.x, res.y);
+				x=res.x;
+				y=res.y;
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+
+		})
+    }
 
     return {
         showView: showView,

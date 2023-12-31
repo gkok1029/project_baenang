@@ -1,18 +1,21 @@
 let CalendarModule = ( ()=>{
+
+    
+
     function createCalendar(){
-        
-        let calender = $('<div>').addClass("calendar-container").append(
+         
+        let calendar = $('<div>').addClass("calendar-container").append(
             $('<div>').append(
-                $('<div>').addClass("calendar-header").append(
+                $('<div>').append(
                     $('<div>').text("여행 기간이 어떻게 되시나요?"),
                     $('<div>').append(
                         $('<div>').html("* 여행 일자는 <b>최대 10일</b>까지 설정 가능합니다."),
                         $('<div>').html("현지 여행 기간<b>(여행지 도착 날짜, 여행지 출발 날짜)</b>으로 입력해 주세요.")
                     )
                 ),
-                $('<div>').addClass("calendar-body").append(
+                $('<div>').append(
                     $('<div>').append(
-                        $('<button>').attr("type","button").on('click',changeMonth(1)).append(
+                        $('<button>').attr("type","button").append(
                             $('<i>').addClass("fa fa-chevron-left")
                         ),
                         $('<input>',{
@@ -26,7 +29,7 @@ let CalendarModule = ( ()=>{
                             "id" : "month",
                             "class" : "form-control",
                             "style" : "width:80px;display:initial;"
-                        }).on('change',changeMonth(1)).append(
+                        }).append(
                             $("<option>").attr("value","1").text("1월"),
                             $("<option>").attr("value","2").text("2월"),
                             $("<option>").attr("value","3").text("3월"),
@@ -41,7 +44,7 @@ let CalendarModule = ( ()=>{
                             $("<option>").attr("value","12").text("12월")
                         )
                         // $('<span>').addClass("form-control").attr("id","year").text("2023년 12월").css({
-                        //     'width' : '80px',
+						// 	'width' : '80px',
                         //     'display' : 'initial'
                         // })
                     ),
@@ -49,7 +52,7 @@ let CalendarModule = ( ()=>{
                         //왼쪽 달력
                         $('<div>').append(
                             $('<table>').addClass("calendar-table calendar-table-bordered").append(
-                                $('<thead>').append(
+                                $('<thead>').attr("id","calendarHeader").append(
                                     $('<tr>').append(
                                         $('<th>').text("일"),
                                         $('<th>').text("월"),
@@ -59,9 +62,9 @@ let CalendarModule = ( ()=>{
                                         $('<th>').text("금"),
                                         $('<th>').text("토")
                                     )
-                                )
-                            ),
-                            $('<tbody>').attr("id","tb_body")
+                                ),
+                                $('<tbody>').addClass("calendar-body").attr("id","calendarBbody")
+                            )                     
                         )
                               
                     )                    
@@ -69,109 +72,147 @@ let CalendarModule = ( ()=>{
                 
             )
         )
-
-        $("#calendar-modal").append(calender);
-        $("#calendar-modal").modal('show');
-    }
-
-    function checkLeapYear(year){
-        if(year%400 === 0){
-            return true;
-        }else if(year%100 === 0){
-            return false;
-        }else if(year%4 === 0){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    function getFirstDayOfWeek(year,month){
-        if(month < 10) month = "0" + month;
-
-        return (new Date(year+"-"+month+"-01")).getDay();
-    }
-
-    function changeYearMonth(year, month){
-        let month_day = [31,28,31,30,31,30,31,31,30,31,30,31];
-
-        if(month === 2){
-            if(checkLeapYear(year)) month_day[1] = 29;
-        }
-
-        let first_day_of_week = getFirstDayOfWeek(year, month);
-        let arr_calendar = [];
-        for(let i=0 ; i<first_day_of_week ; i++){
-            arr_calendar.push("");
-        }
-
-        for(let i=0 ; i<=month_day[month-1] ; i++){
-            arr_calendar.push(String(i));
-        }
-
-        let remain_day = 7 - (arr_calendar.length%7);
-        if(remain_day < 7){
-            for(let i=0 ; i<remain_day ; i++){
-                arr_calendar.push("");
-            }
-        }
-
-        renderCalendar(arr_calendar);
-    }
-
-    function renderCalendar(data){
-        let h = [];
-        for(let i=0 ; i<data.length ; i++){
-            if(i===0){
-                h.push('<tr>');
-            }else if(i%7===0){
-                h.push('</tr>');
-                h.push('<tr>');
-            }
-
-            h.push('</tr>');
-
-            $('#tb_body').html(h.join(""));
-        }
-
-        
-
-        loadCalendar();
-
-        function loadCalendar(){
-
-        }
-
         let current_year = (new Date()).getFullYear();
         let current_month = (new Date()).getMonth()+1;
 
-        $('#year').val(current_year);
-        $('#month').val(current_month);
+        generateCalendar(current_year,current_month);
 
-        changeYearMonth(current_year,current_month);
+        $("#calendar-modal").append(calendar);
     }
+
     
-    function changeMonth(diff){
-        if(diff === undefined){
-            current_month = parseInt($('#month').val());
-        }else{
-            current_month = current_month + diff;
 
-            if(current_month === 0){
-                current_year = current_year - 1;
-                current_month = 12;
-            }else if(current_month === 13){
-                current_year = current_year +1;
-                current_month = 1;
-            }
-        }
-        $('#year').val(current_year);
-        $('#month').val(current_month);
-        changeYearMonth(current_year,current_month);
+    function checkLeapYear(year){
+        return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);        
     }
+
+        // 특정 월의 달력을 생성하는 함수
+    function generateCalendar(year, month) {
+    
+        let calendarBody = $("#calendarBbody");
+        calendarBody.empty(); // 기존 내용 초기화
+
+        // 특정 월의 첫 날 구하기
+        let firstDay = new Date(year, month - 1, 1);
+        let lastDay = new Date(year, month, 0);
+
+        // 첫 날의 요일과 마지막 날의 날짜 구하기
+        let startDay = firstDay.getDay();
+        let daysInMonth = lastDay.getDate();
+
+        // 윤년이면 2월이 29일까지
+        if (month === 2 && isLeapYear(year)) {
+            daysInMonth = 29;
+        }
+
+        // 테이블에 날짜 추가
+        let date = 1;
+        for (let i = 0; i < 6; i++) {
+            let row = $("<tr>");
+            
+            for (let j = 0; j < 7; j++) {
+                if (i === 0 && j < startDay) {
+                    let cell = $("<td>");
+                    row.append(cell);
+                } else if (date > daysInMonth) {
+                    break;
+                } else {
+                    let cell = $("<td>").text(date);
+                    row.append(cell);
+                    date++;
+                }
+            }
+
+            calendarBody.append(row);
+        }
+    }
+	
+	
+    // function getFirstDayOfWeek(year,month){
+	// 	if(month < 10) month = "0" + month;
+
+	// 	return (new Date(year+"-"+month+"-01")).getDay();
+    // }
+
+    // function changeYearMonth(year, month){
+    //     let month_day = [31,28,31,30,31,30,31,31,30,31,30,31];
+			
+	// 		// 윤년인지 확인
+    //     if(month === 2){
+    //         if(checkLeapYear(year)) month_day[1] = 29;
+    //     }
+
+    //     let first_day_of_week = getFirstDayOfWeek(year, month);
+    //     let arr_calendar = [];
+    //     for(let i=0 ; i<first_day_of_week ; i++){
+    //         arr_calendar.push("");
+    //     }
+
+    //     for(let i=0 ; i<=month_day[month-1] ; i++){
+    //         arr_calendar.push(String(i));
+    //     }
+
+    //     let remain_day = 7 - (arr_calendar.length%7);
+    //     if(remain_day < 7){
+    //         for(let i=0 ; i<remain_day ; i++){
+    //             arr_calendar.push("");
+    //         }
+    //     }
+
+    //     renderCalendar(arr_calendar);
+    // }
+
+    // function renderCalendar(data){
+    //     let h = [];
+    //     for(let i=0 ; i<data.length ; i++){
+    //         if(i===0){
+    //             h.push('<tr>');
+    //         }else if(i%7===0){
+    //             h.push('</tr>');
+    //             h.push('<tr>');
+    //         }
+
+    //         h.push('</tr>');
+
+            
+    //     }
+
+        
+
+    //     loadCalendar();
+
+    //     function loadCalendar(){
+
+    //     }
+
+    //     $('#year').val(current_year);
+    //     $('#month').val(current_month);
+
+    //     changeYearMonth(current_year,current_month);
+    // }
+
+
+
+    // function changeMonth(diff){
+    //     if(diff === undefined){
+    //         current_month = parseInt($('#month').val());
+    //     }else{
+    //         current_month = current_month + diff;
+
+    //         if(current_month === 0){
+    //             current_year = current_year - 1;
+    //             current_month = 12;
+    //         }else if(current_month === 13){
+    //             current_year = current_year +1;
+    //             current_month = 1;
+    //         }
+    //     }
+    //     $('#year').val(current_year);
+    //     $('#month').val(current_month);
+    //     changeYearMonth(current_year,current_month);
+    // }
 
     return {
-        createCalendar : createCalendar,
-        
+        createCalendar : createCalendar        
     };
 })();
