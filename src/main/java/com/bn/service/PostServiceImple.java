@@ -47,6 +47,8 @@ public class PostServiceImple implements PostService {
 	@Override
 	public List<PostVo> getList() {
 		log.info("get list");
+		List<PostVo> boyeogeo=mapper.getList();
+		System.out.println("PSI : "+boyeogeo);
 		return mapper.getList();
 	}
 	

@@ -39,6 +39,8 @@ public class MainController {
 		List<CityVo> cvo=isi.getAllCityData();
 		model.addAttribute("cvo",cvo);
 		model.addAttribute("posts", service.getList());
+		
+		System.out.println("posts_getList : "+model.addAttribute("posts", service.getList()));
 
 		return "main";
 	}
@@ -50,43 +52,6 @@ public class MainController {
 	}
 	
 	@ResponseBody
-	@GetMapping("/rec")
-	public ModelMap rec() {
-		ModelMap map=new ModelMap();
-		String contentid="1797757";
-		String title=msi.rec(contentid);
-		map.addAttribute("title", title);
-		return map;
-	}
-
-	@ResponseBody
-	 @GetMapping("/msearch") 
-	 public String[] search(@RequestParam String keyword) {
-		List<CityVo> result = null;
-		
-		try {
-			result = msi.search(keyword);
-		}catch(Exception e) {
-			
-		}
-		 
-		 System.out.println("Controller : "+result);
-		 
-		 List<CityVo> searchList = result; // 받아온 데이터를 searchList에 할당
-		
-		String[] cityNameList = new String[5]; //jsp에 .append로 넣을 수 있게 스트링타입의 배열을 생성 
-		
-		 for (int i = 0; i < searchList.size(); i++) {
-			 CityVo content = searchList.get(i); 
-		     String cityName = content.getCityname(); // Vo클래스의 getter 메서드를 사용하여 CITYNAME의 값만 추출 
-		     cityNameList[i]=cityName;
-		     System.out.println("cityNameList["+i+"] : " + cityNameList[i]);
-		 }
-		 
-		 return cityNameList;
-	 }
-	
-	@ResponseBody
 	 @GetMapping("/**/csearch") 
 	 public List<CityVo> citySearch(@RequestParam String keyword) {
 		List<CityVo> result = null;
@@ -96,8 +61,6 @@ public class MainController {
 		}catch(Exception e) {
 			
 		}
-		 
-		 System.out.println("Main Controller : "+result);
 		 
 		 return result;
 	 }
