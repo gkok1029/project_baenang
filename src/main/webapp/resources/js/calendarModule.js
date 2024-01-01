@@ -3,7 +3,10 @@ let CalendarModule = ( ()=>{
     
 
     function createCalendar(){
-         
+    
+        let current_year = (new Date()).getFullYear();
+        let current_month = (new Date()).getMonth()+1;
+        
         let calendar = $('<div>').addClass("calendar-container").append(
             $('<div>').append(
                 $('<div>').append(
@@ -63,20 +66,17 @@ let CalendarModule = ( ()=>{
                                         $('<th>').text("토")
                                     )
                                 ),
-                                $('<tbody>').addClass("calendar-body").attr("id","calendarBbody")
-                            )                     
+                                $('<tbody>').addClass("calendar-body").attr("id","calendarBody").append(
+                                	generateCalendar(current_year, current_month)
+                                )
+                            )
                         )
                               
                     )                    
-                )
-                
+                )                
             )
         )
-        let current_year = (new Date()).getFullYear();
-        let current_month = (new Date()).getMonth()+1;
-
-        generateCalendar(current_year,current_month);
-
+			
         $("#calendar-modal").append(calendar);
     }
 
@@ -88,14 +88,14 @@ let CalendarModule = ( ()=>{
 
         // 특정 월의 달력을 생성하는 함수
     function generateCalendar(year, month) {
-    
-        let calendarBody = $("#calendarBbody");
+    	
+        let calendarBody = $("#calendarBody");
         calendarBody.empty(); // 기존 내용 초기화
 
         // 특정 월의 첫 날 구하기
         let firstDay = new Date(year, month - 1, 1);
         let lastDay = new Date(year, month, 0);
-
+		
         // 첫 날의 요일과 마지막 날의 날짜 구하기
         let startDay = firstDay.getDay();
         let daysInMonth = lastDay.getDate();
@@ -122,9 +122,12 @@ let CalendarModule = ( ()=>{
                     date++;
                 }
             }
-
+            
             calendarBody.append(row);
+            console.log(calendarBody.children());
+            
         }
+        return calendarBody
     }
 	
 	
