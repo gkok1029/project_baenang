@@ -4,8 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -26,7 +25,7 @@
 
 <style>
 .panel-body {
-	width: 50%;
+	width: 60%;
 	margin: 0 auto;
 }
 
@@ -72,7 +71,7 @@
 	<div class="container px-4 px-lg-5 my-5">
 		<div class="text-center text-white">
 
-			<h1>배 낭</h1>
+			<h1>B A E N A N G</h1>
 
 			<p class="lead fw-normal text-white-50 mb-0">designe your travel</p>
 
@@ -106,6 +105,15 @@
 										<label>게시물 번호</label> <input class="form-control" name='p_id'
 											value='<c:out value="${post.p_id}"/>' readonly="readonly">
 									</div>
+									
+									<div class="form-group">
+										<label>작성일</label> <input class="form-control" name='p_id'
+											value='<c:out value="${post.p_credate}"/>' readonly="readonly">
+									</div>
+									<div class="form-group">
+										<label>수정일</label> <input class="form-control" name='p_id'
+											value='<c:out value="${post.p_moddate}"/>' readonly="readonly">
+									</div>
 
 									<div class="form-group">
 										<label>제목</label> <input class="form-control" name='p_title'
@@ -127,8 +135,11 @@
 
 									<button data-oper='modify' class="btn btn-info"
 										onclick="location.href='/blog/modify?p_id=<c:out value="${post.p_id}"/>'">수정</button>
+									<button class="btn btn-danger"
+										onclick="location.href='/blog/remove?p_id=<c:out value="${post.p_id}"/>'">삭제</button>
 									<button data-oper='list' class="btn btn-info"
 										onclick="location.href='/blog/bloghub'">List</button>
+									
 
 									<br>
 									<hr>
@@ -204,7 +215,7 @@
 				<div
 					class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-					<c:forEach items="${posts}" var="post">
+					<c:forEach items="${posts}" var="post" begin="0" end="7">
 						<div class="col mb-5">
 							<div class="card h-100">
 								<a href='/blog/get?p_id=<c:out value="${post.p_id}"/>'> <c:if
@@ -229,55 +240,7 @@
 							</div>
 						</div>
 					</c:forEach>
-					<%-- <c:forEach items="${posts}" var="post">
-						<div class="col mb-5">
-							<div class="card h-100">
-								<a href='/blog/get?p_id=<c:out value="${post.p_id}"/>'> <c:choose>
-										<!-- Check if post has an image -->
-										<c:when test="${not empty post.i_name}">
-											<!-- If there is an image, display it -->
-											<img class="card-img-top" alt=""
-												src="/resources/postImage/${post.i_name}">
-										</c:when>
-										<c:otherwise>
-											<!-- If there is no image, display a default image -->
-											<img class="card-img-top" alt=""
-												src="/resources/postImage/defaultimage.png">
-										</c:otherwise>
-									</c:choose>
-									<div class="card-body p-4">
-										<div class="text-center">
-											<h5 class="fw-bolder">
-												<c:out value="${post.p_title}" />
-											</h5>
-											<c:out value="${post.m_nname}" />
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-					</c:forEach> --%>
-					<%-- <c:forEach items="${posts}" var="post">
-						<div class="col mb-5">
-							<div class="card h-100">
-								<a href='/blog/get?p_id=<c:out value="${post.p_id}"/>'> <img
-									class="card-img-top" alt=""
-									src="/resources/postImage/${post.i_name}">
-									<div class="card-body p-4">
-										<div class="text-center">
-											<h5 class="fw-bolder">
-												<c:out value="${post.p_title}" />
-											</h5>
-											<p>
-												<c:out value="${post.m_nname}" />
-											</p>
-
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-					</c:forEach> --%>
+					
 				</div>
 			</div>
 		</section>

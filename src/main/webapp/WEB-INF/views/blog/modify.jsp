@@ -19,28 +19,29 @@
 }
 </style>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 
 <script type="text/javascript">
-   $(document).ready(function () {
-      var formObj = $("form");
+$('button[data-oper="modify"]').on("click", function (e) {
+    e.preventDefault();
 
-      $('button').on("click", function (e) {
-         e.preventDefault();
+    var operation = $(this).data("oper");
+    console.log(operation);
 
-         var operation = $(this).data("oper");
-         console.log(operation);
+    if (operation === 'modify') {
+        // hidden input에 값을 설정
+        $('input[name="p_id"]').val(${post.p_id});
 
-         if (operation === 'remove') {
-            formObj.attr("action", "/blog/remove");
-         } else if (operation === 'list') {
-            window.location.href = "/blog/bloghub";
-            return;
-         }
-         formObj.submit();
-      });
-   });
+        // 폼 서브밋
+        formObj.attr("action", "/blog/modify");
+    } else if (operation === 'remove') {
+        formObj.attr("action", "/blog/remove");
+    } else if(operation === 'list') {
+        window.location.href = "/blog/bloghub";
+        return;
+    }
+    formObj.submit();
+});
 </script>
 
 <link href="/resources/css/styles.css" rel="stylesheet" />
@@ -49,51 +50,64 @@
 </head>
 <body>
 
-<br>
-<br>
-<br>
-<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
-<header style="background-color: #0F46A4" class="py-5">
-	<div class="container px-4 px-lg-5 my-5">
-		<div class="text-center text-white">
+	<header style="background-color: #0F46A4" class="py-5">
+		<div class="container px-4 px-lg-5 my-5">
+			<div class="text-center text-white">
 
-			<h1>배 낭</h1>
+				<h1>배 낭</h1>
 
-			<p class="lead fw-normal text-white-50 mb-0">designe your travel</p>
+				<p class="lead fw-normal text-white-50 mb-0">designe your travel</p>
 
+			</div>
 		</div>
-	</div>
-</header>
+	</header>
 
-	<div>
-		<!-- 글 수정 -->
-		<form action="/blog/addpost" method="POST" id=postForm>
+	<form role="form" action="/blog/addpost" method="POST">
+		<div>
+			<!-- 글 수정 -->
+
 			<!-- Add Title field -->
-			<div style="width: 50%; margin: 0 auto;">
-				<label>Title</label> <br> <input type="text" name="p_title">
+			<div class="form-group">
+				<label>게시물 번호</label> <input class="form-control" name='p_id'
+					value='<c:out value="${post.p_id}"/>' readonly="readonly">
+			</div>
+			<input type="hidden" name="p_id" value="${post.p_id}">
+
+			<div class="form-group">
+				<label>제목</label> <input class="form-control" name='p_title'
+					value='<c:out value="${post.p_title}"/>'>
 			</div>
 			<br>
 			<!-- CKEditor for content -->
 			<div style="width: 50%; margin: 0 auto;">
-				<textarea name="p_content" id="editor"></textarea>
+				<textarea name="p_content" id="editor"><c:out
+						value="${post.p_content}" /></textarea>
 			</div>
 			<br>
 
 			<p style="width: 50%; margin: 0 auto;">
 				<input type="submit" value="전송" id="uploadBtn">
 			</p>
-	</div>
-	<hr>
+		</div>
+		<hr>
 
-	<!-- <div>
+		<!-- <div>
 		<div>
 			<div class="uploadDiv">
 				<input type="file" name="uploadFile" multiple>
 			</div>
 		</div>
 	</div> -->
-
+		<button type="submit" data-oper='modify' class="btn btn-default">이
+			게시물 수정완료</button>
+		<button class="btn btn-danger"
+										onclick="location.href='/blog/remove?p_id=<c:out value="${post.p_id}"/>'">삭제</button>
+		<button data-oper='list' class="btn btn-info">List</button>
 	</form>
 
 </body>
@@ -112,23 +126,4 @@
 	.catch(error => {
 		console.error(error);
 	});
- </script>
-
-<%-- <div class="form-group">
-                  <label>작성일</label> <input class="form-control" name='p_credate' value='<fmt:formatDate pattern="yyyy/MM/dd" value="${post.p_credate}"/>'>
-               </div> --%>
-
-<%-- <div class="form-group">
-                  <label>수정일</label> <input class="form-control" name='p_moddate' value='<fmt:formatDate pattern="yyyy-MM-dd" value="${post.p_moddate}"/>'>
-               </div> --%>
-
-<button type="submit" data-oper='modify' class="btn btn-default">이
-	게시물 수정완료</button>
-<button type="submit" data-oper='remove' class="btn btn-danger">이
-	게시물 지우기</button>
-<button data-oper='list' class="btn btn-info">List</button>
-</form>
-</div>
-</div>
-</div>
-</div>
+</script>
