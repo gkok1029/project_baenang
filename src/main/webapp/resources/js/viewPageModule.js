@@ -549,7 +549,7 @@ let ViewPageModule = (function () {
             'opacity': '1',
             'fontSize': '16px'
         });
-        $('.view').attr("id","viewId");
+        $('.view').attr("id",viewId);
     };
 
     function getMyPlans(contentId){

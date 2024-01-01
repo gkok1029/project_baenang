@@ -159,11 +159,15 @@ padding: 10px;
 }
 
 .modal{
-position:absolute;
-width:100%; height:100%;
-background: white;
-top:0; left:0;
-display:none;
+	position:absolute;
+	width:100%; height:100%;
+	background: white;
+	top:0; left:0;
+	display:none;
+}
+
+#calendar-modal{
+	border-radius : 30px;
 }
 
 #second-frame{
@@ -195,43 +199,24 @@ width: 100%;
     width: 80px;
     height: 80px;
 }
-/* #calender-modal {
-display: none;
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);        
-background-color: white;
-border: 1px solid #ccc;
 
+table{
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+tr, th{
+	padding: 10px;
+	text-align: center;
 }
 
-#calender-container {
-width: 100%;
-height: 100%;
-box-sizing: border-box;
-padding: 20px;
+        
+.calendar-table{
+	width : 100%;
+	height : 100%;
+	margin : 10px;
 }
-
-#calender-header {
-font-size: 20px;
-margin-bottom: 10px;
-width: 100%;
+.day-button, .arrow-button{
+	background-color: white;
+	border : none;
 }
-
-#calender-body {	
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-}
-
-.calender{
-flex:1;
-border: 1px solid #ccc;
-height: 48%;
-padding: 10px;
-}
-#calender-footer {
-margin-top: 10px;
-text-align: right;
-} */

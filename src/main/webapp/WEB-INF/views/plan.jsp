@@ -66,16 +66,7 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        table{
-        	width: 100%;
-      		border-collapse: collapse;
-      		margin-top: 20px;
-        }
-        tr, th{
-        	border: 1px solid #ddd;
-        	padding: 10px;
-        	text-align: center;
-        }
+        
 
         .close-modal-btn, .confirm-btn {
             padding: 10px;
