@@ -26,7 +26,7 @@ import lombok.extern.log4j.Log4j;
 
 @Log4j
 @Controller
-@RequestMapping("/blog/*")
+@RequestMapping("/user/blog/*")
 @AllArgsConstructor
 public class PostController { 
 	
@@ -45,8 +45,9 @@ public class PostController {
 	} 
 	
 	@GetMapping("/addpost")
-	public void addPost() {
+	public String addPost() {
 		
+		return "/blog/addpost";
 	}
 	
 	@RequestMapping("/addpost")
@@ -61,7 +62,7 @@ public class PostController {
 	}
 	
 	@GetMapping({"/get", "/modify"})
-	public void get(@RequestParam int p_id, Model model) {
+	public String get(@RequestParam int p_id, Model model) {
 		model.addAttribute("post", service.get(p_id));
 		model.addAttribute("posts", service.getList());
 
@@ -69,6 +70,7 @@ public class PostController {
 		reply = replyservice.getList(p_id);
 		model.addAttribute("reply", reply);
 		log.info("/get or /modi");
+		return "/blog/get";
 	}
 	
 	@PostMapping("/modify")

@@ -11,13 +11,13 @@
 		let operForm = $("#operForm");
 
 		$("button[data-oper='modify']").on("click", function(e) {
-			operForm.attr("action", "/blog/modify");
+			operForm.attr("action", "/user/blog/modify");
 			operForm.submit();
 		});
 
 		$("button[data-oper='list']").on("click", function(e) {
 			operForm.find("#p_id").remove();
-			operForm.attr("action", "/blog/bloghub");
+			operForm.attr("action", "/user/blog/bloghub");
 			operForm.submit();
 		});
 	});
@@ -134,11 +134,11 @@
 									<hr>
 
 									<button data-oper='modify' class="btn btn-info"
-										onclick="location.href='/blog/modify?p_id=<c:out value="${post.p_id}"/>'">수정</button>
+										onclick="location.href='/user/blog/modify?p_id=<c:out value="${post.p_id}"/>'">수정</button>
 									<button class="btn btn-danger"
-										onclick="location.href='/blog/remove?p_id=<c:out value="${post.p_id}"/>'">삭제</button>
+										onclick="location.href='/user/blog/remove?p_id=<c:out value="${post.p_id}"/>'">삭제</button>
 									<button data-oper='list' class="btn btn-info"
-										onclick="location.href='/blog/bloghub'">List</button>
+										onclick="location.href='/user/blog/bloghub'">List</button>
 									
 
 									<br>
@@ -218,7 +218,7 @@
 					<c:forEach items="${posts}" var="post" begin="0" end="7">
 						<div class="col mb-5">
 							<div class="card h-100">
-								<a href='/blog/get?p_id=<c:out value="${post.p_id}"/>'> <c:if
+								<a href='/user/blog/get?p_id=<c:out value="${post.p_id}"/>'> <c:if
 										test="${not empty post.i_name}">
 										<!-- If there is an image, display it -->
 										<img class="card-img-top" alt=""

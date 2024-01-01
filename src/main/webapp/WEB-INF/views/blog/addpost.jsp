@@ -43,7 +43,7 @@
 </header>
 
 <div> <!-- 글 작성 -->
-	<form action="/blog/addpost" method="POST" id=postForm>
+	<form action="/user/blog/addpost" method="POST" id=postForm>
 		<!-- Add Title field -->
 		<div style="width: 50%; margin: 0 auto;">
 			<label>Title</label> <br> <input type="text" name="p_title">
