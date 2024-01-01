@@ -5,9 +5,9 @@
 <head>
 <!-- 모듈파일 추가 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/mapModule.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/sideBarModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/viewPageModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/dateModalModule.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/sideBarModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/planModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/calendarModule.js"></script>
 <!-- 부트스트랩 JavaScript (Popper.js와 jQuery 포함) -->

@@ -64,4 +64,9 @@ public class PlanServiceImpl implements PlanService {
 		return this.planmapper.dpretrieve(p_id);
 	}
 
+	@Override
+	public int seq() {
+		return this.planmapper.seq();
+	}
+
 }

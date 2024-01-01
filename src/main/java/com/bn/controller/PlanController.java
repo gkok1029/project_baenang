@@ -1,7 +1,6 @@
 package com.bn.controller;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,9 +23,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bn.model.CityVo;
 import com.bn.model.ContentVo;
 import com.bn.model.DtailPlanVo;
+import com.bn.model.MemberVo;
 import com.bn.model.PlaceDTO;
 import com.bn.model.PlanVo;
 import com.bn.service.DbService;
+import com.bn.service.MemberService;
 import com.bn.service.PlanService;
 
 import lombok.extern.log4j.Log4j;
@@ -50,6 +51,9 @@ public class PlanController {
 	@Inject
 	private DbService dService;
 	
+	@Inject
+	private MemberService mService;
+	
 	private PlanVo pvo;
 	
 	private ContentVo cvo;
@@ -57,6 +61,8 @@ public class PlanController {
 	private DtailPlanVo dvo;
 	
 	private CityVo cityvo;
+	
+	private MemberVo mvo;
 
 	@GetMapping("/plan")
 	public String plan(@RequestParam String search,Model model) {
@@ -66,12 +72,15 @@ public class PlanController {
 		model.addAttribute("cityvo",cityvo);
 		return "plan";
 	}
-	
+	@ResponseBody
 	@PostMapping("/plan")
-	public String saveplan(@RequestBody PlanVo vo) {
+	public Model saveplan(@RequestBody PlanVo vo,Model model) {
 		int n=pservice.insert(vo);
-	
-		return "/dpsave";
+		int s=pservice.seq();
+		model.addAttribute("p_id",s);
+		System.out.println(s);
+		
+		return model;
 	}
 
 
@@ -157,13 +166,13 @@ public class PlanController {
     	int n =0;
     	for(int i=0;i<Lvo.size();i++) {
     		dvo=Lvo.get(i);
-    		
+    		dvo.getP_id();
     		n=pservice.insertDp(dvo);
     	}
     	return "";
     }
     
-    @ResponseBody
+    
     @PostMapping("/dpretrieve")
     public List<DtailPlanVo> dtailplanretrieve(@RequestParam String p_id) {
     		List<DtailPlanVo>Lvo=pservice.dpretrieve(p_id);
@@ -174,8 +183,10 @@ public class PlanController {
     	
     
     @GetMapping("/NewFile")
-    public String go() {
-    	
+    public String go(Model model,HttpSession session) {
+    	String si=(String)session.getAttribute("userEmail");
+    	mvo=mService.getProfile(si);
+        model.addAttribute("m_id",mvo.getM_ID()); 
     	return "NewFile";
     }
 
@@ -183,8 +194,10 @@ public class PlanController {
     @PostMapping("/NewFile")
     public String view4(@RequestBody PlaceDTO mydata,Model model, HttpSession session) {
        model.addAttribute("mydata",mydata);
-        
-        return "/NewFile";
+       String si=(String)session.getAttribute("userEmail");
+       mvo=mService.getProfile(si);
+       model.addAttribute("m_id",mvo.getM_ID()); 
+       return "/NewFile";
     }
     @ResponseBody
     @RequestMapping("/countup")

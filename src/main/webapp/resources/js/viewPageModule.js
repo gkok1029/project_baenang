@@ -558,13 +558,13 @@ let ViewPageModule = (function () {
             'opacity': '0.5',
             'fontSize': '12px'
         });
-
+		
         $(btnId).css({
             'color': 'skyblue',
             'opacity': '1',
             'fontSize': '16px'
         });
-        $('.view').attr("id","viewId");
+        $('.view').attr("id",viewId);
     };
 
     return {
