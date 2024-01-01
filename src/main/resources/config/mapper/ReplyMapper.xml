@@ -13,8 +13,7 @@
 		, member.m_image
 		, member.m_nname
 		FROM reply
-		FULL OUTER JOIN member
-		ON reply.m_id = member.m_id
+		FULL OUTER JOIN member ON reply.m_id = member.m_id
 		WHERE reply.r_id = #{r_id}
 	</select>
 
@@ -31,9 +30,13 @@
 	</update>
 	
 	<select id="getList" resultType="Reply">
-		select r_id, p_id, r_content, m_id, r_credate, r_moddate 
-		from reply 
-		where p_id = #{p_id} 
+		SELECT reply.*
+		, member.m_image
+		, member.m_nname
+		FROM reply
+		FULL OUTER JOIN member
+		ON reply.m_id = member.m_id
+		WHERE reply.p_id = #{p_id} 
 		order by r_id asc
 	</select>
 	

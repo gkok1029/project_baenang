@@ -25,7 +25,22 @@
 </head>
 <body>
 
-<br><br><br><br><br><br><br><br><br><br><br>
+<br>
+<br>
+<br>
+<br>
+
+<header style="background-color: #0F46A4" class="py-5">
+	<div class="container px-4 px-lg-5 my-5">
+		<div class="text-center text-white">
+
+			<h1>배 낭</h1>
+
+			<p class="lead fw-normal text-white-50 mb-0">designe your travel</p>
+
+		</div>
+	</div>
+</header>
 
 <div> <!-- 글 작성 -->
 	<form action="/blog/addpost" method="POST" id=postForm>
@@ -36,7 +51,7 @@
 		<br>
 		<!-- CKEditor for content -->
 		<div style="width: 50%; margin: 0 auto;">
-			<textarea name="p_content" id="editor"></textarea>
+			<textarea name="p_content" id="editor">사진은 아래의 버튼을 통해 업로드 해주세요</textarea>
 		</div>
 		<br>
 
