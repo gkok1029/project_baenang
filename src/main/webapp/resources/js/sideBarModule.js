@@ -99,6 +99,7 @@ let SidebarModule = (function () {
                 PlanModule.tour(x,y);
                 initialize()
                 ViewPageModule.showView('view2', '#btn-step2');
+                PlanModule.removeDiv();
             });
         
             step3Button.on('click', function () {
@@ -108,6 +109,7 @@ let SidebarModule = (function () {
                 PlanModule.lodging(x,y);
                 initialize()
                 ViewPageModule.showView('view3', '#btn-step3');
+                PlanModule.removeDiv();
             });
 
             let nextButton = $("<button>").addClass("bottom-button").html("다음").on('click', function(){
@@ -134,7 +136,6 @@ let SidebarModule = (function () {
                 ViewPageModule.viewPageLoding();
                 initialize()
                 ViewPageModule.showView('view1', '#btn-step1');
-                
             });
         
             step2Button.on('click', function () {
@@ -144,6 +145,7 @@ let SidebarModule = (function () {
                 PlanModule.tour(x,y);
                 initialize()
                 ViewPageModule.showView('view2', '#btn-step2');
+                PlanModule.removeDiv();
             });
         
             step3Button.on('click', function () {
@@ -153,6 +155,7 @@ let SidebarModule = (function () {
                 PlanModule.lodging(x,y);              
                 initialize()
                 ViewPageModule.showView('view3', '#btn-step3');
+                PlanModule.removeDiv();
             });
 
             let nextButton = $("<button>").addClass("bottom-button").html("저장").on('click', function(){
