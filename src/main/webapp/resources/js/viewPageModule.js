@@ -240,7 +240,6 @@ let ViewPageModule = (function () {
 	        
 	    };
 	     function sendAjaxRequest(keyword) {
-	          	console.log(keyword);
 	            $.ajax({
 	                type: "POST",
 	                url: "/NewFile",
@@ -299,7 +298,9 @@ let ViewPageModule = (function () {
             $('<div>').addClass("place-add").attr("id","placeAdd").append(
                 //장소 추가 button
                 $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","Button"+content.contentid)
-                .click(function() { PlanModule.copyPlaceDiv("placeContainer"+content.contentid);})
+                .click(function() { PlanModule.copyPlaceDiv("placeContainer"+content.contentid,content.contentid);
+                					sendCountupRequest(content.contentid);
+                })
                 														
             )
         )
@@ -335,14 +336,16 @@ let ViewPageModule = (function () {
                     $("<a>").text("신규 숙소 등록")
                 )
             ),
-            $("<div>").addClass("search-bar-container").attr("id","searchBarContainer").append(
+             $("<div>").addClass("search-bar-container").attr("id","searchBarContainer").append(
                 $("<input>").addClass("search-bar").attr({
                     "id": "searchBar",
-                    "type": "text"
-                }).val("장소명을 입력하세요").on('focus',function(){
-                    this.textInput.val("");
+                    "type": "text",
+                    "placeholder": "장소명을 입력하세요"
+                }).keydown(function(event) {
+                 var keyword = $("#searchBar").val();
+                	sendAjaxRequest(keyword);
                 }),
-                $("<button>").addClass("search-button").attr("id","searchBtn").text("검색")
+          		$("<ul>").attr("id", "dropBox")
             )
             
             
@@ -370,6 +373,10 @@ let ViewPageModule = (function () {
                 //이미지 태그
                 $('<img>').addClass("hotel-img").attr("id","pimg"+content.contentid)
                 		  .attr('src', content.firstimage || '/resources/images/noimage.PNG')
+                		  .click(function() {
+                  window.open(url, "TourInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
+                // PlanModule.openModal(url);
+                })
             	),
             //장소 디테일 div
             $('<div>').addClass("hotel-details").attr("id","pd"+content.contentid).append(
@@ -387,16 +394,24 @@ let ViewPageModule = (function () {
             $('<div>').addClass("hotel-add").attr("id","hotelAdd").append(
                 //장소 추가 button
                 $('<i>').addClass("fa-regular fa-square-plus hotel-add-button").attr("id","Button"+content.contentid)
-                .click(function() { PlanModule.copyHotelDiv("hotelContainer"+content.contentid);})
-                														
+                .click(function() { PlanModule.copyHotelDiv("hotelContainer"+content.contentid,content.contentid);
+                					sendCountupRequest(content.contentid);
+                })
             )
-        ).click(function() {
-                  window.open(url, "TourInfoPopup", "width=800, height=600, resizable=yes, scrollbars=yes");
-                // PlanModule.openModal(url);
-                });
+        )
                             
     }
-    
+    function sendCountupRequest(contentid) {
+        $.ajax({
+            type: 'GET',
+            url: '/countup',
+            data: { contentid: contentid },
+            success: function (data) {
+            },
+            error: function (error) {
+            }
+        });
+    }
 
     function step4Loding(){
 
@@ -543,13 +558,13 @@ let ViewPageModule = (function () {
             'opacity': '0.5',
             'fontSize': '12px'
         });
-
+		
         $(btnId).css({
             'color': 'skyblue',
             'opacity': '1',
             'fontSize': '16px'
         });
-        $('.view').attr("id","viewId");
+        $('.view').attr("id",viewId);
     };
 
     return {

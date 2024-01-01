@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -33,16 +34,12 @@ public class PostController {
 	private PostService service;
 	
 	@Autowired
-	private MemberService memberService;
-	
-	@Autowired
 	private ReplyService replyservice;
 	
 	@RequestMapping("/userposts") 
- 	public String listingPosts(Model model, String m_nname) { 
+ 	public String listingPosts(Model model) { 
 		
 		model.addAttribute("posts", service.getList());
-		model.addAttribute("users", memberService.getProfile(m_nname));
 		log.info("posts");
 		return "/blog/userposts";
 	} 
@@ -64,7 +61,7 @@ public class PostController {
 	}
 	
 	@GetMapping({"/get", "/modify"})
-	public void get(@RequestParam("p_id") int p_id, Model model) {
+	public void get(@RequestParam int p_id, Model model) {
 		model.addAttribute("post", service.get(p_id));
 		model.addAttribute("posts", service.getList());
 
@@ -83,15 +80,17 @@ public class PostController {
 		}
 		return "redirect:/blog/bloghub";
 	}
-	@PostMapping("/remove")
-	public String remove(@RequestParam("p_id") int p_id, RedirectAttributes rttr) {
+//	@PostMapping("/remove")
+//	public String remove(@RequestParam("p_id") int p_id, RedirectAttributes rttr) {
+	@RequestMapping(value = "/remove", method = {RequestMethod.GET, RequestMethod.POST})
+	public String remove(@RequestParam int p_id, RedirectAttributes rttr) {
 		
 		log.info("remove......." + p_id);
 		
 		if(service.remove(p_id)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/blog/bloghub";	// getListLink() 메서드를 이용하면 위 코드를 이렇게 바꿀 수 있다
+		return "redirect:/blog/bloghub";
 	}
 	@RequestMapping("/bloghub") 
  	public String showBloghub(Model model) { 

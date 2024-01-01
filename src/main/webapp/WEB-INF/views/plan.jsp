@@ -5,9 +5,9 @@
 <head>
 <!-- 모듈파일 추가 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/mapModule.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/sideBarModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/viewPageModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/dateModalModule.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/sideBarModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/planModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/calendarModule.js"></script>
 <!-- 부트스트랩 JavaScript (Popper.js와 jQuery 포함) -->
@@ -79,40 +79,6 @@
     opacity: 1;
     font-size: 16px;
 }
-.traveld{
-    width: 250px;
-    height: 100px;
-    display: flex;
-   
-}
-.travelimg{
-    margin-top: 8px;
-    margin-left: 12px;
-    margin-bottom: 8px;
-    margin-right: 8px;
-    width: 90px;
-    height: 90px;
-}
-.traveltext{
-    width: 88px;
-    height: 45px;
-}
-.linea{
-    width: 88px;
-    height: 20px;
-    font-size: 16px;
-    margin-top: 11px;
-}
-.lineb{
-    width: 88px;
-    height: 9px;
-    font-size: 8px;
-}
-.linec{
-    width: 88px;
-    height: 4px;
-    font-size: 4px;
-}
 .logo {
     margin-bottom: 20px;
     width: 150px; /* 濡쒓퀬 �겕湲� 議곗젅 */
@@ -156,7 +122,12 @@
    align-items: center; 
    margin-bottom: 20px; 
 }
-
+.hotel-container {
+    display: flex;
+    justify-content: space-between; 
+   align-items: center; 
+   margin-bottom: 20px; 
+}
 #catButtons{
     display:flex;
 }
@@ -173,8 +144,45 @@
     font-size: 13px;
 }
 
+
+.place-image{
+    width: 60px;
+    height: 60px;
+}
+
+.place-details{
+    flex: 1;
+    margin-left: 10px;        
+    flex-direction: column; 
+    font-size: 13px;
+}
+.hotel-img{
+    width: 60px !important;
+    height: 60px !important;
+}
+
+.hotel-details{
+    flex: 1;
+    margin-left: 10px;        
+    flex-direction: column; 
+    font-size: 13px;
+}
+.hotel-details > div {
+    margin-bottom: 5px;
+}
 .place-details > div {
     margin-bottom: 5px;
+}
+.view-container {
+    border: 1px solid black;
+    margin-right: 0;
+}
+
+#selected-container,#hselected-container {
+    min-width: 300px;
+    width: 300px;
+    height:100%;
+    border: 1px solid rgb(89,220,209);
 }
 
 .place-info{
@@ -301,7 +309,7 @@
 				</div>													<!-- view -->
 			</div>														<!-- second-frame-container -->
 		</div>															<!-- second-frame -->
-		<div>
+		<div id="map-container">
 			<div id="map" style="flex: 1;"></div>							<!--지도-->
 		</div>
 		

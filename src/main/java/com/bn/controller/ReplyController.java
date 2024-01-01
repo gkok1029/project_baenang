@@ -63,5 +63,4 @@ public class ReplyController {
 		return "redirect:/blog/get?p_id=" + vo.getP_id();
 	}
 	
-
 }
