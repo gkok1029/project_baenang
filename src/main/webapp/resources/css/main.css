@@ -6,6 +6,9 @@
 	  font: 600 16px/18px 'Open Sans', sans-serif;
 	  justify-content: center;
 	}
+	
+	li{list-style: none;}
+	
 	.navi {
 	    background-color: white;
 	    padding: 10px;
@@ -17,32 +20,48 @@
 	    text-decoration: none;
 	    color: #007bff;
 	}
-	#search_block{
-		width: 700px;
-		display: flex;
-		flex-wrap: nowrap; /* 줄 바꿈 방지 */
+	#projTitle{
+		color:white;
+		margin: 30px;
 	}
-	#search_block > form{
-		width: 700px;
+	
+	#blogTitle{
+		color:white;
+		text-align:center;
+		width:25% ;
+		margin: 0 auto;
 	}
+
 	#search_block > form > a > img{
 		height:38px;
-		margin-bottom:5px;
+		margin:0 auto;
 	}
 	#search-container {
-		width:50%;
-		height:400px;
+		width:30%;
+		height:70px;
 		border: 1px solid white;
 		border-radius:20px;
 		background-color: white;
 	    text-align: center;
-	    margin:0 auto;
+	    margin-left: auto; /* 우측에 정렬 */
+    	margin-right: 30px; /* 좀 띄워주기 위해 오른쪽 마진 추가 */
 	    display: flex;
 	    flex-direction: column;
+        justify-content: center; /* 수직 중앙 정렬 */
+	    align-items: center; /* 수평 중앙 정렬 */
+	}
+	#search_block{
+		width: 95%;
+		display: flex;
+		flex-wrap: nowrap; /* 줄 바꿈 방지 */
+	}
+	#search_block > form{
+		margin-left:10px;
+		width: 95%;
 	}
 	#search-box {
 	    padding: 10px;
-	    width: 300px;
+	    width: 50px;
 	    font-size: 16px;
 	    
         display: inline-block;
@@ -60,7 +79,7 @@
 	}
 	#city .city-row {
 	    display: flex;
-	    justify-content: space-between; /* 또는 justify-content: space-around; */
+	    justify-content: space-around; /* 또는 justify-content: space-around; */
 	    margin: 15px;
 	}
 	#city .city-row > div{
@@ -104,7 +123,3 @@
 		overflow-x: auto; /* 수평 스크롤을 허용 */
 		white-space: nowrap; /* 텍스트 줄바꿈 방지 */
 	}
-	#search-container div {
-	    margin-bottom: 10px; /* 각 div 간격 조절 */
-	}
-        

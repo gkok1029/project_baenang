@@ -33,7 +33,7 @@
 		 	  <a href="/main"> 
 			  <img src="/resources/images/logo.png" alt="로고" class="logo">
 		      </a> 
-			  <p class="slogan">여행은 베낭 매고에서!</p>
+			  <p class="slogan">여행은 배낭 메고에서!</p>
 			 </div>
 			<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label
 				for="tab-1" class="tab">로그인</label> <input id="tab-2" type="radio"

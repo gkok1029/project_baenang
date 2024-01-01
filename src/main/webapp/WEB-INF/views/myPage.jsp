@@ -17,14 +17,14 @@
 <script type="text/javascript"
 	src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dsbc03s9xu&submodules=geocoder"></script>
 <style>
-    #myschedulewrap {
-        width: 100%;
-        height: 700px; /* 스크롤 영역의 높이 설정 */
-        overflow-y: auto; /* 세로 스크롤이 발생하도록 설정 */
-        padding-right: 100px;
-    }
+#myschedulewrap {
+	width: 100%;
+	height: 700px; /* 스크롤 영역의 높이 설정 */
+	overflow-y: auto; /* 세로 스크롤이 발생하도록 설정 */
+	padding-right: 100px;
+}
 </style>
-<title>My Page</title>
+<title>마이 페이지</title>
 </head>
 <body>
 	<jsp:include page="top.jsp" />
@@ -32,7 +32,6 @@
 	<header>
 		<div id="topcenprowrap">
 			<div id=topcenpro>
-				<%-- ${user} --%>
 				<p class="profile_img">
 					<span><img alt="${user.getM_NNAME()}"
 						src="/resources/profile/${user.getM_IMAGE()}"></span>
@@ -50,19 +49,12 @@
 		<div id="wrap">
 			<div id="innerwrap">
 				<div class="category">
-					<div id="my1" class="cursor">
-						<span>나의 일정</span>
-					</div>
-					<div id="my2" class="cursor">
-						<span>나의 여행 도시 목록</span>
-					</div>
 				</div>
-				<!--나의 일정 블럭 시작-->
 				<div id="myschedulewrap">
 					<div class="myschedule">나의 일정</div>
 					<div class="myschedule2">
-						<span id="total_sche" class="cursor">전체 일정</span> 
-							<span class="cursor">
+						<span id="total_sche" class="cursor">전체 일정</span> <span
+							class="cursor">
 							<form name="frm" action="mypage">
 								<input type="hidden" name="mode" id="mode" value="up"> <select
 									id="filter" name="filter" onchange="submit()">

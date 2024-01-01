@@ -5,28 +5,53 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.bn.mapper.PostMapper">
 
 	<select id="getList" resultType="Post">
-	<![CDATA[
-	select * from post where p_id > 0
-	]]>
+		<![CDATA[
+		SELECT post.*
+		, member.m_image
+		, member.m_nname
+		, img.I_ID
+		, img.I_PATH
+		, img.I_BIRTH
+		, img.I_NAME
+		, img.I_NAME2
+		, img_diretory.DIR_ID
+		, img_diretory.DIR_NUM
+		FROM post
+		FULL OUTER JOIN member ON post.m_id = member.m_id
+		FULL OUTER JOIN img_diretory ON post.p_id = img_diretory.p_id
+		FULL OUTER JOIN img ON img.I_ID = img_diretory.I_ID
+		WHERE post.p_id > 0
+		]]>
 	</select>
 
 	<insert id="postInsert">
-		INSERT INTO post (p_id, m_id, p_title, p_content, p_views, p_credate, p_moddate, i_id, i_path, i_name)
-		VALUES (SEQUENCE_POST.nextval, #{m_id}, #{p_title}, #{p_content}, 0, sysdate, sysdate, #{i_id}, #{i_name})
+		INSERT INTO post (p_id, m_id, p_title, p_content, p_views, p_credate,
+		p_moddate)
+		VALUES (SEQUENCE_POST.nextval, #{m_id}, #{p_title}, #{p_content}, 0,
+		sysdate, sysdate)
+
 	</insert>
 
-	<insert id="postInsertSK"> <selectKey keyProperty="p_id" order="BEFORE" 
-		resultType="_int"> select SEQUENCE_POST.nextval from dual </selectKey>
-		INSERT INTO post (p_id, m_id, p_title, p_content, p_views, p_credate, p_moddate, i_id) 
-		VALUES (#{p_id}, #{p_title}, #{p_content}, 0, sysdate, sysdate) </insert>
+	<!-- <insert id="postInsertSK"> <selectKey keyProperty="p_id" order="BEFORE" 
+		resultType="_int"> select SEQUENCE_POST.nextval from dual </selectKey> INSERT 
+		INTO post (p_id, m_id, p_title, p_content, p_views, p_credate, p_moddate) 
+		VALUES (#{p_id}, #{p_title}, #{p_content}, 0, sysdate, sysdate) </insert> -->
 
 	<select id="postRead" resultType="Post">
 		SELECT post.*
 		, member.m_image
 		, member.m_nname
+		, img.I_ID
+		, img.I_PATH
+		, img.I_BIRTH
+		, img.I_NAME
+		, img.I_NAME2
+		, img_diretory.DIR_ID
+		, img_diretory.DIR_NUM
 		FROM post
-		FULL OUTER JOIN member
-		ON post.m_id = member.m_id
+		FULL OUTER JOIN member ON post.m_id = member.m_id
+		FULL OUTER JOIN img_diretory ON post.p_id = img_diretory.p_id
+		FULL OUTER JOIN img ON img.I_ID = img_diretory.I_ID
 		WHERE post.p_id = #{p_id}
 	</select>
 
@@ -37,14 +62,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="modPost">
 		update post
 		set p_title = #{p_title},
-		p_content = #{p_content},
+		p_content =
+		#{p_content},
 		p_moddate = sysdate
 		where p_id = #{p_id}
+	</update>
 
-	</update>
-	
 	<update id="updateP_views" parameterType="_int">
-		update post set p_views = p_views + 1 where num = #{value}	
+		update post set p_views
+		= p_views + 1 where num = #{value}
 	</update>
+
+	<select id="searchPid" parameterType="String" resultType="_int">
+		SELECT
+		M_ID from MEMBER
+		WHERE M_EMAIL = #{userEmail}
+	</select>
+
+	<insert id="imgInsert" parameterType="AttachFile">
+		INSERT INTO IMG (I_ID,
+		I_PATH, I_BIRTH, I_NAME, I_NAME2)
+		VALUES (SEQUENCE_IMG.nextval,
+		#{i_path}, sysdate, #{i_name}, #{i_name2})
+	</insert>
+
+	<insert id="imgDirInsert" parameterType="AttachFile">
+		INSERT INTO IMG_DIRETORY
+		(DIR_ID, P_ID, I_ID, DIR_NUM)
+		VALUES (SEQUENCE_IMG_DIRETORY.nextval,
+		SEQUENCE_POST.CURRVAL, SEQUENCE_IMG.CURRVAL, SEQUENCE_DIR_NUM.NEXTVAL)
+	</insert>
 
 </mapper>

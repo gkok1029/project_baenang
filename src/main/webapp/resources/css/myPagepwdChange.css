@@ -27,7 +27,7 @@ a:visited{color: black;}
     display: flex; width: 100%; justify-content: space-evenly;
 }
 #formBottom button{
-    background-color: #52DCD1; width: 136px;
+    background-color: #0f46a4; width: 136px;
     height: 32px; cursor: pointer; border-radius: 15px; border: none;
 }
 #formBottom button:hover{

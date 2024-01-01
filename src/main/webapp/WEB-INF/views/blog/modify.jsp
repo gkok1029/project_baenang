@@ -22,26 +22,28 @@
 <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 
 <script type="text/javascript">
-   $(document).ready(function () {
-      var formObj = $("form");
 
-      $('button').on("click", function (e) {
-         e.preventDefault();
+$('button[data-oper="modify"]').on("click", function (e) {
+    e.preventDefault();
 
-         var operation = $(this).data("oper");
-         console.log(operation);
+    var operation = $(this).data("oper");
+    console.log(operation);
 
-         if (operation === 'remove') {
-            formObj.attr("action", "/blog/remove");
-         } else if (operation === 'modify') {
-            formObj.attr("action", "/blog/modify");
-         } else if(operation === 'list') {
-            window.location.href = "/blog/bloghub";
-            return;
-         }
-         formObj.submit();
-      });
-   });
+    if (operation === 'modify') {
+        // hidden input에 값을 설정
+        $('input[name="p_id"]').val(${post.p_id});
+
+        // 폼 서브밋
+        formObj.attr("action", "/blog/modify");
+    } else if (operation === 'remove') {
+        formObj.attr("action", "/blog/remove");
+    } else if(operation === 'list') {
+        window.location.href = "/blog/bloghub";
+        return;
+    }
+    formObj.submit();
+});
+
 </script>
 
 <link href="/resources/css/styles.css" rel="stylesheet" />
@@ -77,6 +79,9 @@
 					value='<c:out value="${post.p_id}"/>' readonly="readonly">
 			</div>
 
+			<input type="hidden" name="p_id" value="${post.p_id}">
+
+
 			<div class="form-group">
 				<label>제목</label> <input class="form-control" name='p_title'
 					value='<c:out value="${post.p_title}"/>'>
@@ -104,8 +109,11 @@
 	</div> -->
 		<button type="submit" data-oper='modify' class="btn btn-default">이
 			게시물 수정완료</button>
-		<button type="submit" data-oper='remove' class="btn btn-danger">이
-			게시물 지우기</button>
+
+		<button class="btn btn-danger"
+										onclick="location.href='/blog/remove?p_id=<c:out value="${post.p_id}"/>'">삭제</button>
+
+
 		<button data-oper='list' class="btn btn-info">List</button>
 	</form>
 
@@ -125,4 +133,6 @@
 	.catch(error => {
 		console.error(error);
 	});
+
 </script>
+

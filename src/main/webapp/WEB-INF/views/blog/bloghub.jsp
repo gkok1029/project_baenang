@@ -29,41 +29,8 @@
 </head>
 <body>
 	<jsp:include page="../top.jsp" />
-	<%
-		// 세션을 가져옵니다
-		HttpSession currentSession = request.getSession();
-		
-		// 사용자가 로그인했는지 확인합니다
-		String userId = (String) currentSession.getAttribute("userName");
-        System.out.println("'"+userId+"'님 반갑습니다~!");
-    	boolean isLoggedIn = userId != null;
-	%>
-	<!-- Navigation-->
-	<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container px-4 px-lg-5">
-			<a class="navbar-brand" href="/main">배낭</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="/main">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="/plan">Planning</a></li>
-				</ul>
-				<form class="d-flex">
-					<button class="btn btn-outline-dark" type="submit">
-						<i></i> MyPage 
-						<span class="badge bg-dark text-white ms-1 rounded-pill" href="/myPage"></span>
-					</button>
-				</form>
-			</div>
-		</div>
-	</nav> -->
-	<!-- Header-->
+	
+	
 	<br><br><br><br>
 	<header style="background-color: #52DCD1" class="py-5">
 		<div class="container px-4 px-lg-5 my-5">
@@ -104,9 +71,8 @@
 				<c:forEach items="${posts}" var="post">
 					<div class="col mb-5">
 						<div class="card h-100">
-							<a href='/blog/get?p_id=<c:out value="${post.p_id}"/>' /> <img
-								class="card-img-top"
-								src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+							<a href='/blog/get?p_id=<c:out value="${post.p_id}"/>' /> 
+							<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
 
 							<div class="card-body p-4">
 								<div class="text-center">
@@ -115,7 +81,7 @@
 										<c:out value="${post.p_title}" />
 									</h5>
 
-									<c:out value="${user.getM_NNAME()}" />
+									<c:out value="${post.m_nname}" />
 								</div>
 							</div>
 							</a>
@@ -128,11 +94,7 @@
 		</div>
 	</section>
 	<!-- Footer-->
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
-		</div>
-	</footer>
+	
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
