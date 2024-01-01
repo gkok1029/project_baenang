@@ -191,7 +191,6 @@ let PlanModule = ( ()=>{
 			           var parentContainer = document.getElementById("CplaceContainer"+contentid);
 						var newbutton = parentContainer.querySelector('#Button'+contentid);
 						// 이벤트 핸들러 연결
-						console.log(newbutton);
 						newbutton.addEventListener('click', function() {
 						    removeCDiv(selectedDiv);
 						});
@@ -271,10 +270,12 @@ let PlanModule = ( ()=>{
 				 $(".view").attr("id","view3");
 				 pselectDiv=document.getElementById('selected-container');
 				 removeDiv();
-                ViewPageModule.viewPageLoding();
-                lodging(x,y);
-                SideBarModule.initialize()
-                ViewPageModule.showView('view3', '#btn-step3');
+                 ViewPageModule.viewPageLoding();
+                 lodging(x,y);
+                 SidebarModule.initialize();
+                 ViewPageModule.showView('view3', '#btn-step3');
+                 
+               
 			}
 			function Hselectend(){
 				 hselectDiv=document.getElementById('hselected-container');
