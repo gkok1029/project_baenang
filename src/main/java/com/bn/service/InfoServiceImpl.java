@@ -21,7 +21,6 @@ public class InfoServiceImpl implements InfoService {
 	@Override
 	public ContentVo getTourData(String contentid) {
 		ContentVo result = InfoMapper.getTourData(contentid);
-		//log.info("InfoServiceImpl gettour result : "+result);
 		return result;
 	}
 	
@@ -37,9 +36,7 @@ public class InfoServiceImpl implements InfoService {
 	
 	@Override
 	public CityVo getCityData(String cityname) {
-		System.out.println("InfoServiceImpl getcity cityname : "+cityname);
 		CityVo result = InfoMapper.getCityData(cityname);
-		log.info("InfoServiceImpl getcity result : "+result);
 		return result;
 	}
 	

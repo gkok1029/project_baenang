@@ -129,7 +129,7 @@
 									<h5 class="fw-bolder">
 										<c:out value="${post.p_title}" />
 									</h5>
-									<c:out value="${post.m_id}" />
+									<c:out value="${post.m_nname}" />
 								</div>
 							</div>
 							<!-- Product actions-->
