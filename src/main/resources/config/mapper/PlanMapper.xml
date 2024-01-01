@@ -6,14 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.bn.mapper.PlanMapper">
 
 	<insert id="insert" parameterType="Plan">
-	<selectKey keyProperty="p_id" resultType="int" order="BEFORE">
-        SELECT SEQUENCE_PLANNER.nextval FROM DUAL
-    </selectKey>
     insert into planner (P_ID, M_ID, P_NAME, P_BIRTH, P_MODDATE)
-    values (#{p_id}, #{m_id}, #{p_name}, sysdate, sysdate)
+    values (SEQUENCE_PLANNER.CURRVAL, #{m_id}, #{p_name}, sysdate, sysdate)
 	</insert>
 	<select id="seq" resultType="int">
-		select sequence_planner.currval from dual
+		select sequence_planner.nextval from dual
 	</select>
 	<select id="selectPlan" parameterType="_int" resultType="Plan">
 	 	select * from planner where p_id=#{p_id} 

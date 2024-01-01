@@ -72,15 +72,10 @@ public class PlanController {
 		model.addAttribute("cityvo",cityvo);
 		return "plan";
 	}
-	@ResponseBody
 	@PostMapping("/plan")
-	public Model saveplan(@RequestBody PlanVo vo,Model model) {
+	public String saveplan(@RequestBody PlanVo vo,Model model) {
 		int n=pservice.insert(vo);
-		int s=pservice.seq();
-		model.addAttribute("p_id",s);
-		System.out.println(s);
-		
-		return model;
+		return "NewFile";
 	}
 
 
@@ -166,10 +161,9 @@ public class PlanController {
     	int n =0;
     	for(int i=0;i<Lvo.size();i++) {
     		dvo=Lvo.get(i);
-    		dvo.getP_id();
     		n=pservice.insertDp(dvo);
     	}
-    	return "";
+    	return "forward:/main.jsp";
     }
     
     
@@ -187,6 +181,7 @@ public class PlanController {
     	String si=(String)session.getAttribute("userEmail");
     	mvo=mService.getProfile(si);
         model.addAttribute("m_id",mvo.getM_ID()); 
+        model.addAttribute("p_id",pservice.seq());
     	return "NewFile";
     }
 

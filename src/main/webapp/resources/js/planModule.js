@@ -163,9 +163,6 @@ let PlanModule = ( ()=>{
 			            selectedDiv.id = 'C' + sourceDivId;
 			            selectedDiv.innerHTML = divText;
 			           
-						var removebtn = document.createElement('button');
-			            removebtn.innerHTML = 'Remove Div';
-			            removebtn.addEventListener('click', removeDiv);
 			
 			            var resetbtn = document.createElement('button');
 			            resetbtn.innerHTML = 'Reset Div';
@@ -180,10 +177,14 @@ let PlanModule = ( ()=>{
 			            var destinationContainer = document.getElementById("wrapcontainer");
 			            var mapw = document.getElementById("map-container");
 			            mapw.parentNode.insertBefore(newDiv, mapw);
-			
+						
+						let buttonDiv=document.createElement('div');
+						buttonDiv.id='reset';
+						
+						
 			            newDiv.appendChild(count);
-			            newDiv.appendChild(removebtn); // 버튼을 count 다음으로 추가
-			            newDiv.appendChild(resetbtn); // 리셋 버튼을 removebtn 다음으로 추가
+			            newDiv.appendChild(buttonDiv);
+			            buttonDiv.appendChild(resetbtn); // 리셋 버튼을 removebtn 다음으로 추가
 			            newDiv.appendChild(selectedDiv);
 			            newDiv.appendChild(endbtn);
 			            
@@ -351,17 +352,18 @@ let PlanModule = ( ()=>{
 			    // 클릭된 div의 내용을 가져오기
 			    var sourceDiv = document.getElementById(id);
 			    var divText = sourceDiv.innerHTML.trim();
-			
+				
+				
 			    // 내용이 있는 경우에만 실행
 			    if (divText !== "") {
 			        // selected-container가 없을 경우
-			        var targetDiv = document.getElementById('hselected-container');
+			         var targetDiv = document.getElementById('hselected-container');
 			        
 			        if (!targetDiv) {
 			        if (document.getElementById('selected-container') || document.getElementById('hselected-container')) {
     				removeDiv();}
     				countx++; // 함수가 실행되었기 때문에 1 증가
-			        count.innerHTML = countx;
+			        count.innerHTML = "선택한 장소:"+countx+"개";
 			            // 새로운 div 생성
 			            var newDiv = document.createElement('div');
 			            newDiv.id = 'hselected-container';
@@ -371,9 +373,6 @@ let PlanModule = ( ()=>{
 			            selectedDiv.id = 'C' + sourceDivId;
 			            selectedDiv.innerHTML = divText;
 			
-			            var removebtn = document.createElement('button');
-			            removebtn.innerHTML = 'Remove Div';
-			            removebtn.addEventListener('click', removeDiv);
 			
 			            var resetbtn = document.createElement('button');
 			            resetbtn.innerHTML = 'Reset Div';
@@ -383,14 +382,16 @@ let PlanModule = ( ()=>{
 						endbtn.innerHTML="선택 완료";
 						endbtn.id='endHsel';
 						endbtn.addEventListener('click', Hselectend);	
-			
+						console.log(endbtn.id);
+						
+						
+						
 			            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
 			            var destinationContainer = document.getElementById("wrapcontainer");
 			            var mapw = document.getElementById("map-container");
 			            mapw.parentNode.insertBefore(newDiv, mapw);
 			
 			            newDiv.appendChild(count);
-			            newDiv.appendChild(removebtn); // 버튼을 count 다음으로 추가
 			            newDiv.appendChild(resetbtn); // 리셋 버튼을 removebtn 다음으로 추가
 			            newDiv.appendChild(selectedDiv);
 			            newDiv.appendChild(endbtn);
@@ -402,17 +403,18 @@ let PlanModule = ( ()=>{
 						    removeCDiv(selectedDiv);});
 			        } else {
 			        countx++; // 함수가 실행되었기 때문에 1 증가
-			        count.innerHTML = countx;
+			        count.innerHTML = "선택한 장소:"+countx+"개";
 			            // 이미 존재하는 selected-container에 내용 추가
 			            var selectedDiv = document.createElement('div');
 			            selectedDiv.className = 'selected';
 			            selectedDiv.id = 'C' + sourceDivId;
 			            selectedDiv.innerHTML = divText;
+			            console.log(selectedDiv.id);
 			            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
-			            var endbtn=document.getElementById('endhsel');
+			            var endbtn=document.getElementById("endHsel");
 			            targetDiv.insertBefore(selectedDiv,endbtn);
 			            // JavaScript DOM을 이용한 선택
-			           var parentContainer = document.getElementById("CplaceContainer"+contentid);
+			           var parentContainer = document.getElementById("ChotelContainer"+contentid);
 						var newbutton = parentContainer.querySelector('#Button'+contentid);
 						// 이벤트 핸들러 연결
 						newbutton.addEventListener('click', function() {
