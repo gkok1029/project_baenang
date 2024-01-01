@@ -49,10 +49,15 @@ public class ReplyServiceImple implements ReplyService {
 
 
 	@Override
-	public List<ReplyVo> getList(Criteria cri, int p_id) {
+	public List<ReplyVo> getList(int p_id) {
 		
 		log.info("Reply List" + p_id);
 		
-		return mapper.getListWithPaging(cri, p_id);
+		return mapper.getList(p_id);
+	}
+	
+	@Override
+	public int searchPid(String userEmail) {
+		return mapper.searchPid(userEmail);
 	}
 }

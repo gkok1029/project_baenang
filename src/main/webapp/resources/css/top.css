@@ -1,8 +1,12 @@
 @charset "UTF-8";
 li{list-style: none;}
 #top{
-	display:flex; justify-content: space-between; align-items: center;
-	padding: 17px; position: fixed; z-index: 1000; width: 100%; background-color: #FFFFFF;
+	display:flex; 
+	justify-content: space-between; 
+	align-items: center;
+	padding: 5px; 
+	width: 100%; 
+	background-color: #FFFFFF;
 	box-sizing: border-box;
 }
 #top a{text-decoration: none; display: inline-block; color: black;}

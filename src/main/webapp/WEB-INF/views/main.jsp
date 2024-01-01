@@ -30,9 +30,9 @@
 
 <body>
 
-<%-- <jsp:include page="/WEB-INF/views/top.jsp" />  --%>
+<jsp:include page="/WEB-INF/views/top.jsp" />
 
-<%-- -------------------------------- 탑 네비게이션 ------------------------------ --%>
+<%-- -------------------------------- 탑 네비게이션 ------------------------------
 	<%
 		// 세션을 가져옵니다
 		HttpSession ses = request.getSession();
@@ -46,7 +46,6 @@
 		<a href="/main">홈</a>
 		<a href="/blog/bloghub">블로그</a><!-- 블로그페이지 허브로 이동 -->
 		<a href="#" onclick="scrollToTravelInfo()">여행지</a>
-     <%-- 사용자가 로그인한 경우 적절한 링크를 보여줍니다 --%>
     <% if (isLoggedIn) { %>
     	<a href="/user/mypage">마이페이지</a>
         <a href="/logout">로그아웃</a>
@@ -54,7 +53,7 @@
         <a href="/login">로그인</a>
     <% } %>
 	</div>
-<%-- ----------------------------------------------------------------------------- --%>
+----------------------------------------------------------------------------- --%>
 <div id="projTitle">
 	<h1> B A E N A N G </h1>
 </div>
@@ -152,7 +151,6 @@
 
 <!-- ---------------------------------------------------------------------- -->
 
-
 <%-- ---------------------------- 검색 관련 뷰페이지 컨텐트 ---------------------------- --%>
 
     <div id="search-container" class="justify-content-center align-items-center">
@@ -182,7 +180,7 @@
 <script>
 	<%-- ------------------------------------- 스크롤 다운 기능 -------------------------------------- --%>
     function scrollToTravelInfo() {
-        var travelInfoSection = document.getElementById('city');
+        var travelInfoSection = document.getElementById('search-container');
         travelInfoSection.scrollIntoView({ behavior: 'smooth' });
     }
     <%-- --------------------------------------------------------------------------------------- --%>	
@@ -246,7 +244,6 @@ function onKeywordInput() {
 }
 
 --------------------------------------------------------- --%>
-
 
 <%-- ------------------------관광도시 검색기능 ------------------------- --%>
 <script>
@@ -322,8 +319,6 @@ function onKeywordInput() {
 
 <%-- ---------------------------- 특정 도시에 대한 이미지를 출력 --------------------------------- --%>
 
-<!-- Add an anchor point for smooth scrolling -->
-<div id="city-anchor"></div>
 <div id="city">
     <div>
         <%-- Assuming you have a method to retrieve city data from Oracle DB --%>
