@@ -131,10 +131,16 @@
 #catButtons{
     display:flex;
 }
-
+#catButtons > div{
+	margin:5px;
+}
+.count > div{
+	
+}
 .place-img{
     width: 60px;
-    height: 60px
+    height: 60px;
+    border-radius: 5px;
 }
 
 .place-details {
@@ -142,8 +148,13 @@
     margin-left: 10px;        
     flex-direction: column; 
     font-size: 13px;
+    padding:3px;
 }
-
+.selected{
+	display:flex;
+	margin:5px;
+	
+}
 
 .place-image{
     width: 60px;
@@ -159,6 +170,7 @@
 .hotel-img{
     width: 60px !important;
     height: 60px !important;
+    border-radius: 5px;
 }
 
 .hotel-details{
@@ -176,6 +188,7 @@
 .view-container {
     border: 1px solid black;
     margin-right: 0;
+    padding:5px;
 }
 
 #selected-container,#hselected-container {
@@ -183,6 +196,14 @@
     width: 300px;
     height:100%;
     border: 1px solid rgb(89,220,209);
+}
+
+#selected-container button{
+	margin:5px;
+}
+
+#hselected-container button{
+	margin:5px;
 }
 
 .place-info{
@@ -221,8 +242,6 @@
 
 #view{
     width: 500px;
-    
-    
 }
 
 .basket-frame{
