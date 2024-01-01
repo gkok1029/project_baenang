@@ -22,6 +22,7 @@
 <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 
 <script type="text/javascript">
+
 $('button[data-oper="modify"]').on("click", function (e) {
     e.preventDefault();
 
@@ -42,6 +43,7 @@ $('button[data-oper="modify"]').on("click", function (e) {
     }
     formObj.submit();
 });
+
 </script>
 
 <link href="/resources/css/styles.css" rel="stylesheet" />
@@ -76,7 +78,9 @@ $('button[data-oper="modify"]').on("click", function (e) {
 				<label>게시물 번호</label> <input class="form-control" name='p_id'
 					value='<c:out value="${post.p_id}"/>' readonly="readonly">
 			</div>
+
 			<input type="hidden" name="p_id" value="${post.p_id}">
+
 
 			<div class="form-group">
 				<label>제목</label> <input class="form-control" name='p_title'
@@ -105,8 +109,11 @@ $('button[data-oper="modify"]').on("click", function (e) {
 	</div> -->
 		<button type="submit" data-oper='modify' class="btn btn-default">이
 			게시물 수정완료</button>
+
 		<button class="btn btn-danger"
 										onclick="location.href='/blog/remove?p_id=<c:out value="${post.p_id}"/>'">삭제</button>
+
+
 		<button data-oper='list' class="btn btn-info">List</button>
 	</form>
 
@@ -126,4 +133,6 @@ $('button[data-oper="modify"]').on("click", function (e) {
 	.catch(error => {
 		console.error(error);
 	});
+
 </script>
+

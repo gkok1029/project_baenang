@@ -105,6 +105,7 @@
 										<label>게시물 번호</label> <input class="form-control" name='p_id'
 											value='<c:out value="${post.p_id}"/>' readonly="readonly">
 									</div>
+
 									
 									<div class="form-group">
 										<label>작성일</label> <input class="form-control" name='p_id'
@@ -113,6 +114,7 @@
 									<div class="form-group">
 										<label>수정일</label> <input class="form-control" name='p_id'
 											value='<c:out value="${post.p_moddate}"/>' readonly="readonly">
+
 									</div>
 
 									<div class="form-group">
@@ -135,6 +137,7 @@
 
 									<button data-oper='modify' class="btn btn-info"
 										onclick="location.href='/blog/modify?p_id=<c:out value="${post.p_id}"/>'">수정</button>
+
 									<button class="btn btn-danger"
 										onclick="location.href='/blog/remove?p_id=<c:out value="${post.p_id}"/>'">삭제</button>
 									<button data-oper='list' class="btn btn-info"
@@ -142,6 +145,7 @@
 									
 
 									<br>
+
 									<hr>
 									<br>
 
@@ -240,7 +244,10 @@
 							</div>
 						</div>
 					</c:forEach>
+
 					
+
+
 				</div>
 			</div>
 		</section>

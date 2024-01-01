@@ -6,9 +6,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.bn.mapper.PlanMapper">
 
 	<insert id="insert" parameterType="Plan">
-	insert into planner values(#{p_id},#{m_id},#{p_name},sysdate,sysdate)
+	<selectKey keyProperty="p_id" resultType="int" order="BEFORE">
+        SELECT SEQUENCE_PLANNER.nextval FROM DUAL
+    </selectKey>
+    insert into planner (P_ID, M_ID, P_NAME, P_BIRTH, P_MODDATE)
+    values (#{p_id}, #{m_id}, #{p_name}, sysdate, sysdate)
 	</insert>
-	
+	<select id="seq" resultType="int">
+		select sequence_planner.currval from dual
+	</select>
 	<select id="selectPlan" parameterType="_int" resultType="Plan">
 	 	select * from planner where p_id=#{p_id} 
 	</select>
@@ -18,8 +24,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="insertDp" parameterType="Dplan">
-	insert into dtail_planner values(#{dp_id},#{p_id},#{contentid},#{dp_day},#{dp_start},#{dp_end},#{dp_num})
-	</insert>
+    INSERT INTO detail_planner 
+    (DP_ID, p_id, contentid, dp_day, dp_start, dp_end, dp_num)
+    VALUES 
+    (SEQUENCE_DETAIL_PLANNER.NEXTVAL, #{p_id}, #{contentid}, #{dp_day}, #{dp_start}, #{dp_end}, #{dp_num})
+</insert>
+	
+	<select id="dpretrieve" resultType="Dplan">
+	select * from detail_planner where p_id=#{p_id}
+	</select>
 	<delete id="deleteByCondition" parameterType="_int">
     DELETE FROM Planner
     WHERE p_id = #{p_id};
