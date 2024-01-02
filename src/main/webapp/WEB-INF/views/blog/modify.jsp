@@ -33,11 +33,11 @@ $('button[data-oper="modify"]').on("click", function (e) {
         $('input[name="p_id"]').val(${post.p_id});
 
         // 폼 서브밋
-        formObj.attr("action", "/blog/modify");
+        formObj.attr("action", "/user/blog/modify");
     } else if (operation === 'remove') {
-        formObj.attr("action", "/blog/remove");
+        formObj.attr("action", "/user/blog/remove");
     } else if(operation === 'list') {
-        window.location.href = "/blog/bloghub";
+        window.location.href = "/user/blog/bloghub";
         return;
     }
     formObj.submit();
@@ -67,7 +67,7 @@ $('button[data-oper="modify"]').on("click", function (e) {
 		</div>
 	</header>
 
-	<form role="form" action="/blog/addpost" method="POST">
+	<form role="form" action="/user/blog/modify" method="POST">
 		<div>
 			<!-- 글 수정 -->
 
@@ -90,9 +90,9 @@ $('button[data-oper="modify"]').on("click", function (e) {
 			</div>
 			<br>
 
-			<p style="width: 50%; margin: 0 auto;">
+			<!-- <p style="width: 50%; margin: 0 auto;">
 				<input type="submit" value="전송" id="uploadBtn">
-			</p>
+			</p> -->
 		</div>
 		<hr>
 
@@ -105,11 +105,12 @@ $('button[data-oper="modify"]').on("click", function (e) {
 	</div> -->
 		<button type="submit" data-oper='modify' class="btn btn-default">이
 			게시물 수정완료</button>
-		<button class="btn btn-danger"
-										onclick="location.href='/blog/remove?p_id=<c:out value="${post.p_id}"/>'">삭제</button>
+		<%-- <button class="btn btn-danger"
+										onclick="location.href='/blog/remove?p_id=<c:out value="${post.p_id}"/>'">삭제</button> --%>
 		<button data-oper='list' class="btn btn-info">List</button>
 	</form>
 
+<jsp:include page="/WEB-INF/views/includes/footer.jsp" />
 </body>
 <!-- CKEditor scripts -->
 <script

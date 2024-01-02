@@ -26,7 +26,7 @@ import lombok.extern.log4j.Log4j;
 
 @Log4j
 @Controller
-@RequestMapping("/blog/*")
+@RequestMapping("/user/blog/*")
 @AllArgsConstructor
 public class PostController { 
 	
@@ -36,17 +36,19 @@ public class PostController {
 	@Autowired
 	private ReplyService replyservice;
 	
-	@RequestMapping("/userposts") 
- 	public String listingPosts(Model model) { 
+	@RequestMapping("/bloghub") 
+ 	public String showBloghub(Model model) { 
 		
-		model.addAttribute("posts", service.getList());
 		log.info("posts");
-		return "/blog/userposts";
-	} 
+		model.addAttribute("posts", service.getList());
+		
+		return "/blog/bloghub";
+	}
 	
 	@GetMapping("/addpost")
-	public void addPost() {
+	public String addPost() {
 		
+		return "/blog/addpost";
 	}
 	
 	@RequestMapping("/addpost")
@@ -57,18 +59,31 @@ public class PostController {
 		service.register(post);
 		rttr.addFlashAttribute("results", post.getP_id());
 		log.info("posting: " + post);
-		return "redirect:/blog/bloghub";
+		
+		return "redirect:/user/blog/bloghub";
+		//return "forward:/user/blog/bloghub";
 	}
 	
-	@GetMapping({"/get", "/modify"})
-	public void get(@RequestParam int p_id, Model model) {
+	@GetMapping("/get")
+	public String get(@RequestParam int p_id, Model model) {
 		model.addAttribute("post", service.get(p_id));
 		model.addAttribute("posts", service.getList());
 
 		List<ReplyVo> reply = null;
 		reply = replyservice.getList(p_id);
 		model.addAttribute("reply", reply);
-		log.info("/get or /modi");
+		log.info("/get");
+		
+		return "/blog/get";
+	}
+	
+	@GetMapping("/modify")
+	public String modify(@RequestParam int p_id, Model model) {
+		model.addAttribute("post", service.get(p_id));
+		
+		log.info("/modi");
+		
+		return "/blog/modify";
 	}
 	
 	@PostMapping("/modify")
@@ -78,8 +93,9 @@ public class PostController {
 		if(service.modify(post)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/blog/bloghub";
+		return "redirect:/user/blog/bloghub";
 	}
+	
 //	@PostMapping("/remove")
 //	public String remove(@RequestParam("p_id") int p_id, RedirectAttributes rttr) {
 	@RequestMapping(value = "/remove", method = {RequestMethod.GET, RequestMethod.POST})
@@ -90,40 +106,40 @@ public class PostController {
 		if(service.remove(p_id)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/blog/bloghub";
-	}
-	@RequestMapping("/bloghub") 
- 	public String showBloghub(Model model) { 
-		
-		log.info("posts");
-		model.addAttribute("posts", service.getList());
-		
-		return "/blog/bloghub";
+		return "redirect:/user/blog/bloghub";
 	}
 	
-	@RequestMapping("/bloghub7days") 
- 	public String showBloghub7days(Model model) { 
-		
-		log.info("posts");
-		model.addAttribute("posts", service.getList());
-		
-		return "/blog/bloghub7days";
-	}
-	@RequestMapping("/bloghub30days") 
- 	public String showBloghub30days(Model model) { 
-		
-		log.info("posts");
-		model.addAttribute("posts", service.getList());
-		
-		return "/blog/bloghub30days";
-	}
 	
-	@RequestMapping("/mylikes") 
- 	public String showMyLikes(Model model) { 
-		
-		log.info("posts");
-		model.addAttribute("posts", service.getList());
-		
-		return "/blog/mylikes";
-	}
+//	@RequestMapping("/bloghub7days") 
+// 	public String showBloghub7days(Model model) { 
+//		
+//		log.info("posts");
+//		model.addAttribute("posts", service.getList());
+//		
+//		return "/blog/bloghub7days";
+//	}
+//	@RequestMapping("/bloghub30days") 
+// 	public String showBloghub30days(Model model) { 
+//		
+//		log.info("posts");
+//		model.addAttribute("posts", service.getList());
+//		
+//		return "/blog/bloghub30days";
+//	}
+//	
+//	@RequestMapping("/mylikes") 
+// 	public String showMyLikes(Model model) { 
+//		
+//		log.info("posts");
+//		model.addAttribute("posts", service.getList());
+//		
+//		return "/blog/mylikes";
+//	}
+//	@RequestMapping("/userposts") 
+// 	public String listingPosts(Model model) { 
+//		
+//		model.addAttribute("posts", service.getList());
+//		log.info("posts");
+//		return "/blog/userposts";
+//	} 
 }
