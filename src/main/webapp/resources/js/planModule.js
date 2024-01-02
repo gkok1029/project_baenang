@@ -309,10 +309,10 @@ let PlanModule = ( ()=>{
 					contentType: "application/json",
 					data: JSON.stringify(data),
 					success: function(response) {
-						//alert(response);
+						window.location.href = "/NewFile";
 					},
 					error: function(error) {
-						window.location.href = "/NewFile";
+						
 					}
 				});
 				removeDiv();
