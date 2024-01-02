@@ -190,7 +190,6 @@ public class PlanController {
     	return "NewFile";
     }
 
-    
     @PostMapping("/NewFile")
     public String view4(@RequestBody PlaceDTO mydata,Model model, HttpSession session) {
        model.addAttribute("mydata",mydata);

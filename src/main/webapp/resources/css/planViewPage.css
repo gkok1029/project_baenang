@@ -154,11 +154,14 @@ padding: 10px;
 }
 
 .modal{
-	position:absolute;
-	width:100%; height:100%;
-	background: white;
-	top:0; left:0;
-	display:none;
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
 }
 
 #calendar-modal{
@@ -204,7 +207,6 @@ tr, th{
 	padding: 10px;
 	text-align: center;
 }
-
         
 .calendar-table{
 	width : 100%;
@@ -214,4 +216,7 @@ tr, th{
 .day-button, .arrow-button{
 	background-color: white;
 	border : none;
+}
+.confirm-button{
+	disabled : true;
 }

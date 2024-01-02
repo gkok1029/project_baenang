@@ -1,7 +1,5 @@
 let CalendarModule = ( ()=>{
 
-    
-
     function createCalendar(){
     
         let current_year = (new Date()).getFullYear();
@@ -51,6 +49,12 @@ let CalendarModule = ( ()=>{
                                 generateCalendar(current_year, current_month+1)
                             )
                         )
+                    ),
+                    $('<div>').append(
+                    	$('<button>').addClass("confirm-button").attr("type","button").text("선택").on('click',function(){
+                    		$(".modal").hide();
+                    		ViewPageModule.step1Loding();
+                    	})
                     )
                 )                
             )
@@ -156,92 +160,22 @@ let CalendarModule = ( ()=>{
 			month = "0" + month;
 		}
 		
+		let result = year + "-" + month + "-" + date
+		let existedStartDate = sessionStorage.getItem('startDate');
+		let existedEndDate = sessionStorage.getItem('endDate');
+		
+		if( existedStartDate && existedEndDate ){
+			sessionStorage.removeItem('endDate');
+			sessionStorage.removeItem('startDate');
+			sessionStorage.setItem('startDate',result);
+			
+		}else if( !existedEndDate ){
+			sessionStorage.setItem('endDate',result);
+			$('.confirm-button').prop('disabled',false);
+			
+		}
+
 	}
-	
-    // function getFirstDayOfWeek(year,month){
-	// 	if(month < 10) month = "0" + month;
-
-	// 	return (new Date(year+"-"+month+"-01")).getDay();
-    // }
-
-    // function changeYearMonth(year, month){
-    //     let month_day = [31,28,31,30,31,30,31,31,30,31,30,31];
-			
-			
-	// 		// 윤년인지 확인
-    //     if(month === 2){
-    //         if(checkLeapYear(year)) month_day[1] = 29;
-    //     }
-
-    //     let first_day_of_week = getFirstDayOfWeek(year, month);
-    //     let arr_calendar = [];
-    //     for(let i=0 ; i<first_day_of_week ; i++){
-    //         arr_calendar.push("");
-    //     }
-
-    //     for(let i=0 ; i<=month_day[month-1] ; i++){
-    //         arr_calendar.push(String(i));
-    //     }
-
-    //     let remain_day = 7 - (arr_calendar.length%7);
-    //     if(remain_day < 7){
-    //         for(let i=0 ; i<remain_day ; i++){
-    //             arr_calendar.push("");
-    //         }
-    //     }
-
-    //     renderCalendar(arr_calendar);
-    // }
-
-    // function renderCalendar(data){
-    //     let h = [];
-    //     for(let i=0 ; i<data.length ; i++){
-    //         if(i===0){
-    //             h.push('<tr>');
-    //         }else if(i%7===0){
-    //             h.push('</tr>');
-    //             h.push('<tr>');
-    //         }
-
-    //         h.push('</tr>');
-
-            
-    //     }
-
-        
-
-    //     loadCalendar();
-
-    //     function loadCalendar(){
-
-    //     }
-
-    //     $('#year').val(current_year);
-    //     $('#month').val(current_month);
-
-    //     changeYearMonth(current_year,current_month);
-    // }
-
-
-
-    // function changeMonth(diff){
-    //     if(diff === undefined){
-    //         current_month = parseInt($('#month').val());
-    //     }else{
-    //         current_month = current_month + diff;
-
-    //         if(current_month === 0){
-    //             current_year = current_year - 1;
-    //             current_month = 12;
-    //         }else if(current_month === 13){
-    //             current_year = current_year +1;
-    //             current_month = 1;
-    //         }
-    //     }
-    //     $('#year').val(current_year);
-    //     $('#month').val(current_month);
-    //     changeYearMonth(current_year,current_month);
-    // }
 
     return {
         createCalendar : createCalendar        
