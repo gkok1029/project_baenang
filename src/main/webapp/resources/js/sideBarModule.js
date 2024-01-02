@@ -160,7 +160,8 @@ let SidebarModule = (function () {
 
             let nextButton = $("<button>").addClass("bottom-button").html("저장").on('click', function(){
                 //view4
-                $(".view").attr("id","view4");                
+                $("#myModal").fadeIn();
+                $(".view").attr("id","view4");              
                 ViewPageModule.viewPageLoding();
                 
                 initialize()

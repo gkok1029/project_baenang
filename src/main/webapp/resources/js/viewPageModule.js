@@ -38,6 +38,11 @@ let ViewPageModule = (function () {
         };
     }
     function step1Loding(){
+    	if( !sessionStorage.getItem('startDate') && !sessionStorage.getItem('endDate') ){
+    		$('#calendar-modal').fadeIn();
+    		return
+    	}
+    	
         // view-container이 이미 존재하는지 확인
         viewExistedCheck();
         
@@ -55,8 +60,12 @@ let ViewPageModule = (function () {
         
         let h2Element = $("<h2>").text(cityname);
         firstChildDiv.append(h2Element);
-
-        let dateDiv = $("<div>").attr("id", "date").text("2023.12.22(금) - 2023.12.29(금)").append(
+		
+		let startDate = sessionStorage.getItem('startDate');
+        let endDate = sessionStorage.getItem('endDate');
+		console.log(startDate)
+		console.log(endDate)
+        let dateDiv = $("<div>").attr("id", "date").text(startDate + " ~ " + endDate).append(
             $("<div>").attr("id", "frame-calendar-button").append(
                 $("<button>").attr(
                     {
@@ -66,7 +75,9 @@ let ViewPageModule = (function () {
                         "data-target": "#calendarModal"
                     }
                 ).on('click',function(){
-                    console.log('달력 클릭');
+
+                    $('#calendar-modal').fadeIn();
+
                 })
                 .append(
                     $("<i>").addClass("far fa-calendar-days")
@@ -126,13 +137,46 @@ let ViewPageModule = (function () {
         });
         tableElement.append(tableHeaderRow);
 
-        // 테이블 데이터 생성
-        let tableData = [
-          ['12/18', '월', '오전 10:00', '오후 10:00'],
-          ['12/19', '화', '오전 10:00', '오후 10:00'],
-          ['12/20', '수', '오전 10:00', '오후 10:00']
-        ];
 
+        startDate = new Date(sessionStorage.getItem('startDate'));
+        endDate = new Date(sessionStorage.getItem('endDate'));
+ 		
+ 		function getDates(startDate, endDate) {
+		    let dateArray = [];
+		    let currentDate = new Date(startDate);
+		
+		    while (currentDate <= endDate) {
+		        dateArray.push(new Date(currentDate));
+		        currentDate.setDate(currentDate.getDate() + 1);
+		    }
+		
+		    return dateArray;
+		}
+ 		
+ 		// startDate부터 endDate까지 날짜 구하기
+		let dateArray = getDates(startDate, endDate);
+		
+		// 테이블 데이터 생성
+		let tableData = dateArray.map(date => {
+		    let dayNames = ['일', '월', '화', '수', '목', '금', '토'];
+		    let formattedDate = [
+		        `${date.getMonth() + 1}/${date.getDate()}`, // MM/DD 형식
+		        dayNames[date.getDay()], // 요일
+		        `${formatTime(date.getHours())}:${formatTime(date.getMinutes())}`, // 오전 시간
+		        `${formatTime(date.getHours() + 12)}:${formatTime(date.getMinutes())}` // 오후 시간
+		    ];
+		
+		    return formattedDate;
+		});
+		
+		// 결과 확인
+		console.log(tableData);
+		
+		// 시간을 두 자리로 포맷팅하는 함수
+		function formatTime(time) {
+		    return time < 10 ? `0${time}` : `${time}`;
+		}
+ 
         $.each(tableData, function (_, rowData) {
           let trElement = $("<tr>");
           $.each(rowData, function (_, cellData) {
@@ -175,7 +219,8 @@ let ViewPageModule = (function () {
 
         // div.view-container 엘리먼트 생성
         let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1");
-        
+        let startDate2 = sessionStorage.getItem("startDate");
+        let endDate2 = sessionStorage.getItem("endDate");
         let firstChildDiv = $("<div>").append(
             $("<div>").append(
                 $("<div>").text(cityname),
@@ -298,7 +343,7 @@ let ViewPageModule = (function () {
             $('<div>').addClass("place-add").attr("id","placeAdd").append(
                 //장소 추가 button
                 $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","Button"+content.contentid)
-                .click(function() { PlanModule.copyPlaceDiv("placeContainer"+content.contentid,content.contentid);
+                .click(function() { PlanModule.copyPlaceDiv("placeContainer"+content.contentid,content);
                 					sendCountupRequest(content.contentid);
                 })
                 														
@@ -394,7 +439,7 @@ let ViewPageModule = (function () {
             $('<div>').addClass("hotel-add").attr("id","hotelAdd").append(
                 //장소 추가 button
                 $('<i>').addClass("fa-regular fa-square-plus hotel-add-button").attr("id","Button"+content.contentid)
-                .click(function() { PlanModule.copyHotelDiv("hotelContainer"+content.contentid,content.contentid);
+                .click(function() { PlanModule.copyHotelDiv("hotelContainer"+content.contentid,content);
                 					sendCountupRequest(content.contentid);
                 })
             )
@@ -567,12 +612,32 @@ let ViewPageModule = (function () {
         $('.view').attr("id",viewId);
     };
 
+    function getMyPlans(contentId){
+        $.ajax({
+			type : 'get',
+			dataType : 'json',
+			url : '?contentId=' + contentId,
+			cache : false,
+			processData : true,
+			success : function(res) {
+				PlanModule.tour(res.x, res.y);
+				x=res.x;
+				y=res.y;
+			},
+			error : function(err) {
+				alert('error: ' + err.status);
+			}
+
+		})
+    }
+
     return {
         showView: showView,
         viewPageLoding : viewPageLoding,
         createPlaceDiv : createPlaceDiv,
         createHotelDiv : createHotelDiv,
-        sendAjaxRequest : sendAjaxRequest
+        sendAjaxRequest : sendAjaxRequest,
+        step1Loding : step1Loding
         
     };
 })();
