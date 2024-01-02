@@ -7,7 +7,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/mapModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/sideBarModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/viewPageModule.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/sideBarModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/planModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/calendarModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/modalModule.js"></script>
@@ -34,89 +33,22 @@
 <!-- 외부 CSS파일 참조  -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/planViewPage.css">
 <style>
-    .modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: auto;
-            height: auto;
-            background-color: white;
-            justify-content: center;
-            align-items: center;
-        }
 
-        .modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-        }
 
-        .modal-buttons {
-            margin-top: 20px;
-        }
+/* 버튼 스타일 (예제에서는 간단한 버튼 스타일 사용) */
 
-        /* 버튼 스타일 (예제에서는 간단한 버튼 스타일 사용) */
-        .open-modal-btn {
-            padding: 10px;
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        
-
-        .close-modal-btn, .confirm-btn {
-            padding: 10px;
-            background-color: #ddd;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-.place-container {
-    display: flex;
-    justify-content: space-between; 
-   align-items: center; 
-   margin-bottom: 20px; 
-}
 .hotel-container {
     display: flex;
     justify-content: space-between; 
    align-items: center; 
    margin-bottom: 20px; 
 }
-#catButtons{
-    display:flex;
-}
-
-.place-img{
-    width: 60px;
-    height: 60px
-}
-
-.place-details {
-    flex: 1;
-    margin-left: 10px;        
-    flex-direction: column; 
-    font-size: 13px;
-}
-
 
 .place-image{
     width: 60px;
     height: 60px;
 }
 
-.place-details{
-    flex: 1;
-    margin-left: 10px;        
-    flex-direction: column; 
-    font-size: 13px;
-}
 .hotel-img{
     width: 60px !important;
     height: 60px !important;
@@ -145,99 +77,6 @@
     height:100%;
     border: 1px solid rgb(89,220,209);
 }
-
-.place-info{
-    display:flex;	
-}
-
-.place-icons{
-    display: flex;
-    align-items: center;
-}
-
-.places {
-    width: 300px; 
-   height: 621px; 
-   overflow-y: auto;
-   padding: 10px;
-}
-
-.modal{
-    position:absolute;
-    width:100%; height:100%;
-    background: white;
-    top:0; left:0;
-    display:none;
-}
-
-#second-frame{
-    margin-right: 10px;
-    min-width: 300px;
-}
-
-#second-frame-container{
-    height: 100%;
-    width: 100%;
-}
-
-#view{
-    width: 500px;
-    
-    
-}
-
-.basket-frame{
-    width: 400px;
-}
-
-#map{
-    flex:1;
-}
-
-#btn-skyscanner{
-    width: 100%;
-}
-
-/* #calender-modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);        
-    background-color: white;
-    border: 1px solid #ccc;
-    
-}
-
-#calender-container {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-}
-
-#calender-header {
-    font-size: 20px;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-#calender-body {	
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.calender{
-	flex:1;
-	border: 1px solid #ccc;
-    height: 48%;
-    padding: 10px;
-}
-#calender-footer {
-    margin-top: 10px;
-    text-align: right;
-} */
 	
 </style>
 <script>
