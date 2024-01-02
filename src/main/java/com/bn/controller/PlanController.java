@@ -65,11 +65,11 @@ public class PlanController {
 	private MemberVo mvo;
 
 	@GetMapping("/plan")
-	public String plan(@RequestParam String search,Model model) {
+	public String plan(@RequestParam String search,Model model,HttpSession session) {
 		model.addAttribute("NAVER_MAPS_KEY", NAVER_MAPS_KEY);
 		model.addAttribute("NAVER_MAPS_SECRET_KEY", NAVER_MAPS_SECRET_KEY);
 		cityvo=pservice.cityloc(search);
-		model.addAttribute("cityvo",cityvo);
+		session.setAttribute("cityvo", cityvo);
 		return "plan";
 	}
 	@PostMapping("/plan")
@@ -163,7 +163,7 @@ public class PlanController {
     		dvo=Lvo.get(i);
     		n=pservice.insertDp(dvo);
     	}
-    	return "forward:/main.jsp";
+    	return "redirect:/main";
     }
     
     
@@ -178,21 +178,28 @@ public class PlanController {
     
     @GetMapping("/NewFile")
     public String go(Model model,HttpSession session) {
-    	String si=(String)session.getAttribute("userEmail");
-    	mvo=mService.getProfile(si);
-        model.addAttribute("m_id",mvo.getM_ID()); 
-        model.addAttribute("p_id",pservice.seq());
+    	model.getAttribute("m_id",session.getAttribute(m_id));
+    	model.getAttribute("hotels",session.getAttribute(hotels));
+    	model.getAttribute("places",session.getAttribute(places));
+    	model.getAttribute("startday",session.getAttribute(startday));
+    	model.getAttribute("endday",session.getAttribute(endday));
     	return "NewFile";
     }
 
     
     @PostMapping("/NewFile")
-    public String view4(@RequestBody PlaceDTO mydata,Model model, HttpSession session) {
-       model.addAttribute("mydata",mydata);
+    public String view4(@RequestBody PlaceDTO mydata, HttpSession session) {
        String si=(String)session.getAttribute("userEmail");
        mvo=mService.getProfile(si);
-       model.addAttribute("m_id",mvo.getM_ID()); 
-       return "/NewFile";
+       session.setAttribute("m_id",mvo.getM_ID());
+       session.setAttribute("hotels",mydata.getHotel());
+       session.setAttribute("places",mydata.getPlace());
+       session.setAttribute("startday",mydata.getStartdate());
+       session.setAttribute("endday",mydata.getEnddate());
+       System.out.println(mydata.getHotel().size());
+       session.getAttribute();
+       
+       return "redirect/NewFile";
     }
     @ResponseBody
     @RequestMapping("/countup")
