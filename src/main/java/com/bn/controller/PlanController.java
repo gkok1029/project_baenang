@@ -183,11 +183,7 @@ public class PlanController {
     	model.addAttribute("hotels",session.getAttribute("hotels"));
     	model.addAttribute("places",session.getAttribute("places"));
     	model.addAttribute("startday",session.getAttribute("startday"));
-    	model.addAttribute("endday",session.getAttribute("endday"));
-    	
-//    	System.out.println("startday : " + session.getAttribute("startday"));
-//    	System.out.println("endday : " + session.getAttribute("endday"));
-    	
+    	model.addAttribute("endday",session.getAttribute("endday"));    	
     	
     	
     	return "NewFile";
@@ -202,10 +198,6 @@ public class PlanController {
        session.setAttribute("places",mydata.getPlace());
        session.setAttribute("startday",mydata.getStartdate());
        session.setAttribute("endday",mydata.getEnddate());
-//       System.out.println(mydata.getHotel().size());
-       
-       	System.out.println("post startday : " + mydata.getStartdate());
-   		System.out.println("post endday : " + mydata.getEnddate());
        
        return "redirect/NewFile";
     }

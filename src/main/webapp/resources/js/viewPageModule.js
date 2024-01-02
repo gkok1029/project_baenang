@@ -60,8 +60,12 @@ let ViewPageModule = (function () {
         
         let h2Element = $("<h2>").text(cityname);
         firstChildDiv.append(h2Element);
-
-        let dateDiv = $("<div>").attr("id", "date").text("2023.12.22(금) - 2023.12.29(금)").append(
+		
+		let startDate = sessionStorage.getItem('startDate');
+        let endDate = sessionStorage.getItem('endDate');
+		console.log(startDate)
+		console.log(endDate)
+        let dateDiv = $("<div>").attr("id", "date").text(startDate + " ~ " + endDate).append(
             $("<div>").attr("id", "frame-calendar-button").append(
                 $("<button>").attr(
                     {
@@ -134,8 +138,8 @@ let ViewPageModule = (function () {
         tableElement.append(tableHeaderRow);
 
 
-        let startDate = new Date(sessionStorage.getItem('startDate'));
-        let endDate = new Date(sessionStorage.getItem('endDate'));
+        startDate = new Date(sessionStorage.getItem('startDate'));
+        endDate = new Date(sessionStorage.getItem('endDate'));
  		
  		function getDates(startDate, endDate) {
 		    let dateArray = [];
@@ -215,7 +219,8 @@ let ViewPageModule = (function () {
 
         // div.view-container 엘리먼트 생성
         let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1");
-        
+        let startDate2 = sessionStorage.getItem("startDate");
+        let endDate2 = sessionStorage.getItem("endDate");
         let firstChildDiv = $("<div>").append(
             $("<div>").append(
                 $("<div>").text(cityname),

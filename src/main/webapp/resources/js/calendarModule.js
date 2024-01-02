@@ -52,8 +52,10 @@ let CalendarModule = ( ()=>{
                     ),
                     $('<div>').append(
                     	$('<button>').addClass("confirm-button").attr("type","button").text("선택").on('click',function(){
-                    		$(".modal").hide();
+                    		
                     		ViewPageModule.step1Loding();
+                    		$(".modal").hide();
+                    		
                     	})
                     )
                 )                
@@ -158,6 +160,9 @@ let CalendarModule = ( ()=>{
 		
 		if(month<10){
 			month = "0" + month;
+		}
+		if(date<10){
+			date = "0" + date;
 		}
 		
 		let result = year + "-" + month + "-" + date
