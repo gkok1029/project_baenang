@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +20,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <!-- DatePicker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
 
 
 <meta charset="UTF-8">
@@ -289,7 +292,6 @@
 			
 		}
 	}	
-	
 </script>
 </head>
 <body>
@@ -375,10 +377,12 @@
 			$("body")
 		});
   	});
-	
 </script>
+
 	<!-- Bootstrap JS (must be placed at the end of the body for faster page loading) -->    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>    
-
+<%
+	String si=(String)session.getAttribute("userEmail");
+%>
 </body>
 </html>

@@ -50,8 +50,9 @@
         let p_id=${p_id};
         console.log(p_id);
         function calculateDateDifference() {
-            var startDateStr = $("#start_date").val();
-            var endDateStr = $("#end_date").val();
+            var startDateStr = "${startday}";  // 모델에서 받은 데이터 사용
+            var endDateStr = "${endday}";  // 모델에서 받은 데이터 사용
+
             if (startDateStr && endDateStr) {
                 var startDate = new Date(startDateStr);
                 var endDate = new Date(endDateStr);
@@ -67,7 +68,6 @@
                 }
                 var completeButton = $("<button class='complete-button' style='display:none;' onclick='completeDay()'>1일차 완료</button>");
                 $("#dpctn").append(completeButton);
-                completeButton.show();
              // 드롭다운 메뉴 생성
                 let dropdown = $("<select class='dropdown' id='dayDropdown'></select>");
                 for (let i = 1; i <= days; i++) {
@@ -201,6 +201,7 @@
 
         // 더미 데이터 생성
         $(document).ready(function () {
+        	calculateDateDifference();
         	let dummyctn=$('<div>').addClass("container").attr("id","dpctn");
         	$("body").append(dummyctn);
             <% for (int i = 1; i <= 15; i++) { %>
@@ -229,14 +230,6 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <h2>날짜 차이 계산기</h2>
-        <label for="start_date">시작 날짜:</label>
-        <input type="text" id="start_date" value="2023.12.20" readonly>
-        <label for="end_date">종료 날짜:</label>
-        <input type="text" id="end_date" value="2023.12.23" readonly>
-        <button onclick="calculateDateDifference()">날짜 차이 계산</button>
-    </div>
     <div id="result"></div>
 </body>
 
