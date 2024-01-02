@@ -40,7 +40,7 @@
             padding: 10px;
             border: 1px solid #ddd;
         }
-    </style>
+    </style>    
     <!-- Datepicker 초기화 스크립트 -->
     <script>
         let x = 1;
@@ -48,10 +48,11 @@
         let days = 0;
         let dpvoList=[];
         let p_id=${p_id};
-        console.log(p_id);
+        var startDateStr = "${startday}";  // 모델에서 받은 데이터 사용
+        var endDateStr = "${endday}";  // 모델에서 받은 데이터 사용
+        calculateDateDifference();
+        //console.log(p_id);
         function calculateDateDifference() {
-            var startDateStr = "${startday}";  // 모델에서 받은 데이터 사용
-            var endDateStr = "${endday}";  // 모델에서 받은 데이터 사용
 
             if (startDateStr && endDateStr) {
                 var startDate = new Date(startDateStr);
@@ -201,7 +202,7 @@
 
         // 더미 데이터 생성
         $(document).ready(function () {
-        	calculateDateDifference();
+        	
         	let dummyctn=$('<div>').addClass("container").attr("id","dpctn");
         	$("body").append(dummyctn);
             <% for (int i = 1; i <= 15; i++) { %>

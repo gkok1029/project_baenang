@@ -288,30 +288,37 @@ let PlanModule = ( ()=>{
 			}
 			
 			function Hselectend(){
-				 console.log(HcontentVo.length);
-				 
-				 var data = {
-				 			 pname:cityname+"여행",
-						     place: PcontentVo,
-						     hotel: HcontentVo,
-						     startday:"2024-01-02",
-						     endday:"2024-01-04"
-						 };
-						 $.ajax({
-							     type: "POST",
-							     url: "/NewFile",
-							     contentType: "application/json",
-							     data: JSON.stringify(data),
-							     success: function(response) {
-							     	//alert(response);
-							     	document.body.innerHTML=response;
-							     },
-							     error: function(error) {
-							        window.location.href = "/NewFile";
-							     }
-								});
-								removeDiv();
-								}
+				
+				//console.log(HcontentVo.length);
+				console.log("선택완료 실행")
+				let startdate = sessionStorage.getItem("startDate");
+				let enddate = sessionStorage.getItem("endDate");
+				console.log("startday : " + startdate);
+				console.log("endday : " + enddate);
+				
+				var data = {					
+				 	pname:cityname+"여행",
+					place: PcontentVo,
+					hotel: HcontentVo,
+					startdate : startdate,
+					enddate : enddate
+				};
+					
+				$.ajax({
+					type: "POST",
+					url: "/NewFile",
+					contentType: "application/json",
+					data: JSON.stringify(data),
+					success: function(response) {
+						//alert(response);
+					},
+					error: function(error) {
+						window.location.href = "/NewFile";
+					}
+				});
+				removeDiv();
+			}
+			
 	//호텔
     function displayLodgingInformation(contentList,x,y) {
 		var tcontainer = $('.places-container'); // 새로운 container 추가
