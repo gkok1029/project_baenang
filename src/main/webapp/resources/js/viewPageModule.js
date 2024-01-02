@@ -71,7 +71,9 @@ let ViewPageModule = (function () {
                         "data-target": "#calendarModal"
                     }
                 ).on('click',function(){
+
                     $('#calendar-modal').fadeIn();
+
                 })
                 .append(
                     $("<i>").addClass("far fa-calendar-days")
@@ -343,7 +345,7 @@ let ViewPageModule = (function () {
             $('<div>').addClass("place-add").attr("id","placeAdd").append(
                 //장소 추가 button
                 $('<i>').addClass("fa-regular fa-square-plus place-add-button").attr("id","Button"+content.contentid)
-                .click(function() { PlanModule.copyPlaceDiv("placeContainer"+content.contentid,content.contentid);
+                .click(function() { PlanModule.copyPlaceDiv("placeContainer"+content.contentid,content);
                 					sendCountupRequest(content.contentid);
                 })
                 														
@@ -439,7 +441,7 @@ let ViewPageModule = (function () {
             $('<div>').addClass("hotel-add").attr("id","hotelAdd").append(
                 //장소 추가 button
                 $('<i>').addClass("fa-regular fa-square-plus hotel-add-button").attr("id","Button"+content.contentid)
-                .click(function() { PlanModule.copyHotelDiv("hotelContainer"+content.contentid,content.contentid);
+                .click(function() { PlanModule.copyHotelDiv("hotelContainer"+content.contentid,content);
                 					sendCountupRequest(content.contentid);
                 })
             )
