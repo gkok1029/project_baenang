@@ -174,7 +174,8 @@ let SidebarModule = (function () {
             let totalDaysBtn = createSidebarButton("btn-totalDays","전체일정").on('click',function(){
                 console.log("전체일정")
             });
-            
+            let startDate = sessionStorage.getItem('startDate');
+			let endDate = sessionStorage.getItem('endDate');
 
             for(let i=1; i<=3;i++){
                 let button = createSidebarButton("btn-day"+i,i+"일차").on('click',function(){

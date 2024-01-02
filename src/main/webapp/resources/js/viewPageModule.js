@@ -37,12 +37,43 @@ let ViewPageModule = (function () {
           flag.remove();
         };
     }
+    
+	function getDay(day){
+		
+    	let dayOfWeek = new Date(day).getDay();
+    	
+    	switch (dayOfWeek) {
+		  	case 0:
+		    	return "(일)"
+		    	break;
+		  	case 1:
+		    	return "(월)"
+		    	break;
+		  	case 2:
+		    	return "(화)"
+		    	break;
+		  	case 3:
+		    	return "(수)"
+		    	break;
+		  	case 4:
+		    	return "(목)"
+		    	break;
+		  	case 5:
+		    	return "(금)"
+		    	break;
+		  	case 6:
+		    	return "(토)"
+		    	break;		  
+		}    	
+    }
+    
     function step1Loding(){
     	if( !sessionStorage.getItem('startDate') && !sessionStorage.getItem('endDate') ){
     		$('#calendar-modal').fadeIn();
     		return
     	}
-    	
+    	let startDate = sessionStorage.getItem("startDate");
+        let endDate = sessionStorage.getItem("endDate");
         // view-container이 이미 존재하는지 확인
         viewExistedCheck();
         
@@ -61,11 +92,8 @@ let ViewPageModule = (function () {
         let h2Element = $("<h2>").text(cityname);
         firstChildDiv.append(h2Element);
 		
-		let startDate = sessionStorage.getItem('startDate');
-        let endDate = sessionStorage.getItem('endDate');
-		console.log(startDate)
-		console.log(endDate)
-        let dateDiv = $("<div>").attr("id", "date").text(startDate + " ~ " + endDate).append(
+		
+        let dateDiv = $("<div>").attr("id", "date").text(startDate+getDay(startDate) + " ~ " + endDate+getDay(endDate)).append(
             $("<div>").attr("id", "frame-calendar-button").append(
                 $("<button>").attr(
                     {
@@ -91,18 +119,6 @@ let ViewPageModule = (function () {
 
         // 두 번째 하위 div 엘리먼트 생성
         let secondChildDiv = $("<div>");
-
-        // 스카이스캐너 링크
-        let linkElement = $("<a>").attr("href", "https://www.skyscanner.co.kr/transport/flights/sela/cju/231218/231220/?adultsv2=1&cabinclass=economy&childrenv2=&inboundaltsenabled=false&outboundaltsenabled=false&preferdirects=false&ref=home&rtn=1");
-
-        // 항공권 버튼
-        let buttonElement = $("<button>").attr("id","btn-skyscanner").text("항공권");
-
-        // 링크 아래에 항공권 버튼 조립
-        linkElement.append(buttonElement);
-
-        // 두 번째 하위 div에 링크 조립
-        secondChildDiv.append(linkElement);
 
         let timeInfoDiv = $("<div>").text("여행시간 상세설정 총 00시간 00분");
         secondChildDiv.append(timeInfoDiv);
@@ -169,8 +185,6 @@ let ViewPageModule = (function () {
 		    return formattedDate;
 		});
 		
-		// 결과 확인
-		console.log(tableData);
 		
 		// 시간을 두 자리로 포맷팅하는 함수
 		function formatTime(time) {
@@ -219,12 +233,18 @@ let ViewPageModule = (function () {
 
         // div.view-container 엘리먼트 생성
         let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1");
-        let startDate2 = sessionStorage.getItem("startDate");
-        let endDate2 = sessionStorage.getItem("endDate");
+        
+        if( !sessionStorage.getItem('startDate') && !sessionStorage.getItem('endDate') ){
+    		$('#calendar-modal').fadeIn();
+    		return
+    	}
+    	let startDate = sessionStorage.getItem("startDate");
+        let endDate = sessionStorage.getItem("endDate");
+        
         let firstChildDiv = $("<div>").append(
             $("<div>").append(
                 $("<div>").text(cityname),
-                $("<div>").addClass("trip-date").attr("id","tripDate").text("2023.12.26(화) - 2023.12.28(목)")
+                $("<div>").addClass("trip-date").attr("id","tripDate").text(startDate+getDay(startDate) + " ~ " + endDate+getDay(endDate))
             ),
             $("<div>").append(
                 $("<div>").append(
@@ -368,10 +388,17 @@ let ViewPageModule = (function () {
         // div.view-container 엘리먼트 생성
         let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1");
         
+        if( !sessionStorage.getItem('startDate') && !sessionStorage.getItem('endDate') ){
+    		$('#calendar-modal').fadeIn();
+    		return
+    	}
+    	let startDate = sessionStorage.getItem("startDate");
+        let endDate = sessionStorage.getItem("endDate");
+        
         let firstChildDiv = $("<div>").append(
             $("<div>").append(
                 $("<div>").text(cityname),
-                $("<div>").addClass("trip-date").attr("id","tripDate").text("2023.12.26(화) - 2023.12.28(목)")
+                $("<div>").addClass("trip-date").attr("id","tripDate").text(startDate+getDay(startDate) + " ~ " + endDate+getDay(endDate))
             ),
             $("<div>").append(
                 $("<div>").append(
@@ -519,10 +546,7 @@ let ViewPageModule = (function () {
             $("<div>").addClass("step5-header").attr("id","step5Header").append(
                 $("<div>").append(
                     $("<div>").text("도시명"),
-                    $("<div>").append("여행기간"),
-                    $("<div>").append(
-                        $("<button>").text("항공권")
-                    )
+                    $("<div>").append("여행기간")                    
                 ),
                 $("<div>").text("아이콘자리")
             ),
