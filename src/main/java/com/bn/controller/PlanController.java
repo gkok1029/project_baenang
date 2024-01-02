@@ -1,6 +1,8 @@
 package com.bn.controller;
 
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,24 +80,6 @@ public class PlanController {
 		return "NewFile";
 	}
 
-
-	@RequestMapping("/date")
-	public String saan() {
-		
-	
-		
-		return "drag";
-	}
-	
-	@PostMapping("/date2")
-	public void saa(@RequestBody Map<String,String> date) {
-		System.out.println(date);
-		
-		
-		
-	}
-	
-	
 	@ResponseBody
 	@RequestMapping("/myplan")
 	public ModelMap myplan(@RequestParam("p_id") int p_id) {
@@ -142,10 +126,6 @@ public class PlanController {
 		return map;
 	}
 	
-	
-
-
-	
     @ResponseBody
     @PostMapping("/registercontent")
 	public int registcontent(@RequestParam ContentVo cvo) {
@@ -153,8 +133,6 @@ public class PlanController {
     	
     	return n;
     }
-    
-    
     
     @PostMapping("/dpsave")
     public String dtailplan(@RequestBody List<DtailPlanVo> Lvo) {
@@ -167,14 +145,13 @@ public class PlanController {
     }
     
     
-    @PostMapping("/dpretrieve")
-    public List<DtailPlanVo> dtailplanretrieve(@RequestParam String p_id) {
+    @GetMapping("/dpretrieve")
+    public String dtailplanretrieve(@RequestParam String p_id,Model model) {
     		List<DtailPlanVo>Lvo=pservice.dpretrieve(p_id);
-    	
-    	
-    	return Lvo;
+    		 System.out.println(Lvo.size());
+    		 model.addAttribute("dplvo",Lvo);
+    	return "detail";
     }
-    	
     
     @GetMapping("/NewFile")
     public String go(Model model,HttpSession session) {
@@ -185,7 +162,7 @@ public class PlanController {
     	model.addAttribute("startday",session.getAttribute("startday"));
     	model.addAttribute("endday",session.getAttribute("endday"));    	
     	model.addAttribute("pname",session.getAttribute("pname"));
-    	return "NewFile";
+    	return "/NewFile";
     }
 
     @PostMapping("/NewFile")
@@ -198,8 +175,7 @@ public class PlanController {
        session.setAttribute("places",mydata.getPlace());
        session.setAttribute("startday",mydata.getStartdate());
        session.setAttribute("endday",mydata.getEnddate());
-       System.out.println(mydata.getStartdate());
-       return "redirect/NewFile";
+       return "redirect:/NewFile";
     }
     @ResponseBody
     @RequestMapping("/countup")
@@ -207,6 +183,13 @@ public class PlanController {
     	
     	dService.countup(contentid);
     }
-    
+    @ResponseBody
+    @GetMapping("/contentload")
+    public ContentVo contentload(@RequestParam String contentid) {
+    	System.out.println(contentid);
+    	cvo=dService.contentload(contentid);
+    	System.out.println(cvo);
+    	return cvo;
+    }
 
 }

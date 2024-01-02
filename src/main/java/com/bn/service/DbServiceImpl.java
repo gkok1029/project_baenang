@@ -34,4 +34,9 @@ public class DbServiceImpl implements DbService {
 	 this.contentMapper.countup(contentid);
 	}
 
+	@Override
+	public ContentVo contentload(String contentid) {
+		return this.contentMapper.contentload(contentid);
+	}
+
 }

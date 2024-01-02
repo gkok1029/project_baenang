@@ -126,7 +126,7 @@
 %>
             // 해당 호텔 데이터를 day+n의 마지막 자식으로 추가
             let hotelImgTag<%=i+1%> = $("<img>").addClass("content-image").attr("src", "<%= hotel.getFirstimage() %>").attr("alt", "호텔 이미지");
-            let hotelDummyDiv<%=i+1%> = $("<div>").addClass("night").attr("id", "<%= hotel.getContentid()+1000000 %>");
+            let hotelDummyDiv<%=i+1%> = $("<div>").addClass("night").attr("id", "<%= hotel.getContentid() %>");
             hotelDummyDiv<%=i+1%>.append(hotelImgTag<%=i+1%>);
             hotelDummyDiv<%=i+1%>.append("<br><span class='content-title'>제목: <%= hotel.getTitle() %></span>");
 
@@ -137,7 +137,7 @@
             <%
             if (i  < hotels.size()) {
              %> hotelImgTag<%=i+1%> = $("<img>").addClass("content-image").attr("src", "<%= hotel.getFirstimage() %>").attr("alt", "호텔 이미지");
-                hotelDummyDiv<%=i+1%> = $("<div>").addClass("dummy-data").attr("id", "<%= hotel.getContentid()+1000000 %>");
+                hotelDummyDiv<%=i+1%> = $("<div>").addClass("dummy-data").attr("id", "<%= hotel.getContentid() %>");
                 hotelDummyDiv<%=i+1%>.append(hotelImgTag<%=i+1%>);
                 hotelDummyDiv<%=i+1%>.append("<br><span class='content-title'>제목: <%= hotel.getTitle() %></span>");
 
@@ -233,7 +233,7 @@
             data: JSON.stringify(data), // JSON 형식으로 데이터 변환
             success: function (response) {
                 // 성공적으로 응답을 받았을 때 실행되는 부분
-                console.log('플랜저장성공');
+                
                 senddp();
 
             },
@@ -253,8 +253,7 @@
             data: JSON.stringify(dpvoList), // POST 데이터 설정
             success: function (res) {
                 // 성공적으로 응답을 받았을 때 실행되는 부분
-                console.log('dp저장성공');
-
+            	window.location.href = "/dpretrieve"?p_id="+p_id;
             },
             error: function (error) {
                 // 요청이 실패하면 실행되는 부분
