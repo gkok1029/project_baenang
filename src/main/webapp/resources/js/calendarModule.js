@@ -169,7 +169,7 @@ let CalendarModule = ( ()=>{
 		let existedStartDate = sessionStorage.getItem('startDate');
 		let existedEndDate = sessionStorage.getItem('endDate');
 		
-		if( existedStartDate && existedEndDate ){
+		if( (existedStartDate && existedEndDate) || ( !existedStartDate ) ){
 			sessionStorage.removeItem('endDate');
 			sessionStorage.removeItem('startDate');
 			sessionStorage.setItem('startDate',result);
