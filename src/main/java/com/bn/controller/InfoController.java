@@ -46,7 +46,6 @@ public class InfoController {
 			System.out.println("I'll show you CITYDATA");
 		}
 		model.addAttribute("civo",civo);
-		log.info("Last : "+civo);
 		
 		return "cityInfo";
 	}
@@ -68,7 +67,6 @@ public class InfoController {
 			System.out.println("Overview data is already exist!! I'll show you Tourinfo from DB");
 		}
 		model.addAttribute("convo",convo);
-		log.info("Last : "+convo);
 		
 		return "tourInfo";
 	}
