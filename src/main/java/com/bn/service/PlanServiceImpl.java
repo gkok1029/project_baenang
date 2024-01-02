@@ -58,4 +58,15 @@ public class PlanServiceImpl implements PlanService {
 		return this.planmapper.Csearch(keyword);
 	}
 
+	@Override
+	public List<DtailPlanVo> dpretrieve(String p_id) {
+		// TODO Auto-generated method stub
+		return this.planmapper.dpretrieve(p_id);
+	}
+
+	@Override
+	public int seq() {
+		return this.planmapper.seq();
+	}
+
 }

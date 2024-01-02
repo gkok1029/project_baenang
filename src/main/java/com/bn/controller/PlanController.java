@@ -1,7 +1,6 @@
 package com.bn.controller;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,8 +23,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bn.model.CityVo;
 import com.bn.model.ContentVo;
 import com.bn.model.DtailPlanVo;
+import com.bn.model.MemberVo;
+import com.bn.model.PlaceDTO;
 import com.bn.model.PlanVo;
 import com.bn.service.DbService;
+import com.bn.service.MemberService;
 import com.bn.service.PlanService;
 
 import lombok.extern.log4j.Log4j;
@@ -49,11 +51,18 @@ public class PlanController {
 	@Inject
 	private DbService dService;
 	
+	@Inject
+	private MemberService mService;
+	
 	private PlanVo pvo;
 	
 	private ContentVo cvo;
 	
+	private DtailPlanVo dvo;
+	
 	private CityVo cityvo;
+	
+	private MemberVo mvo;
 
 	@GetMapping("/plan")
 	public String plan(@RequestParam String search,Model model) {
@@ -63,24 +72,24 @@ public class PlanController {
 		model.addAttribute("cityvo",cityvo);
 		return "plan";
 	}
-	
 	@ResponseBody
-	@RequestMapping("/plan")
-	public String saveplan(@RequestBody PlanVo vo) {
+	@PostMapping("/plan")
+	public Model saveplan(@RequestBody PlanVo vo,Model model) {
 		int n=pservice.insert(vo);
-		String x="plan";
-	
+		int s=pservice.seq();
+		model.addAttribute("p_id",s);
+		System.out.println(s);
 		
-		return x;
+		return model;
 	}
 
 
 	@RequestMapping("/date")
 	public String saan() {
-		String x="date1";
+		
 	
 		
-		return x;
+		return "drag";
 	}
 	
 	@PostMapping("/date2")
@@ -149,50 +158,46 @@ public class PlanController {
     	
     	return n;
     }
-    @ResponseBody
+    
+    
+    
     @PostMapping("/dpsave")
-    public int dtailplan(@RequestParam DtailPlanVo vo) {
-    	int n=pservice.insertDp(vo);
-    	
-    	return n;
-    }
-    @ResponseBody
-    @PostMapping("/dpretrieve")
-    public int dtailplanretrieve(@RequestParam DtailPlanVo vo) {
-    	int n=pservice.insertDp(vo);
-    	
-    	return n;
+    public String dtailplan(@RequestBody List<DtailPlanVo> Lvo) {
+    	int n =0;
+    	for(int i=0;i<Lvo.size();i++) {
+    		dvo=Lvo.get(i);
+    		dvo.getP_id();
+    		n=pservice.insertDp(dvo);
+    	}
+    	return "";
     }
     
-    @GetMapping("/NewFile")
-    public String go() {
+    
+    @PostMapping("/dpretrieve")
+    public List<DtailPlanVo> dtailplanretrieve(@RequestParam String p_id) {
+    		List<DtailPlanVo>Lvo=pservice.dpretrieve(p_id);
     	
+    	
+    	return Lvo;
+    }
+    	
+    
+    @GetMapping("/NewFile")
+    public String go(Model model,HttpSession session) {
+    	String si=(String)session.getAttribute("userEmail");
+    	mvo=mService.getProfile(si);
+        model.addAttribute("m_id",mvo.getM_ID()); 
     	return "NewFile";
     }
 
-    @ResponseBody
+    
     @PostMapping("/NewFile")
-    public List<ContentVo> out(@RequestParam(required = false) String keyword, HttpSession session) {
-        List<ContentVo> contentList = (List<ContentVo>) session.getAttribute("contentList");
-        List<ContentVo> result = new ArrayList<>();
-        
-        if (contentList != null) {
-            
-            // contentList를 순회하면서 title을 추출하여 맵에 저장
-            for (int i = 0; i < contentList.size(); i++) {
-                ContentVo cvo = contentList.get(i);
-                String title = cvo.getTitle();
-
-                if (keyword != null && title.contains(keyword)) {
-                    result.add(cvo);
-                }
-
-                if (result.size() >= 5) {
-                    break;
-                }
-            }
-        }
-        return result;
+    public String view4(@RequestBody PlaceDTO mydata,Model model, HttpSession session) {
+       model.addAttribute("mydata",mydata);
+       String si=(String)session.getAttribute("userEmail");
+       mvo=mService.getProfile(si);
+       model.addAttribute("m_id",mvo.getM_ID()); 
+       return "/NewFile";
     }
     @ResponseBody
     @RequestMapping("/countup")

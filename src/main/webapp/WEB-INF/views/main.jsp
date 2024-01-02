@@ -28,7 +28,7 @@
     
 </head>
 
-<body>
+<body style="background-color:#0F46A4">
 
 <jsp:include page="/WEB-INF/views/top.jsp" />
 

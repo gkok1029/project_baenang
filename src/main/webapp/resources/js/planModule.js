@@ -135,21 +135,26 @@ let PlanModule = ( ()=>{
 			var countx = 0;
 			var count = document.createElement('div');
 			count.className = 'count';
-			
-			function copyPlaceDiv(sourceDivId) {
+			let pselectDiv;
+			let hselectDiv;
+			function copyPlaceDiv(sourceDivId,contentid) {
 			    var id = sourceDivId;
 			    // 클릭된 div의 내용을 가져오기
 			    var sourceDiv = document.getElementById(id);
 			    var divText = sourceDiv.innerHTML.trim();
-			
+				
 			    // 내용이 있는 경우에만 실행
 			    if (divText !== "") {
 			        // selected-container가 없을 경우
+			        
 			        var targetDiv = document.getElementById('selected-container');
-			        countx++; // 함수가 실행되었기 때문에 1 증가
-			        count.innerHTML = countx;
+			        
 			        if (!targetDiv) {
 			            // 새로운 div 생성
+			            if (document.getElementById('selected-container') || document.getElementById('hselected-container')) {
+    				removeDiv();}
+    					countx++; // 함수가 실행되었기 때문에 1 증가
+			        	count.innerHTML = "선택한 장소:"+countx+"개";
 			            var newDiv = document.createElement('div');
 			            newDiv.id = 'selected-container';
 			
@@ -157,46 +162,56 @@ let PlanModule = ( ()=>{
 			            selectedDiv.className = 'selected';
 			            selectedDiv.id = 'C' + sourceDivId;
 			            selectedDiv.innerHTML = divText;
-			
-			            var removebtn = document.createElement('button');
+			           
+						var removebtn = document.createElement('button');
 			            removebtn.innerHTML = 'Remove Div';
 			            removebtn.addEventListener('click', removeDiv);
 			
 			            var resetbtn = document.createElement('button');
 			            resetbtn.innerHTML = 'Reset Div';
 			            resetbtn.addEventListener('click', resetDiv);
-			
-			           var removeCDivbtn = document.createElement('button');
-						   removeCDivbtn.innerHTML = 'Remove C Div';
-						   removeCDivbtn.addEventListener('click', function() {
-						   removeCDiv(selectedDiv.id);
-						   });
+						
+						var endbtn=document.createElement('button');
+						endbtn.innerHTML="선택 완료";
+						endbtn.id='endsel';
+						endbtn.addEventListener('click', selectend)						
 			
 			            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
 			            var destinationContainer = document.getElementById("wrapcontainer");
-			            var mapw = document.getElementById("map");
+			            var mapw = document.getElementById("map-container");
 			            mapw.parentNode.insertBefore(newDiv, mapw);
 			
 			            newDiv.appendChild(count);
 			            newDiv.appendChild(removebtn); // 버튼을 count 다음으로 추가
 			            newDiv.appendChild(resetbtn); // 리셋 버튼을 removebtn 다음으로 추가
 			            newDiv.appendChild(selectedDiv);
-			            selectedDiv.appendChild(removeCDivbtn); // Remove C Div 버튼을 selectedDiv 다음으로 추가
+			            newDiv.appendChild(endbtn);
+			            
+			            // JavaScript DOM을 이용한 선택
+			           var parentContainer = document.getElementById("CplaceContainer"+contentid);
+						var newbutton = parentContainer.querySelector('#Button'+contentid);
+						// 이벤트 핸들러 연결
+						newbutton.addEventListener('click', function() {
+						    removeCDiv(selectedDiv);
+						});
 			        } else {
+			        	countx++; // 함수가 실행되었기 때문에 1 증가
+			        	count.innerHTML = "선택한 장소:"+countx+"개";
 			            // 이미 존재하는 selected-container에 내용 추가
 			            var selectedDiv = document.createElement('div');
 			            selectedDiv.className = 'selected';
 			            selectedDiv.id = 'C' + sourceDivId;
 			            selectedDiv.innerHTML = divText;
-			            var removeCDivbtn = document.createElement('button');
-						   removeCDivbtn.innerHTML = 'Remove C Div';
-						   removeCDivbtn.addEventListener('click', function() {
-						   removeCDiv(selectedDiv.id);
-						   });
-						selectedDiv.appendChild(removeCDivbtn);
 			            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
-			            targetDiv.appendChild(selectedDiv);
-			            selectedDiv.appendChild(removeCDivbtn);
+			            var endbtn=document.getElementById('endsel');
+			            targetDiv.insertBefore(selectedDiv,endbtn);
+			            // JavaScript DOM을 이용한 선택
+			           var parentContainer = document.getElementById("CplaceContainer"+contentid);
+						var newbutton = parentContainer.querySelector('#Button'+contentid);
+						// 이벤트 핸들러 연결
+						newbutton.addEventListener('click', function() {
+						    removeCDiv(selectedDiv);
+						});
 			        }
 			    }
 			}
@@ -206,16 +221,25 @@ let PlanModule = ( ()=>{
 			    count.innerHTML = countx; // count도 초기화
 			
 			    var Div = document.getElementById("selected-container");
+			    if(Div){
 			    var parent = Div.parentNode;
-			
-			    if (parent) {
+			     if (parent) {
 			        parent.removeChild(Div);
+			    }}
+			    
+			    var HDiv = document.getElementById("hselected-container");
+			    if(HDiv){
+			    
+			    var Hparent = HDiv.parentNode;
+					
+			    if (Hparent) {
+			        Hparent.removeChild(HDiv);
 			    }
-			}
+			}}
 			
 			function resetDiv() {
 			    countx = 0; // countx 값을 0으로 초기화
-			    count.innerHTML = countx; // count도 초기화
+			    count.innerHTML = "선택한 장소:"+countx+"개"; // count도 초기화
 			
 			    var selectedDivs = document.getElementsByClassName("selected");
 			    var parent;
@@ -231,17 +255,48 @@ let PlanModule = ( ()=>{
 			
 			function removeCDiv(selectedDiv) {
 			    countx--; // countx 값을 0으로 초기화
-			    count.innerHTML = countx; // count도 초기화
+			    count.innerHTML = "선택한 장소:"+countx+"개"; // count도 초기화
 			
-			    var Div = document.getElementById(selectedDiv);
+			    var Div = document.getElementById(selectedDiv.id);
 			    var parent = Div.parentNode;
 			
 			    if (parent) {
 			        parent.removeChild(Div);
+			   		
 			    }
+			    
 			}
-
-
+			function selectend(){
+				 $(".view").attr("id","view3");
+				 pselectDiv=document.getElementById('selected-container');
+				 removeDiv();
+                 ViewPageModule.viewPageLoding();
+                 lodging(x,y);
+                 SidebarModule.initialize();
+                 ViewPageModule.showView('view3', '#btn-step3');
+                 
+               
+			}
+			function Hselectend(){
+				 hselectDiv=document.getElementById('hselected-container');
+				 removeDiv();
+				 var data = {
+				 			 pname:cityname+"여행",
+						     place: pselectDiv,
+						     hotel: hselectDiv
+						 };
+						 $.ajax({
+							     type: "POST",
+							     url: "/NewFile",
+							     contentType: "application/json",
+							     data: JSON.stringify(data),
+							     success: function(response) {
+							     },
+							     error: function(error) {
+							        console.error(error);
+							     }
+								});
+								}
 	//호텔
     function displayLodgingInformation(contentList,x,y) {
 		var tcontainer = $('.places-container'); // 새로운 container 추가
@@ -257,7 +312,6 @@ let PlanModule = ( ()=>{
 		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
 
 			var content = contentList[i];
-			console.log(content.title);
 			var contentid=content.contentid;
 			let url = "/tourInfo?contentid=" + contentid;
 			// 새로운 div 동적으로 생성
@@ -290,11 +344,9 @@ let PlanModule = ( ()=>{
 
 		// 추가로 필요한 정보는 여기에 계속 추가할 수 있습니다.
 	}
-			var county = 0;
-			var county = document.createElement('div');
-			county.className = 'count';
+			
 	
-	function copyHodelDiv(sourceDivId) {
+	function copyHotelDiv(sourceDivId,contentid) {
 			    var id = sourceDivId;
 			    // 클릭된 div의 내용을 가져오기
 			    var sourceDiv = document.getElementById(id);
@@ -303,13 +355,16 @@ let PlanModule = ( ()=>{
 			    // 내용이 있는 경우에만 실행
 			    if (divText !== "") {
 			        // selected-container가 없을 경우
-			        var targetDiv = document.getElementById('selected-container');
-			        county++; // 함수가 실행되었기 때문에 1 증가
-			        count.innerHTML = county;
+			        var targetDiv = document.getElementById('hselected-container');
+			        
 			        if (!targetDiv) {
+			        if (document.getElementById('selected-container') || document.getElementById('hselected-container')) {
+    				removeDiv();}
+    				countx++; // 함수가 실행되었기 때문에 1 증가
+			        count.innerHTML = countx;
 			            // 새로운 div 생성
 			            var newDiv = document.createElement('div');
-			            newDiv.id = 'selected-container';
+			            newDiv.id = 'hselected-container';
 			
 			            var selectedDiv = document.createElement('div');
 			            selectedDiv.className = 'selected';
@@ -323,40 +378,48 @@ let PlanModule = ( ()=>{
 			            var resetbtn = document.createElement('button');
 			            resetbtn.innerHTML = 'Reset Div';
 			            resetbtn.addEventListener('click', resetDiv);
-			
-			           var removeCDivbtn = document.createElement('button');
-						   removeCDivbtn.innerHTML = 'Remove C Div';
-						   removeCDivbtn.addEventListener('click', function() {
-						   removeCDiv(selectedDiv.id);
-						   });
+			            
+			            var endbtn=document.createElement('button');
+						endbtn.innerHTML="선택 완료";
+						endbtn.id='endHsel';
+						endbtn.addEventListener('click', Hselectend);	
 			
 			            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
 			            var destinationContainer = document.getElementById("wrapcontainer");
-			            var mapw = document.getElementById("map");
+			            var mapw = document.getElementById("map-container");
 			            mapw.parentNode.insertBefore(newDiv, mapw);
 			
 			            newDiv.appendChild(count);
 			            newDiv.appendChild(removebtn); // 버튼을 count 다음으로 추가
 			            newDiv.appendChild(resetbtn); // 리셋 버튼을 removebtn 다음으로 추가
 			            newDiv.appendChild(selectedDiv);
-			            selectedDiv.appendChild(removeCDivbtn); // Remove C Div 버튼을 selectedDiv 다음으로 추가
+			            newDiv.appendChild(endbtn);
+			            var parentContainer = document.getElementById("ChotelContainer"+contentid);
+						var newbutton = parentContainer.querySelector('#Button'+contentid);
+						// 이벤트 핸들러 연결
+						console.log(newbutton);
+						newbutton.addEventListener('click', function() {
+						    removeCDiv(selectedDiv);});
 			        } else {
+			        countx++; // 함수가 실행되었기 때문에 1 증가
+			        count.innerHTML = countx;
 			            // 이미 존재하는 selected-container에 내용 추가
 			            var selectedDiv = document.createElement('div');
 			            selectedDiv.className = 'selected';
 			            selectedDiv.id = 'C' + sourceDivId;
 			            selectedDiv.innerHTML = divText;
-			            var removeCDivbtn = document.createElement('button');
-						   removeCDivbtn.innerHTML = 'Remove C Div';
-						   removeCDivbtn.addEventListener('click', function() {
-						   removeCDiv(selectedDiv.id);
-						   });
-						selectedDiv.appendChild(removeCDivbtn);
 			            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
-			            targetDiv.appendChild(selectedDiv);
-			            selectedDiv.appendChild(removeCDivbtn);
-			        }
+			            var endbtn=document.getElementById('endhsel');
+			            targetDiv.insertBefore(selectedDiv,endbtn);
+			            // JavaScript DOM을 이용한 선택
+			           var parentContainer = document.getElementById("CplaceContainer"+contentid);
+						var newbutton = parentContainer.querySelector('#Button'+contentid);
+						// 이벤트 핸들러 연결
+						newbutton.addEventListener('click', function() {
+						    removeCDiv(selectedDiv);
+						});
 			    }
+			}
 			}
 			
 			
@@ -503,6 +566,8 @@ let PlanModule = ( ()=>{
 		cafe : cafe,
 		attraction : attraction,
 		openModal:openModal,
-		copyPlaceDiv:copyPlaceDiv
+		copyPlaceDiv:copyPlaceDiv,
+		copyHotelDiv:copyHotelDiv,
+		removeDiv:removeDiv
     };
 })();
