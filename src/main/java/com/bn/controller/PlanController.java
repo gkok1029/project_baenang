@@ -131,13 +131,13 @@ public class PlanController {
 		session.setAttribute("contentList",nd);
 		//cd.put("contentList.get(ContentVo).size", map.get(ContentVo));
 		}catch (NumberFormatException e) {
-	        // �닽�옄 蹂��솚 以� �삁�쇅 諛쒖깮 �떆 泥섎━
+	        // 占쎈떭占쎌쁽 癰귨옙占쎌넎 餓ο옙 占쎌굙占쎌뇚 獄쏆뮇源� 占쎈뻻 筌ｌ꼶�봺
 	        map.addAttribute("error", "Invalid coordinates. Please provide valid numeric values for x and y.");
-	        e.printStackTrace(); // �삁�쇅 濡쒓렇 異쒕젰 (媛쒕컻 以묒뿉留� �궗�슜, �슫�쁺�뿉�꽌�뒗 濡쒓퉭 �떆�뒪�뀥 �솢�슜)
+	        e.printStackTrace(); // 占쎌굙占쎌뇚 嚥≪뮄�젃 �빊�뮆�젾 (揶쏆뮆而� 餓λ쵐肉됵쭕占� 占쎄텢占쎌뒠, 占쎌뒲占쎌겫占쎈퓠占쎄퐣占쎈뮉 嚥≪뮄�돪 占쎈뻻占쎈뮞占쎈�� 占쎌넞占쎌뒠)
 	    } catch (Exception e) {
-	        // �떎瑜� �삁�쇅 諛쒖깮 �떆 泥섎━
+	        // 占쎈뼄�몴占� 占쎌굙占쎌뇚 獄쏆뮇源� 占쎈뻻 筌ｌ꼶�봺
 	        map.addAttribute("error", "An unexpected error occurred.");
-	        e.printStackTrace(); // �삁�쇅 濡쒓렇 異쒕젰 (媛쒕컻 以묒뿉留� �궗�슜, �슫�쁺�뿉�꽌�뒗 濡쒓퉭 �떆�뒪�뀥 �솢�슜)
+	        e.printStackTrace(); // 占쎌굙占쎌뇚 嚥≪뮄�젃 �빊�뮆�젾 (揶쏆뮆而� 餓λ쵐肉됵쭕占� 占쎄텢占쎌뒠, 占쎌뒲占쎌겫占쎈퓠占쎄퐣占쎈뮉 嚥≪뮄�돪 占쎈뻻占쎈뮞占쎈�� 占쎌넞占쎌뒠)
 	    }
 		return map;
 	}
@@ -184,8 +184,7 @@ public class PlanController {
     	model.addAttribute("places",session.getAttribute("places"));
     	model.addAttribute("startday",session.getAttribute("startday"));
     	model.addAttribute("endday",session.getAttribute("endday"));    	
-    	
-    	
+    	model.addAttribute("pname",session.getAttribute("pname"));
     	return "NewFile";
     }
 
@@ -194,11 +193,12 @@ public class PlanController {
        String si=(String)session.getAttribute("userEmail");
        mvo=mService.getProfile(si);
        session.setAttribute("m_id",mvo.getM_ID());
+       session.setAttribute("pname", mydata.getPname());
        session.setAttribute("hotels",mydata.getHotel());
        session.setAttribute("places",mydata.getPlace());
        session.setAttribute("startday",mydata.getStartdate());
        session.setAttribute("endday",mydata.getEnddate());
-       
+       System.out.println(mydata.getStartdate());
        return "redirect/NewFile";
     }
     @ResponseBody
