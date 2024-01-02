@@ -183,12 +183,22 @@
             let afterDiv = targetDiv.find('.night:last');
             let newDiv = sourceDiv.clone();
             newDiv.find('button').attr('onclick', 'removedp(this)');
-            newDiv.insertBefore(afterDiv);
+            
+            if (afterDiv.length > 0) {
+                newDiv.insertBefore(afterDiv);
+            } else {
+                targetDiv.append(newDiv);
+            }
+
             sourceDiv.remove();
             y++;
         }
-        if(y==7)completeDay();
+
+        if (y == 7) {
+            completeDay();
+        }
     }
+
 
     function removedp(button) {
         let parentDiv = $(button).parent();

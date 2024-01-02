@@ -271,7 +271,6 @@ let ViewPageModule = (function () {
 	        // 장소 리스트 생성 테이블 div
 	        let placesContainerDiv = $('<div>').addClass('places-container').attr("id","placesContainer");
 	        
-	
 	        //부모 엘리먼트 view
 	        parentElement.append(
 	            // div.view-container
