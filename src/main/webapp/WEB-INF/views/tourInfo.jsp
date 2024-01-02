@@ -45,7 +45,7 @@
 		width:55%;
 	}
 	#bt{
-		width:9%;
+		width:10%;
 		margin:auto;
 	}
 </style>

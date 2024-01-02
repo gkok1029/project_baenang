@@ -55,6 +55,7 @@
 .hotel-img{
     width: 60px !important;
     height: 60px !important;
+    border-radius: 5px;
 }
 
 .hotel-details{
@@ -72,6 +73,7 @@
 .view-container {
     border: 1px solid black;
     margin-right: 0;
+    padding:5px;
 }
 
 #selected-container,#hselected-container {
