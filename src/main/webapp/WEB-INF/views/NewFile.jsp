@@ -53,11 +53,8 @@
         calculateDateDifference();
         //console.log(p_id);
         function calculateDateDifference() {
-
             if (startDateStr && endDateStr) {
-                var startDate = new Date(startDateStr);
-                var endDate = new Date(endDateStr);
-                var timeDiff = endDate - startDate;
+                var timeDiff = endDateStr - startDateStr;
                 var nights = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
                 days = nights + 1;
                 $("#result").text("총 " + nights + "박 " + days + "일 일정입니다.");
