@@ -172,13 +172,6 @@ let ViewPageModule = (function () {
 		function formatTime(time) {
 		    return time < 10 ? `0${time}` : `${time}`;
 		}
- 		
-		// 테이블 데이터 생성
-        // let tableData = [
-        //   	['12/18', '월', '오전 10:00', '오후 10:00'],
-        //   	['12/19', '화', '오전 10:00', '오후 10:00'],
-        //   	['12/20', '수', '오전 10:00', '오후 10:00']
-        // ];
  
         $.each(tableData, function (_, rowData) {
           let trElement = $("<tr>");

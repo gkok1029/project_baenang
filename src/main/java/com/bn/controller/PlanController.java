@@ -178,11 +178,18 @@ public class PlanController {
     
     @GetMapping("/NewFile")
     public String go(Model model,HttpSession session) {
-    	model.getAttribute("m_id",session.getAttribute(m_id));
-    	model.getAttribute("hotels",session.getAttribute(hotels));
-    	model.getAttribute("places",session.getAttribute(places));
-    	model.getAttribute("startday",session.getAttribute(startday));
-    	model.getAttribute("endday",session.getAttribute(endday));
+    	model.addAttribute("p_id",pservice.seq());
+    	model.addAttribute("m_id",session.getAttribute("m_id"));
+    	model.addAttribute("hotels",session.getAttribute("hotels"));
+    	model.addAttribute("places",session.getAttribute("places"));
+    	model.addAttribute("startday",session.getAttribute("startday"));
+    	model.addAttribute("endday",session.getAttribute("endday"));
+    	
+//    	System.out.println("startday : " + session.getAttribute("startday"));
+//    	System.out.println("endday : " + session.getAttribute("endday"));
+    	
+    	
+    	
     	return "NewFile";
     }
 
@@ -195,8 +202,10 @@ public class PlanController {
        session.setAttribute("places",mydata.getPlace());
        session.setAttribute("startday",mydata.getStartdate());
        session.setAttribute("endday",mydata.getEnddate());
-       System.out.println(mydata.getHotel().size());
-       session.getAttribute();
+//       System.out.println(mydata.getHotel().size());
+       
+       	System.out.println("post startday : " + mydata.getStartdate());
+   		System.out.println("post endday : " + mydata.getEnddate());
        
        return "redirect/NewFile";
     }
