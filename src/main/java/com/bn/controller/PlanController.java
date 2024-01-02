@@ -186,7 +186,6 @@ public class PlanController {
     	return "NewFile";
     }
 
-    
     @PostMapping("/NewFile")
     public String view4(@RequestBody PlaceDTO mydata, HttpSession session) {
        String si=(String)session.getAttribute("userEmail");
