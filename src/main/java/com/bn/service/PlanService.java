@@ -9,6 +9,8 @@ import com.bn.model.PlanVo;
 public interface PlanService {
 	public int insert(PlanVo vo);
 	
+	public int seq();
+	
 	public PlanVo selectPlan(int p_id);
 	
 	public List<PlanVo> selectAll(int m_id);
@@ -20,5 +22,6 @@ public interface PlanService {
 	public int delplan(int p_id);
 	
 	public String[]Csearch(String keyword);
-
+	
+	public List<DtailPlanVo> dpretrieve(String p_id);
 }
