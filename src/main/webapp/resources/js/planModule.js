@@ -88,7 +88,6 @@ let PlanModule = ( ()=>{
 
     function displayTourInformation(contentList,x,y) {
 		var tcontainer = $('.places-container'); // 새로운 container 추가
-		
 		//var container = document.getElementById('travels-container');
 		// 기존 내용 비우기
 		tcontainer.empty();
