@@ -113,13 +113,8 @@ public class MemberController {
 			dir.mkdirs();
 		}
 		
-		List<PageVo> distinctPlans = plan.stream()
-			    .collect(Collectors.toMap(PageVo::getP_id, Function.identity(), (p1, p2) -> p1))
-			    .values()
-			    .stream()
-			    .collect(Collectors.toList());
 		m.addAttribute("user", user);
-		m.addAttribute("plan", distinctPlans);
+		m.addAttribute("plan", plan);
 		return "myPage";
 	}
 	
