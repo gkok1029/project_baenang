@@ -79,7 +79,6 @@
 #selected-container,#hselected-container {
     min-width: 300px;
     width: 300px;
-    height:100%;
     border: 1px solid rgb(89,220,209);
 }
 	

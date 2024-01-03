@@ -1,0 +1,7 @@
+ create or replace view mypageView
+ as
+ SELECT c.firstimage, p.*, dp.dp_start, dp.dp_end
+ FROM planner p
+ full outer JOIN Detail_Planner dp ON p.p_id = dp.p_id
+ full outer JOIN Content c ON dp.contentid = c.contentid;
+

@@ -2,10 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" href="../resources/css/top.css">
+<link rel="stylesheet" href="/resources/css/top.css">
 <header id=top>
 	<div id="topL">
-		<a href="/user/main"><img alt="LOGO" src="../resources/img/LOGO.png"></a>
+		<a href="/user/main"><img alt="LOGO" src="/resources/img/LOGO.png"></a>
 	</div>
 	<%-- -------------------------------- 탑 네비게이션 -------------------------------- --%>
 	<%
@@ -27,7 +27,7 @@
     <div id="topR">
 	    <ul class="nav">
 	    	<li><a href="/main">홈</a></li>
-	    	<li><a href="/blog/bloghub">블로그</a></li>
+	    	<li><a href="/user/blog/bloghub">여행엽서</a></li>
 	    	<% if (isMainPage) { %>
     	  	<li><a href="#" onclick="scrollToTravelInfo()">여행지</a></li>
     	  	<% } %>

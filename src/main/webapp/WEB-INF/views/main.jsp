@@ -114,38 +114,40 @@
 <div id="blogTitle">
 	<h2>오 늘 의 엽 서</h2>
 </div>
-<section class="py-1">
-		<div class="container px-4 px-lg-5 mt-5">
-			<div
-				class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-				<c:forEach items="${posts}" var="post">
-					<div class="col mb-5">
-						<div class="card h-100">
-							<a href='/blog/get?p_id=${post.p_id}' > <img
-								class="card-img-top"
-								src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-							<div class="card-body p-4">
-								<div class="text-center">
-									<h5 class="fw-bolder">
-										<c:out value="${post.p_title}" />
-									</h5>
-									<c:out value="${post.m_nname}" />
+<section class="py-5">
+				<div class="container px-4 px-lg-5 mt-5">
+					<div
+						class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+						<c:forEach items="${posts}" var="post" begin="0" end="3">
+							<div class="col mb-5">
+								<div class="card h-100">
+									<a href='/user/blog/get?p_id=<c:out value="${post.p_id}"/>'> <c:if
+											test="${not empty post.i_name}">
+											<!-- If there is an image, display it -->
+											<img class="card-img-top" alt=""
+												src="/resources/postImage/${post.i_name}">
+										</c:if> <c:if test="${empty post.i_name}">
+											<!-- If there is no image, display a default image -->
+											<img class="card-img-top" alt=""
+												src="/resources/postImage/defaultimage.png">
+										</c:if>
+										<div class="card-body p-4">
+											<div class="text-center">
+												<h5 class="fw-bolder">
+													<c:out value="${post.p_title}" />
+												</h5>
+												<c:out value="${post.m_nname}" />
+											</div>
+										</div>
+									</a>
 								</div>
 							</div>
-							<!-- Product actions-->
-							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-								<div class="text-center">
-									<a class="btn btn-outline-dark mt-auto" href="#">View
-										options</a>
-								</div>
-							</div>
-							</a>
-						</div>
+						</c:forEach>
+
 					</div>
-				</c:forEach>
-			</div>
-		</div>
-	</section>
+				</div>
+			</section>
 
 <link href="/resources/css/styles.css" rel="stylesheet" />
 

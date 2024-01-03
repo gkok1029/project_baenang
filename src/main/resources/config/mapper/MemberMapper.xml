@@ -10,25 +10,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getPlanList" resultType="Page" parameterType="Page">
-		<!-- select * from (
-	    select pl.*, (select min(dp_start) from detail_planner where pl.p_id = p_id) dp_start,
-	    (select max(dp_end) from detail_planner where pl.p_id = p_id) dp_end
-	    from planner pl) where m_id = #{m_id} -->
-	    select *
-        from mypageView  where m_id=#{m_id}
-	    <if test="filter == 'recentday1'">
-    		order by p_moddate asc
-	    </if>
-	    <if test="filter == 'recentday2'">
-    		order by p_moddate desc
-	    </if>
-	    <if test="filter == 'travelday1'">
-    		order by dp_start asc
-	    </if>
-	    <if test="filter == 'travelday2'">
-    		order by dp_start desc
-	    </if>
-	</select>
+    SELECT DISTINCT p_id, firstImage, m_id, p_name, p_birth, p_moddate, dp_start, dp_end
+    FROM mypageView
+    WHERE m_id = #{m_id}
+    <if test="filter == 'recentday1'">
+        ORDER BY p_moddate ASC
+    </if>
+    <if test="filter == 'recentday2'">
+        ORDER BY p_moddate DESC
+    </if>
+    <if test="filter == 'travelday1'">
+        ORDER BY dp_start ASC
+    </if>
+    <if test="filter == 'travelday2'">
+        ORDER BY dp_start DESC
+    </if>
+</select>
 	
 	<update id="updatePwd" parameterType="Member">
 		update member set m_pwd=#{M_PWD} where m_id=#{M_ID}

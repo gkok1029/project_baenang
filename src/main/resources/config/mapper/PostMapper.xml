@@ -7,20 +7,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getList" resultType="Post">
 		<![CDATA[
 		SELECT post.*
-		, member.m_image
-		, member.m_nname
-		, img.I_ID
-		, img.I_PATH
-		, img.I_BIRTH
-		, img.I_NAME
-		, img.I_NAME2
-		, img_diretory.DIR_ID
-		, img_diretory.DIR_NUM
-		FROM post
-		FULL OUTER JOIN member ON post.m_id = member.m_id
-		FULL OUTER JOIN img_diretory ON post.p_id = img_diretory.p_id
-		FULL OUTER JOIN img ON img.I_ID = img_diretory.I_ID
-		WHERE post.p_id > 0
+	, member.m_image
+	, member.m_nname
+	, img.I_ID
+	, img.I_PATH
+	, img.I_BIRTH
+	, img.I_NAME
+	, img.I_NAME2
+	, img_diretory.DIR_ID
+	, img_diretory.DIR_NUM
+	FROM post
+	FULL OUTER JOIN member ON post.m_id = member.m_id
+	FULL OUTER JOIN img_diretory ON post.p_id = img_diretory.p_id
+	FULL OUTER JOIN img ON img.I_ID = img_diretory.I_ID
+	WHERE post.p_id > 0
+	ORDER BY post.p_id DESC
 		]]>
 	</select>
 
@@ -54,9 +55,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FULL OUTER JOIN img ON img.I_ID = img_diretory.I_ID
 		WHERE post.p_id = #{p_id}
 	</select>
-
+	
+	<delete id="deleteImgD">
+		DELETE FROM img_diretory 
+		WHERE p_id = #{p_id}
+	</delete>
+	
 	<delete id="postDelete">
-		delete from post where p_id = #{p_id}
+		DELETE FROM post
+		WHERE p_id = #{p_id}
 	</delete>
 
 	<update id="modPost">

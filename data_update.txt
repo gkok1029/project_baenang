@@ -1904,3 +1904,8 @@ UPDATE content SET contenttypeid = 38, code = 'A04011000', title = 'VOV', tel = 
 UPDATE content SET contenttypeid = 32, code = 'B02010100', title = 'WE호텔', tel = '064-730-1200', addr = '제주특별자치도 서귀포시 1100로 453-95', firstimage = 'http://tong.visitkorea.or.kr/cms/resource/42/2931642_image2_1.jpg', mapx = 126.4439404253, mapy = 33.2860916001, count = 425 WHERE contentid = 2499031;
 UPDATE content SET contenttypeid = 39, code = 'A05020900', title = 'woody glade', tel = '', addr = '제주특별자치도 서귀포시 솔동산로 26-6', firstimage = 'http://tong.visitkorea.or.kr/cms/resource/05/2904405_image2_1.jpg', mapx = 126.5632393864, mapy = 33.2427454939, count = 496 WHERE contentid = 2904412;
 UPDATE content SET contenttypeid = 39, code = 'A05020300', title = '[백년가게]향원복집', tel = '064-762-2341', addr = '제주특별자치도 서귀포시 부두로 43', firstimage = 'http://tong.visitkorea.or.kr/cms/resource/14/2563314_image2_1.jpg', mapx = 126.5648726139, mapy = 33.2411790255, count = 411 WHERE contentid = 2563236;
+
+UPDATE content
+SET COUNT = 3
+WHERE firstimage IS NOT NULL;
+

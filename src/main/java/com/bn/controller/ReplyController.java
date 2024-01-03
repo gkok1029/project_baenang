@@ -42,25 +42,25 @@ public class ReplyController {
 	
 	
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
-	public String posttWirte(ReplyVo vo, RedirectAttributes rttr, HttpSession session) throws Exception {
-		replyservice.register(vo);
+	public String posttWirte(ReplyVo replyvo, RedirectAttributes rttr, HttpSession session) throws Exception {
+		replyservice.register(replyvo);
 		String userEmail =  (String)session.getAttribute("userEmail");
 		int n = replyservice.searchPid(userEmail);
-		vo.setM_id(n);
-		rttr.addFlashAttribute("results", vo.getP_id());
+		replyvo.setM_id(n);
+		rttr.addFlashAttribute("results", replyvo.getP_id());
 		
-		return "redirect:/blog/get?p_id=" + vo.getP_id();
+		return "redirect:/blog/get?p_id=" + replyvo.getP_id();
 	}
 	
 	@PostMapping("/remove")
-	public String remove(ReplyVo vo, @RequestParam("r_id") int r_id, RedirectAttributes rttr) {
+	public String remove(ReplyVo replyvo, @RequestParam("r_id") int r_id, RedirectAttributes rttr) {
 		
 		log.info("remove......." + r_id);
 		
 		if(service.remove(r_id)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/blog/get?p_id=" + vo.getP_id();
+		return "redirect:/blog/get?p_id=" + replyvo.getP_id();
 	}
 	
 }

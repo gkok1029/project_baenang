@@ -16,7 +16,10 @@
 .ck-content {
 	font-size: 12px;
 }
-
+/* .uploadDiv {
+    text-align: center;
+    margin: 0 auto;
+} */
 </style>
 
 <link href="/resources/css/styles.css" rel="stylesheet" />
@@ -34,7 +37,7 @@
 	<div class="container px-4 px-lg-5 my-5">
 		<div class="text-center text-white">
 
-			<h1>배 낭</h1>
+			<h1> B A E N A N G </h1>
 
 			<p class="lead fw-normal text-white-50 mb-0">designe your travel</p>
 
@@ -43,34 +46,31 @@
 </header>
 
 <div> <!-- 글 작성 -->
-	<form action="/blog/addpost" method="POST" id=postForm>
+	<form action="/user/blog/addpost" method="POST" id=postForm>
 		<!-- Add Title field -->
 		<div style="width: 50%; margin: 0 auto;">
-			<label>Title</label> <br> <input type="text" name="p_title">
+			<label>제목</label> <br> <input type="text" name="p_title">
 		</div>
 		<br>
 		<!-- CKEditor for content -->
 		<div style="width: 50%; margin: 0 auto;">
-			<textarea name="p_content" id="editor">사진은 아래의 버튼을 통해 업로드 해주세요</textarea>
+			<textarea name="p_content" id="editor">여행사진은 아래의 버튼을 통해 붙여 주세요</textarea>
 		</div>
 		<br>
 
 		<p style="width: 50%; margin: 0 auto;">
 			<input type="submit" value="전송" id="uploadBtn">
 		</p>
-</div>
 		<hr>
-
-		<div>
-			<div>
-				<div class="uploadDiv">
-					<input type="file" name="uploadFile" multiple>
-				</div>
-			</div>
-		</div>
-
+		<div style="width: 50%; margin: 0 auto;" class="uploadDiv">
+			<input type="file" name="uploadFile" multiple>
+		</div>	
 	</form>
+</div>
+		
+	
 
+<jsp:include page="/WEB-INF/views/includes/footer.jsp" />
 </body>
 <!-- CKEditor scripts -->
 <script

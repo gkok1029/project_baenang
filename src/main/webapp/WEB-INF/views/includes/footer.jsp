@@ -4,27 +4,29 @@
         <div class="row">
             <div class="col-md-4">
                 <h4>About Us</h4>
-                <p>Some information about your company or website.</p>
+                <p>BEANANG FROM Team Eclpise.</p>
+                <p>BN is a web-based travel schedule service.</p>
             </div>
             <div class="col-md-4">
-                <h4>Useful Links</h4>
+                <h4>Members</h4>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#"></a>kim gunwoo</li>
+                    <li><a href="#"></a>min byunghuck</li>
+                    <li><a href="#"></a>park dain</li>
+                    <li><a href="#"></a>paik minguen</li>
+                    <li><a href="#"></a>lim wookhwan</li>
                 </ul>
             </div>
             <div class="col-md-4">
-                <h4>Contact Us</h4>
-                <p>Email: info@example.com</p>
-                <p>Phone: 123-456-7890</p>
+                <h4>Plz Hire Us</h4>
+               <a href="https://github.com/dyna-p/project_baenang" style= "color : black; text-decoration: none;"> <p>Github: https://github.com/dyna-p/project_baenang</p> </a>
+                
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <hr>
-                <p class="text-center">Copyright © 2023. Your Company Name.</p>
+                <p class="text-center">There's No Copyright Â© 2023. Team Eclpise.</p>
             </div>
         </div>
     </div>

@@ -1,8 +1,7 @@
 package com.bn.controller;
 
 
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -152,6 +151,30 @@ public class PlanController {
     		model.addAttribute("dplvo",Lvo);
     		model.addAttribute("p_name",pvo.getP_name());
     	return "detail";
+    }
+    @ResponseBody
+    @PostMapping("/iwd")
+    public List<ContentVo> search(@RequestParam String keyword,HttpSession session) {
+    	List<ContentVo> contentList = (List<ContentVo>) session.getAttribute("contentList");
+        List<ContentVo> result = new ArrayList<>();
+        
+        if (contentList != null) {
+            
+            // contentList를 순회하면서 title을 추출하여 맵에 저장
+            for (int i = 0; i < contentList.size(); i++) {
+                ContentVo cvo = contentList.get(i);
+                String title = cvo.getTitle();
+
+                if (keyword != null && title.contains(keyword)) {
+                    result.add(cvo);
+                }
+
+                if (result.size() >= 5) {
+                    break;
+                }
+            }
+        }
+        return result;
     }
     
     @GetMapping("/NewFile")
