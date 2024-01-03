@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.bn.mapper.MemberMapper;
 import com.bn.model.MemberVo;
 import com.bn.model.PageVo;
+import com.bn.model.PlanVo;
 
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -154,5 +155,12 @@ public class MemberServiceImpl implements MemberService{
 				e.printStackTrace();
 			}
 			return n;
+		}
+
+		@Override
+		public List<String> contentImgShow(List<PageVo> page) {
+			List<String> img;
+		    img = memberMapper.contentImgShow(page);
+			return img;
 		}
 }
