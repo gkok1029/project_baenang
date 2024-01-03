@@ -33,4 +33,5 @@ public class PageVo {
 	private String filename;
 	private String originFilename;
 	private long filesize;
+	private String firstimage;
 }
