@@ -57,10 +57,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<delete id="deleteImgD">
-		DELETE FROM img_diretory WHERE p_id = #{p_id}
+		DELETE FROM img_diretory 
+		WHERE p_id = #{p_id}
 	</delete>
+	
 	<delete id="postDelete">
-		delete from post where p_id = #{p_id}
+		DELETE FROM post
+		WHERE p_id = #{p_id}
 	</delete>
 
 	<update id="modPost">

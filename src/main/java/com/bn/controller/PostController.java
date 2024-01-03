@@ -88,6 +88,7 @@ public class PostController {
 	
 	@PostMapping("/modify")
 	public String modify(PostVo post, RedirectAttributes rttr) {
+		
 		log.info("modifying: " + post);
 		
 		if(service.modify(post)) {

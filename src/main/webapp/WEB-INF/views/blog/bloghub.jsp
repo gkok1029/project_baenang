@@ -53,7 +53,7 @@
 				<a href="userposts"> <button class="btn btn-info"> 내 포스트 보기 </a> -->
 				<br>
 				
-				<a href="addpost"> <button class="btn btn-info"> 엽서쓰기 </a>
+				<a href="addpost" style="color : white; text-decoration: none;"> <button class="btn btn-info"> 엽서쓰기 </a>
 			</div>
 		</div>
 	</header>

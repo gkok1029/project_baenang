@@ -18,8 +18,8 @@
                 </ul>
             </div>
             <div class="col-md-4">
-                <h4>Plz Don't Contact Us</h4>
-                <p>Github: https://github.com/dyna-p/project_baenang</p>
+                <h4>Plz Hire Us</h4>
+               <a href="https://github.com/dyna-p/project_baenang" style= "color : black; text-decoration: none;"> <p>Github: https://github.com/dyna-p/project_baenang</p> </a>
                 
             </div>
         </div>
