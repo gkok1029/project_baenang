@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,15 +40,20 @@
             padding: 10px;
             border: 1px solid #ddd;
         }
-    </style>
+    </style>    
     <!-- Datepicker 초기화 스크립트 -->
     <script>
         let x = 1;
         let y = 1;
         let days = 0;
+        let dpvoList=[];
+        let p_id=${p_id};
+        var startDateStr = "${startday}";  // 모델에서 받은 데이터 사용
+        var endDateStr = "${endday}";  // 모델에서 받은 데이터 사용
+        calculateDateDifference();
+        //console.log(p_id);
         function calculateDateDifference() {
-            var startDateStr = $("#start_date").val();
-            var endDateStr = $("#end_date").val();
+
             if (startDateStr && endDateStr) {
                 var startDate = new Date(startDateStr);
                 var endDate = new Date(endDateStr);
@@ -63,7 +69,6 @@
                 }
                 var completeButton = $("<button class='complete-button' style='display:none;' onclick='completeDay()'>1일차 완료</button>");
                 $("#dpctn").append(completeButton);
-                completeButton.show();
              // 드롭다운 메뉴 생성
                 let dropdown = $("<select class='dropdown' id='dayDropdown'></select>");
                 for (let i = 1; i <= days; i++) {
@@ -120,16 +125,14 @@
 		    }else if(x==days){
 		        $("button.complete-button").text("일정 생성");
 		    }else{
-		    	sendreq();
+		    	sendplan();
 		    }
             y = 1;
         };
         
-       
 	 
         
-       function sendreq(){ 
-    	   let dpvoList;
+       function sendplan(){ 
     	   let data={ m_id:${m_id} ,
    	        	p_name: "더미 여행"};
         $.ajax({
@@ -140,16 +143,17 @@
             success: function(response) {
                 // 성공적으로 응답을 받았을 때 실행되는 부분
                 console.log('플랜저장성공');
-				
-                
+               senddp();
+        		      
             },
             error: function(error) {
                 // 요청이 실패하면 실행되는 부분
                 console.log(error);
             }
         });
-       
-       let dpvoList=createdpList();
+       }
+        function senddp(){
+        	makedpList();
         $.ajax({
             type: "POST", // 메서드 타입 (POST)
             url: "/dpsave", // 요청 보낼 URL
@@ -158,25 +162,22 @@
             success: function(res) {
                 // 성공적으로 응답을 받았을 때 실행되는 부분
                 console.log('dp저장성공');
+                
             },
             error: function(error) {
                 // 요청이 실패하면 실행되는 부분
                 console.error("Error:", error);
             }
         });
-    
-    }
-        function createdpList(){
-        // 데이터를 저장할 List
-        var dpvoList = [];
-
+       }
+       
+        function makedpList(){
         // 컨테이너 div 선택
+        dpvoList=[];
         var container = $("#daycontainer");
         container.children().each(function () {
             // 하위 div의 id를 가져오기 (예: day1, day2, ...)
-            
             var dayId = $(this).attr('id');
-
             // 데이터 div 선택
             var dataDivs = $(this).find('.dummy-data');
             var n = parseInt(dayId.replace('day', ''), 10);
@@ -185,13 +186,11 @@
                 // 각 데이터의 텍스트 가져오기
                 var dataText = $(this).text();
                 // 데이터 구조로 만들어서 List에 추가
-               console.log(p_id);
-				console.log(n);
                 var dpvo = {
                     p_id: p_id,
                     dp_day: n,
                     dp_num: index + 1,  // 인덱스는 0부터 시작하므로 1을 더해줌
-                    contentid: dataText,
+                    contentid: "2750143",
                     dp_start:'2023-12-20',
                     dp_end:'2023-12-23'
                     	
@@ -199,11 +198,11 @@
                 dpvoList.push(dpvo);
             });
         });
-        return dpvoList;
         }
 
         // 더미 데이터 생성
         $(document).ready(function () {
+        	
         	let dummyctn=$('<div>').addClass("container").attr("id","dpctn");
         	$("body").append(dummyctn);
             <% for (int i = 1; i <= 15; i++) { %>
@@ -232,14 +231,7 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <h2>날짜 차이 계산기</h2>
-        <label for="start_date">시작 날짜:</label>
-        <input type="text" id="start_date" value="2023.12.20" readonly>
-        <label for="end_date">종료 날짜:</label>
-        <input type="text" id="end_date" value="2023.12.23" readonly>
-        <button onclick="calculateDateDifference()">날짜 차이 계산</button>
-    </div>
     <div id="result"></div>
 </body>
+
 </html>

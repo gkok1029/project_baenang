@@ -99,11 +99,13 @@ public class MemberController {
 		page.setM_nname(userName);
 		page.setFilter(filter);
 		page.setM_id(user.getM_ID());
+		System.out.println(user.getM_ID()+"<<m_id");
 		
 		List<PageVo> plan= memberService.getPlanList(page);
 		ServletContext app=session.getServletContext();
 		String upDir=app.getRealPath("/resources/profile");
 		log.info("upDir: "+upDir);
+		
 		
 		File dir=new File(upDir);
 		if(!dir.exists()) {
@@ -266,6 +268,6 @@ public class MemberController {
 		String userEmail= (String)session.getAttribute("userEmail");
 		MemberVo user = memberService.getProfile(userEmail);
 		session.setAttribute("p_id",my.getP_id());
-		return "redirect:/updateplan";
+		return "redirect:/dpretrieve?p_id"+my.getP_id();
 	}
 }

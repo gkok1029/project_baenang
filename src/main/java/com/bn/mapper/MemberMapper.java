@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.bn.model.MemberVo;
 import com.bn.model.PageVo;
+import com.bn.model.PlanVo;
 
 public interface MemberMapper {
 	/*마이페이지 기능*/
@@ -20,4 +21,6 @@ public interface MemberMapper {
 	public String loginCheck2(MemberVo member) throws Exception;
 	public void tempPass(Map<String, String> parameters) throws Exception;
 	public int statusCheck(String userEmail) throws Exception;
+	
+	public List<String> contentImgShow(List<PageVo> page);
 }
