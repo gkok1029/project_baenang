@@ -3,6 +3,8 @@ package com.bn.controller;
 import java.io.File;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
@@ -10,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -111,8 +112,14 @@ public class MemberController {
 		if(!dir.exists()) {
 			dir.mkdirs();
 		}
+		
+		List<PageVo> distinctPlans = plan.stream()
+			    .collect(Collectors.toMap(PageVo::getP_id, Function.identity(), (p1, p2) -> p1))
+			    .values()
+			    .stream()
+			    .collect(Collectors.toList());
 		m.addAttribute("user", user);
-		m.addAttribute("plan", plan);
+		m.addAttribute("plan", distinctPlans);
 		return "myPage";
 	}
 	
