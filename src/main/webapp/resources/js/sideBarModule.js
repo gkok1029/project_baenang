@@ -161,7 +161,7 @@ let SidebarModule = (function () {
             let nextButton = $("<button>").addClass("bottom-button").html("저장").on('click', function(){
                 //view4
                 $("#myModal").fadeIn();
-                $(".view").attr("id","view4");              
+                $(".view").attr("id","view5");
                 ViewPageModule.viewPageLoding();
                 
                 initialize()
@@ -209,9 +209,36 @@ let SidebarModule = (function () {
             .addClass("sidebar-button")
             .html(text);         
     };
+    
+    function getParametersByNameFromURL(name){
+    	let currentURL = window.location.href;
+    	
+    	let queryString = currentURL ? currentURL.split('?')[1] : currentURL;    	
+    	
+    	if(!queryString){ return null; }; 
+    	
+    	let queryParams = queryString.split('&');
+    	
+    	let params = {};
+    	
+    	queryParams.forEach( param => {
+    	
+    		let [key, value] = param.split('=');
+    		
+    		//디코딩
+    		value = decodeURIComponent(value.replace(/\+/g, ' '));
+    		    		
+    		params[key] = value;
+    			
+    	});
+    	
+    	return params[name] || null;
+    	
+    }
 
     // public 메서드 및 속성 정의
     return {
-        initialize: initialize
+        initialize: initialize,
+        getParametersByNameFromURL : getParametersByNameFromURL
     };
 })();

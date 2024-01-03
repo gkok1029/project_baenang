@@ -222,3 +222,12 @@ tr, th{
 .confirm-button{
 	disabled : true;
 }
+.step5-header-container{
+	display : flex;
+}
+.step5-body-container{
+	display : flex;
+}
+.picked{
+	width : 80px; height : 80px;
+}

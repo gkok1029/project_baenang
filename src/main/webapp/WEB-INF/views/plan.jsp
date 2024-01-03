@@ -89,14 +89,6 @@
 	let x='${cityvo.longitude}';
 	let cityname='${cityvo.cityname}';
 	
-	let trip = {
-		"title":"",
-		"city":"",
-		"days":{
-			"day1":{},
-			"day2":{}
-		}
-  }
 </script>
 </head>
 <body class="body">

@@ -253,7 +253,7 @@
             data: JSON.stringify(dpvoList), // POST 데이터 설정
             success: function (res) {
                 // 성공적으로 응답을 받았을 때 실행되는 부분
-            	window.location.href = "/dpretrieve"?p_id="+p_id;
+            	window.location.href = "/dpretrieve?p_id="+p_id;
             },
             error: function (error) {
                 // 요청이 실패하면 실행되는 부분

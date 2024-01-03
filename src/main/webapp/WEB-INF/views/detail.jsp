@@ -47,11 +47,14 @@ body {
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
+	<!-- List<DtailPlanVo> dplvo 반복문 -->
     <c:forEach var="dtailPlan" items="${dplvo}" varStatus="loop">
+    <!-- 현재 반복이 첫번쨰인지 or 현재날짜가 이전날짜와 다른지 -->
         <c:if test="${loop.first || dtailPlan.dp_day ne dplvo[loop.index - 1].dp_day}">
             <!-- Start a new container div for each unique dp_day -->
             <div class="container" id="day_${dtailPlan.dp_day}">
                 <h2>Day ${dtailPlan.dp_day}</h2>
+             
         </c:if>
 
         <!-- Create a div for each dtailPlan, ordered by dp_id -->
