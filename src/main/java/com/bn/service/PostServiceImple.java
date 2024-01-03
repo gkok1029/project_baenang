@@ -39,8 +39,16 @@ public class PostServiceImple implements PostService {
 	}
 
 	@Override
+	public boolean removeImgD(int p_id) {
+		log.info("remove post" + p_id);
+		return mapper.deleteImgD(p_id) == 1;
+		
+	}
+	
+	@Override
 	public boolean remove(int p_id) {
 		log.info("remove post" + p_id);
+		
 		return mapper.postDelete(p_id) == 1;
 	}
 

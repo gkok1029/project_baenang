@@ -16,6 +16,8 @@ public interface PostMapper {
 	
 	public PostVo postRead(int p_id);
 	
+	public int deleteImgD(int p_id);
+	
 	public int postDelete(int p_id);
 	
 	public int modPost(PostVo post);

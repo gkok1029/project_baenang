@@ -103,6 +103,9 @@ public class PostController {
 		
 		log.info("remove......." + p_id);
 		
+		if(service.removeImgD(p_id)) {
+			rttr.addFlashAttribute("result", "success");
+		}
 		if(service.remove(p_id)) {
 			rttr.addFlashAttribute("result", "success");
 		}
