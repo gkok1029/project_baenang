@@ -28,4 +28,7 @@ public interface PlanMapper {
 	public String[] Csearch(String keyword);
 	
 	public List<DtailPlanVo> dpretrieve(String p_id);
+	
+	public List<DtailPlanVo> getdplan(String dp_day);	
+	
 }

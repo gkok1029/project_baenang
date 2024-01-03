@@ -288,12 +288,8 @@ let PlanModule = ( ()=>{
 			
 			function Hselectend(){
 				
-				//console.log(HcontentVo.length);
-				console.log("선택완료 실행")
 				let startdate = sessionStorage.getItem("startDate");
-				let enddate = sessionStorage.getItem("endDate");
-				console.log("startday : " + startdate);
-				console.log("endday : " + enddate);
+				let enddate = sessionStorage.getItem("endDate");				
 				
 				var data = {					
 				 	pname:cityname+"여행",
@@ -374,7 +370,7 @@ let PlanModule = ( ()=>{
 				let travalperiod="";
 				
 			    // 내용이 있는 경우에만 실행
-			    if (divText !== ""&& travalperiod.length > childs.length) {
+			    if (divText !== "") {
 			        // selected-container가 없을 경우
 			         var targetDiv = document.getElementById('hselected-container');
 			        
@@ -610,6 +606,7 @@ let PlanModule = ( ()=>{
 		copyPlaceDiv:copyPlaceDiv,
 		copyHotelDiv:copyHotelDiv,
 		removeDiv:removeDiv,
-		addlist:addlist
+		addlist:addlist,
+		Hselectend : Hselectend
     };
 })();

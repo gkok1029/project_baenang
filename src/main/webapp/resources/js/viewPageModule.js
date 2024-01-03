@@ -78,15 +78,18 @@ let ViewPageModule = (function () {
 		}    	
     }
     
+    
+    
     //StartDate 부터 EndDate까지 날짜 구하기
     function getDates(startDate, endDate) {
 		    let dateArray = [];
 		    let currentDate = new Date(startDate);
-		    
+		    console.log(startDate)
+		    console.log(endDate)
 		    while (currentDate <= endDate) {
 		        dateArray.push(new Date(currentDate));
 		        currentDate.setDate(currentDate.getDate() + 1);
-		        
+		        console.log(dateArray)
 		    }
 			
 		    return dateArray;

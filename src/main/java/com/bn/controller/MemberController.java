@@ -106,7 +106,7 @@ public class MemberController {
 		ServletContext app=session.getServletContext();
 		String upDir=app.getRealPath("/resources/profile");
 		log.info("upDir: "+upDir);
-		
+		System.out.println("plan갯수 : "+plan.size());
 		
 		File dir=new File(upDir);
 		if(!dir.exists()) {

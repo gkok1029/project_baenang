@@ -69,4 +69,10 @@ public class PlanServiceImpl implements PlanService {
 		return this.planmapper.seq();
 	}
 
+	@Override
+	public List<DtailPlanVo> getdplan(String dp_day) {
+		// TODO Auto-generated method stub
+		return this.planmapper.getdplan(dp_day);
+	}
+
 }
