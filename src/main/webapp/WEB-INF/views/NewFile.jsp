@@ -143,8 +143,18 @@
 
                 // 다음 day+(n+1)의 첫 번째 자식으로 추가
                 $("#day" + <%=i+2%>).prepend(hotelDummyDiv<%=i+1%>);
+                var textToAdd = "day" + <%=i+1%>;
+                $("#day"+<%=i+1%>).prepend(textToAdd);
+                <%
+                 if(i+1==hotels.size()){
+                	 %>
+                	var text="day"+<%=i+2%>;
+                	$("#day"+<%=i+2%>).prepend(text);
+                	
+               
             
-<%			}
+<%				}
+			}
         }
     }
 %>
@@ -253,7 +263,7 @@
             data: JSON.stringify(dpvoList), // POST 데이터 설정
             success: function (res) {
                 // 성공적으로 응답을 받았을 때 실행되는 부분
-            	window.location.href = "/dpretrieve"?p_id="+p_id;
+            	window.location.href = "/dpretrieve?p_id="+p_id;
             },
             error: function (error) {
                 // 요청이 실패하면 실행되는 부분
@@ -317,7 +327,7 @@
             let daycontainer = $('<div>').attr('id', 'daycontainer');
             $('body').append(daycontainer);
             for (var i = 1; i <= days; i++) {
-                var dayDiv = $("<div class='day-div' id='day" + i + "'>Day " + i + "</div>");
+                var dayDiv = $("<div class='day-div' id='day" + i + "'></div>");
                 $("#daycontainer").append(dayDiv);
             }
         } else {
