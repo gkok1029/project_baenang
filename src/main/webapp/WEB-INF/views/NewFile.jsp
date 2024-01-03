@@ -228,6 +228,7 @@
         } else if(x==days){
             $("button.complete-button").text("일정 생성");
         } else {
+        	sessionStorage.clear();
             sendplan();
         }
         y = 1;

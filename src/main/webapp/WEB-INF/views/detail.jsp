@@ -7,6 +7,7 @@
 													<!-- JS 모듈 추가 -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/sideBarModule.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/viewPageModule.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/planModule.js"></script>
 <!-- Font Awesome CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <!-- Bootstrap CSS -->
@@ -172,15 +173,10 @@ body {
 			        	let dpStartArr = "${dplvo[0].dp_start}".split(" ");
 			        	let dpEndArr = "${dplvo[0].dp_end}".split(" ");
 			        	
-			        	console.log(typeof "${dplvo[0].dp_start}");
-			        	console.log("${dplvo[0].dp_start}");
-			        	console.log(dpStartArr);
-			        	console.log(ViewPageModule.getDay(dpStartArr[0]));
-			        	
-			        	
 			        	//format dates
-			        	/* let strPlanDate = startDate.replaceAll('-','.') + "  -  " + endDate.replaceAll('-','.');
-			        	$('#p_dates').text(strPlanDate); */
+			        	let strPlanDate = dpStartArr[5] + "." +getMonth(dpStartArr[1]) + "." + dpStartArr[2] + " ~ " +
+			        							dpEndArr[5] + "." +getMonth(dpEndArr[1]) + "." + dpEndArr[2];
+			        	$('#p_dates').text(strPlanDate);
 			        	
 			            $('.contentid-link').each(function() {
 			                // Get contentid from data attribute
@@ -213,6 +209,46 @@ body {
 			                });
 			            });
 			        });
+			        function getMonth(mon){
+			        	switch(mon){
+			        	case "Jan":
+			        		return "01"
+			        		break;
+			        	case "Feb":
+			        		return "02"
+			        		break;
+			        	case "Mar":
+			        		return "03"
+			        		break;
+			        	case "Apr":
+			        		return "04"
+			        		break;
+			        	case "May":
+			        		return "05"
+			        		break;
+			        	case "Jun":
+			        		return "06"
+			        		break;
+			        	case "Jul":
+			        		return "07"
+			        		break;
+			        	case "Aug":
+			        		return "08"
+			        		break;
+			        	case "Sep":
+			        		return "09"
+			        		break;
+			        	case "Oct":
+			        		return "10"
+			        		break;
+			        	case "Nov":
+			        		return "11"
+			        		break;
+			        	case "Dec":
+			        		return "12"
+			        		break;
+			        	}
+			        }
 			        
 			    </script>
 			</div>
