@@ -14,9 +14,8 @@ let ViewPageModule = (function () {
             return;
         };
         
-        let p_id = SidebarModule.getParametersByNameFromURL('p_id');
         //URL에 p_id가 있으면
-        if(p_id){
+        if( SidebarModule.getParametersByNameFromURL('p_id') ){
         	viewId = 'view5';
         	view.attr("id",'view5');
         }
@@ -46,29 +45,34 @@ let ViewPageModule = (function () {
     }
     
 	function getDay(day){
-		
-    	let dayOfWeek = new Date(day).getDay();
     	
-    	switch (dayOfWeek) {
-		  	case 0:
+    	switch (day) {
+		  	case 0 :
+		  	case "Sun" :
 		    	return "(일)"
 		    	break;
-		  	case 1:
+		  	case 1 :
+		  	case "Mon" :
 		    	return "(월)"
 		    	break;
-		  	case 2:
+		  	case 2 :
+		  	case "Tue" :
 		    	return "(화)"
 		    	break;
-		  	case 3:
+		  	case 3 :
+		  	case "Wed" :
 		    	return "(수)"
 		    	break;
-		  	case 4:
+		  	case 4 :
+		  	case "Thu" :
 		    	return "(목)"
 		    	break;
-		  	case 5:
+		  	case 5 :
+		  	case "Fri" :
 		    	return "(금)"
 		    	break;
-		  	case 6:
+		  	case 6 :
+		  	case "Sat" :
 		    	return "(토)"
 		    	break;		  
 		}    	
@@ -78,12 +82,13 @@ let ViewPageModule = (function () {
     function getDates(startDate, endDate) {
 		    let dateArray = [];
 		    let currentDate = new Date(startDate);
-		
+		    
 		    while (currentDate <= endDate) {
 		        dateArray.push(new Date(currentDate));
 		        currentDate.setDate(currentDate.getDate() + 1);
+		        
 		    }
-		
+			
 		    return dateArray;
 		}
 		
@@ -113,7 +118,7 @@ let ViewPageModule = (function () {
         firstChildDiv.append(h2Element);
 		
 		
-        let dateDiv = $("<div>").attr("id", "date").text(startDate+getDay(startDate) + " ~ " + endDate+getDay(endDate)).append(
+        let dateDiv = $("<div>").attr("id", "date").text(startDate+getDay( new Date(startDate).getDay()) + " ~ " + endDate+getDay(new Date(endDate).getDay()) ).append(
             $("<div>").attr("id", "frame-calendar-button").append(
                 $("<button>").attr(
                     {
@@ -253,7 +258,7 @@ let ViewPageModule = (function () {
         let firstChildDiv = $("<div>").append(
             $("<div>").append(
                 $("<div>").text(cityname),
-                $("<div>").addClass("trip-date").attr("id","tripDate").text(startDate+getDay(startDate) + " ~ " + endDate+getDay(endDate))
+                $("<div>").addClass("trip-date").attr("id","tripDate").text(startDate+getDay( new Date(startDate).getDay()) + " ~ " + endDate+getDay(new Date(endDate).getDay()) )
             ),
             $("<div>").append(
                 $("<div>").append(
@@ -498,9 +503,13 @@ let ViewPageModule = (function () {
 		let eDate = new Date(eDateInSessionStorage);
 		let days = getDates(sDate,eDate);
 		
-		//console.log(days);
 		let plans = '${dplvo}'
-		console.log(plans);
+		
+		let p_id;
+		if(SidebarModule.getParametersByNameFromURL('p_id')){
+			
+		}
+		
 		
         let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1").append(
             $("<div>").addClass("step5-header").attr("id","step5Header").append(
@@ -580,8 +589,6 @@ let ViewPageModule = (function () {
     }
 
     function showView(viewId, btnId) {
-        // $('.view').hide();
-        // $(viewId).show();
         
         $('.sidebar-button').css({
             'color': 'gray',
@@ -622,7 +629,8 @@ let ViewPageModule = (function () {
         createPlaceDiv : createPlaceDiv,
         createHotelDiv : createHotelDiv,
         sendAjaxRequest : sendAjaxRequest,
-        step1Loding : step1Loding
-        
+        step1Loding : step1Loding,
+        getDates : getDates,
+        getDay : getDay
     };
 })();

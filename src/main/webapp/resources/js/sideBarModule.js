@@ -15,7 +15,7 @@ let SidebarModule = (function () {
             .attr("id", "main-logo")
             .html('<img class="logo" src="/resources/img/mainlogo.png" alt="Main Logo"/>');
 		
-	
+		
         //MainLogo 클릭이벤트 설정
         mainLogoButton.on('click', function () {
             window.location.href = '/main';
@@ -174,24 +174,21 @@ let SidebarModule = (function () {
             let totalDaysBtn = createSidebarButton("btn-totalDays","전체일정").on('click',function(){
                 console.log("전체일정")
             });
-            let startDate = sessionStorage.getItem('startDate');
-			let endDate = sessionStorage.getItem('endDate');
-
-            for(let i=1; i<=3;i++){
-                let button = createSidebarButton("btn-day"+i,i+"일차").on('click',function(){
-                    console.log(i+"일차 일정");
-                });;
+            
+            //get startDate, endDate from sessionStorage
+            let startDate = new Date( sessionStorage.getItem('startDate') );
+			let endDate = new Date( sessionStorage.getItem('endDate') );
+			
+			let numberOfDays = ViewPageModule.getDates(startDate,endDate);
+			
+            for(let i=1; i<=numberOfDays.length;i++){
+                let button = createSidebarButton( "btn-day"+i , i+"일차" ).on('click',function(){
+                    console.log(i+"일차 일정 클릭");
+                });
                 buttons.push(button);
             }
-
-            let modifyBtn = createSidebarButton("btn-modify","편집").on('click',function(){
-                console.log("편집버튼")
-            });;
-            let savePlanBtn = createSidebarButton("btn-savePlan","저장").on('click',function(){
-                console.log("저장버튼")
-            });;
             
-            sidebarElement.append(totalDaysBtn,...buttons,modifyBtn,savePlanBtn);
+            sidebarElement.append(totalDaysBtn,...buttons);
             
         }
         // $(".view").attr("id","view1");
@@ -226,7 +223,8 @@ let SidebarModule = (function () {
     		let [key, value] = param.split('=');
     		
     		//디코딩
-    		value = decodeURIComponent(value.replace(/\+/g, ' '));
+    		if(value) value = decodeURIComponent(value.replace(/\+/g, ' ')) ;
+    		
     		    		
     		params[key] = value;
     			

@@ -79,8 +79,8 @@ height: 4px;
 font-size: 4px;
 }
 .logo {
-margin-bottom: 20px;
-width: 150px; /* 嚥≪뮄�� 占쎄쾿疫뀐옙 鈺곌퀣�쟿 */
+	margin-bottom: 20px;
+	width: 100%; /* 嚥≪뮄�� 占쎄쾿疫뀐옙 鈺곌퀣�쟿 */
 }
 
 .sidebar-button {
@@ -229,5 +229,5 @@ tr, th{
 	display : flex;
 }
 .picked{
-	width : 80px; height : 80px;
+	width : 80px; height; 
 }

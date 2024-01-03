@@ -91,7 +91,7 @@ public class PlanController {
 	@ResponseBody
 	@RequestMapping("/memberplan")
 	public ModelMap memberplan(@RequestParam("m_id") int m_id) {
-		System.out.println(m_id);
+//		System.out.println(m_id);
 		ModelMap map=new ModelMap();
 		List<PlanVo> lvo=pservice.selectAll(m_id);
 		map.addAttribute("lvo",lvo);
@@ -148,8 +148,9 @@ public class PlanController {
     @GetMapping("/dpretrieve")
     public String dtailplanretrieve(@RequestParam String p_id,Model model) {
     		List<DtailPlanVo>Lvo=pservice.dpretrieve(p_id);
-    		 System.out.println(Lvo.size());
-    		 model.addAttribute("dplvo",Lvo);
+    		pvo = pservice.selectPlan(Integer.parseInt(p_id));
+    		model.addAttribute("dplvo",Lvo);
+    		model.addAttribute("p_name",pvo.getP_name());
     	return "detail";
     }
     
@@ -186,9 +187,9 @@ public class PlanController {
     @ResponseBody
     @GetMapping("/contentload")
     public ContentVo contentload(@RequestParam String contentid) {
-    	System.out.println(contentid);
+//    	System.out.println(contentid);
     	cvo=dService.contentload(contentid);
-    	System.out.println(cvo);
+//    	System.out.println(cvo);
     	return cvo;
     }
 
