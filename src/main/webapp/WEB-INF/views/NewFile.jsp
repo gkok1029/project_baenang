@@ -143,8 +143,18 @@
 
                 // 다음 day+(n+1)의 첫 번째 자식으로 추가
                 $("#day" + <%=i+2%>).prepend(hotelDummyDiv<%=i+1%>);
+                var textToAdd = "day" + <%=i+1%>;
+                $("#day"+<%=i+1%>).prepend(textToAdd);
+                <%
+                 if(i+1==hotels.size()){
+                	 %>
+                	var text="day"+<%=i+2%>;
+                	$("#day"+<%=i+2%>).prepend(text);
+                	
+               
             
-<%			}
+<%				}
+			}
         }
     }
 %>
@@ -317,7 +327,7 @@
             let daycontainer = $('<div>').attr('id', 'daycontainer');
             $('body').append(daycontainer);
             for (var i = 1; i <= days; i++) {
-                var dayDiv = $("<div class='day-div' id='day" + i + "'>Day " + i + "</div>");
+                var dayDiv = $("<div class='day-div' id='day" + i + "'></div>");
                 $("#daycontainer").append(dayDiv);
             }
         } else {
