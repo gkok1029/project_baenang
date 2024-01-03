@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bn.model.MemberVo;
 import com.bn.model.PageVo;
+import com.bn.model.PlanVo;
 
 public interface MemberService {
 	/*마이페이지기능*/
@@ -20,4 +21,6 @@ public interface MemberService {
 	public String loginCheck2(MemberVo member);
 	public void tempPass(String userEmail, String temppass);
 	public int statusCheck(String userEmail);
+	
+	public List<String> contentImgShow(List<PageVo> page);
 }

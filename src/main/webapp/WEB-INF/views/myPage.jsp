@@ -76,7 +76,7 @@
 						<div id="section" class="tot_sche">
 							<c:forEach var="plan" items="${plan}">
 								<div id="schedule">
-									<div class="schedule_img">여행이미지</div>
+									<div class="schedule_img"><img src="${plan.firstimage}" style="width :100%; height :174px;"></div>
 									<div class="schedule_content">
 										<p>
 											<span class="d_day">D-day</span><span class="tripname">여행지
@@ -102,7 +102,7 @@
 											</form>
 											<form action="/user/upplan" id="upF${plan.p_id}" name="upF">
 												<input type="hidden" name="p_id" value="${plan.p_id}" />
-												<p class="upplan" data-plan="${plan.p_id }">수정</p>
+												<p class="upplan" data-plan="${plan.p_id}">보기</p>
 											</form>
 										</div>
 									</div>

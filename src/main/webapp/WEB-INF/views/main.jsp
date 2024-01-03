@@ -112,7 +112,7 @@
 
 <!-- ---------------------- 블로그 포스팅 카드 리스팅 ------------------------ -->
 <div id="blogTitle">
-	<h2>추 천 블 로 그</h2>
+	<h2>오 늘 의 엽 서</h2>
 </div>
 <section class="py-1">
 		<div class="container px-4 px-lg-5 mt-5">
