@@ -10,10 +10,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getPlanList" resultType="Page" parameterType="Page">
-		select * from (
+		<!-- select * from (
 	    select pl.*, (select min(dp_start) from detail_planner where pl.p_id = p_id) dp_start,
 	    (select max(dp_end) from detail_planner where pl.p_id = p_id) dp_end
-	    from planner pl) where m_id = #{m_id}
+	    from planner pl) where m_id = #{m_id} -->
+	    select *
+        from mypageView  where m_id=#{m_id}
 	    <if test="filter == 'recentday1'">
     		order by p_moddate asc
 	    </if>
@@ -63,5 +65,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     SELECT M_STATUS FROM MEMBER
     WHERE M_EMAIL = #{M_EMAIL}
 </select>
+
+<!-- contentImgShow 매퍼 -->
+<select id="contentImgShow" parameterType="Page" resultType="List">
+  SELECT c.firstimage
+    FROM planner p
+    JOIN Detail_Planner dp ON p.p_id = dp.p_id
+    JOIN Content c ON dp.contentid = c.contentid
+    WHERE p.p_id = #{p_id};
+</select>
+
+
+
 
 </mapper>
