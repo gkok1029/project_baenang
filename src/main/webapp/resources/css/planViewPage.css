@@ -25,7 +25,7 @@ max-width:2400px;
 .container img {
 width: 100%;
 height: 100%;
-object-fit: cover; /* 이미지 비율 유지 및 가득 채움 */
+object-fit: cover; /* �씠誘몄� 鍮꾩쑉 �쑀吏� 諛� 媛��뱷 梨꾩� */
 }
 #sidebar {
 flex : 1;
@@ -79,8 +79,8 @@ height: 4px;
 font-size: 4px;
 }
 .logo {
-margin-bottom: 20px;
-width: 150px; /* 濡쒓퀬 �겕湲� 議곗젅 */
+	margin-bottom: 20px;
+	width: 100%; /* 嚥≪뮄�� 占쎄쾿疫뀐옙 鈺곌퀣�쟿 */
 }
 
 .sidebar-button {
@@ -121,7 +121,9 @@ justify-content: space-between;
 align-items: center; 
 margin-bottom: 20px; 
 }
-
+#placesContainer{
+overflow: scroll;
+}
 #catButtons{
 display:flex;
 }
@@ -219,4 +221,13 @@ tr, th{
 }
 .confirm-button{
 	disabled : true;
+}
+.step5-header-container{
+	display : flex;
+}
+.step5-body-container{
+	display : flex;
+}
+.picked{
+	width : 80px; height; 
 }
