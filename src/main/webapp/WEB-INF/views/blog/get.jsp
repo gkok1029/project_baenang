@@ -203,10 +203,11 @@ a {
 		<br> <br> <br>
 		<hr>
 
-		<div></div>
-		<h1>다른 게시물들</h1>
 		<div>
-			<!-- 카드 포스트 리스팅 -->
+			 <p  style="margin: auto"><h1>다른 엽서들</h1></p>
+		</div>
+		
+		<div><!-- 카드 포스트 리스팅 -->
 			<section class="py-5">
 				<div class="container px-4 px-lg-5 mt-5">
 					<div
@@ -237,7 +238,6 @@ a {
 								</div>
 							</div>
 						</c:forEach>
-
 					</div>
 				</div>
 			</section>
