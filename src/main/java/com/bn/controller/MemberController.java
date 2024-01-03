@@ -268,6 +268,6 @@ public class MemberController {
 		String userEmail= (String)session.getAttribute("userEmail");
 		MemberVo user = memberService.getProfile(userEmail);
 		session.setAttribute("p_id",my.getP_id());
-		return "redirect:/dpretrieve?p_id"+my.getP_id();
+		return "redirect:/dpretrieve?p_id="+my.getP_id();
 	}
 }
