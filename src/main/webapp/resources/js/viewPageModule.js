@@ -320,7 +320,7 @@ let ViewPageModule = (function () {
 	     function sendAjaxRequest(keyword) {
 	            $.ajax({
 	                type: "POST",
-	                url: "/NewFile",
+	                url: "/iwd",
 	                data: { keyword: keyword },
 	                dataType: 'json',
 	                success: function (res) {
@@ -447,6 +447,7 @@ let ViewPageModule = (function () {
 
                 //장소 div 수정:id에 contentid붙여서 각각의 개별성?부여
         return $('<div>').addClass("hotel-container").attr("id","hotelContainer"+content.contentid).append(
+            
             //이미지 div
             $('<div>').addClass("hotel-image").attr("id","img"+content.contentid).append(
                 //이미지 태그
@@ -477,9 +478,11 @@ let ViewPageModule = (function () {
                 					sendCountupRequest(content.contentid);
                 })
             )
+            
         )
                             
     }
+    
     function sendCountupRequest(contentid) {
         $.ajax({
             type: 'GET',
