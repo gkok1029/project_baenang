@@ -87,8 +87,9 @@
 	}
 	.citiesImg{
 		margin: 30px;
-		width: 80%;
+		width: 230px;
 		height: 225px; 
+		border-radius:15px;
 	}
 	.cityimg{
 		background-color:white;

@@ -40,8 +40,6 @@ public class MainController {
 		model.addAttribute("cvo",cvo);
 		model.addAttribute("posts", service.getList());
 		
-		System.out.println("posts_getList : "+model.addAttribute("posts", service.getList()));
-
 		return "main";
 	}
 	
