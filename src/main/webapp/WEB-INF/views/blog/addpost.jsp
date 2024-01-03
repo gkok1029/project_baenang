@@ -16,7 +16,10 @@
 .ck-content {
 	font-size: 12px;
 }
-
+/* .uploadDiv {
+    text-align: center;
+    margin: 0 auto;
+} */
 </style>
 
 <link href="/resources/css/styles.css" rel="stylesheet" />
@@ -59,7 +62,7 @@
 			<input type="submit" value="전송" id="uploadBtn">
 		</p>
 		<hr>
-		<div class="uploadDiv">
+		<div style="width: 50%; margin: 0 auto;" class="uploadDiv">
 			<input type="file" name="uploadFile" multiple>
 		</div>	
 	</form>

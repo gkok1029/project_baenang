@@ -74,7 +74,7 @@ $('button[data-oper="modify"]').on("click", function (e) {
 			<!-- 글 수정 -->
 
 			<!-- Add Title field -->
-			<div class="form-group">
+			<div  style="width: 50%; margin: 0 auto;" class="form-group">
 				<label>게시물 번호</label> <input class="form-control" name='p_id'
 					value='<c:out value="${post.p_id}"/>' readonly="readonly">
 			</div>
@@ -82,7 +82,7 @@ $('button[data-oper="modify"]').on("click", function (e) {
 			<input type="hidden" name="p_id" value="${post.p_id}">
 
 
-			<div class="form-group">
+			<div  style="width: 50%; margin: 0 auto;" class="form-group">
 				<label>제목</label> <input class="form-control" name='p_title'
 					value='<c:out value="${post.p_title}"/>'>
 			</div>
@@ -97,8 +97,17 @@ $('button[data-oper="modify"]').on("click", function (e) {
 			<!-- <p style="width: 50%; margin: 0 auto;">
 				<input type="submit" value="전송" id="uploadBtn">
 			</p> -->
+			<hr>
+			<div  style="width: 50%; margin: 0 auto;">
+			<button type="submit" data-oper='modify' class="btn btn-info">수정완료</button>
+			<%-- <button class="btn btn-danger"
+										onclick="location.href='/blog/remove?p_id=<c:out value="${post.p_id}"/>'">삭제</button> --%>
+			<button data-oper='list' class="btn btn-info">List</button></div>
+			
 		</div>
-		<hr>
+	</form>
+		
+		
 
 		<!-- <div>
 		<div>
@@ -107,12 +116,7 @@ $('button[data-oper="modify"]').on("click", function (e) {
 			</div>
 		</div>
 	</div> -->
-		<button type="submit" data-oper='modify' class="btn btn-default">이
-			게시물 수정완료</button>
-		<%-- <button class="btn btn-danger"
-										onclick="location.href='/blog/remove?p_id=<c:out value="${post.p_id}"/>'">삭제</button> --%>
-		<button data-oper='list' class="btn btn-info">List</button>
-	</form>
+		
 
 <jsp:include page="/WEB-INF/views/includes/footer.jsp" />
 </body>
