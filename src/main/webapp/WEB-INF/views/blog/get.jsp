@@ -131,6 +131,7 @@ a {
 										<div class="image-container">
 											<img alt="" src="/resources/postImage/${post.i_name}">
 										</div>
+										<br><br>
 										${post.p_content}
 									</div>
 								</div>
@@ -207,16 +208,16 @@ a {
 			 <p  style="margin: auto"><h1>다른 엽서들</h1></p>
 		</div>
 		
-		<div><!-- 카드 포스트 리스팅 -->
+		<div ><!-- 카드 포스트 리스팅 -->
 			<section class="py-5">
 				<div class="container px-4 px-lg-5 mt-5">
 					<div
 						class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-						<c:forEach items="${posts}" var="post" begin="0" end="7">
+						<c:forEach items="${posts}" var="post">
 							<div class="col mb-5">
 								<div class="card h-100">
-									<a href='/blog/get?p_id=<c:out value="${post.p_id}"/>'> <c:if
+									<a href='/user/blog/get?p_id=<c:out value="${post.p_id}"/>' style="text-decoration: none;"> <c:if
 											test="${not empty post.i_name}">
 											<!-- If there is an image, display it -->
 											<img class="card-img-top" alt=""

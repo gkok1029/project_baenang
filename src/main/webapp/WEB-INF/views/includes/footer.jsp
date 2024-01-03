@@ -18,9 +18,9 @@
                 </ul>
             </div>
             <div class="col-md-4">
-                <h4>Contact Us</h4>
-                <p>Email: info@example.com</p>
-                <p>Phone: 123-456-7890</p>
+                <h4>Plz Don't Contact Us</h4>
+                <p>Github: https://github.com/dyna-p/project_baenang</p>
+                
             </div>
         </div>
         <div class="row">
