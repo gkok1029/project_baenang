@@ -11,7 +11,7 @@
                 <h4>Members</h4>
                 <ul>
                     <li><a href="#"></a>kim gunwoo</li>
-                    <li><a href="#"></a>min byunghuck</li>
+                    <li><a href="#"></a>min byeonghyeok</li>
                     <li><a href="#"></a>park dain</li>
                     <li><a href="#"></a>paik minguen</li>
                     <li><a href="#"></a>lim wookhwan</li>
