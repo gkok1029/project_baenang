@@ -124,11 +124,13 @@ body {
 }
 </style>
 
-
     <meta charset="UTF-8">
     <title>Your View Page</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
+<script type="text/javascript">
+	let p_id = ${p_id};
+</script>
 <body>
 	<div class="body-container">
 		<div id="sidebar-container"></div>
@@ -150,34 +152,49 @@ body {
 			                <h2>Day ${dtailPlan.dp_day}</h2>
 			             
 			        </c:if>
-			
-			        <!-- Create a div for each dtailPlan, ordered by dp_id -->
-			        <div class="item" id="${dtailPlan.dp_id}">
-			            <p class="contentid-link" data-contentid="${dtailPlan.contentid}">
-			                contentid: ${dtailPlan.contentid}
-			            </p>
-			            <!-- Add other properties as needed -->
-			        </div>
-			
-			        <c:if test="${loop.last || dtailPlan.dp_day ne dplvo[loop.index + 1].dp_day}">
+			        		<!-- Create a div for each dtailPlan, ordered by dp_id -->
+					        <div class="item" id="${dtailPlan.dp_id}">
+					            <p class="contentid-link" data-contentid="${dtailPlan.contentid}">
+					                contentid: ${dtailPlan.contentid}
+					            </p>
+					            <!-- Add other properties as needed -->
+					        </div>
+			        		<c:if test="${loop.last || dtailPlan.dp_day ne dplvo[loop.index + 1].dp_day}">
 			            <!-- Close the container div when the dp_day changes -->
-			            </div>
-			        </c:if>
+						</div>
+			        		</c:if>
 			    </c:forEach>
 			
 			    <script>
-			        $(document).ready(function() {			        				        	
+			        $(document).ready(function() {	
 			        	
-			        	SidebarModule.initialize();
 			        	//get startDate, endDate from sessionStorage
-			        	let dpStartArr = "${dplvo[0].dp_start}".split(" ");
-			        	let dpEndArr = "${dplvo[0].dp_end}".split(" ");
+			        	let dpStartArr;
+			        	let dpEndArr;
+			        	let strPlanDate;
+			        	if("${dplvo[0].dp_start}" && "${dplvo[0].dp_end}"){
+			        		dpStartArr = "${dplvo[0].dp_start}".split(" ");
+			        		dpEndArr = "${dplvo[0].dp_end}".split(" ");
+			        		
+			        		//format dates
+			        		strPlanDate = dpStartArr[5] + "." +getMonth(dpStartArr[1]) + "." + dpStartArr[2] + " ~ " +
+							dpEndArr[5] + "." +getMonth(dpEndArr[1]) + "." + dpEndArr[2];
+			        		
+			        		let startDate =  dpStartArr[5] + "-" +getMonth(dpStartArr[1]) + "-" + dpStartArr[2];
+			        		let endDate = dpEndArr[5] + "-" +getMonth(dpEndArr[1]) + "-" + dpEndArr[2];
+			        		
+			        		sessionStorage.setItem("startDate",startDate);
+			        		sessionStorage.setItem("endDate",endDate);
+			        	}else if( sessionStorage.getItem("startDate") && sessionStorage.getItem("endDate") ){
+			        		dpStartArr = sessionStorage.getItem("startDate");
+			        		dpEndArr = sessionStorage.getItem("endDate");
+			        	}
 			        	
-			        	//format dates
-			        	let strPlanDate = dpStartArr[5] + "." +getMonth(dpStartArr[1]) + "." + dpStartArr[2] + " ~ " +
-			        							dpEndArr[5] + "." +getMonth(dpEndArr[1]) + "." + dpEndArr[2];
+			        	console.log("${dplvo}");
+			        	
+			        	
 			        	$('#p_dates').text(strPlanDate);
-			        	
+			        	SidebarModule.initialize();
 			            $('.contentid-link').each(function() {
 			                // Get contentid from data attribute
 			                var contentid = $(this).data('contentid');
@@ -249,10 +266,27 @@ body {
 			        		break;
 			        	}
 			        }
-			        
+			         
+			        function getDPlanByDPid(dp_day){
+			        	let p_id = "${p_id}";
+			        	let url = '/dpretrieve'
+			        	
+			        	$.ajax({
+			                type: 'GET',
+			                url: url,
+			                data: { dp_day: dp_day, p_id: p_id },
+			                dataType: 'text',
+			                success: function(res) {
+			                    
+			                },
+			                error: function(xhr, status, error) {
+			                    // 에러 처리
+			                    console.log('Error: ' + error);
+			                }
+			            });
+			        }
 			    </script>
-			</div>
-		</div>
+			</div>		
     </div>
 </body>
 </html>
