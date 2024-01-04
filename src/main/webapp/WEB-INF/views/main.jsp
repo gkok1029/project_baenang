@@ -415,6 +415,10 @@ function onKeywordInput() {
 	--------------------------------------------------------------------------------------- --%>	
 
 <jsp:include page="/WEB-INF/views/includes/footer.jsp" />
-
+<!-- <script type="text/javascript">
+$(document).ready( function(){
+	sessionStorage.clear();
+}
+</script> -->
 </body>
 </html>

@@ -289,7 +289,7 @@ let PlanModule = ( ()=>{
 			function Hselectend(){
 				let startDate = new Date(sessionStorage.getItem('startDate'));
         		let endDate = new Date(sessionStorage.getItem('endDate'));
-				let travelperiod=ViewPageModule.getDates(startDate,endDate).length-2;
+				let travelperiod=ViewPageModule.getDates(startDate,endDate).length-1;
 				let childs=$('#hselected-container').children().length-3;
 
 				if(travelperiod==childs){
@@ -377,7 +377,7 @@ let PlanModule = ( ()=>{
 			    var divText = sourceDiv.innerHTML.trim();
 			    let startDate = new Date(sessionStorage.getItem('startDate'));
         		let endDate = new Date(sessionStorage.getItem('endDate'));
-				let travelperiod=ViewPageModule.getDates(startDate,endDate).length-2;
+				let travelperiod=ViewPageModule.getDates(startDate,endDate).length-1;
 				let childs=$('#hselected-container').children().length-3;
 			    // 내용이 있는 경우에만 실행
 			    if (divText !== ""&&travelperiod>childs) {
