@@ -402,13 +402,14 @@ let ViewPageModule = (function () {
     		$('#calendar-modal').fadeIn();
     		return
     	}
+    	
     	let startDate = sessionStorage.getItem("startDate");
         let endDate = sessionStorage.getItem("endDate");
         
         let firstChildDiv = $("<div>").append(
             $("<div>").append(
                 $("<div>").text(cityname),
-                $("<div>").addClass("trip-date").attr("id","tripDate").text(startDate+getDay(startDate) + " ~ " + endDate+getDay(endDate))
+                $("<div>").addClass("trip-date").attr("id","tripDate").text(startDate+getDay( new Date(startDate).getDay()) + " ~ " + endDate+getDay(new Date(endDate).getDay()) )
             ),
             $("<div>").append(
                 $("<div>").append(
