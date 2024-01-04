@@ -167,7 +167,7 @@ let SidebarModule = (function () {
             
             let buttons = [];
             let totalDaysBtn = createSidebarButton("btn-totalDays","전체일정").on('click',function(){
-                console.log("전체일정")
+                window.location.href = "/dpretrieve?p_id="+p_id
             });
             
             //get startDate, endDate from sessionStorage
@@ -175,10 +175,10 @@ let SidebarModule = (function () {
 			let endDate = new Date( sessionStorage.getItem('endDate') );
 			
 			let numberOfDays = ViewPageModule.getDates(startDate,endDate);
-			console.log(numberOfDays);
+			
             for(let i=1; i<=numberOfDays.length;i++){
                 let button = createSidebarButton( "btn-day"+i , i+"일차" ).on('click',function(){
-                    console.log(i+"일차 일정 클릭");
+                    getDPlanByDPid(i+"")
                 });
                 buttons.push(button);
             }
@@ -199,7 +199,7 @@ let SidebarModule = (function () {
         return $("<button>")
             .attr("id", id)
             .addClass("sidebar-button")
-            .html(text);         
+            .html(text);
     };
     
     function getParametersByNameFromURL(name){

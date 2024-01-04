@@ -111,6 +111,9 @@
 						</div>
 					</c:if>
 					<script type="text/javascript">
+					$(document).ready( function(){
+						sessionStorage.clear();
+					});
 						$('.del').click(
 								function() {
 									let formId = $(this).closest('#schedule')
