@@ -413,10 +413,20 @@ let ViewPageModule = (function () {
         // div.view-container 엘리먼트 생성
         let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1");
         
+
+        if( !sessionStorage.getItem('startDate') && !sessionStorage.getItem('endDate') ){
+    		$('#calendar-modal').fadeIn();
+    		return
+    	}
+    	
+    	let startDate = sessionStorage.getItem("startDate");
+        let endDate = sessionStorage.getItem("endDate");
+        
         let firstChildDiv = $("<div>").append(
             $("<div>").append(
                 $("<div>").text(cityname),
-                $("<div>").addClass("trip-date").attr("id","tripDate").text("2023.12.26(화) - 2023.12.28(목)")
+                $("<div>").addClass("trip-date").attr("id","tripDate").text(startDate+getDay( new Date(startDate).getDay()) + " ~ " + endDate+getDay(new Date(endDate).getDay()) )
+
             ),
             $("<div>").append(
                 $("<div>").append(
@@ -562,7 +572,13 @@ let ViewPageModule = (function () {
         viewExistedCheck();
 
         let parentElement = $(".view").eq(0);
-
+		
+		let sDateInSessionStorage = sessionStorage.getItem("startDate");
+		let eDateInSessionStorage = sessionStorage.getItem("endDate");
+		let sDate = new Date(sDateInSessionStorage);
+		let eDate = new Date(eDateInSessionStorage);
+		let days = getDates(sDate,eDate);
+	
         let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1").append(
             $("<div>").addClass("step5-header").attr("id","step5Header").append(
                 $("<div>").append(

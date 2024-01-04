@@ -39,7 +39,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select * from city where cityname=#{cityname}
 	</select>
 	<select id="getdplan" resultType="Dplan">
-	select * from detail_planner where dp_day=#{dp_day}
+	select * from detail_planner where p_id=#{p_id}
+	and dp_day=#{dp_day} order by dp_num
 	</select>
 	
 </mapper>
