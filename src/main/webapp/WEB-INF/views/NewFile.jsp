@@ -286,7 +286,6 @@
 				endday=new Date(endday);
                 // contentid를 직접 읽어와서 dpvo 객체에 추가
                 var contentId = $(this).attr('id');
-				console.log(contentId);
                 var dpvo = {
                     p_id: p_id,
                     dp_day: n,

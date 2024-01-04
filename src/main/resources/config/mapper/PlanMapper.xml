@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     (DP_ID, p_id, contentid, dp_day, dp_start, dp_end, dp_num)
     VALUES 
     (SEQUENCE_DETAIL_PLANNER.NEXTVAL, #{p_id}, #{contentid}, #{dp_day}, #{dp_start}, #{dp_end}, #{dp_num})
-</insert>
+	</insert>
 	
 	<select id="dpretrieve" resultType="Dplan">
 	select * from detail_planner where p_id=#{p_id}
