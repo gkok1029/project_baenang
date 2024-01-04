@@ -261,7 +261,6 @@ function onKeywordInput() {
         cache: false,
         processData: true,
         success: function (cityList) {
-            console.log('검색 결과:', cityList);
 			
          	// cityList가 null이거나 비어있을 경우 처리
             if (!cityList || cityList.length === 0) {
