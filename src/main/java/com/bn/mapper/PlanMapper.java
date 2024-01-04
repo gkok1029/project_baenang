@@ -29,6 +29,6 @@ public interface PlanMapper {
 	
 	public List<DtailPlanVo> dpretrieve(String p_id);
 	
-	public List<DtailPlanVo> getdplan(String dp_day);	
+	public List<DtailPlanVo> getdplan(DtailPlanVo vo);	
 	
 }

@@ -145,11 +145,23 @@ public class PlanController {
     
     
     @GetMapping("/dpretrieve")
-    public String dtailplanretrieve(@RequestParam String p_id,Model model) {
-    		List<DtailPlanVo>Lvo=pservice.dpretrieve(p_id);
-    		pvo = pservice.selectPlan(Integer.parseInt(p_id));
-    		model.addAttribute("dplvo",Lvo);
-    		model.addAttribute("p_name",pvo.getP_name());
+    public String dtailplanretrieve(@RequestParam String p_id, @RequestParam (required=false)String dp_day, Model model) {
+    		
+    		if(dp_day=="" || dp_day==null) {
+    			List<DtailPlanVo>Lvo=pservice.dpretrieve(p_id);
+    			pvo = pservice.selectPlan(Integer.parseInt(p_id));
+	    		model.addAttribute("dplvo",Lvo);
+	    		model.addAttribute("p_name",pvo.getP_name());
+	    		model.addAttribute("p_id",p_id);
+    		}else {
+    			DtailPlanVo vo = new DtailPlanVo();
+    	    	vo.setDp_day(Integer.parseInt(dp_day));
+    	    	vo.setP_id(Integer.parseInt(p_id));
+    	    	List<DtailPlanVo> Lvo=pservice.getdplan(vo);    	
+    	    	model.addAttribute("dplvo",Lvo);
+    		}
+    		
+    		
     	return "detail";
     }
     @ResponseBody
@@ -216,11 +228,12 @@ public class PlanController {
     	return cvo;
     }
     
-    @ResponseBody
+    
     @GetMapping("/getdplan")
-    public List<DtailPlanVo> getDplan (@RequestParam String dp_day,Model model){
-    	List<DtailPlanVo> Lvo=pservice.getdplan(dp_day);
-    	return Lvo;
+    public String getDplan (@RequestParam int dp_day, @RequestParam int p_id, Model model){
+    	
+    	
+    	return "/dpretrieve?p_id="+p_id;
     }
 
 }

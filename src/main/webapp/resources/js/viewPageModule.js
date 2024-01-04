@@ -509,14 +509,6 @@ let ViewPageModule = (function () {
 		let eDate = new Date(eDateInSessionStorage);
 		let days = getDates(sDate,eDate);
 		
-		let plans = '${dplvo}'
-		
-		let p_id;
-		if(SidebarModule.getParametersByNameFromURL('p_id')){
-			
-		}
-		
-		
         let viewContainerDiv = $("<div>").addClass("view-container").attr("id", "viewContainer1").append(
             $("<div>").addClass("step5-header").attr("id","step5Header").append(
                 $("<div>").addClass("step5-header-container").append(
