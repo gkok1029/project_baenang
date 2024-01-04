@@ -173,21 +173,23 @@ let SidebarModule = (function () {
             });
             
             //get startDate, endDate from sessionStorage
-            let startDate = new Date( sessionStorage.getItem('startDate') );
-			let endDate = new Date( sessionStorage.getItem('endDate') );
+            //let startDate = new Date( sessionStorage.getItem('startDate') );
+			//let endDate = new Date( sessionStorage.getItem('endDate') );
 			
-			let numberOfDays = ViewPageModule.getDates(startDate,endDate);
+			//let numberOfDays = ViewPageModule.getDates(startDate,endDate);
 
 			
-            for(let i=1; i<=numberOfDays.length;i++){
-                let button = createSidebarButton( "btn-day"+i , i+"일차" ).on('click',function(){
-                    getDPlanByDPid(i+"")
+            //for(let i=1; i<=numberOfDays.length;i++){
+            //    let button = createSidebarButton( "btn-day"+i , i+"일차" ).on('click',function(){
+             //       getDPlanByDPid(i+"")
 
-                });
-                buttons.push(button);
-            }
-            
-            sidebarElement.append(totalDaysBtn,...buttons);
+             //   });
+             //   buttons.push(button);
+           // }
+             let mypageBtn=createSidebarButton("btn-mypage","mypage").on('click',function(){
+           		window.location.href = '/user/mypage';
+           });
+            sidebarElement.append(totalDaysBtn, mypageBtn);
             
         }
         // $(".view").attr("id","view1");

@@ -126,7 +126,7 @@
 %>
             // 해당 호텔 데이터를 day+n의 마지막 자식으로 추가
             let hotelImgTag<%=i+1%> = $("<img>").addClass("content-image").attr("src", "<%= hotel.getFirstimage() %>").attr("alt", "호텔 이미지");
-            let hotelDummyDiv<%=i+1%> = $("<div>").addClass("night").attr("id", "<%= hotel.getContentid() %>");
+            let hotelDummyDiv<%=i+1%> = $("<div>").addClass("dummy-data").addClass("night").attr("id", "<%= hotel.getContentid() %>");
             hotelDummyDiv<%=i+1%>.append(hotelImgTag<%=i+1%>);
             hotelDummyDiv<%=i+1%>.append("<br><span class='content-title'>제목: <%= hotel.getTitle() %></span>");
 

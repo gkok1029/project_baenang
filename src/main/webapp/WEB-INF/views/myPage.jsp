@@ -25,6 +25,12 @@
 }
 </style>
 <title>마이 페이지</title>
+
+<!-- <script type="text/javascript">
+$(document).ready( function(){
+	sessionStorage.clear();
+}
+</script> -->
 </head>
 <body>
 	<jsp:include page="top.jsp" />
