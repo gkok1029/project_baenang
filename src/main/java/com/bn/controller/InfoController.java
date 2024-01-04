@@ -32,18 +32,17 @@ public class InfoController {
 	private ContentVo convo;
 	private CityVo civo;
 	
-	//------------------------ main.jsp 도시 목록의 info버튼 클릭시 요청을 받도록 설계 -----------------------------
+	//------------------------ main.jsp �룄�떆 紐⑸줉�쓽 info踰꾪듉 �겢由��떆 �슂泥��쓣 諛쏅룄濡� �꽕怨� -----------------------------
 	@RequestMapping("/cityInfo")
 	public String cityInfo(@RequestParam String cityname, Model model) {
 		
 		civo=null;
 		civo=is.getCityData(cityname);
 		String cname=civo.getCityname();
-		//select overview from content where contentid=${contentid} 의 반환값(요청된 contentid의 overview이 있는지 확인하는 함수)
+		//select overview from content where contentid=${contentid} �쓽 諛섑솚媛�(�슂泥��맂 contentid�쓽 overview�씠 �엳�뒗吏� �솗�씤�븯�뒗 �븿�닔)
 		if(cname==null) {
 			System.out.println("CITYNAME is empty!! Check your DB");
 		}else {
-			System.out.println("I'll show you CITYDATA");
 		}
 		model.addAttribute("civo",civo);
 		
@@ -51,20 +50,19 @@ public class InfoController {
 	}
 	//----------------------------------------------------------------------------------------------------
 	
-	//---------------------- plan에서 검색된 관광지 목록의 info버튼 클릭시 요청을 받도록 설계 -------------------------
+	//---------------------- plan�뿉�꽌 寃��깋�맂 愿�愿묒� 紐⑸줉�쓽 info踰꾪듉 �겢由��떆 �슂泥��쓣 諛쏅룄濡� �꽕怨� -------------------------
 	@RequestMapping("/tourInfo")
 	public String tourInfo(@RequestParam String contentid, Model model) {
 		
 		convo=null;
 		convo=is.getTourData(contentid);
 		
-		//select overview from content where contentid=${contentid} 의 반환값(요청된 contentid의 overview이 있는지 확인하는 함수)
+		//select overview from content where contentid=${contentid} �쓽 諛섑솚媛�(�슂泥��맂 contentid�쓽 overview�씠 �엳�뒗吏� �솗�씤�븯�뒗 �븿�닔)
 		String exist = is.existOverview(contentid);
 		if(exist==null) {
 			System.out.println("Overview is empty!! I'll bring it from API");
 			overviewfill(contentid);
 		}else {
-			System.out.println("Overview data is already exist!! I'll show you Tourinfo from DB");
 		}
 		model.addAttribute("convo",convo);
 		
@@ -72,7 +70,7 @@ public class InfoController {
 	}
 	//-------------------------------------------------------------------------------------------------
 	
-	// --------------- db에서 overview컬럼의 데이터가 존재하지 않다면 api에서 데이터를 내려받는 기능을 실행 --------------
+	// --------------- db�뿉�꽌 overview而щ읆�쓽 �뜲�씠�꽣媛� 議댁옱�븯吏� �븡�떎硫� api�뿉�꽌 �뜲�씠�꽣瑜� �궡�젮諛쏅뒗 湲곕뒫�쓣 �떎�뻾 --------------
 	private String overviewfill(String contentid) {
 		
 		String result="";
@@ -118,17 +116,17 @@ public class InfoController {
 							if(overview!=null) {
 								int n= is.insertOverview(convo);
 							}else {
-								System.out.println("�����Ͱ� �����ϴ�.");
+								System.out.println("占쏙옙占쏙옙占싶곤옙 占쏙옙占쏙옙占싹댐옙.");
 							}
 						}
 					} else {
-						System.out.println("�����Ͱ� �����ϴ�.");
+						System.out.println("占쏙옙占쏙옙占싶곤옙 占쏙옙占쏙옙占싹댐옙.");
 					}
 				} else {
-					System.out.println("API ��û�� �����߽��ϴ�.");
+					System.out.println("API 占쏙옙청占쏙옙 占쏙옙占쏙옙占쌩쏙옙占싹댐옙.");
 				}
 			} else {
-				System.out.println("API ��û�� �����߽��ϴ�. ���� �ڵ�: " + responseCode);
+				System.out.println("API 占쏙옙청占쏙옙 占쏙옙占쏙옙占쌩쏙옙占싹댐옙. 占쏙옙占쏙옙 占쌘듸옙: " + responseCode);
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -138,7 +136,7 @@ public class InfoController {
 	//-------------------------------------------------------------------------------------------------
 	
 	/*
-	//TourInfo.jsp 페이지가 호출된 직후 실행되는 function(contentid)을 통해 /existOverview?contentid=#{contentid} 의 형식으로 파라미터를 받아
+	//TourInfo.jsp �럹�씠吏�媛� �샇異쒕맂 吏곹썑 �떎�뻾�릺�뒗 function(contentid)�쓣 �넻�빐 /existOverview?contentid=#{contentid} �쓽 �삎�떇�쑝濡� �뙆�씪誘명꽣瑜� 諛쏆븘
 	@ResponseBody
 	@RequestMapping("/existOverview")
 	private String existOverview(String contentid) {

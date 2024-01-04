@@ -78,12 +78,9 @@ let ViewPageModule = (function () {
     function getDates(startDate, endDate) {
 		    let dateArray = [];
 		    let currentDate = new Date(startDate);
-		    console.log(startDate)
-		    console.log(endDate)
 		    while (currentDate <= endDate) {
 		        dateArray.push(new Date(currentDate));
 		        currentDate.setDate(currentDate.getDate() + 1);
-		        console.log(dateArray)
 		    }
 			
 		    return dateArray;
@@ -115,8 +112,6 @@ let ViewPageModule = (function () {
 		
 		let startDate = sessionStorage.getItem('startDate');
         let endDate = sessionStorage.getItem('endDate');
-		console.log(startDate)
-		console.log(endDate)
         let dateDiv = $("<div>").attr("id", "date").text(startDate + " ~ " + endDate).append(
             $("<div>").attr("id", "frame-calendar-button").append(
                 $("<button>").attr(
@@ -222,7 +217,6 @@ let ViewPageModule = (function () {
 		});
 		
 		// 결과 확인
-		console.log(tableData);
 		
 		// 시간을 두 자리로 포맷팅하는 함수
 		function formatTime(time) {
@@ -707,7 +701,9 @@ let ViewPageModule = (function () {
         createPlaceDiv : createPlaceDiv,
         createHotelDiv : createHotelDiv,
         sendAjaxRequest : sendAjaxRequest,
-        step1Loding : step1Loding
+        step1Loding : step1Loding,
+        getDates : getDates
+        
         
     };
 })();

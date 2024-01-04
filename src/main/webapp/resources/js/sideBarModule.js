@@ -167,7 +167,9 @@ let SidebarModule = (function () {
             
             let buttons = [];
             let totalDaysBtn = createSidebarButton("btn-totalDays","전체일정").on('click',function(){
+
                 window.location.href = "/dpretrieve?p_id="+p_id
+
             });
             
             //get startDate, endDate from sessionStorage
@@ -175,10 +177,12 @@ let SidebarModule = (function () {
 			let endDate = new Date( sessionStorage.getItem('endDate') );
 			
 			let numberOfDays = ViewPageModule.getDates(startDate,endDate);
+
 			
             for(let i=1; i<=numberOfDays.length;i++){
                 let button = createSidebarButton( "btn-day"+i , i+"일차" ).on('click',function(){
                     getDPlanByDPid(i+"")
+
                 });
                 buttons.push(button);
             }

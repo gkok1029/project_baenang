@@ -90,7 +90,6 @@ public class PlanController {
 	@ResponseBody
 	@RequestMapping("/memberplan")
 	public ModelMap memberplan(@RequestParam("m_id") int m_id) {
-//		System.out.println(m_id);
 		ModelMap map=new ModelMap();
 		List<PlanVo> lvo=pservice.selectAll(m_id);
 		map.addAttribute("lvo",lvo);
@@ -222,9 +221,7 @@ public class PlanController {
     @ResponseBody
     @GetMapping("/contentload")
     public ContentVo contentload(@RequestParam String contentid) {
-//    	System.out.println(contentid);
     	cvo=dService.contentload(contentid);
-//    	System.out.println(cvo);
     	return cvo;
     }
     
@@ -235,5 +232,6 @@ public class PlanController {
     	
     	return "/dpretrieve?p_id="+p_id;
     }
+    
 
 }

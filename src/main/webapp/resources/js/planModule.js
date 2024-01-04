@@ -287,16 +287,20 @@ let PlanModule = ( ()=>{
 			}
 			
 			function Hselectend(){
-				
-				let startdate = sessionStorage.getItem("startDate");
-				let enddate = sessionStorage.getItem("endDate");				
+				let startDate = new Date(sessionStorage.getItem('startDate'));
+        		let endDate = new Date(sessionStorage.getItem('endDate'));
+				let travelperiod=ViewPageModule.getDates(startDate,endDate).length;
+				let childs=$('#hselected-container').children().length-3;
+
+				if(travelperiod==childs){
+							
 				
 				var data = {					
 				 	pname:cityname+"여행",
 					place: PcontentVo,
 					hotel: HcontentVo,
-					startdate : startdate,
-					enddate : enddate
+					startdate : startDate,
+					enddate : endDate
 				};
 					
 				$.ajax({
@@ -311,7 +315,11 @@ let PlanModule = ( ()=>{
 						
 					}
 				});
-				removeDiv();
+				removeDiv();}else{
+					alert('일정의 기간에 비해 숙소의 개수가 적습니다');
+
+				}
+
 			}
 			
 	//호텔
@@ -367,10 +375,12 @@ let PlanModule = ( ()=>{
 			    // 클릭된 div의 내용을 가져오기
 			    var sourceDiv = document.getElementById(id);
 			    var divText = sourceDiv.innerHTML.trim();
-				let travalperiod="";
-				
+			    let startDate = new Date(sessionStorage.getItem('startDate'));
+        		let endDate = new Date(sessionStorage.getItem('endDate'));
+				let travelperiod=ViewPageModule.getDates(startDate,endDate).length;
+				let childs=$('#hselected-container').children().length-3;
 			    // 내용이 있는 경우에만 실행
-			    if (divText !== "") {
+			    if (divText !== ""&&travelperiod>childs) {
 			        // selected-container가 없을 경우
 			         var targetDiv = document.getElementById('hselected-container');
 			        
@@ -416,7 +426,6 @@ let PlanModule = ( ()=>{
 			            var parentContainer = document.getElementById("ChotelContainer"+content.contentid);
 						var newbutton = parentContainer.querySelector('#Button'+content.contentid);
 						// 이벤트 핸들러 연결
-						console.log(newbutton);
 						newbutton.addEventListener('click', function() {
 						       HcontentVo = HcontentVo.filter(function (item) {
         							return item !== content;
@@ -434,7 +443,6 @@ let PlanModule = ( ()=>{
 			            selectedDiv.className = 'selected';
 			            selectedDiv.id = 'C' + sourceDivId;
 			            selectedDiv.innerHTML = divText;
-			            console.log(selectedDiv.id);
 			            // 생성된 div를 특정 위치에 추가 (예: 다른 div의 하위로)
 			            var endbtn=document.getElementById("endHsel");
 			            targetDiv.insertBefore(selectedDiv,endbtn);
@@ -452,6 +460,8 @@ let PlanModule = ( ()=>{
 						  );
 						HcontentVo.push(content);
 			    }
+			}else{
+				alert('지정한여행기간보다 숙소의 개수가 많습니다');
 			}
 			}
 			
