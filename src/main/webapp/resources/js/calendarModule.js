@@ -118,13 +118,28 @@ let CalendarModule = ( ()=>{
                 } else if (date > daysInMonth) {
                     break;
                 } else {
-                	let dayButton = $('<button>').attr("id",year+"-"+month+"-"+date).addClass("day-button").text(date).on('click',function(){
-                		let id = $(this).attr("id");
-                		dateClickEvent(id);
-                		
-                    }).on('mouseover',function(){
-                    		
-                    	});
+                
+                	let dayButton = $('<button>')
+                							.attr("id",year+"-"+month+"-"+date)
+                							.addClass("day-button")
+                							.text(date)
+                							.on( ' click mouseover mouseout ' , function(event) {
+                								switch(event.type){
+                									case 'click':
+                										let id = $(this).attr("id");
+                										$(this).css( { 'background-color' : 'rgba(152, 255, 152, 0.5)' } );
+                										dateClickEvent(id);
+                										
+                										break;
+                									case 'mouseover' :
+                										$(this).css( { 'background-color' : 'rgba(192, 192, 192, 0.3)' } );               										
+                										break;
+                									case 'mouseout' :
+                										$(this).css( { 'background-color' : 'white' } );
+                										break;
+                								}
+                							});
+
                     // 일요일에는 글자 색을 빨간색으로 설정
 		            if (j === 0) {
 		                dayButton.css('color', 'red');

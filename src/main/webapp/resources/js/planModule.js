@@ -88,7 +88,6 @@ let PlanModule = ( ()=>{
 
     function displayTourInformation(contentList,x,y) {
 		var tcontainer = $('.places-container'); // 새로운 container 추가
-		
 		//var container = document.getElementById('travels-container');
 		// 기존 내용 비우기
 		tcontainer.empty();
@@ -97,7 +96,7 @@ let PlanModule = ( ()=>{
 		zoom:8
 		});
 		// 최대 10개까지만 표시
-		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
+		for (var i = 0; i < Math.min(contentList.length, 200); i++) {
 			let content = contentList[i];
 				
 			let contentid=content.contentid;
@@ -289,12 +288,8 @@ let PlanModule = ( ()=>{
 			
 			function Hselectend(){
 				
-				//console.log(HcontentVo.length);
-				console.log("선택완료 실행")
 				let startdate = sessionStorage.getItem("startDate");
-				let enddate = sessionStorage.getItem("endDate");
-				console.log("startday : " + startdate);
-				console.log("endday : " + enddate);
+				let enddate = sessionStorage.getItem("endDate");				
 				
 				var data = {					
 				 	pname:cityname+"여행",
@@ -310,10 +305,10 @@ let PlanModule = ( ()=>{
 					contentType: "application/json",
 					data: JSON.stringify(data),
 					success: function(response) {
-						//alert(response);
+						window.location.href = "/NewFile";
 					},
 					error: function(error) {
-						window.location.href = "/NewFile";
+						
 					}
 				});
 				removeDiv();
@@ -330,7 +325,7 @@ let PlanModule = ( ()=>{
 		zoom:15
 		});
 		// 최대 10개까지만 표시
-		for (var i = 0; i < Math.min(contentList.length, 10); i++) {
+		for (var i = 0; i < contentList.length; i++) {
 
 			var content = contentList[i];
 			var contentid=content.contentid;
@@ -372,7 +367,7 @@ let PlanModule = ( ()=>{
 			    // 클릭된 div의 내용을 가져오기
 			    var sourceDiv = document.getElementById(id);
 			    var divText = sourceDiv.innerHTML.trim();
-				
+				let travalperiod="";
 				
 			    // 내용이 있는 경우에만 실행
 			    if (divText !== "") {
@@ -492,7 +487,6 @@ let PlanModule = ( ()=>{
 		})
 
 	}	
-	
 	function lodging(lat, len) {
 		var ctype="32";
 
@@ -503,14 +497,18 @@ let PlanModule = ( ()=>{
 			cache : false,
 			processData : true,
 			success : function(res) {
-				PlanModule.displayLodgingInformation(res.contentList,x,y);
-				
+			displayLodgingInformation(res.contentList,x,y);
 			},
 			error : function(err) {
 				alert('error: ' + err.status);
 				
 			}
 		})
+	}
+	
+	function addlist(){
+	offset+=10;
+	displayLodgingInformation(contentData,x,y);
 	}
 	function restaurant(){
 		var cat="A05020100";
@@ -521,6 +519,7 @@ let PlanModule = ( ()=>{
 			cache : false,
 			processData : true,
 			success : function(res) {
+				
 				PlanModule.displayTourInformation(res.contentList,x,y);
 
 			},
@@ -606,6 +605,8 @@ let PlanModule = ( ()=>{
 		openModal:openModal,
 		copyPlaceDiv:copyPlaceDiv,
 		copyHotelDiv:copyHotelDiv,
-		removeDiv:removeDiv
+		removeDiv:removeDiv,
+		addlist:addlist,
+		Hselectend : Hselectend
     };
 })();

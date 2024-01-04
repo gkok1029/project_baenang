@@ -79,7 +79,6 @@
 #selected-container,#hselected-container {
     min-width: 300px;
     width: 300px;
-    height:100%;
     border: 1px solid rgb(89,220,209);
 }
 	
@@ -89,14 +88,6 @@
 	let x='${cityvo.longitude}';
 	let cityname='${cityvo.cityname}';
 	
-	let trip = {
-		"title":"",
-		"city":"",
-		"days":{
-			"day1":{},
-			"day2":{}
-		}
-  }
 </script>
 </head>
 <body class="body">

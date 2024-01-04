@@ -9,23 +9,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where M_EMAIL = #{userEmail}
 	</select>
 	
-	<select id="getPlanList" resultType="Page" parameterType="Page">
-    SELECT DISTINCT p_id, firstImage, m_id, p_name, p_birth, p_moddate, dp_start, dp_end
-    FROM mypageView
-    WHERE m_id = #{m_id}
-    <if test="filter == 'recentday1'">
-        ORDER BY p_moddate ASC
-    </if>
-    <if test="filter == 'recentday2'">
-        ORDER BY p_moddate DESC
-    </if>
-    <if test="filter == 'travelday1'">
-        ORDER BY dp_start ASC
-    </if>
-    <if test="filter == 'travelday2'">
-        ORDER BY dp_start DESC
-    </if>
+<select id="getPlanList" resultType="Page" parameterType="Page">
+    SELECT p_id, firstImage, m_id, p_name, p_birth, p_moddate, dp_start, dp_end
+    FROM (
+        SELECT p_id, firstImage, m_id, p_name, p_birth, p_moddate, dp_start, dp_end,
+               ROW_NUMBER() OVER(PARTITION BY p_id ORDER BY 
+                   <choose>
+                       <when test="filter == 'recentday1'">p_moddate ASC</when>
+                       <when test="filter == 'recentday2'">p_moddate DESC</when>
+                       <when test="filter == 'travelday1'">dp_start ASC</when>
+                       <otherwise>dp_start DESC</otherwise>
+                   </choose>
+               ) AS rn
+        FROM mypageView
+        WHERE m_id = #{m_id}
+    ) TMP
+    WHERE rn = 1
+    <choose>
+        <when test="filter == 'recentday1'">
+            ORDER BY p_moddate ASC
+        </when>
+        <when test="filter == 'recentday2'">
+            ORDER BY p_moddate DESC
+        </when>
+        <when test="filter == 'travelday1'">
+            ORDER BY dp_start ASC
+        </when>
+        <otherwise>
+            ORDER BY dp_start DESC
+        </otherwise>
+    </choose>
 </select>
+
 	
 	<update id="updatePwd" parameterType="Member">
 		update member set m_pwd=#{M_PWD} where m_id=#{M_ID}

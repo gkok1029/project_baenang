@@ -15,7 +15,7 @@ let SidebarModule = (function () {
             .attr("id", "main-logo")
             .html('<img class="logo" src="/resources/img/mainlogo.png" alt="Main Logo"/>');
 		
-	
+		
         //MainLogo 클릭이벤트 설정
         mainLogoButton.on('click', function () {
             window.location.href = '/main';
@@ -159,12 +159,7 @@ let SidebarModule = (function () {
             });
 
             let nextButton = $("<button>").addClass("bottom-button").html("저장").on('click', function(){
-                //view4
-                $("#myModal").fadeIn();
-                $(".view").attr("id","view4");              
-                ViewPageModule.viewPageLoding();
-                
-                initialize()
+                PlanModule.Hselectend();
             });
 
             sidebarElement.append(step1Button, step2Button, step3Button, nextButton);
@@ -175,22 +170,20 @@ let SidebarModule = (function () {
                 console.log("전체일정")
             });
             
-
-            for(let i=1; i<=3;i++){
-                let button = createSidebarButton("btn-day"+i,i+"일차").on('click',function(){
-                    console.log(i+"일차 일정");
-                });;
+            //get startDate, endDate from sessionStorage
+            let startDate = new Date( sessionStorage.getItem('startDate') );
+			let endDate = new Date( sessionStorage.getItem('endDate') );
+			
+			let numberOfDays = ViewPageModule.getDates(startDate,endDate);
+			console.log(numberOfDays);
+            for(let i=1; i<=numberOfDays.length;i++){
+                let button = createSidebarButton( "btn-day"+i , i+"일차" ).on('click',function(){
+                    console.log(i+"일차 일정 클릭");
+                });
                 buttons.push(button);
             }
-
-            let modifyBtn = createSidebarButton("btn-modify","편집").on('click',function(){
-                console.log("편집버튼")
-            });;
-            let savePlanBtn = createSidebarButton("btn-savePlan","저장").on('click',function(){
-                console.log("저장버튼")
-            });;
             
-            sidebarElement.append(totalDaysBtn,...buttons,modifyBtn,savePlanBtn);
+            sidebarElement.append(totalDaysBtn,...buttons);
             
         }
         // $(".view").attr("id","view1");
@@ -208,9 +201,37 @@ let SidebarModule = (function () {
             .addClass("sidebar-button")
             .html(text);         
     };
+    
+    function getParametersByNameFromURL(name){
+    	let currentURL = window.location.href;
+    	
+    	let queryString = currentURL ? currentURL.split('?')[1] : currentURL;    	
+    	
+    	if(!queryString){ return null; }; 
+    	
+    	let queryParams = queryString.split('&');
+    	
+    	let params = {};
+    	
+    	queryParams.forEach( param => {
+    	
+    		let [key, value] = param.split('=');
+    		
+    		//디코딩
+    		if(value) value = decodeURIComponent(value.replace(/\+/g, ' ')) ;
+    		
+    		    		
+    		params[key] = value;
+    			
+    	});
+    	
+    	return params[name] || null;
+    	
+    }
 
     // public 메서드 및 속성 정의
     return {
-        initialize: initialize
+        initialize: initialize,
+        getParametersByNameFromURL : getParametersByNameFromURL
     };
 })();
