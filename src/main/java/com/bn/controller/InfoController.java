@@ -117,7 +117,6 @@ public class InfoController {
 							
 							if(overview!=null) {
 								int n= is.insertOverview(convo);
-								System.out.println("INSERT 성공:1, 실패:0 >> : "+n);
 							}else {
 								System.out.println("�����Ͱ� �����ϴ�.");
 							}

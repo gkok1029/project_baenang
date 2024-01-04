@@ -159,12 +159,7 @@ let SidebarModule = (function () {
             });
 
             let nextButton = $("<button>").addClass("bottom-button").html("저장").on('click', function(){
-                //view4
-                $("#myModal").fadeIn();
-                $(".view").attr("id","view5");
-                ViewPageModule.viewPageLoding();
-                
-                initialize()
+                PlanModule.Hselectend();
             });
 
             sidebarElement.append(step1Button, step2Button, step3Button, nextButton);
@@ -180,7 +175,7 @@ let SidebarModule = (function () {
 			let endDate = new Date( sessionStorage.getItem('endDate') );
 			
 			let numberOfDays = ViewPageModule.getDates(startDate,endDate);
-			
+			console.log(numberOfDays);
             for(let i=1; i<=numberOfDays.length;i++){
                 let button = createSidebarButton( "btn-day"+i , i+"일차" ).on('click',function(){
                     console.log(i+"일차 일정 클릭");

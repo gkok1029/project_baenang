@@ -10,11 +10,11 @@
             <div class="col-md-4">
                 <h4>Members</h4>
                 <ul>
-                    <li><a href="#"></a>kim gunwoo</li>
-                    <li><a href="#"></a>min byunghuck</li>
-                    <li><a href="#"></a>park dain</li>
-                    <li><a href="#"></a>paik minguen</li>
-                    <li><a href="#"></a>lim wookhwan</li>
+                    <li><a href="#"></a>KIM GUNWOO</li>
+                    <li><a href="#"></a>MIN BYEONGHYEOK</li>
+                    <li><a href="#"></a>PARK DAIN</li>
+                    <li><a href="#"></a>PAIK MINGEUN</li>
+                    <li><a href="#"></a>LIM WOOKWHAN</li>
                 </ul>
             </div>
             <div class="col-md-4">

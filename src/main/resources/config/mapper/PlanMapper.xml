@@ -38,6 +38,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="cityloc" parameterType="string" resultType="City">
 	select * from city where cityname=#{cityname}
 	</select>
-	
+	<select id="getdplan" resultType="Dplan">
+	select * from detail_planner where dp_day=#{dp_day}
+	</select>
 	
 </mapper>

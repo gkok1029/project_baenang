@@ -215,5 +215,12 @@ public class PlanController {
 //    	System.out.println(cvo);
     	return cvo;
     }
+    
+    @ResponseBody
+    @GetMapping("/getdplan")
+    public List<DtailPlanVo> getDplan (@RequestParam String dp_day,Model model){
+    	List<DtailPlanVo> Lvo=pservice.getdplan(dp_day);
+    	return Lvo;
+    }
 
 }
